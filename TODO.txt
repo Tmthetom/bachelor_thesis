@@ -1,0 +1,22 @@
+------------------ TODO -------------------
+-------------------------------------------
+
+----------- Èasový harmonogram ------------
+-> 23. 11. 2015 - Rozpoèet a koncept
+-> 15. 03. 2016 - Psaní práce hotovo
+-> 30. 04. 2016 - Kontrola textu hotova
+-> 15. 05. 2016 - Odevzdání práce
+
+--------------- Nedoøešené ----------------
+-> Definice cílového zaøízení
+-> Pøehled trhu (konkurence)
+-> Proè to vùbec dìlat
+-> Normy a standardy
+-> Koncept softwaru (návrh objektù)
+-> Licence knihoven, arduina, ...
+-> Kalukace spotøeby napájení z baterie
+
+---------------- Doøešené -----------------
+-> Rozpoèet
+-> Projekt na Gitlab
+-> Blokové zapojení
