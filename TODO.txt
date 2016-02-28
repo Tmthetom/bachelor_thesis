@@ -15,8 +15,10 @@
 -> Koncept softwaru (návrh objektù)
 -> Licence knihoven, arduina, ...
 -> Kalukace spotøeby napájení z baterie
+-> Klíèenka
 
 ---------------- Doøešené -----------------
 -> Rozpoèet
 -> Projekt na Gitlab
 -> Blokové zapojení
+-> Objednání souèástek
