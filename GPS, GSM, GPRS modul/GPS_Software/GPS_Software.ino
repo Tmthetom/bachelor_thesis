@@ -47,7 +47,31 @@ void loop(){
     character = gps.read();
     string += character;
     Serial.write(character);
-    /*
+
+    if(character == '\n'){
+      //Serial.println("Newline");
+      string.trim();
+      if(string.equalsIgnoreCase("+CMTI: \"SM\",1")){
+        Serial.println("---- Nova SMS ----");
+        sendCommand("AT+CMGR=1");  // Show content of SMS
+      }
+      string = "";
+    }
+  }
+
+  // Communication: PC -> Shield
+  if (Serial.available()){
+    character = Serial.read();
+    
+    if (character == '?'){
+      Serial.println("Obsah stringu:");
+      Serial.println(string);
+    } else{
+      gps.write(character);
+    }
+  }
+
+      /*
     string = readGPS();  // Read incoming GPS data
 
     // New SMS indication and content of SMS
@@ -62,30 +86,6 @@ void loop(){
     if(string.equalsIgnoreCase("DOD")){
       
     }*/
-    if(character == '\n'){
-      Serial.println("Newline");
-    }
-    
-  } else if(!gps.available() && !string.equals("")){
-    string.trim();
-    if(string.equalsIgnoreCase("+CMTI: \"SM\",1")){
-      Serial.println("---- Nova SMS ----");
-      sendCommand("AT+CMGR=1");  // Show content of SMS
-    }
-    //string = "";
-  }
-
-  // Communication: PC -> Shield
-  if (Serial.available()){
-    character = Serial.read();
-    
-    if (character == '?'){
-      Serial.println("Obsah stringu:");
-      Serial.println(string);
-    } else{
-      gps.write(character);
-    }
-  }
 }
 
 /*
