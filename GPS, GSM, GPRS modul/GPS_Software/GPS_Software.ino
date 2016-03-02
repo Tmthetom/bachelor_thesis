@@ -7,6 +7,7 @@ int baudRate = 9600;  // Communication baud rate for GPS and PC
 int common = 500;  // Delay between commands
 int CtrlC = 26;  // ASCII code for Ctrl+C
 int led = 13;  // Pin of signalization LED
+char character = ' ';
 String phone = "776006865";  // Default phone number
 String string = "";  // Empty string
 boolean lock = false;  // Car is not locked
@@ -33,30 +34,52 @@ void setup(){
 }
  
 void loop(){
-  if(gps.available() > 0){
+  if(gps.available()){
+    character = gps.read();
+    string += character;
+    Serial.write(character);
+    /*
     string = readGPS();  // Read incoming GPS data
 
     // New SMS indication and content of SMS
     if(string.equalsIgnoreCase("+CMTI: \"SM\",1")){
       Serial.println("---- Nova SMS ----");
-      sendCommand("AT+CMGR=1");  // Show content of SMS
+      sendCommand("AT+CMGR=1");  // Show conten.t of SMS
+
       //sendCommand("AT+CMGD=1,4");  // Delete all SMS
     }
 
     // Content of SMS
     if(string.equalsIgnoreCase("DOD")){
       
+    }*/
+  } else if (!gps.available() && !string.equals("")){
+    Serial.print("Text: ");
+    //Serial.print(string);
+    string.trim();
+    if(string.equalsIgnoreCase("+CMTI: \"SM\",1")){
+      Serial.println("---- Nova SMS ----");
+      sendCommand("AT+CMGR=1");  // Show content of SMS
     }
+    string = "";
+  }
+  
+  if (Serial.available()){
+    gps.write(Serial.read());
   }
 }
 
 String readGPS(){
   String data;
-  while (gps.available() > 0){  // Until are data in buffer
-    data += gps.readString();  // Read all data in buffer
+  char character;
+  while (gps.available()){  // Until are data in buffer
+    character = gps.read();  // Read all data in buffer
+    data += character;
+    delay(common);
   }
   Serial.println(data);  // Send data to PC
   data.trim();  // Delete any starting and ending whitespaces
+  Serial.println(data.length());
   return data;
 }
 
