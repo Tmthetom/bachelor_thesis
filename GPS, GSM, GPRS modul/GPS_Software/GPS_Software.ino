@@ -12,28 +12,37 @@ String phone = "776006865";  // Default phone number
 String string = "";  // Empty string
 boolean lock = false;  // Car is not locked
 
-void setup(){     
+void setup(){   
+  // Setup shield  
   for(int i = 0 ; i < 3; i++){pinMode(gsmDriverPin[i],OUTPUT);}
   pinMode(led,OUTPUT);  // Setting of LED pin
-  
-  Serial.begin(baudRate);  // Connect with PC (Serial monitor)
-  gps.begin(baudRate);  // Connect with GPS (GPS/GPRS/GSM Module v3.0)
-  
+
+  // Start shield
   digitalWrite(gsmDriverPin[2],HIGH);  // Reset GSM timer
   delay(common);
   digitalWrite(gsmDriverPin[2],LOW);  // Enable GSM timer
   digitalWrite(gsmDriverPin[0],LOW);  // Enable GSM
   digitalWrite(gsmDriverPin[1],HIGH);  // Disable GPS
 
-  delay(networkConnect);  // Time for connect into network
+  // Communication
+  Serial.begin(baudRate);  // Connect with PC (Serial monitor)
+  gps.begin(baudRate);  // Connect with GPS (GPS/GPRS/GSM Module v3.0)
 
+  // Connect into GSM network
+  delay(networkConnect);  // Time needed for connection
+
+  // Connect into serial monitor
+  Serial.println();
   Serial.println("-------- Nove komunikacni okno --------");
   Serial.println();
+
+  // Initialization
   sendCommand("AT+CMGD=1,4");  // Delete all SMS
   digitalWrite(led,HIGH);  // GPS ready sign
 }
  
 void loop(){
+  // Communication: Shield -> Arduino
   if(gps.available()){
     character = gps.read();
     string += character;
@@ -53,42 +62,48 @@ void loop(){
     if(string.equalsIgnoreCase("DOD")){
       
     }*/
-  } else if (!gps.available() && !string.equals("")){
-    Serial.print("Text: ");
-    //Serial.print(string);
+    if(character == '\n'){
+      Serial.println("Newline");
+    }
+    
+  } else if(!gps.available() && !string.equals("")){
     string.trim();
     if(string.equalsIgnoreCase("+CMTI: \"SM\",1")){
       Serial.println("---- Nova SMS ----");
       sendCommand("AT+CMGR=1");  // Show content of SMS
     }
-    string = "";
+    //string = "";
   }
-  
+
+  // Communication: PC -> Shield
   if (Serial.available()){
-    gps.write(Serial.read());
+    character = Serial.read();
+    
+    if (character == '?'){
+      Serial.println("Obsah stringu:");
+      Serial.println(string);
+    } else{
+      gps.write(character);
+    }
   }
 }
 
+/*
 String readGPS(){
   String data;
   char character;
   while (gps.available()){  // Until are data in buffer
     character = gps.read();  // Read all data in buffer
     data += character;
-    delay(common);
   }
   Serial.println(data);  // Send data to PC
   data.trim();  // Delete any starting and ending whitespaces
-  Serial.println(data.length());
   return data;
 }
+*/
 
 void sendCommand(String command){
-  delay(common);
-  //Serial.print("Arduino -> GPS: ");  // Send data to PC
-  //Serial.println(command);  // Send data to PC
   gps.println(command);  // Send data to GPS
-  delay(common);
 }
 
 void sendSMS(String sms){

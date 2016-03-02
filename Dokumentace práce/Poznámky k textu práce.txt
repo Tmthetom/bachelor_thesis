@@ -1,11 +1,15 @@
 Poznámky k textu práce 
 ---------------------------------------------
-Arduino Uno Rev3 má maximální vstupní napìtí 5 V (USB), 7-12 V (Jack / Vin), GPS/GPRS/GSM Shield V3.0 má napájecí napìtí 7-12 V / 1 A, tedy je nutné pouít extérní zdroj napájení s ideálnì 12 V vıstupního napìtí a nejlépe maximální odebíranı proud pøes 1 A, protoe pøi vìtším odbìru proudu dochází k poškození adaptéru. Zvolil jsem síovı adaptér s DC Jack vıstupem, parametry: 12 V / 3 A.
+28.1.2016 Arduino Uno Rev3 má maximální vstupní napìtí 5 V (USB), 7-12 V (Jack / Vin), GPS/GPRS/GSM Shield V3.0 má napájecí napìtí 7-12 V / 1 A, tedy je nutné pouít extérní zdroj napájení s ideálnì 12 V vıstupního napìtí a nejlépe maximální odebíranı proud pøes 1 A, protoe pøi vìtším odbìru proudu dochází k poškození adaptéru. Zvolil jsem síovı adaptér s DC Jack vıstupem, parametry: 12 V / 3 A.
 ---------------------------------------------
-30.1.2016 21:00 První spojení Arduina, Modulu a jejich následného zapojení probìhlo úspìšnì, svítí dioda PWR. Viz fotografie ze dne 30. 1. 2016
+30.1.2016 První spojení Arduina, Modulu a jejich následného zapojení probìhlo úspìšnì, svítí dioda PWR, viz fotografie
 ---------------------------------------------
-26.2.2016 20:00 mì napadlo, e by se dalo GPS odemykat pokud bylo vozidlo odemèeno klíèkem, to samozøejmì sniuje okruh pouitelnosti pro øidièe pouze ze støední tøídy...
+26.2.2016 napadlo mì, e by se dalo GPS odemykat, pokud bylo vozidlo odemèeno klíèkem, to samozøejmì sniuje okruh pouitelnosti pro øidièe pouze ze støední tøídy...
 ---------------------------------------------
 27.2.2016 komunikovat s modulem se dá v USB, COMM, UART SELECTED modu, píšu do serial monitoru a on si myslí e jsem SMS
 ---------------------------------------------
 28.2.2016 nezle pouít najednou Arduinu, GPS modul a Serial monitor, zkouším pouít dvouøádkovı LCD pro ètení hodnot z modulu... Displej nejde pøipojit na pøímo, je nutné zapojení pøes nepájivé pole. Dále kolidují piny 3, 4, 5 pro GPS modul, take je musíme u displeje pøepojit jinam a zmìnit je i v programu displeje... Našlo se nové øešení, desky byli rozpojeny, a zapojeny pouívanımi piny k sobì dráty, modulu byl nastaven reim Arduino a RX a TX piny byli do arduina pøipojeny jinam. Program byl upraven tak, aby arduino pøeposílalo komunikaci po sériové lince do PC. Tato zmìna pomohla tomu, e ji není nutné neustále pøepínat reimy desky mezi programováním a komunikaci :D, stejnì tak není potøeba mìnit reim USB a Arduino. Bylo zjištìno, e GPS modul posílá bonusové mezery, ty se podaøilo odstranit pøíkazem .trim().
+---------------------------------------------
+29.2.2016 Ji druhı den trávím tím, e mùj program nenaète celou zprávu od Modulu, místo toho pouze urèitì poèet znakù...
+---------------------------------------------
+2.3.2016 Po nìkolika dnech slepıch ulièek mì napadlo, zda GPS modul neposílá i znak '\n', a taky e posílá :D Díky tomu bych mìl bıt schopnı rozlišit, kde je konec jedné informace a kde zaèátek druhé... Do teï byl problém s tím, e pøi ètení dat ze sériové linky na GSM modul, se na nìm vyskytují i data, která mu já odesílám, take jich je velké mnoství a nemají poøádna zaèátek ani konec, tedy jeden pøíkaz co jsem poslal já konèí a ihned za ním pokraèuje odpovìï, ale vše na jedné sériové lice a do teï jsem si nebyl jistı, jak je oddìlit... nyní máme øešení...
