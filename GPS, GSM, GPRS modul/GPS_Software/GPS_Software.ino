@@ -7,9 +7,10 @@ int baudRate = 9600;  // Communication baud rate for GPS and PC
 int common = 500;  // Delay between commands
 int CtrlC = 26;  // ASCII code for Ctrl+C
 int led = 13;  // Pin of signalization LED
-char character = ' ';
+char character = ' ';  // Empty character
 String phone = "776006865";  // Default phone number
 String string = "";  // Empty string
+String SMS = "";  // Empty SMS content
 boolean lock = false;  // Car is not locked
 
 void setup(){   
@@ -44,25 +45,30 @@ void setup(){
 void loop(){
   // Communication: Shield -> Arduino
   if(gps.available()){
-    character = gps.read();
-    string += character;
-    Serial.write(character);
+    character = gps.read();  // Read one character from shield serial
+    string += character;  // Add character into string
+    Serial.write(character);  // Send data to PC
 
+    // If recieved command is completed
     if(character == '\n'){
       //Serial.println("Newline");
-      string.trim();
+      string.trim();  // Delete all whitespace characters
+
+      // New SMS indication and content of SMS
       if(string.equalsIgnoreCase("+CMTI: \"SM\",1")){
         Serial.println("---- Nova SMS ----");
         sendCommand("AT+CMGR=1");  // Show content of SMS
       }
-      string = "";
+      string = "";  // Delete content of string
     }
   }
 
   // Communication: PC -> Shield
   if (Serial.available()){
-    character = Serial.read();
-    
+    character = Serial.read();  // Read one character from PC
+
+    // PO ODLADENI SMAZAT
+    // PRO OBSAH STRINGU ZMACKNOUT '?'
     if (character == '?'){
       Serial.println("Obsah stringu:");
       Serial.println(string);
@@ -70,37 +76,7 @@ void loop(){
       gps.write(character);
     }
   }
-
-      /*
-    string = readGPS();  // Read incoming GPS data
-
-    // New SMS indication and content of SMS
-    if(string.equalsIgnoreCase("+CMTI: \"SM\",1")){
-      Serial.println("---- Nova SMS ----");
-      sendCommand("AT+CMGR=1");  // Show conten.t of SMS
-
-      //sendCommand("AT+CMGD=1,4");  // Delete all SMS
-    }
-
-    // Content of SMS
-    if(string.equalsIgnoreCase("DOD")){
-      
-    }*/
 }
-
-/*
-String readGPS(){
-  String data;
-  char character;
-  while (gps.available()){  // Until are data in buffer
-    character = gps.read();  // Read all data in buffer
-    data += character;
-  }
-  Serial.println(data);  // Send data to PC
-  data.trim();  // Delete any starting and ending whitespaces
-  return data;
-}
-*/
 
 void sendCommand(String command){
   gps.println(command);  // Send data to GPS
