@@ -2,7 +2,7 @@
 SoftwareSerial gps(6, 7);  // RX, TX: Arduino -> PC
 
 byte gsmDriverPin[3] = {3,4,5};  // Pins of GPS
-int networkConnect = 2000;  // In real case, highly recommended bigger amount of time
+int networkConnect = 5000;  // In real case, highly recommended bigger amount of time
 int baudRate = 9600;  // Communication baud rate for GPS and PC
 int common = 500;  // Delay between commands
 int CtrlC = 26;  // ASCII code for Ctrl+C
@@ -12,6 +12,7 @@ String phone = "776006865";  // Default phone number
 String string = "";  // Empty string
 String SMS = "";  // Empty SMS content
 boolean lock = false;  // Car is not locked
+boolean readSMS = false;  // Can i read test of SMS now?
 
 void setup(){   
   // Setup shield  
@@ -56,9 +57,18 @@ void loop(){
 
       // New SMS indication and content of SMS
       if(string.equalsIgnoreCase("+CMTI: \"SM\",1")){
-        Serial.println("---- Nova SMS ----");
         sendCommand("AT+CMGR=1");  // Show content of SMS
       }
+      else if(string.startsWith("+CMGR:")){
+        readSMS = true;
+      }
+      else if(readSMS == true){
+        Serial.print("Content of SMS: ");
+        Serial.println(string);
+        SMS = string;
+        readSMS = false;
+      }
+      
       string = "";  // Delete content of string
     }
   }
@@ -70,8 +80,9 @@ void loop(){
     // PO ODLADENI SMAZAT
     // PRO OBSAH STRINGU ZMACKNOUT '?'
     if (character == '?'){
-      Serial.println("Obsah stringu:");
+      Serial.println("**********************");
       Serial.println(string);
+      Serial.println("**********************");
     } else{
       gps.write(character);
     }
