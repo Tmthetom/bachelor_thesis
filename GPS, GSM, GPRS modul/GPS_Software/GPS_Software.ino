@@ -38,11 +38,9 @@ void setup(){
   digitalWrite(gsmDriverPin[2],HIGH);  // Reset GSM timer
   delay(common);
   digitalWrite(gsmDriverPin[2],LOW);  // Enable GSM timer
-  changeMode("GSM");
-  
-  changeMode("GPS");
+  changeMode("GSM");  // Change module mode to GSM
+  changeMode("GPS");  // Change module mode to GPS
 
-  
   // Initialization
   sendCommand("AT+CMGD=1,4");  // Delete all SMS
   digitalWrite(led,HIGH);  // GPS ready sign
@@ -66,26 +64,26 @@ void loop(){
       }
     }
   }else if (moduleMode.equalsIgnoreCase("GPS")){
-    Serial.print("1");
     float lat = latitude();
-    Serial.print("2");
     float lon = longitude();
-    Serial.print(String(lat,5) + ", " + String(lon,5));  // Wating for GPS coordinates...
+    
     if(lat > -200 && lat < 200 && lon > -200 && lon < 200){
-      validGPSCounter++;  // Add one valid GPS
+      validGPSCounter++;  // Add one valid GPS      
       if(validGPSCounter == 10){
         validCoordinates = "https://www.google.cz/maps?f=q&q=" + String(lat,5) + "," + String(lon,5) + "&z=16";
-        changeMode("GSM");  // Change mode to GSM
         validGPSCounter = 0;  // Reset valid GPS counter
-        sendSMS(validCoordinates);
+        //changeMode("GSM");  // Change mode to GSM
+        
+        //sendSMS(validCoordinates);
       }else{
-        Serial.print("https://www.google.cz/maps?f=q&q=");
         Serial.print(lat,5);
-        Serial.print(",");
-        Serial.print(lon,5);
-        Serial.println("&z=16");     
-        Serial.println();
+        Serial.print(", ");
+        Serial.println(lon,5);
       }
+    }else{
+      Serial.print(lat,5);
+      Serial.print(", ");
+      Serial.println(lon,5);
     }
   }
 
@@ -158,6 +156,8 @@ void sendSMS(String text){
 
 void changeMode(String text){
   if(text.equalsIgnoreCase("GPS")){  // GSM to GPS
+    Serial.flush();  // Clean content of Arduino serial
+    gps.flush();  // Clean content of GPS serial
     sendCommand("AT+CGPSPWR=1");  // Turn on GPS power supply
     delay(common);
     sendCommand("AT+CGPSRST=1");  // Reset GPS in autonomy mode
@@ -165,12 +165,14 @@ void changeMode(String text){
     digitalWrite(gsmDriverPin[0],HIGH);  // Disable GSM
     digitalWrite(gsmDriverPin[1],LOW);  // Enable GPS
     delay(networkConnect);  // Connect into network
-    moduleMode = "GPS";
-  }else if(text.equalsIgnoreCase("GSM")){  // GPS to GSM
+    moduleMode = "GPS";  // Change GSM to GPS
+  }else if(text.equalsIgnoreCase("GSM")){  // GPS to GSM 
+    Serial.flush();  // Clean content of Arduino serial
+    gps.flush();  // Clean content of GPS serial
     digitalWrite(gsmDriverPin[0],LOW);  // Enable GSM
     digitalWrite(gsmDriverPin[1],HIGH);  // Disable GPS
     delay(networkConnect);  // Connect into network
-    moduleMode = "GSM";
+    moduleMode = "GSM";  // Change GPS to GSM
   }
 }
 
@@ -207,9 +209,9 @@ char ID(){  //Match the ID commands
   char val[6]={'0','0','0','0','0','0'};
   while(1){
     if(gps.available()){
-      //readGPS(true);
-      //val[i] = character;
-      val[i] = gps.read();  //get the data from the serial interface
+      readGPS(false);
+      val[i] = character;
+      //val[i] = gps.read();  //get the data from the serial interface
       if(val[i]==value[i]){  //Match the protocol
         i++;
         if(i==6){
