@@ -13,3 +13,6 @@ Poznámky k textu práce
 29.2.2016 Již druhý den trávím tím, že mùj program nenaète celou zprávu od Modulu, místo toho pouze urèitì poèet znakù...
 ---------------------------------------------
 2.3.2016 Po nìkolika dnech slepých ulièek mì napadlo, zda GPS modul neposílá i znak '\n', a taky že posílá :D Díky tomu bych mìl být schopný rozlišit, kde je konec jedné informace a kde zaèátek druhé... Do teï byl problém s tím, že pøi ètení dat ze sériové linky na GSM modul, se na nìm vyskytují i data, která mu já odesílám, takže jich je velké množství a nemají poøádna zaèátek ani konec, tedy jeden pøíkaz co jsem poslal já konèí a ihned za ním pokraèuje odpovìï, ale vše na jedné sériové lice a do teï jsem si nebyl jistý, jak je oddìlit... nyní máme øešení...
+---------------------------------------------
+5.3.2016 Pøíjem SMS funguje. Ètení SMS funguje. Odpovìdi na SMS fungují. Získávání GPS souøadnící (v jiném kódu) funguje. V domì je špatná pøesnost, bude tøeba používat venku a v automobilu zøejmì nutné použití antény podle konstrukce vozidla (hliníkové, plastové). Nyní bude následovat spojení obou kódu a vymyšlení jejich správného propojení s SMS systémem. Doba trvání napojení na satelit pøi pøepnutí na GPS: 38s, 40s, 62s
+---------------------------------------------
