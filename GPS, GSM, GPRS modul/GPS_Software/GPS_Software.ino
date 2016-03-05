@@ -40,7 +40,7 @@ void setup(){
   digitalWrite(gsmDriverPin[2],LOW);  // Enable GSM timer
   changeMode("GSM");
   
-  //changeMode("GPS");
+  changeMode("GPS");
 
   
   // Initialization
@@ -207,9 +207,9 @@ char ID(){  //Match the ID commands
   char val[6]={'0','0','0','0','0','0'};
   while(1){
     if(gps.available()){
-      readGPS(false);
-      val[i] = character;
-      //val[i] = gps.read();  //get the data from the serial interface
+      //readGPS(true);
+      //val[i] = character;
+      val[i] = gps.read();  //get the data from the serial interface
       if(val[i]==value[i]){  //Match the protocol
         i++;
         if(i==6){
