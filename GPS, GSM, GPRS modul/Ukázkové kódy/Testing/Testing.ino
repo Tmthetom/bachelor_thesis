@@ -4,7 +4,7 @@
  
 // # Description:
 // # The sketch for driving the gps mode via the Arduino board
- 
+ DATA
 // # Steps:
 // #        1. Turn the S1 switch to the Prog(right side)
 // #        2. Turn the S2 switch to the Arduino side(left side)
