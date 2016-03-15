@@ -1,5 +1,7 @@
 #include <SoftwareSerial.h>
-SoftwareSerial gps(6, 7);  // RX, TX: Arduino -> PC
+int RX = 6;
+int TX = 7;
+SoftwareSerial gps(RX, TX);  // RX, TX: Arduino -> PC
 
 // Internal variables
 byte gsmDriverPin[3] = {3,4,5};  // Pins of GPS
@@ -33,6 +35,8 @@ void setup(){
   // Setup shield  
   for(int i = 0 ; i < 3; i++){pinMode(gsmDriverPin[i],OUTPUT);}
   pinMode(led,OUTPUT);  // Setting of LED pin
+  pinMode(RX, INPUT);
+  pinMode(TX, OUTPUT);
   
   // Start shield
   digitalWrite(gsmDriverPin[2],HIGH);  // Reset GSM timer
@@ -56,59 +60,68 @@ void loop(){
 
   // If active mode is GSM
   if(moduleMode.equalsIgnoreCase("GSM")){
-    
+    if(gps.available()){
+      character = gps.read();  // Read one character from shield serial
+      string += character;  // Add character into string
+
+      if(character == '\n'){  // If recieved command is completed
+        string.trim();  // Delete all whitespace characters
+
+        recognize_SMS_New();
+        recognize_SMS_Header();
+        recognize_SMS_Content();
+        execute_SMS_Content();
+        
+        string = "";  // Delete content of string
+      }
+    }
   }
   
   // If active mode is GPS
   else if (moduleMode.equalsIgnoreCase("GPS")){
+
+    // Load data from GPS serial
     float lat = latitude();
     float lon = longitude();
-      
+
+    // If we have SOME values from GPS (not INF)
     if(lat > -200 && lat < 200 && lon > -200 && lon < 200){
-      validGPSCounter++;  // Add one valid GPS      
+      validGPSCounter++;  // Add one valid GPS 
+
+      // We need number of valids GPS, to be sure its good position (we hope)
       if(validGPSCounter == 10){
         validCoordinates = "https://www.google.cz/maps?f=q&q=" + String(lat,5) + "," + String(lon,5) + "&z=16";
         validGPSCounter = 0;  // Reset valid GPS counter
         sendReport(validCoordinates);  // Serial report
         changeMode("GSM");  // Change module mode to GSM
-      }else{
+
+      // Otherwise report actual values (we dont have enough valid positions)
+      }else if(debugging){
         String text = String(lat,5) + ", " + String(lon,5);
         sendReport(text);
       }
-    }else{
+
+    // Otherwise report actual values (one or both values are INF)
+    }else if(debugging){
       String text = String(lat,5) + ", " + String(lon,5);
       sendReport(text);
     }
   }
 }
 
-// If debugging variable true send info into serial
-void sendReport(String text){
-  if(debugging){
-    Serial.println(text);
-  }
-}
-
-// Due to easy change of serial name
-void sendCommand(String command){
-  gps.println(command);  // Send data to GPS
-}
-/*
 // Recognize if GPS send NEW SMS indication
 void recognize_SMS_New(){
-  if(string.equalsIgnoreCase("+CMTI: \"SM\",1")){  // If SMS indication
-    sendCommand("AT+CMGR=1");  // Show content of SMS
+  if(string.equalsIgnoreCase("")){  // If SMS indication
+    sendCommand("");  // Show content of SMS
   }
 }
 
 // Recognize if GPS send SMS header
 void recognize_SMS_Header(){
-  if(string.startsWith("+CMGR:")){  // If SMS header
+  if(string.startsWith("")){  // If SMS header in string
     readSMS = true;  // Set: Content is ready to read
-    string = "";  // Delete content of string
   }
 }
-*/
 
 // Read SMS content, because after header clearly must be content (hope so)
 void recognize_SMS_Content(){
@@ -116,9 +129,44 @@ void recognize_SMS_Content(){
     SMS = string;  // Move content into another string
     readSMS = false;  // Set: Content is not ready to read
     string = "";  // Delete content of string
-    sendCommand("AT+CMGD=1,4");  // Delete all SMS
+    sendCommand("");  // Delete all SMS
   }
 }
+
+void execute_SMS_Content(){/*
+  if(!SMS.equals("") && SMSQueue != true){
+    if(SMS.equalsIgnoreCase(commandSendCoordinates)){
+      Serial.println("Odesilam SMS");
+      SMSQueue = true;  // Mark we are sending SMS
+      sendSMS("Poloha bude zaslana behem nekolika minut");  // Send response
+      changeMode("GPS");  // Switch module to GPS
+      SMS = "";  // Delete content of SMS
+    }else{
+      SMSQueue = true;  // Mark we are sending SMS
+      sendSMS("SMS ve spatnem tvaru: " + SMS);  // Send responde
+      SMS = "";  // Delete content of SMS
+    }
+  }*/
+}
+
+/*
+void sendSMS(String text){
+  sendCommand("AT+CMGF=1");  // Text mode
+  delay(common);  // Time for respond
+  sendCommand("AT+CMGS=\"" + ownerNumber + "\"");  // Add phone number
+  delay(common);  // Time for respond
+
+  // BE CAREFUL HERE IF CHANGING GPS SERIAL NAME
+  
+  gps.print(text);  // Add text of SMS
+  delay(common);  // Time for respond
+  gps.write(CtrlC);  // Send SMS
+
+  // END OF BE CAREFUL
+  
+  SMSQueue = false;  // Mark ready for new SMS
+}
+*/
 
 // Switch between GPS and GSM mods/networks
 void changeMode(String text){
@@ -147,6 +195,18 @@ void changeMode(String text){
     delay(networkConnect);  // Connect into network
     moduleMode = "GSM";  // Change GPS to GSM
   }
+}
+
+// If debugging variable true send info into serial
+void sendReport(String text){
+  if(debugging){
+    Serial.println(text);
+  }
+}
+
+// Due to easy change of serial name
+void sendCommand(String command){
+  gps.println(command);  // Send data to GPS
 }
 
  // START OF CODE FROM GPS MODULE WEBSITE
