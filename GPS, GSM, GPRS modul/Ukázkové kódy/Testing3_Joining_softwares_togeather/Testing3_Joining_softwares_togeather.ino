@@ -52,30 +52,34 @@ void setup(){
   changeMode("GPS");  // Change module mode to GPS
 }
  
-void loop(){ 
+void loop(){
 
-  if (Serial.available()){
-    gps.write(Serial.read());
-  }
-
-  float lat = latitude();
-  float lon = longitude();
+  // If active mode is GSM
+  if(moduleMode.equalsIgnoreCase("GSM")){
     
-  if(lat > -200 && lat < 200 && lon > -200 && lon < 200){
-    validGPSCounter++;  // Add one valid GPS      
-    if(validGPSCounter == 10){
-      validCoordinates = "https://www.google.cz/maps?f=q&q=" + String(lat,5) + "," + String(lon,5) + "&z=16";
-      validGPSCounter = 0;  // Reset valid GPS counter
-      Serial.println(validCoordinates);
+    
+  }
+  
+  // If active mode is GPS
+  else if (moduleMode.equalsIgnoreCase("GPS")){
+    float lat = latitude();
+    float lon = longitude();
+      
+    if(lat > -200 && lat < 200 && lon > -200 && lon < 200){
+      validGPSCounter++;  // Add one valid GPS      
+      if(validGPSCounter == 10){
+        validCoordinates = "https://www.google.cz/maps?f=q&q=" + String(lat,5) + "," + String(lon,5) + "&z=16";
+        validGPSCounter = 0;  // Reset valid GPS counter
+        sendReport(validCoordinates);  // Serial report
+        changeMode("GSM");  // Change module mode to GSM
+      }else{
+        String text = String(lat,5) + ", " + String(lon,5);
+        sendReport(text);
+      }
     }else{
-      Serial.print(lat,5);
-      Serial.print(", ");
-      Serial.println(lon,5);
+      String text = String(lat,5) + ", " + String(lon,5);
+      sendReport(text);
     }
-  }else{
-    Serial.print(lat,5);
-    Serial.print(", ");
-    Serial.println(lon,5);
   }
 }
 
@@ -96,6 +100,7 @@ void changeMode(String text){
   
   // GSM to GPS
   if(text.equalsIgnoreCase("GPS")){
+    sendReport("GPS Mode");  // Serial report
     sendCommand("AT+CGPSIPR=9600"); // Set data baudrate
     delay(common);
     sendCommand("AT+CGPSPWR=1"); // Turn on GPS power supply 
@@ -106,17 +111,16 @@ void changeMode(String text){
     digitalWrite(gsmDriverPin[1],LOW);  // Enable GPS
     delay(networkConnect);  // Connect into network
     moduleMode = "GPS";  // Change GSM to GPS
-    sendReport("GPS Mode");  // Serial report
 
   // GPS to GSM 
   }else if(text.equalsIgnoreCase("GSM")){
+    sendReport("GSM Mode");  // Serial report
     digitalWrite(gsmDriverPin[0],LOW);  // Enable GSM
     digitalWrite(gsmDriverPin[1],HIGH);  // Disable GPS
     delay(networkConnect);  // Connect into network
     delay(networkConnect);  // Connect into network
     delay(networkConnect);  // Connect into network
     moduleMode = "GSM";  // Change GPS to GSM
-    sendReport("GSM Mode");  // Serial report
   }
 }
 
