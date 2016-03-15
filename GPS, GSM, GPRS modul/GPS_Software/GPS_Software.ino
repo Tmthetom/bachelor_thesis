@@ -20,10 +20,18 @@ boolean lock = false;  // Car is not locked
 boolean readSMS = false;  // Can i read content of SMS now?
 boolean SMSQueue = false;  // Are we sending SMS?
 
+// SMS Commands
+String commandSendCoordinates = "Kde jsi?";
+
 void setup(){   
   // Setup shield  
   for(int i = 0 ; i < 3; i++){pinMode(gsmDriverPin[i],OUTPUT);}
   pinMode(led,OUTPUT);  // Setting of LED pin
+
+  // Start shield
+  digitalWrite(gsmDriverPin[2],HIGH);  // Reset GSM timer
+  delay(common);
+  digitalWrite(gsmDriverPin[2],LOW);  // Enable GSM timer
 
   // Communication start
   Serial.begin(baudRate);  // Connect with PC (Serial monitor)
@@ -34,23 +42,19 @@ void setup(){
   Serial.println("-------- Nove komunikacni okno --------");
   Serial.println();
 
-  // Start shield
-  digitalWrite(gsmDriverPin[2],HIGH);  // Reset GSM timer
-  delay(common);
-  digitalWrite(gsmDriverPin[2],LOW);  // Enable GSM timer
   changeMode("GSM");  // Change module mode to GSM
   changeMode("GPS");  // Change module mode to GPS
-
+/*
   // Initialization
   sendCommand("AT+CMGD=1,4");  // Delete all SMS
-  digitalWrite(led,HIGH);  // GPS ready sign
+  digitalWrite(led,HIGH);  // GPS ready sign*/
 }
  
 void loop(){
   if(moduleMode.equalsIgnoreCase("GSM")){
     // Communication: Shield -> Arduino
     if(gps.available()){
-      readGPS(true);
+      readGPSbyChars(true);
       
       if(character == '\n'){  // If recieved command is completed
         string.trim();  // Delete all whitespace characters
@@ -64,7 +68,9 @@ void loop(){
       }
     }
   }else if (moduleMode.equalsIgnoreCase("GPS")){
+    Serial.println("Reading latitude");
     float lat = latitude();
+    Serial.println("Reading longitude");
     float lon = longitude();
     
     if(lat > -200 && lat < 200 && lon > -200 && lon < 200){
@@ -117,10 +123,10 @@ void recognize_SMS_Content(){
 
 void execute_SMS_Content(){
   if(!SMS.equals("") && SMSQueue != true){
-    if(SMS.equalsIgnoreCase("GPS")){
+    if(SMS.equalsIgnoreCase(commandSendCoordinates)){
       Serial.println("Odesilam SMS");
       SMSQueue = true;  // Mark we are sending SMS
-      sendSMS("Souradnice obdrzite do nekolika minut");  // Send response
+      sendSMS("Poloha bude zaslana behem nekolika minut");  // Send response
       changeMode("GPS");  // Switch module to GPS
       SMS = "";  // Delete content of SMS
     }else{
@@ -131,11 +137,25 @@ void execute_SMS_Content(){
   }
 }
 
-void readGPS(boolean withReport){
+void readGPSbyChars(boolean withReport){
   character = gps.read();  // Read one character from shield serial
   string += character;  // Add character into string
   if(withReport){
     Serial.write(character);  // Send data to PC
+  }
+}
+
+void readGPS(boolean withReport){
+  character = ' ';
+
+  while(character != '\n'){
+    if (gps.available()){
+      character = gps.read();  // Read one character from shield serial
+      string += character;  // Add character into string
+      if(withReport){
+        Serial.write(character);  // Send data to PC
+      }
+    }
   }
 }
 
@@ -154,18 +174,56 @@ void sendSMS(String text){
   SMSQueue = false;  // Mark ready for new SMS
 }
 
-void changeMode(String text){
+int changeMode(String text){
   if(text.equalsIgnoreCase("GPS")){  // GSM to GPS
-    Serial.flush();  // Clean content of Arduino serial
-    gps.flush();  // Clean content of GPS serial
     sendCommand("AT+CGPSPWR=1");  // Turn on GPS power supply
     delay(common);
     sendCommand("AT+CGPSRST=1");  // Reset GPS in autonomy mode
     delay(common);
+    Serial.flush();  // Clean content of Arduino serial
+    gps.flush();  // Clean content of GPS serial
     digitalWrite(gsmDriverPin[0],HIGH);  // Disable GSM
     digitalWrite(gsmDriverPin[1],LOW);  // Enable GPS
     delay(networkConnect);  // Connect into network
     moduleMode = "GPS";  // Change GSM to GPS
+    Serial.println("GPS Mode");
+    //string = "";
+    while(1){
+      readGPSbyChars(true);
+      /*
+      if(character == '$'){
+        Serial.print("$");
+        readGPSbyChars(false);
+        if(character == 'G'){
+          Serial.print("G");
+          readGPSbyChars(false);
+          if(character == 'P'){
+            readGPSbyChars(false);
+            Serial.print("P");
+            if(character == 'Z'){
+              Serial.println("IN");
+              readGPS(false);
+              return 1;
+            }
+          }
+        }
+      }
+      
+      /*
+      if (gps.available()){
+        readGPSbyChars(true);
+        if (character == '\n'){
+          Serial.println("Kontroluji " + string);
+          readGPS(false);
+          string.trim();
+          if (string.startsWith("$GPVTG")){
+            Serial.println("GOOD");
+            return 1;
+          }
+        }
+        //Serial.write(gps.read());  // Send data to PC
+      }*/
+    }
   }else if(text.equalsIgnoreCase("GSM")){  // GPS to GSM 
     Serial.flush();  // Clean content of Arduino serial
     gps.flush();  // Clean content of GPS serial
@@ -173,6 +231,8 @@ void changeMode(String text){
     digitalWrite(gsmDriverPin[1],HIGH);  // Disable GPS
     delay(networkConnect);  // Connect into network
     moduleMode = "GSM";  // Change GPS to GSM
+    Serial.println("GSM mode");
+    return 1;
   }
 }
 
@@ -209,7 +269,7 @@ char ID(){  //Match the ID commands
   char val[6]={'0','0','0','0','0','0'};
   while(1){
     if(gps.available()){
-      readGPS(false);
+      readGPSbyChars(true);
       val[i] = character;
       //val[i] = gps.read();  //get the data from the serial interface
       if(val[i]==value[i]){  //Match the protocol
@@ -217,6 +277,7 @@ char ID(){  //Match the ID commands
         if(i==6){
           i=0;
           return 1;  //break out after get the command
+          Serial.println("ID OK");
         }
       }
       else
@@ -238,7 +299,6 @@ void comma(char num){  //get ','
     if(count==num)  //if the command is right, run return
       return;
   }
- 
 }
 
 double decimalgps(double rawdata){
@@ -257,7 +317,9 @@ float latitude(){  //get latitude
     comma(2);
     while(1){
       if(gps.available()){
-        lat[i] = gps.read();
+        readGPSbyChars(true);
+        lat[i] = character;
+        //lat[i] = gps.read();
         i++;
       }
       if(i==10){
@@ -279,7 +341,9 @@ float longitude()  //get longitude
     comma(4);
     while(1){
       if(gps.available()){
-        lon[i] = gps.read();
+        readGPSbyChars(true);
+        lon[i] = character;
+        //lon[i] = gps.read();
         i++;
       }
       if(i==11){
