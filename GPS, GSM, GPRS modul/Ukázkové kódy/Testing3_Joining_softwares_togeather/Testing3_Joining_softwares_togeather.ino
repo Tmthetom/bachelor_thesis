@@ -57,7 +57,6 @@ void loop(){
   // If active mode is GSM
   if(moduleMode.equalsIgnoreCase("GSM")){
     
-    
   }
   
   // If active mode is GPS
@@ -93,6 +92,32 @@ void sendReport(String text){
 // Due to easy change of serial name
 void sendCommand(String command){
   gps.println(command);  // Send data to GPS
+}
+/*
+// Recognize if GPS send NEW SMS indication
+void recognize_SMS_New(){
+  if(string.equalsIgnoreCase("+CMTI: \"SM\",1")){  // If SMS indication
+    sendCommand("AT+CMGR=1");  // Show content of SMS
+  }
+}
+
+// Recognize if GPS send SMS header
+void recognize_SMS_Header(){
+  if(string.startsWith("+CMGR:")){  // If SMS header
+    readSMS = true;  // Set: Content is ready to read
+    string = "";  // Delete content of string
+  }
+}
+*/
+
+// Read SMS content, because after header clearly must be content (hope so)
+void recognize_SMS_Content(){
+  if(string != "" && readSMS == true){  // If content is ready to read
+    SMS = string;  // Move content into another string
+    readSMS = false;  // Set: Content is not ready to read
+    string = "";  // Delete content of string
+    sendCommand("AT+CMGD=1,4");  // Delete all SMS
+  }
 }
 
 // Switch between GPS and GSM mods/networks
