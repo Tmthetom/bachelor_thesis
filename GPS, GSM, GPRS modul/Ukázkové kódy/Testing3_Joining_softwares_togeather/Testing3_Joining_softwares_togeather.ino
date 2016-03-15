@@ -1,25 +1,43 @@
 #include <SoftwareSerial.h>
 SoftwareSerial gps(6, 7);  // RX, TX: Arduino -> PC
 
+// Internal variables
 byte gsmDriverPin[3] = {3,4,5};  // Pins of GPS
-int networkConnect = 5000;  // In real case, highly recommended bigger amount of time
+int networkConnect = 1000;  // In real case, highly recommended bigger amount of time
 int baudRate = 9600;  // Communication baud rate for GPS and PC
 int common = 500;  // Delay between commands
+int CtrlC = 26;  // ASCII code for Ctrl+C
+int led = 13;  // Pin of signalization LED
+int validGPSCounter = 0;  // Counting how many valid GPS we acquired
+char character = ' ';  // Empty character
+float zemDelka;  // Empty float for GPS coordinates
+float zemSirka;  // Empty float for GPS coordinates
+String ownerNumber = "776006865";  // Owner phone number
+String string = "";  // Empty string
+String SMS = "";  // Empty SMS content
+String moduleMode = "";  // Default is no mode
+String validCoordinates = "";  // Empty string for GPS coordinates
+boolean lock = false;  // Car is not locked
+boolean readSMS = false;  // Can i read content of SMS now?
+boolean SMSQueue = false;  // Are we sending SMS?
 
-int validGPSCounter = 0;
-String validCoordinates;
+// Debugging into software Serial
+boolean debugging = true;
 
+// SMS Commands
+String commandSendCoordinates = "Kde jsi?";
+
+// Steps to properly switche everything on
 void setup(){
+  
   // Setup shield  
   for(int i = 0 ; i < 3; i++){pinMode(gsmDriverPin[i],OUTPUT);}
+  pinMode(led,OUTPUT);  // Setting of LED pin
   
   // Start shield
   digitalWrite(gsmDriverPin[2],HIGH);  // Reset GSM timer
   delay(common);
   digitalWrite(gsmDriverPin[2],LOW);  // Enable GSM timer
-
-  digitalWrite(3,LOW);//Enable the GSM mode
-  digitalWrite(4,HIGH);//Disable the GPS mode
 
    // Communication start
   Serial.begin(baudRate);  // Connect with PC (Serial monitor)
@@ -30,48 +48,77 @@ void setup(){
   Serial.println("-------- Nove komunikacni okno --------");
   Serial.println();
 
-  delay(1000);//call ready
-  delay(1000);
-  delay(1000);
+  changeMode("GSM");  // Change module mode to GSM
+  changeMode("GPS");  // Change module mode to GPS
+}
+ 
+void loop(){ 
 
-  gps.println("AT+CGPSIPR=9600"); //Send AT command  
-  delay(500);
-  gps.println("AT+CGPSPWR=1"); //Send AT command  
-  delay(500);
-  gps.println("AT+CGPSRST=1"); //Send AT command  
-  delay(500);
+  if (Serial.available()){
+    gps.write(Serial.read());
+  }
 
-  digitalWrite(3,HIGH);//Enable the GSM mode
-  digitalWrite(4,LOW);//Disable the GPS mode
- }
- void loop(){ /*
-    if(gps.available()){
-      Serial.write(gps.read());
-    }*/
-    if (Serial.available()){
-      gps.write(Serial.read());
-    }
-
-    float lat = latitude();
-    float lon = longitude();
+  float lat = latitude();
+  float lon = longitude();
     
-    if(lat > -200 && lat < 200 && lon > -200 && lon < 200){
-      validGPSCounter++;  // Add one valid GPS      
-      if(validGPSCounter == 10){
-        validCoordinates = "https://www.google.cz/maps?f=q&q=" + String(lat,5) + "," + String(lon,5) + "&z=16";
-        validGPSCounter = 0;  // Reset valid GPS counter
-        Serial.println(validCoordinates);
-      }else{
-        Serial.print(lat,5);
-        Serial.print(", ");
-        Serial.println(lon,5);
-      }
+  if(lat > -200 && lat < 200 && lon > -200 && lon < 200){
+    validGPSCounter++;  // Add one valid GPS      
+    if(validGPSCounter == 10){
+      validCoordinates = "https://www.google.cz/maps?f=q&q=" + String(lat,5) + "," + String(lon,5) + "&z=16";
+      validGPSCounter = 0;  // Reset valid GPS counter
+      Serial.println(validCoordinates);
     }else{
       Serial.print(lat,5);
       Serial.print(", ");
       Serial.println(lon,5);
     }
- }
+  }else{
+    Serial.print(lat,5);
+    Serial.print(", ");
+    Serial.println(lon,5);
+  }
+}
+
+// If debugging variable true send info into serial
+void sendReport(String text){
+  if(debugging){
+    Serial.println(text);
+  }
+}
+
+// Due to easy change of serial name
+void sendCommand(String command){
+  gps.println(command);  // Send data to GPS
+}
+
+// Switch between GPS and GSM mods/networks
+void changeMode(String text){
+  
+  // GSM to GPS
+  if(text.equalsIgnoreCase("GPS")){
+    sendCommand("AT+CGPSIPR=9600"); // Set data baudrate
+    delay(common);
+    sendCommand("AT+CGPSPWR=1"); // Turn on GPS power supply 
+    delay(common);
+    sendCommand("AT+CGPSRST=1"); // Reset GPS in autonomy mode
+    delay(common);
+    digitalWrite(gsmDriverPin[0],HIGH);  // Disable GSM
+    digitalWrite(gsmDriverPin[1],LOW);  // Enable GPS
+    delay(networkConnect);  // Connect into network
+    moduleMode = "GPS";  // Change GSM to GPS
+    sendReport("GPS Mode");  // Serial report
+
+  // GPS to GSM 
+  }else if(text.equalsIgnoreCase("GSM")){
+    digitalWrite(gsmDriverPin[0],LOW);  // Enable GSM
+    digitalWrite(gsmDriverPin[1],HIGH);  // Disable GPS
+    delay(networkConnect);  // Connect into network
+    delay(networkConnect);  // Connect into network
+    delay(networkConnect);  // Connect into network
+    moduleMode = "GSM";  // Change GPS to GSM
+    sendReport("GSM Mode");  // Serial report
+  }
+}
 
  // START OF CODE FROM GPS MODULE WEBSITE
 double Datatransfer(char *data_buf,char num){                                                                    

@@ -174,7 +174,7 @@ void sendSMS(String text){
   SMSQueue = false;  // Mark ready for new SMS
 }
 
-int changeMode(String text){
+void changeMode(String text){
   if(text.equalsIgnoreCase("GPS")){  // GSM to GPS
     sendCommand("AT+CGPSPWR=1");  // Turn on GPS power supply
     delay(common);
@@ -187,43 +187,6 @@ int changeMode(String text){
     delay(networkConnect);  // Connect into network
     moduleMode = "GPS";  // Change GSM to GPS
     Serial.println("GPS Mode");
-    //string = "";
-    while(1){
-      readGPSbyChars(true);
-      /*
-      if(character == '$'){
-        Serial.print("$");
-        readGPSbyChars(false);
-        if(character == 'G'){
-          Serial.print("G");
-          readGPSbyChars(false);
-          if(character == 'P'){
-            readGPSbyChars(false);
-            Serial.print("P");
-            if(character == 'Z'){
-              Serial.println("IN");
-              readGPS(false);
-              return 1;
-            }
-          }
-        }
-      }
-      
-      /*
-      if (gps.available()){
-        readGPSbyChars(true);
-        if (character == '\n'){
-          Serial.println("Kontroluji " + string);
-          readGPS(false);
-          string.trim();
-          if (string.startsWith("$GPVTG")){
-            Serial.println("GOOD");
-            return 1;
-          }
-        }
-        //Serial.write(gps.read());  // Send data to PC
-      }*/
-    }
   }else if(text.equalsIgnoreCase("GSM")){  // GPS to GSM 
     Serial.flush();  // Clean content of Arduino serial
     gps.flush();  // Clean content of GPS serial
@@ -232,7 +195,6 @@ int changeMode(String text){
     delay(networkConnect);  // Connect into network
     moduleMode = "GSM";  // Change GPS to GSM
     Serial.println("GSM mode");
-    return 1;
   }
 }
 
