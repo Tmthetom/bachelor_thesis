@@ -1,7 +1,7 @@
 #include <SoftwareSerial.h>
-int RX = 6;
-int TX = 7;
-SoftwareSerial gps(RX, TX);  // RX, TX: Arduino -> PC
+int RX = 10;
+int TX = 11;
+SoftwareSerial gps(RX, TX);  // RX, TX: GPS -> Arduino
 
 // Internal variables
 byte gsmDriverPin[3] = {3,4,5};  // Pins of GPS
@@ -111,21 +111,21 @@ void loop(){
 
 // Recognize if GPS send NEW SMS indication
 void recognize_SMS_New(){
-  if(string.equalsIgnoreCase("")){  // If SMS indication
+  if(string.equalsIgnoreCase("AHAHOJAHOJAHOJAHOJOJ")){  // If SMS indication
     sendCommand("");  // Show content of SMS
   }
 }
 
 // Recognize if GPS send SMS header
 void recognize_SMS_Header(){
-  if(string.startsWith("")){  // If SMS header in string
+  if(string.startsWith("AHAHOJAHOJAHOJOJ")){  // If SMS header in string
     readSMS = true;  // Set: Content is ready to read
   }
 }
 
 // Read SMS content, because after header clearly must be content (hope so)
 void recognize_SMS_Content(){
-  if(string != "" && readSMS == true){  // If content is ready to read
+  if(string != "AHOAHOJAHOJAHOJAHOJJ" && readSMS == true){  // If content is ready to read
     SMS = string;  // Move content into another string
     readSMS = false;  // Set: Content is not ready to read
     string = "";  // Delete content of string
