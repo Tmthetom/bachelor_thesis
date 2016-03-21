@@ -1,8 +1,4 @@
-#include <SoftwareSerial.h>
-SoftwareSerial gps(10, 11);  // RX, TX: GPS -> Arduino
-
 byte gsmDriverPin[3] = {3,4,5};  // Pins of GPS
-String string = "";
 
 void setup() {
   // Setup shield  
@@ -10,7 +6,7 @@ void setup() {
   
   // Open serial communications and wait for port to open:
   Serial.begin(9600);
-  gps.begin(9600);
+  Serial1.begin(9600);
 
   // Start shield
   digitalWrite(gsmDriverPin[2],HIGH);  // Reset GSM timer
@@ -27,11 +23,11 @@ void setup() {
   delay(1000);
 
   // GPS setup commands
-  gps.println("AT+CGPSIPR=9600"); // Set data baudrate
+  sendCommand("AT+CGPSIPR=9600"); // Set data baudrate
   delay(500);
-  gps.println("AT+CGPSPWR=1"); // Turn on GPS power supply 
+  sendCommand("AT+CGPSPWR=1"); // Turn on GPS power supply 
   delay(500);
-  gps.println("AT+CGPSRST=1"); // Reset GPS in autonomy mode
+  sendCommand("AT+CGPSRST=1"); // Reset GPS in autonomy mode
   delay(500);
 
   // Start GPS mode
@@ -48,13 +44,17 @@ void loop() {
   float lat = latitude();
   float lon = longitude();
 
-  
-  String txt = String(lat,5) + ", " + String(lon,5);
-  Serial.println(txt);
-  /*
-  Serial.print(lat);
+  Serial.print(lat, 5);
   Serial.print(", ");
-  Serial.println(lon);*/
+  Serial.println(lon, 5);
+}
+
+// Due to easy change of serial name
+void sendCommand(char command[]){
+  for(int i = 0; i < sizeof(command) - 1; i++){
+    Serial1.print(command[i]);
+  }
+  Serial1.println();  // Send data to GPS
 }
 
 double Datatransfer(char *data_buf,char num){                                                                    
@@ -88,14 +88,11 @@ char ID(){  //Match the ID commands
   char value[6]={'$','G','P','G','G','A'};  //match the gps protocol
   char val[6]={'0','0','0','0','0','0'};
   while(1){
-    if(gps.available()){
-      val[i] = gps.read();  //get the data from the serial interface
+    if(Serial1.available()){
+      val[i] = Serial1.read();  //get the data from the serial interface
       if(val[i]==value[i]){  //Match the protocol
-        String txt = "Matched " + String (i);
-        Serial.println(txt);
         i++;
         if(i==6){
-          Serial.println("Patern !!!!!!!!");
           i=0;
           return 1;  //break out after get the command
         }
@@ -111,8 +108,8 @@ void comma(char num){  //get ','
   char count=0;  //count the number of ','
   
   while(1){
-    if(gps.available()){
-      val = gps.read();
+    if(Serial1.available()){
+      val = Serial1.read();
       if(val==',')
         count++;
     }
@@ -136,8 +133,8 @@ float latitude(){  //get latitude
   if(ID()){
     comma(2);
     while(1){
-      if(gps.available()){
-        lat[i] = gps.read();
+      if(Serial1.available()){
+        lat[i] = Serial1.read();
         i++;
       }
       if(i==10){
@@ -158,8 +155,8 @@ float longitude()  //get longitude
   if(ID()){
     comma(4);
     while(1){
-      if(gps.available()){
-        lon[i] = gps.read();
+      if(Serial1.available()){
+        lon[i] = Serial1.read();
         i++;
       }
       if(i==11){
@@ -171,7 +168,7 @@ float longitude()  //get longitude
     }
   }
 }
-
+/*
 void function_for_nothing(){
   string.equalsIgnoreCase("SOME RANDOM TEXT FFROM MY HEAD");
   string.equalsIgnoreCase("SOME RANDOM TEXT FFROM MY HEAD");
@@ -433,4 +430,4 @@ void function_for_nothing(){
   string.equalsIgnoreCase("SOME RANDOM TEXT FFROM MY HEAD");
   string.equalsIgnoreCase("SOME RANDOM TEXT FFROM MY HEAD");
   string.equalsIgnoreCase("SOME RANDOM TEXT FFROM MY HEAD");
-}
+}*/
