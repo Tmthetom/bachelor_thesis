@@ -40,10 +40,14 @@ void setup() {
 }
 
 void loop() {
+  /*
+  if(Serial1.available()){
+    Serial.write(Serial1.read());
+  }*/
   
   float lat = latitude();
   float lon = longitude();
-
+  
   Serial.print(lat, 5);
   Serial.print(", ");
   Serial.println(lon, 5);
@@ -139,8 +143,19 @@ float latitude(){  //get latitude
       }
       if(i==10){
         i=0;
+        Serial.print("lat: read = ");
+        for (int i = 0; i < sizeof(lat); i = i + 1) {
+          Serial.print(lat[i]);
+        }
+        Serial.println();
+        
         double newlat =  Datatransfer(lat,5);
+        Serial.print("lat: newlat = ");
+        Serial.println(newlat);
+        
         float corrected = decimalgps(newlat);
+        Serial.print("lat: corrected = ");
+        Serial.println(corrected);
         return corrected;
       }  
     }
