@@ -15,7 +15,6 @@ String moduleMode = "";  // Default is no mode
 String validCoordinates = "";  // Empty string readSMSfor GPS coordinates
 boolean lock = false;  // Car is not locked
 boolean readSMS = false;  // Can i read content of SMS now? (After SMS header)
-boolean SMSQueue = false;  // Are we sending SMS?
 boolean stringComplete = false;  // Is string is complete?
 
 // Debugging into software Serial
@@ -53,24 +52,25 @@ void setup() {
 
   // Start selected module mode
   changeMode("GSM");  // Start GSM mode
+  sendCommand("AT+CMGD=1,4");  // Delete all SMS
 }
 
 void loop() {
-
+  
   // GSM (SMS) mode
   if (moduleMode.equalsIgnoreCase("GSM")) {
     if (Serial1.available()) { // If data in serial buffer are ready
       character = Serial1.read();  // Read one character from shield serial
       string += character;  // Add character into string
-
+      Serial.print(character);
       if (character == '\n') { // If recieved command is completed
         string.trim();  // Delete all whitespace characters
-
+        
         recognizeSmsNew();  // If new SMS arrives send request for header and content
         recognizeSmsHeader();  // If SMS header finded
         recognizeSmsContent(); // Read SMS content right after header
         executeSmsContent();  // If SMS content OK, execute command in content
-
+        
         string = "";  // Delete content of string
       }
     }
@@ -92,6 +92,7 @@ void loop() {
 // Recognize if GPS send NEW SMS indication
 void recognizeSmsNew() {
   if (string.equalsIgnoreCase("+CMTI: \"SM\",1")) { // If SMS indication
+    sendReport("New SMS arrives");
     sendCommand("AT+CMGR=1");  // Show content of SMS
   }
 }
@@ -99,6 +100,7 @@ void recognizeSmsNew() {
 // Recognize if GPS send SMS header
 void recognizeSmsHeader() {
   if (string.startsWith("+CMGR:")) { // If SMS header
+    sendReport("SMS header reader");  // Serial report
     readSMS = true;  // Set: Content is ready to read
     string = "";  // Delete content of string
   }
@@ -107,6 +109,7 @@ void recognizeSmsHeader() {
 // Read SMS content, because after header clearly must be content (hope so)
 void recognizeSmsContent() {
   if (string != "" && readSMS == true) { // If content is ready to read
+    sendReport("SMS Content reader");  // Serial report
     SMS = string;  // Move content into another string
     readSMS = false;  // Set: Content is not ready to read
     string = "";  // Delete content of string
@@ -116,12 +119,11 @@ void recognizeSmsContent() {
 
 // Find out, what user want in SMS
 void executeSmsContent() {
-  if (!SMS.equals("") && SMSQueue != true) {
+  if (!SMS.equals("")) {
 
     // Send back GPS location
     if (SMS.equalsIgnoreCase(commandSendCoordinates)) {
-      sendReport("Odesilam SMS");  // Serial report
-      SMSQueue = true;  // Mark we are sending SMS
+      sendReport("Sending SMS with please wait report");  // Serial report
       sendSMS(reponseCoordinatesPreparing);  // Send response
       changeMode("GPS");  // Switch module to GPS
       SMS = "";  // Delete content of SMS
@@ -129,7 +131,6 @@ void executeSmsContent() {
 
     // Command not in table
     else {
-      SMSQueue = true;  // Mark we are sending SMS
       sendSMS(reponseUnknownContent + " " + SMS);  // Send responde
       SMS = "";  // Delete content of SMS
     }
@@ -154,8 +155,7 @@ void sendSMS(String text) {
   Serial1.print(text);  // Send text of SMS
   delay(common);  // Time for respond
   Serial1.write(CtrlC);  // Send end of SMS
-
-  SMSQueue = false;  // Mark ready for new SMS
+  delay(common);  // Time for respond
 }
 
 // If debugging variable true send info into serial
@@ -177,6 +177,7 @@ void countValidGpsCoordinates() {
       validGPSCounter = 0;  // Reset valid GPS counter
 
       changeMode("GSM");  // Change mode to GSM
+      sendReport("Sending SMS with coordinates");  // Serial report
       sendSMS(validCoordinates);  // Send coordinates into SMS
     }
   }
@@ -261,6 +262,7 @@ void serialEvent1() {
       string += inChar;  // Add char into String
       if (inChar == '\n') {  // If newline char
         stringComplete = true;  // Set flag ON
+        Serial.println(string);
       }
     }
   }
