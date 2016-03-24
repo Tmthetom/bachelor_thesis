@@ -1,14 +1,17 @@
 // Global variables
 byte gsmDriverPin[3] = {3, 4, 5}; // Pins of GPS
-int networkConnect = 1000;  // In real case, highly recommended bigger amount of time
-int baudRate = 9600;  // Communication baud rate for GPS and PC
-int common = 500;  // Delay between commands
-int CtrlC = 26;  // ASCII code for Ctrl+C
+const int networkConnect = 5000;  // In real case, highly recommended bigger amount of time
+const int baudRate = 9600;  // Communication baud rate for GPS and PC
+const int common = 2000;  // Delay between commands
+const int CtrlC = 26;  // ASCII code for Ctrl+C
+int ledGSM = 6;  // Pin of signalization GSM LED
+int ledGPS = 7;  // Pin of signalization GPS LED
 int validGPSCounter = 0;  // Counting how many valid GPS we acquired
 char character = ' ';  // Empty character
 float lat;  // Empty float for GPS coordinates
 float lon;  // Empty float for GPS coordinates
 String ownerNumber = "776006865";  // Owner phone number
+String senderNumber = ownerNumber;  // Set sender number as default owner
 String string = "";  // Empty string
 String SMS = "";  // Empty SMS content
 String moduleMode = "";  // Default is no mode
@@ -34,6 +37,12 @@ void setup() {
   for (int i = 0 ; i < 3; i++) {
     pinMode(gsmDriverPin[i], OUTPUT);  // All module pins set to OUTPUT
   }
+
+  // Setup signalization
+  pinMode(ledGSM,OUTPUT);  // Setting of LED pin
+  pinMode(ledGPS,OUTPUT);  // Setting of LED pin
+  digitalWrite(ledGSM, LOW);  // Turn GSM LED off
+  digitalWrite(ledGPS, LOW);  // Turn GPS LED off
 
   // Open serial communications and wait for port to open:
   string.reserve(200);  // Memory allocation for incoming data
@@ -156,6 +165,8 @@ void sendSMS(String text) {
   delay(common);  // Time for respond
   Serial1.write(CtrlC);  // Send end of SMS
   delay(common);  // Time for respond
+  delay(common);  // Time for respond
+  delay(common);  // Time for respond
 }
 
 // If debugging variable true send info into serial
@@ -175,7 +186,6 @@ void countValidGpsCoordinates() {
       validCoordinates = "https://www.google.cz/maps?f=q&q=" + String(lat, 5) + "," + String(lon, 5) + "&z=16";
       sendReport(validCoordinates);
       validGPSCounter = 0;  // Reset valid GPS counter
-
       changeMode("GSM");  // Change mode to GSM
       sendReport("Sending SMS with coordinates");  // Serial report
       sendSMS(validCoordinates);  // Send coordinates into SMS
@@ -241,6 +251,8 @@ void changeMode(String text) {
     digitalWrite(gsmDriverPin[1], LOW); // Disable GPS
     delay(networkConnect);  // Connect into network
     moduleMode = "GPS";  // Change GSM to GPS mode
+    digitalWrite(ledGSM, LOW);  // Turn GSM LED off
+    digitalWrite(ledGPS, HIGH);  // Turn GPS LED on
 
     // GPS to GSM
   } else if (text.equalsIgnoreCase("GSM")) {
@@ -251,6 +263,8 @@ void changeMode(String text) {
     delay(networkConnect);  // Connect into network
     delay(networkConnect);  // Connect into network
     moduleMode = "GSM";  // Change GPS to GSM mode
+    digitalWrite(ledGPS, LOW);  // Turn GPS LED off
+    digitalWrite(ledGSM, HIGH);  // Turn GSM LED on
   }
 }
 
@@ -262,7 +276,7 @@ void serialEvent1() {
       string += inChar;  // Add char into String
       if (inChar == '\n') {  // If newline char
         stringComplete = true;  // Set flag ON
-        Serial.println(string);
+        sendReport(string);  // Serial report
       }
     }
   }
