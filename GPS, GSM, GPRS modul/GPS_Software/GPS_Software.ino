@@ -10,7 +10,7 @@ int validGPSCounter = 0;  // Counting how many valid GPS we acquired
 char character = ' ';  // Empty character
 float lat;  // Empty float for GPS coordinates
 float lon;  // Empty float for GPS coordinates
-String ownerNumber = "776006865";  // Owner phone number
+String ownerNumber = "+420776006865";  // Owner phone number
 String senderNumber = ownerNumber;  // Set sender number as default owner
 String string = "";  // Empty string
 String SMS = "";  // Empty SMS content
@@ -74,7 +74,8 @@ void loop() {
       Serial.print(character);
       if (character == '\n') { // If recieved command is completed
         string.trim();  // Delete all whitespace characters
-        
+
+        recognizeERROR();  // If Normal power down
         recognizeSmsNew();  // If new SMS arrives send request for header and content
         recognizeSmsHeader();  // If SMS header finded
         recognizeSmsContent(); // Read SMS content right after header
@@ -98,10 +99,19 @@ void loop() {
   }
 }
 
+// If normal power down appears
+void recognizeERROR() {
+  if (string.startsWith("NORMAL")) { // If SMS indication
+    sendReport("Normal power down");  // Serial report
+    digitalWrite(ledGSM, HIGH);  // Turn GSM LED on
+    digitalWrite(ledGPS, HIGH);  // Turn GPS LED on
+  }
+}
+
 // Recognize if GPS send NEW SMS indication
 void recognizeSmsNew() {
   if (string.equalsIgnoreCase("+CMTI: \"SM\",1")) { // If SMS indication
-    sendReport("New SMS arrives");
+    sendReport("New SMS arrives");  // Serial report  
     sendCommand("AT+CMGR=1");  // Show content of SMS
   }
 }
@@ -110,6 +120,7 @@ void recognizeSmsNew() {
 void recognizeSmsHeader() {
   if (string.startsWith("+CMGR:")) { // If SMS header
     sendReport("SMS header reader");  // Serial report
+    senderNumber = string.substring(21, 34);  // Parse sender number
     readSMS = true;  // Set: Content is ready to read
     string = "";  // Delete content of string
   }
@@ -157,7 +168,7 @@ void sendSMS(String text) {
   // Switch into SMS mode
   sendCommand("AT+CMGF=1");  // Text mode
   delay(common);  // Time for respond
-  sendCommand("AT+CMGS=\"" + ownerNumber + "\"");  // Set phone number
+  sendCommand("AT+CMGS=\"" + senderNumber + "\"");  // Set phone number
   delay(common);  // Time for respond
 
   // Send SMS
