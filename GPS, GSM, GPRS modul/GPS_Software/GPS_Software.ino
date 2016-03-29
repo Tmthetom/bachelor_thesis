@@ -1,3 +1,5 @@
+#include <SoftReset.h>  // For reseting arduino if NORMAL POWER DOWN
+
 // Global variables
 byte gsmDriverPin[3] = {3, 4, 5}; // Pins of GPS
 const int networkConnect = 5000;  // In real case, highly recommended bigger amount of time
@@ -18,6 +20,7 @@ String moduleMode = "";  // Default is no mode
 String validCoordinates = "";  // Empty string readSMSfor GPS coordinates
 boolean lock = false;  // Car is not locked
 boolean readSMS = false;  // Can i read content of SMS now? (After SMS header)
+boolean smsQue = false;  // Wait with sending another SMS, until first will be sended
 boolean stringComplete = false;  // Is string is complete?
 
 // Debugging into software Serial
@@ -39,8 +42,8 @@ void setup() {
   }
 
   // Setup signalization
-  pinMode(ledGSM,OUTPUT);  // Setting of LED pin
-  pinMode(ledGPS,OUTPUT);  // Setting of LED pin
+  pinMode(ledGSM, OUTPUT); // Setting of LED pin
+  pinMode(ledGPS, OUTPUT); // Setting of LED pin
   digitalWrite(ledGSM, LOW);  // Turn GSM LED off
   digitalWrite(ledGPS, LOW);  // Turn GPS LED off
 
@@ -61,11 +64,11 @@ void setup() {
 
   // Start selected module mode
   changeMode("GSM");  // Start GSM mode
-  sendCommand("AT+CMGD=1,4");  // Delete all SMS
+  sendCommand("AT+CMGDA=\"DEL ALL\"");  // Delete all SMS
 }
 
 void loop() {
-  
+
   // GSM (SMS) mode
   if (moduleMode.equalsIgnoreCase("GSM")) {
     if (Serial1.available()) { // If data in serial buffer are ready
@@ -80,7 +83,7 @@ void loop() {
         recognizeSmsHeader();  // If SMS header finded
         recognizeSmsContent(); // Read SMS content right after header
         executeSmsContent();  // If SMS content OK, execute command in content
-        
+
         string = "";  // Delete content of string
       }
     }
@@ -105,13 +108,16 @@ void recognizeERROR() {
     sendReport("Normal power down");  // Serial report
     digitalWrite(ledGSM, HIGH);  // Turn GSM LED on
     digitalWrite(ledGPS, HIGH);  // Turn GPS LED on
+    delay(networkConnect);  // Wait until reset
+    delay(networkConnect);  // Wait until reset
+    soft_restart();  // Restart Arduino
   }
 }
 
 // Recognize if GPS send NEW SMS indication
 void recognizeSmsNew() {
-  if (string.equalsIgnoreCase("+CMTI: \"SM\",1")) { // If SMS indication
-    sendReport("New SMS arrives");  // Serial report  
+  if (string.startsWith("+CMTI:") && smsQue == false) { // If SMS indication
+    sendReport("New SMS arrives");  // Serial report
     sendCommand("AT+CMGR=1");  // Show content of SMS
   }
 }
@@ -133,17 +139,18 @@ void recognizeSmsContent() {
     SMS = string;  // Move content into another string
     readSMS = false;  // Set: Content is not ready to read
     string = "";  // Delete content of string
-    sendCommand("AT+CMGD=1,4");  // Delete all SMS
+    sendCommand("AT+CMGDA=\"DEL ALL\"");  // Delete all SMS
   }
 }
 
 // Find out, what user want in SMS
 void executeSmsContent() {
-  if (!SMS.equals("")) {
+  if (!SMS.equals("")) {  // Sometimes there are just \n
 
     // Send back GPS location
     if (SMS.equalsIgnoreCase(commandSendCoordinates)) {
       sendReport("Sending SMS with please wait report");  // Serial report
+      smsQue = true;  // Set flag sending SMS
       sendSMS(reponseCoordinatesPreparing);  // Send response
       changeMode("GPS");  // Switch module to GPS
       SMS = "";  // Delete content of SMS
@@ -165,7 +172,7 @@ void sendCommand(String command) {
 // Send SMS into mobile number
 void sendSMS(String text) {
 
-  // Switch into SMS mode
+  // Switch into SMS mod
   sendCommand("AT+CMGF=1");  // Text mode
   delay(common);  // Time for respond
   sendCommand("AT+CMGS=\"" + senderNumber + "\"");  // Set phone number
@@ -178,6 +185,8 @@ void sendSMS(String text) {
   delay(common);  // Time for respond
   delay(common);  // Time for respond
   delay(common);  // Time for respond
+
+  smsQue = false;  // Set flag not sending SMS
 }
 
 // If debugging variable true send info into serial
@@ -216,7 +225,7 @@ void parseCoordinates() {
   lon = gpsCorrection(lon);
 
   // If debugging mode, send readed data
-  if(debugging){
+  if (debugging) {
     Serial.print(lat);
     Serial.print(", ");
     Serial.println(lon);
@@ -245,7 +254,7 @@ void changeMode(String text) {
     sendReport("GPS Mode");  // Serial report
 
     // For first start in GPS mode, we must be first in GSM mode
-    if(moduleMode == ""){  // Only if module started and not in mode
+    if (moduleMode == "") { // Only if module started and not in mode
       changeMode("GSM");  // Switch to GSM
     }
 
@@ -274,6 +283,8 @@ void changeMode(String text) {
     delay(networkConnect);  // Connect into network
     delay(networkConnect);  // Connect into network
     moduleMode = "GSM";  // Change GPS to GSM mode
+    sendCommand("AT+CMGF=1");  // Text mode
+    delay(common);  // Time for respond
     digitalWrite(ledGPS, LOW);  // Turn GPS LED off
     digitalWrite(ledGSM, HIGH);  // Turn GSM LED on
   }

@@ -22,3 +22,7 @@ Poznámky k textu práce
 ---------------------------------------------
 22.3.2016 Pøepsal jsem všechen cizí kód, tedy kod pro ètení GPS dat z oficiálních stránek. Nyní vše funguje v poøádku, problém byl oèividnì v nìm. Nejsem si naprosto jistý èím to bylo, zøejmì zpùsobem, kterým se vyèítalo a pokud nepøišla správná data, program se zasekl v cyklu. GPS i GSM èást byla úspìšnì spojena a po naètení polohy GPS se úspìšnì odeslala poloha do telefonu. Z pùvodních 10 správných poloch (ne 0), jsem zvedl na 20 správných poloch, stalo se mi že po 10ti správných polohách jsem dostal adresu sousedního domu, místo domu ve kterém jsem s GPS modulem byl. Nyní je vše v poøádku.
 ---------------------------------------------
+29.3.2016 Existoval problém, že když pøišlo více SMS najednou a program je nestíhal mazat (zatím je všechny nezpracovávám), tak se software zasekl. Bylo to zpùsobeno tím, že jsem kontroloval (equalsIgnoreCase), pøesnì daný string který chodí z modulu, ve formì SMS 1, ale pokud buffer pøetekl a program nestihl mazat, èíslo SMS se zaèalo zvyšovat, navíc jsem mazal pouze první až ètvrtou SMS pomocí AT+CMGD="1,4"... nyní mažu všechny SMS v buferu pomocí AT+CMGDA="DEL ALL" a navíc, pokud stejnì buffer pøeteèe, kontroluji nyní pouze pøíznak +CMTI: (startsWith) a né celý string kde bylo èíslo 1, nyní tedy mùže být èíslo libovolné.
+---------------------------------------------
+29.3.2016 Dnes také ošetøeno NORMAL POWER DOWN, pomocí knihovny SoftReset... https://github.com/WickedDevice/SoftReset
+---------------------------------------------

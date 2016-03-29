@@ -8,17 +8,19 @@
 -> 15. 05. 2016 - Odevzdání práce
 
 --------------- Nedoøešené ----------------
--> Definice cílového zaøízení
 -> Pøehled trhu (konkurence)
 -> Proè to vùbec dìlat
 -> Normy a standardy
--> Koncept softwaru (návrh objektù)
 -> Licence knihoven, arduina, ...
 -> Kalukace spotøeby napájení z baterie
--> Klíèenka
+-> Naprogramovat ètení všech pøijatıch SMS
 
 ---------------- Doøešené -----------------
 -> Rozpoèet
 -> Projekt na Gitlab
 -> Blokové zapojení
 -> Objednání souèástek
+-> Naprogramovat software restart pøi NORMAL POWER DOWN
+-> Klíèenka (pøíliš drahé øešení)
+-> Koncept softwaru (návrh objektù)
+-> Definice cílového zaøízení
