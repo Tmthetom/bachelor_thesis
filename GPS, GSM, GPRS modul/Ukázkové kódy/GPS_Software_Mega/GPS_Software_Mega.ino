@@ -9,7 +9,6 @@ const int CtrlC = 26;  // ASCII code for Ctrl+C
 int ledGSM = 6;  // Pin of signalization GSM LED
 int ledGPS = 7;  // Pin of signalization GPS LED
 int validGPSCounter = 0;  // Counting how many valid GPS we acquired
-int notValidGPSCounter = 0;  // Counting how many not valid GPS we acquired
 char character = ' ';  // Empty character
 float lat;  // Empty float for GPS coordinates
 float lon;  // Empty float for GPS coordinates
@@ -25,7 +24,7 @@ boolean smsQue = false;  // Wait with sending another SMS, until first will be s
 boolean stringComplete = false;  // Is string is complete?
 
 // Debugging into software Serial
-boolean debugging = false;
+boolean debugging = true;
 
 // SMS Commands
 String commandSendCoordinates = "Kde jsi?";  // I want GPS coordinates
@@ -33,7 +32,6 @@ String commandSendCoordinates = "Kde jsi?";  // I want GPS coordinates
 // SMS Responses
 String reponseUnknownContent = "SMS ve spatnem tvaru:";  // If SMS content unknown
 String reponseCoordinatesPreparing = "Poloha bude zaslana behem nekolika minut";  // Wait for SMS
-String responseUnableToGetCoordinates = "Nedostatecne mnozstvi satelitu, nepodarilo se ziskat polohu, zkuste to prosim za chvili";  // Cant get coordinates
 
 // Steps to properly switch everything on
 void setup() {
@@ -51,8 +49,8 @@ void setup() {
 
   // Open serial communications and wait for port to open:
   string.reserve(200);  // Memory allocation for incoming data
-  //Serial.begin(baudRate);  // PC
-  Serial.begin(baudRate);  // Module
+  Serial.begin(baudRate);  // PC
+  Serial1.begin(baudRate);  // Module
 
   // Start shield
   digitalWrite(gsmDriverPin[2], HIGH); // Reset GSM timer
@@ -73,10 +71,10 @@ void loop() {
 
   // GSM (SMS) mode
   if (moduleMode.equalsIgnoreCase("GSM")) {
-    if (Serial.available()) { // If data in serial buffer are ready
-      character = Serial.read();  // Read one character from shield serial
+    if (Serial1.available()) { // If data in serial buffer are ready
+      character = Serial1.read();  // Read one character from shield serial
       string += character;  // Add character into string
-      //Serial.print(character);
+      Serial.print(character);
       if (character == '\n') { // If recieved command is completed
         string.trim();  // Delete all whitespace characters
 
@@ -160,7 +158,6 @@ void executeSmsContent() {
 
     // Command not in table
     else {
-      smsQue = true;  // Set flag sending SMS
       sendSMS(reponseUnknownContent + " " + SMS);  // Send responde
       SMS = "";  // Delete content of SMS
     }
@@ -169,7 +166,7 @@ void executeSmsContent() {
 
 // For easy change of serial name
 void sendCommand(String command) {
-  Serial.println(command);  // Send data to GPS
+  Serial1.println(command);  // Send data to GPS
 }
 
 // Send SMS into mobile number
@@ -182,9 +179,9 @@ void sendSMS(String text) {
   delay(common);  // Time for respond
 
   // Send SMS
-  Serial.print(text);  // Send text of SMS
+  Serial1.print(text);  // Send text of SMS
   delay(common);  // Time for respond
-  Serial.write(CtrlC);  // Send end of SMS
+  Serial1.write(CtrlC);  // Send end of SMS
   delay(common);  // Time for respond
   delay(common);  // Time for respond
   delay(common);  // Time for respond
@@ -205,24 +202,13 @@ void countValidGpsCoordinates() {
   // Coordinates must be betwene +-200 and not 0
   if (lat > -200 && lat < 200 && lat != 0 && lon > -200 && lon < 200 && lon != 0) {
     validGPSCounter++;  // Add one valid GPS
-    if (validGPSCounter == 20) {  // If there is enought data to send right coordinates
+    if (validGPSCounter == 20) {
       validCoordinates = "https://www.google.cz/maps?f=q&q=" + String(lat, 5) + "," + String(lon, 5) + "&z=16";
       sendReport(validCoordinates);
       validGPSCounter = 0;  // Reset valid GPS counter
       changeMode("GSM");  // Change mode to GSM
       sendReport("Sending SMS with coordinates");  // Serial report
-      smsQue = true;  // Set flag sending SMS
       sendSMS(validCoordinates);  // Send coordinates into SMS
-    }
-  }
-  else{  // If not valid
-    notValidGPSCounter++;
-    if(notValidGPSCounter == 50){  // And there is too many not valid coordinates
-      notValidGPSCounter = 0;  // Reset not valid GPS counter
-      changeMode("GSM");  // Change mode to GSM
-      sendReport("Sending SMS with there are no sallites");  // Serial report
-      smsQue = true;  // Set flag sending SMS
-      sendSMS(responseUnableToGetCoordinates);  // Send coordinates into SMS
     }
   }
 }
@@ -305,10 +291,10 @@ void changeMode(String text) {
 }
 
 // Handling hardware interruption
-void serialEvent() {
+void serialEvent1() {
   if (moduleMode.equalsIgnoreCase("GPS")) {
-    while (Serial.available()) {  // Unil something in buffer
-      char inChar = (char)Serial.read();  // Read new byte
+    while (Serial1.available()) {  // Unil something in buffer
+      char inChar = (char)Serial1.read();  // Read new byte
       string += inChar;  // Add char into String
       if (inChar == '\n') {  // If newline char
         stringComplete = true;  // Set flag ON
