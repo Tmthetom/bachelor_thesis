@@ -217,7 +217,7 @@ void countValidGpsCoordinates() {
   }
   else{  // If not valid
     notValidGPSCounter++;
-    if(notValidGPSCounter == 50){  // And there is too many not valid coordinates
+    if(notValidGPSCounter == 200){  // And there is too many not valid coordinates
       notValidGPSCounter = 0;  // Reset not valid GPS counter
       changeMode("GSM");  // Change mode to GSM
       sendReport("Sending SMS with there are no sallites");  // Serial report
