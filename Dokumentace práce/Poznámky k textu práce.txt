@@ -26,3 +26,5 @@ Poznámky k textu práce
 ---------------------------------------------
 29.3.2016 Dnes také ošetøeno NORMAL POWER DOWN, pomocí knihovny SoftReset... https://github.com/WickedDevice/SoftReset
 ---------------------------------------------
+1.4.2016 Pridana ochrana proti zacykleni, kdyz nejsou dostupne satelity. GPS modul se snazil polohu získávat dokola a dokola, nyni se po urcite dobe vrati do GSM modu a odesle odpovìd, že nelze získat polohu z dùvodu nedostatku satelitù
+---------------------------------------------
