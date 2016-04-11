@@ -26,5 +26,9 @@ Poznámky k textu práce
 ---------------------------------------------
 29.3.2016 Dnes také ošetøeno NORMAL POWER DOWN, pomocí knihovny SoftReset... https://github.com/WickedDevice/SoftReset
 ---------------------------------------------
-1.4.2016 Pridana ochrana proti zacykleni, kdyz nejsou dostupne satelity. GPS modul se snazil polohu získávat dokola a dokola, nyni se po urcite dobe vrati do GSM modu a odesle odpovìd, že nelze získat polohu z dùvodu nedostatku satelitù
+1.4.2016 Pridana ochrana proti zacykleni, kdyz nejsou dostupne satelity. GPS modul se snazil polohu získávat dokola a dokola, nyni se po urcite dobe vrati do GSM modu a odesle odpovìd, že nelze získat polohu z dùvodu nedostatku satelitù.
+---------------------------------------------
+9.4.2016 Zprovoznen Akcelerometr, vypadá to že konkurence používá mìøiè vybrací, kvùli jeho nízké cenì, je možné si ho vyrobit i doma. Já zùstanu u akcelerometru kvùli možnosti nastavení citlivosti.
+---------------------------------------------
+11.4.2016 Zaøízení již beží 14 dní v testovacím domácím provozu bez vypnutí!!! Vše v poøádku a bez jediného pádu. Testován byl každý den pomocí kontrolních SMS, zasipávání SMS a obèasné hardwarové testy jako bouchání do stolu na kterém stojí, pohybování, pøemýstování, atd... Vše bez jediného problému.
 ---------------------------------------------
