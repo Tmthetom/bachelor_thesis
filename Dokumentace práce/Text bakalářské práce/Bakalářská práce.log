@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  12 APR 2016 16:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  12 APR 2016 23:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -484,18 +484,18 @@ Now handling font encoding U ...
 (./Bakaláøská práce.aux)
 \openout1 = `"Bakaláøská práce.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
 
 (d:/Programs/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -561,7 +561,7 @@ e
 <logo-fm.pdf, id=1, 254.6062pt x 45.03696pt>
 File: logo-fm.pdf Graphic file (type pdf)
  <use logo-fm.pdf>
-Package pdftex.def Info: logo-fm.pdf used on input line 13.
+Package pdftex.def Info: logo-fm.pdf used on input line 14.
 (pdftex.def)             Requested size: 254.60558pt x 45.03682pt.
  [1
 
@@ -570,20 +570,20 @@ rs/morav/texmf/tex/latex/tulthesis/logo-fm.pdf>]
 <logo-fm-en.pdf, id=13, 262.84398pt x 44.71245pt>
 File: logo-fm-en.pdf Graphic file (type pdf)
  <use logo-fm-en.pdf>
-Package pdftex.def Info: logo-fm-en.pdf used on input line 13.
+Package pdftex.def Info: logo-fm-en.pdf used on input line 14.
 (pdftex.def)             Requested size: 262.84334pt x 44.71233pt.
  [2
 
  <c:/Users/morav/texmf/tex/latex/tulthesis/logo-fm-en.pdf>] [3
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 13.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 14.
 
 (d:/Programs/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 13.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 14.
  [4
 
 ] [5
@@ -608,24 +608,24 @@ Kapitola 1.
 Kapitola 2.
 [13
 
-]
+] [14] [15]
 Kapitola 3.
-[14
+[16
 
 ]
 Kapitola 4.
-[15
+[17
 
 ]
 Kapitola 5.
-[16
+[18
 
 ] (./Bakaláøská práce.aux) ) 
 Here is how much of TeX's memory you used:
- 3581 strings out of 493027
- 45450 string characters out of 6133617
+ 3582 strings out of 493027
+ 45464 string characters out of 6133617
  133587 words of memory out of 5000000
- 7062 multiletter control sequences out of 15000+600000
+ 7063 multiletter control sequences out of 15000+600000
  10693 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,11n,54p,1310b,306s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -637,10 +637,10 @@ ic/amsfonts/cm/cmss12.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmssbx10.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmssi10.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb>
-Output written on "Bakaláøská práce.pdf" (16 pages, 127938 bytes).
+Output written on "Bakaláøská práce.pdf" (18 pages, 135729 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
+ 98 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

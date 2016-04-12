@@ -15,15 +15,18 @@
 \contentsline {section}{\numberline {1.3}Normy}{12}
 \contentsline {chapter}{\numberline {2}Situace na trhu}{13}
 \contentsline {section}{\numberline {2.1}Kategorie}{13}
-\contentsline {section}{\numberline {2.2}Dostupn\IeC {\'a} \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{13}
-\contentsline {chapter}{\numberline {3}Koncept}{14}
-\contentsline {section}{\numberline {3.1}Z\IeC {\'a}kladn\IeC {\'\i } zapojen\IeC {\'\i }}{14}
-\contentsline {section}{\numberline {3.2}\IeC {\v R}\IeC {\'\i }d\IeC {\'\i }c\IeC {\'\i } jednotka}{14}
-\contentsline {section}{\numberline {3.3}Komunika\IeC {\v c}n\IeC {\'\i } modul}{14}
-\contentsline {section}{\numberline {3.4}Senzor pohybu}{14}
-\contentsline {section}{\numberline {3.5}Softwarov\IeC {\'y} n\IeC {\'a}vrh}{14}
-\contentsline {chapter}{\numberline {4}Prototyp}{15}
-\contentsline {section}{\numberline {4.1}V\IeC {\'y}vojov\IeC {\'a} deska Arduino}{15}
-\contentsline {section}{\numberline {4.2}Komunika\IeC {\v c}n\IeC {\'\i } modul GPS/GPRS/GSM}{15}
-\contentsline {section}{\numberline {4.3}Nap\IeC {\'a}jen\IeC {\'\i }}{15}
-\contentsline {chapter}{\numberline {5}Z\IeC {\'a}v\IeC {\v e}r}{16}
+\contentsline {subsection}{\numberline {2.1.1}Levn\IeC {\'a} za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i } (do 2.000, - K\IeC {\v c})}{13}
+\contentsline {subsection}{\numberline {2.1.2}St\IeC {\v r}edn\IeC {\'\i } t\IeC {\v r}\IeC {\'\i }da (2.000 a\IeC {\v z} 8.000, - K\IeC {\v c})}{13}
+\contentsline {subsection}{\numberline {2.1.3}Profesion\IeC {\'a}ln\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i } (8.000 a\IeC {\v z} 20.000, - K\IeC {\v c})}{14}
+\contentsline {subsection}{\numberline {2.1.4}Specializovan\IeC {\'a} za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i } (od 20.000, - K\IeC {\v c})}{15}
+\contentsline {chapter}{\numberline {3}Koncept}{16}
+\contentsline {section}{\numberline {3.1}Z\IeC {\'a}kladn\IeC {\'\i } zapojen\IeC {\'\i }}{16}
+\contentsline {section}{\numberline {3.2}\IeC {\v R}\IeC {\'\i }d\IeC {\'\i }c\IeC {\'\i } jednotka}{16}
+\contentsline {section}{\numberline {3.3}Komunika\IeC {\v c}n\IeC {\'\i } modul}{16}
+\contentsline {section}{\numberline {3.4}Senzor pohybu}{16}
+\contentsline {section}{\numberline {3.5}Softwarov\IeC {\'y} n\IeC {\'a}vrh}{16}
+\contentsline {chapter}{\numberline {4}Prototyp}{17}
+\contentsline {section}{\numberline {4.1}V\IeC {\'y}vojov\IeC {\'a} deska Arduino}{17}
+\contentsline {section}{\numberline {4.2}Komunika\IeC {\v c}n\IeC {\'\i } modul GPS/GPRS/GSM}{17}
+\contentsline {section}{\numberline {4.3}Nap\IeC {\'a}jen\IeC {\'\i }}{17}
+\contentsline {chapter}{\numberline {5}Z\IeC {\'a}v\IeC {\v e}r}{18}

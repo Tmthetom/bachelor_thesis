@@ -1,6 +1,7 @@
 \documentclass[FM,BP]{tulthesis}
 \usepackage[czech]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{graphicx}
 
 \TULtitle{Koncept nízkonákladového sledovacího zařízení pro osobní automobily}{The concept of a low cost tracking device for personal cars}
 \TULprogramme{B2646}{Informační technologie}{Information Technology}
@@ -76,18 +77,56 @@ Zařízení musí být nenáročné na údržbu, to znamená i výměna baterií
 Not supported yet.
 
 \chapter{Situace na trhu}
-Na českém ani žádném sousedním trhu nejsou k dispozici s
+Na českém ani žádném sousedním trhu nejsou k dispozici evropské výrobky v kategorii levných sledovacích zařízení, která by byla veřejně dostupná, veškeré zboží je dováženo od čínských dodavatelů, takže žádný z přístrojů nemůže reflektovat požadavky evropských zákazníků. Domácí výrobky existují až od kategorie drahých sledovacích zařízení, které jsou však pro běžného zákazníka nedostupné, nebo jsou zatíženy měsíčními poplatky za využívání služeb jejich poskytovatele. V následujícím textu rozdělím český trh na kategorie a následně se budu věnovat pouze dvěma nejlevnějším kategoriím, protože drahé a specializované systémy nejsou předmětem této práce.
 
 \section{Kategorie}
-Not supported yet.
+Vzhledem k tomu, že neexistuje žádné oficiální dělení, roztřídím zařízení na trhu dle cenových hladin, pro které jsou společné specifické vlastnosti a funkce.
 
-\section{Dostupná řešení}
-Not supported yet.
+\subsection{Levná zařízení (do 2.000, - Kč)}
+Kategorie těch nejlevnějších sledovacích zařízení se mnohdy neoznačují ani jako sledovací zařízení pro automobily, většinou jsou určeny pro vhození do tašky, nošení na ruce, nebo přivěšení na klíčenku, kde se sesbíraná data o poloze ukládají na malou paměťovou kartu, ze které jsou později vyčteny do počítače. Jen zřídka mají zařízení v této kategorii možnost odesílání SMS přes síť GSM. Vždy mají integrovanou baterii, která při běžném používání vydrží v rámci jednotek dnů, poté je nutné zařízení dobít. Vyznačují se nemožností napojení na autobaterii nebo jakékoliv nastavení.
+
+\begin{itemize}
+\item Baterie (výdrž jednotky dnů)
+\item Ukládání polohy na paměťovou kartu
+\end{itemize}
+
+\subsection{Střední třída (2.000 až 8.000, - Kč)}
+Střední třída je již plnohodnotnou kategorií sledovacích zařízení do automobilů, cena zařízení se ve většině případů pohybuje kolem 6.000, - Kč, nicméně vlastnosti této kategorie se objevují ihned za hranicí 2.000, - Kč. Nejlevnější z této kategorie mají většinou pouze notifikační SMS a baterii s výdrží několika dnů, ale ve většině případů dražších strojů, obsahují silnější baterii, která je schopna vydržet desítky dnů, obsahují levné senzory pohybu, které bohužel nemají nastavitelnou přesnost a ve většině případů je zde možnost měsíčních poplatků za služby webové, nebo mobilní aplikace, ve které je možné nejenom sledovat polohu vozu, ale také nastavit funkci takzvaně geofence, tedy kruhové oblasti kolem zvolené polohy, která když je překročena (například když vozidlo opustí město), zákazník je informován. V krajních případech mají možnost připojení na autobaterii a tedy uložení do motoru vozidla. V jiném případě mají silné magnety, které umožňují přichycení, například na podvozku vozidla. Přes SMS příkazy lze nastavit autorizovaná telefonní čísla.
+
+\begin{itemize}
+\item Baterie (výdrž desítky dnů)
+\item SMS notifikace
+\item Možnost připojení na autobaterii
+\item Mobilní/webová aplikace pro sledování polohy za měsíční poplatek
+\item Možnost nastavení autorizovaných čísel
+\item Magnetické úchytky
+\end{itemize}
+
+\subsection{Profesionální řešení (8.000 až 20.000, - Kč)}
+Profesionální řešení jsou téměř vždy napojena na autobaterii a na sběrnici vozidla. Jejich dálkovým řízením pomocí webového rozhraní lze napřílad přívod paliva, sledovat stav nádrže a dalších kapalin a efektivně sledovat celou síť firemních vozidel, monitorovat a optimalizovat trasy. Jsou vybaveny silnými bateriemi a jsou odolné proti poškození. Umožnují například připojení kamerových systémů, nebo připojení mikrofonu do kabiny řidiče pro případné urychlené jednání s pojišťovnou. Nicméně jeho provoz a instalace je finančně velice náročná a proto se vyplatí pouze pro společnosti s velkým vozovím parkem. Využití najde i na moři v lodní, kontejnerové dopravdě. Taková to řešení se v České republice snaží poskytovat například firma Jablotron, nicméně jeji služby nejsou přístupné veřejnosti.
+
+\begin{itemize}
+\item Bezdrátové řízení a monitoring
+\item Připojení na autobaterii
+\item Připojení na komunikační sběrnici vozu
+\item Baterie (výdrž desítky dnů)
+\item Připojení kamerových zařízení včetně mikrofonu
+\item Vyžaduje odbornou montáž a údržbu
+\end{itemize}
+
+\subsection{Specializovaná zařízení (od 20.000, - Kč)}
+Specializovaná zařízení jsou raritou určenou především pro kategorie luxusních vozů s cenou několika milionů a výše. Zařízení jsou sofistikovaně ukryta, jsou jištěna proti odstranění a v případě krádeže vozu umožňují okamžité odpojení a převzetí specifických částí vozu. Například plynulé zastavení vozidla, a další. Monitoring probíhá neustále a bezpečnostní agentura má vždy připravené vlastní vozy, které zabezpečí vozidlo i zloděje. Tyto služby v České republice nabízí například firma SHERLOG, která jako ostatní společnosti ceny nezveřejňuje. Technické zpracování bohužel není známo.
+
+\begin{itemize}
+\item Nonstop monitoring
+\item Převzetí kontroly vozidla
+\item Zajištění vozu v případě krádeže
+\end{itemize}
 
 \chapter{Koncept}
 Not supported yet.
 
-\section{Základní zapojení}
+\section{Blokové schéma}
 Not supported yet.
 
 \section{Řídící jednotka}
