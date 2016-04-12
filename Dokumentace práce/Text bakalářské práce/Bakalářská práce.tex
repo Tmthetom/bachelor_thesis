@@ -39,14 +39,19 @@ Thesis deals with tracking devices for cars. The introduction defines the concep
 Not supported yet.
 
 \section{Sledovací zařízení}
-Not supported yet.
+Sledovací zařízení je přístroj, udávající svou vlastní polohu na planetě zemi, pomocí zeměpisné šířky a délky. Poloha se určuje vzhledem k systému družic GPS, které obíhají rovnoměrně rozprostřeny na oběžné dráze země.
+
+\subsection{Historie}
+Not supported yet.%GPS, vojenský systém, přestnosti, ...
+
+\subsection{Přítomnost}
+Satelitní systém GPS se stal synonymem pro sledovací zařízení a určování polohy. Nicméně dnes není jediným projektem %Glonass, Gallileo
 
 \section{Požadované vlastnosti}
-Koncept bude primárně zaměřen na minimalizaci případné výrobní ceny, s ohledem na zachování všech funkcí, očekávaných od sledovacího zařízení. Aby byl produkt atraktivní, je nutné kvalitní zpracování částí, které neovlivní cenu zařízení, tedy programové části, která je slabým článkem většiny dostupných modelů.
+V honu za kvalitním, ale levným sledovacím zařízení, je nutné nalézt kompromis mezi nízkou cenou a pohodlím zákazníka. Abych tohoto docílil, budu se snažit vyzdvihnout vlastnosti, které neovlivní cenu, ale výrazně posílí funkčnost a tím i konkurence schopnost zařízení. Následující vlastnosti pro mne budou hrát důležitou roli při výběru hardwarových kompent, stejně tak mi pomohou se zaměřit na části kódu, které potřebují být optimalizovány nejlépe.
 
 \subsection{Cena}
-Not supported yet.
-%Koncept bude primárně zaměřen na minimalizaci případné výrobní ceny s ohledem na zachování všech funkcí, očekávaných od sledovacího zařízení. Je nutné najít kompromis mezi nízkou cenou a pohodlím zákazníka.
+Koncept bude primárně zaměřen na minimalizaci případné výrobní ceny, s ohledem na zachování všech funkcí, očekávaných od sledovacího zařízení. Aby byl produkt atraktivní, ale levný, je důležité kvalitní zpracování částí, které neovlivní konečnou cenu zařízení, tedy programové části, která je slabým článkem většiny dostupných modelů, v kategorii levných sledovacích zařízení. Velkou úsporu peněz bude hrát připojení na autobaterii, kde levné modely touto možností neoplívají a jsou cenově zatíženy drahými bateriemi, které jsou mnohdy tou nejdražší částí sledovacího zařízení. Nakonec se budu pokoušet odstranit přebytečné funkce, které zbytečně komplikují provoz a přizpívají k vyšší ceně.
 
 \subsection{Spolehlivost}
 Zařízení musí být spolehlivé a poskytovat požadované informace za jakýchkoliv podmínek a to i při nízké ceně vybavení. Pokud jde o poruchovost u běžně dostupných modelů, když vynecháme faktory které nelze ovlivnit, například nedostupný signál GPS nebo GSM sítě, je na vině buď ztráta signálu, špatným umístěním ve vozidle (o správném umístění je nutné zákazníka informovat), vybití baterie, softwarová chyba která způsobí zacyklení, nebo při provádění různých operací, ignoruje příchozí SMS. Proto je nutné číst a obsloužit všechny doručené SMS a informovat uživatele o všech skutečnostech, například o výpadku signálu, při žádosti o získání polohy.
@@ -55,7 +60,7 @@ Zařízení musí být spolehlivé a poskytovat požadované informace za jakýc
 Žádný z dostupných modelů, v cenové hladině pod 6.000 Kč, nemá možnost nastavení řídících čísel, nebo hesla pro obnovení, při jeho ztrátě. Pokud by případný zloděj, zjistit telefonní číslo, ať už odposlechem poblíž vozidla, nebo z telefonu majitele, je schopný deaktivovat zařízení na dálku a odcizit vozidlo bez sebemenší potuchy majitele. Proto je nutné myslet na bezpečnost jak při pokusu o vypnutí z cizího čísla, tak při případném odpojení od zdroje napájení, které by ve finální verzi jistila integrovaná baterie o velice malé kapacitě, která by zajistila pouze odeslání varovné SMS. Je pravděpodobné že při odpojení od baterie by bylo sledovací zařízení odstraněno z vozidla a delší výdrž by byla zbytečná. Díky tomu se dá ušetřit na ceně, která je z velké části tvořena potřebou velkých baterií.
 
 \subsection{Přívětivost}
-SMS s řídícími příkazy musí být jednoduché, uživatelsky přívětivé a snadno zapamatovatelné, aby bylo pro zákazníka ovládání intuitivní a srozumitelné. Nejpřívětivější a nejjednodušší je to, co je pro uživatele nejpřirozenější, tedy běžná slova a věty, stejně tak sledovací zařízení by ve stejné formě mělo i odpovídat. Tedy komunikace mezi uživatelem a sledovacím zařízením by mělo být formou konverzace. Například "Kde jsi", odpověd: "Má poloha bude zaslána během několika minut", později: "Nacházím se na xxxx". Stejně tak instalace zařízení musí být jednoduchá a nesmí jí provázet komplikované nastavování. Vše by mělo fungovat při prvním spuštění automaticky.
+SMS s řídícími příkazy musí být jednoduché, uživatelsky přívětivé a snadno zapamatovatelné, aby bylo pro zákazníka ovládání intuitivní a srozumitelné. Nejpřívětivější a nejjednodušší je to, co je pro uživatele nejpřirozenější, tedy běžná slova a věty, stejně tak sledovací zařízení by ve stejné formě mělo i odpovídat. Tedy komunikace mezi uživatelem a sledovacím zařízením by mělo být formou konverzace. Například "Kde jsi", odpověd: "Má poloha bude zaslána během několika minut", později: "Nacházím se na souřadnicích...". Stejně tak instalace zařízení musí být jednoduchá a nesmí jí provázet komplikované nastavování. Vše by mělo fungovat při prvním spuštění automaticky.
 
 \subsection{Vícejazyčnost}
 Velkou nevýhodou všech dostupných sledovacích zařízení je orientace pouze jediný jazyk a to Anglický. Jazyka neznalý uživatel může být zmatený a v nestandartních situacích odkázaný pouze na manuál, které některé modely ani nemají. Na vině je primárně to, že většina dostupných modelů je přeprodej čínských zařízení a žádný z českých obchodníků nemá možnost měnit jakékoliv vlastnosti zařízení které prodává. Čínští výrobci u nejlevnějších zařízení mnohdy nedodávají ani manuál, pokud ano, tak čínsky nebo anglicky, takže překlad popřípadě tvorba neexistujícího manuálu závisí na českých prodejcích. Není to problém pouze České republiky, vzhledem k tomu, že se jedná o jednoduchou softwarovou implementaci, základní komunikační rozhraní bude v českém jazyce s možností jednoduchého přepnutí na požadovanou jazykovou lokalizaci. Do finálního produktu bude pouze stačit nahrát dostatečné množství jazykových variant, které vzhledem k nízkému počtu textových řetězců a nenáročnosti jejich uložení v paměti, nebude mít žádný vliv na případnou cenu, které by jinak mohlo být způsobeno nutností navýšení paměti pro data.
