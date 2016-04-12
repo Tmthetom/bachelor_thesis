@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  12 APR 2016 09:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  12 APR 2016 16:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -604,31 +604,31 @@ Kapitola 1.
 [9
 
 
-] [10] [11]
+] [10] [11] [12]
 Kapitola 2.
-[12
-
-]
-Kapitola 3.
 [13
 
 ]
-Kapitola 4.
+Kapitola 3.
 [14
 
 ]
-Kapitola 5.
+Kapitola 4.
 [15
+
+]
+Kapitola 5.
+[16
 
 ] (./Bakaláøská práce.aux) ) 
 Here is how much of TeX's memory you used:
- 3580 strings out of 493027
- 45442 string characters out of 6133617
- 134587 words of memory out of 5000000
- 7061 multiletter control sequences out of 15000+600000
+ 3581 strings out of 493027
+ 45450 string characters out of 6133617
+ 133587 words of memory out of 5000000
+ 7062 multiletter control sequences out of 15000+600000
  10693 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,11n,54p,1291b,306s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,11n,54p,1310b,306s stack positions out of 5000i,500n,10000p,200000b,80000s
 <d:/Programs/texlive/2015/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmbx12.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmr12.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/pub
@@ -637,10 +637,10 @@ ic/amsfonts/cm/cmss12.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmssbx10.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmssi10.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb>
-Output written on "Bakaláøská práce.pdf" (15 pages, 123528 bytes).
+Output written on "Bakaláøská práce.pdf" (16 pages, 127938 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
+ 92 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
