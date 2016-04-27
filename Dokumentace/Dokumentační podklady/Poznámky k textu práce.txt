@@ -1,0 +1,34 @@
+Poznámky k textu práce 
+---------------------------------------------
+28.1.2016 Arduino Uno Rev3 má maximální vstupní napìtí 5 V (USB), 7-12 V (Jack / Vin), GPS/GPRS/GSM Shield V3.0 má napájecí napìtí 7-12 V / 1 A, tedy je nutné pouít extérní zdroj napájení s ideálnì 12 V vıstupního napìtí a nejlépe maximální odebíranı proud pøes 1 A, protoe pøi vìtším odbìru proudu dochází k poškození adaptéru. Zvolil jsem síovı adaptér s DC Jack vıstupem, parametry: 12 V / 3 A.
+---------------------------------------------
+30.1.2016 První spojení Arduina, Modulu a jejich následného zapojení probìhlo úspìšnì, svítí dioda PWR, viz fotografie
+---------------------------------------------
+26.2.2016 napadlo mì, e by se dalo GPS odemykat, pokud bylo vozidlo odemèeno klíèkem, to samozøejmì sniuje okruh pouitelnosti pro øidièe pouze ze støední tøídy...
+---------------------------------------------
+27.2.2016 komunikovat s modulem se dá v USB, COMM, UART SELECTED modu, píšu do serial monitoru a on si myslí e jsem SMS
+---------------------------------------------
+28.2.2016 nezle pouít najednou Arduino, GPS modul a Serial monitor, zkouším pouít dvouøádkovı LCD pro ètení hodnot z modulu... Displej nejde pøipojit na pøímo, je nutné zapojení pøes nepájivé pole. Dále kolidují piny 3, 4, 5 pro GPS modul, take je musíme u displeje pøepojit jinam a zmìnit je i v programu displeje... Našlo se nové øešení, desky byli rozpojeny, a zapojeny pouívanımi piny k sobì dráty, modulu byl nastaven reim Arduino a RX a TX piny byli do arduina pøipojeny jinam. Program byl upraven tak, aby arduino pøeposílalo komunikaci po sériové lince do PC. Tato zmìna pomohla tomu, e ji není nutné neustále pøepínat reimy desky mezi programováním a komunikaci :D, stejnì tak není potøeba mìnit reim USB a Arduino. Bylo zjištìno, e GPS modul posílá bonusové mezery, ty se podaøilo odstranit pøíkazem .trim().
+---------------------------------------------
+29.2.2016 Ji druhı den trávím tím, e mùj program nenaète celou zprávu od Modulu, místo toho pouze urèitı poèet znakù...
+---------------------------------------------
+2.3.2016 Po nìkolika dnech slepıch ulièek mì napadlo, zda GPS modul neposílá i znak '\n', a taky e posílá :D Díky tomu bych mìl bıt schopnı rozlišit, kde je konec jedné informace a kde zaèátek druhé... Do teï byl problém s tím, e pøi ètení dat ze sériové linky na GSM modul, se na nìm vyskytují i data, která mu já odesílám, take jich je velké mnoství a nemají poøádna zaèátek ani konec, tedy jeden pøíkaz co jsem poslal já konèí a ihned za ním pokraèuje odpovìï, ale vše na jedné sériové lice a do teï jsem si nebyl jistı, jak je oddìlit... nyní máme øešení...
+---------------------------------------------
+5.3.2016 Pøíjem SMS funguje. Ètení SMS funguje. Odpovìdi na SMS fungují. Získávání GPS souøadnící (v jiném kódu) funguje. V domì je špatná pøesnost, bude tøeba pouívat venku a v automobilu zøejmì nutné pouití antény podle konstrukce vozidla (hliníkové, plastové). Nyní bude následovat spojení obou kódu a vymyšlení jejich správného propojení s SMS systémem. Doba trvání napojení na satelit pøi pøepnutí na GPS: 38s, 40s, 62s
+---------------------------------------------
+20.3.2016 Byl vymìnìn vıvojovı kit Arduino Uno za Ardiuno Mega, kterı má více èipù na zpracování seriové komunikace, jakoto test, zda se chyba nevyskytuje v paralelizaci jednoho èipu na Arduino Uno
+---------------------------------------------
+21.3.2016 Po konzultaci jsem se rozhodl, zjistit, jak funguje program pro ètení dat z GPS reimu. Vzhledem ke sloitosti a nejasnostem jsem zavítal do softwarového Datasheetu, strana 249 udává formát GGA protocol header, tedy øádek, kterı obsahuje zemìpisnou šíøku, vıšku a další informace. Neobsahuje poèet satelitù a další informace které bude popøípadì nutné vyèítat samostatnì. Je 23:31 a právì jsem pochopil veškeré vlastnosti a funkce zmínìného kódu. Zítra zaènu z pøepisováním tak, aby fungoval na Serial.event, tedy na pøerušení pøi pøíchozích datech, nyní funguje tak, e kdy chci dat, zaènu èíst ze serialu a èekám dokud mi nesedí ètená písmenka na protokol kterı chci. Mám pouze strach, e pøerušení bude moc èasté a nebudu schopnı vykonávat co potøebuji. Ale uvidíme...
+---------------------------------------------
+22.3.2016 Pøepsal jsem všechen cizí kód, tedy kod pro ètení GPS dat z oficiálních stránek. Nyní vše funguje v poøádku, problém byl oèividnì v nìm. Nejsem si naprosto jistı èím to bylo, zøejmì zpùsobem, kterım se vyèítalo a pokud nepøišla správná data, program se zasekl v cyklu. GPS i GSM èást byla úspìšnì spojena a po naètení polohy GPS se úspìšnì odeslala poloha do telefonu. Z pùvodních 10 správnıch poloch (ne 0), jsem zvedl na 20 správnıch poloch, stalo se mi e po 10ti správnıch polohách jsem dostal adresu sousedního domu, místo domu ve kterém jsem s GPS modulem byl. Nyní je vše v poøádku.
+---------------------------------------------
+29.3.2016 Existoval problém, e kdy pøišlo více SMS najednou a program je nestíhal mazat (zatím je všechny nezpracovávám), tak se software zasekl. Bylo to zpùsobeno tím, e jsem kontroloval (equalsIgnoreCase), pøesnì danı string kterı chodí z modulu, ve formì SMS 1, ale pokud buffer pøetekl a program nestihl mazat, èíslo SMS se zaèalo zvyšovat, navíc jsem mazal pouze první a ètvrtou SMS pomocí AT+CMGD="1,4"... nyní mau všechny SMS v buferu pomocí AT+CMGDA="DEL ALL" a navíc, pokud stejnì buffer pøeteèe, kontroluji nyní pouze pøíznak +CMTI: (startsWith) a né celı string kde bylo èíslo 1, nyní tedy mùe bıt èíslo libovolné.
+---------------------------------------------
+29.3.2016 Dnes také ošetøeno NORMAL POWER DOWN, pomocí knihovny SoftReset... https://github.com/WickedDevice/SoftReset
+---------------------------------------------
+1.4.2016 Pridana ochrana proti zacykleni, kdyz nejsou dostupne satelity. GPS modul se snazil polohu získávat dokola a dokola, nyni se po urcite dobe vrati do GSM modu a odesle odpovìd, e nelze získat polohu z dùvodu nedostatku satelitù.
+---------------------------------------------
+9.4.2016 Zprovoznen Akcelerometr, vypadá to e konkurence pouívá mìøiè vybrací, kvùli jeho nízké cenì, je moné si ho vyrobit i doma. Já zùstanu u akcelerometru kvùli monosti nastavení citlivosti.
+---------------------------------------------
+11.4.2016 Zaøízení ji beí 14 dní v testovacím domácím provozu bez vypnutí!!! Vše v poøádku a bez jediného pádu. Testován byl kadı den pomocí kontrolních SMS, zasipávání SMS a obèasné hardwarové testy jako bouchání do stolu na kterém stojí, pohybování, pøemıstování, atd... Vše bez jediného problému.
+---------------------------------------------

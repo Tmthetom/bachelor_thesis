@@ -1,0 +1,91 @@
+------ Poznámka ------
+-> Všechny používají otøesový senzor, místo akcelerometru
+
+------- Druhy --------
+-- Podle vysílání --
+Pasivní
+-> GPS
+-> Ukládá polohu do pamìti
+Aktivní
+-> GSM/GPS
+-> Posílá polohu do zaøízení
+
+-- Podle napájení --
+Baterie (vlastní baterie)
+-> Krátká doba
+Palubní napájení
+-> Funguje pouze pøi zapnutém motoru
+Autobaterie
+-> Dlouhá doba
+
+------- Èeský trh --------
+GPS Lokator economy
+-> 3.000 jednou + 750 za rok
+-> Webové rozhraní
+-> Autobaterie
+
+4CH DVR do auta se vzdáleným pøístupem - ECONOMY - 3G, GPS
+-> 15.000, -
+-> Možnost 4x kamera
+-> Autobaterie
+-> Mikrofon
+
+GPS Lokátor TK-102
+-> 2.000 + 500 adaptér na autobaterii
+-> Autobaterie
+
+GPS Tracker
+-> 3.500 + 750 za rok
+-> Ten nejlepší co se prodává z èíny za 800 korun
+-> Webové rozhraní
+-> Autobaterie
+-> Dálkové ovládání
+
+GPS lokátor do auta - výdrž 100 dní
+-> 6.000, -
+-> Autobaterie
+-> Vlastní baterie
+-> Aplikace android
+
+GPS tracker do auta - výdrž 200 dní
+-> 6.500, -
+-> Vlastní baterie
+-> Aplikace android
+-> Magnety
+
+GPS lokátor TK-104 (výdrž 60 dní)
+-> 4.000, -
+-> Vlastní baterie
+
+GPS lokátor na kolo (výdrž 30 dní)
+-> 4.500, -
+-> Vlastní baterie
+
+GPS lokátor s výdrží 180 dní
+-> 6.500, - 
+-> Vlastní baterie
+-> Magnety
+
+GPS lokátor EXCLUSIVE (výdrž 35 dní)
+-> 6.000, -
+-> Vše nastavitelné !!!
+-> Pasivní režim (pouze logger)
+-> Vlastní baterie
+-> Palubní napájení
+
+GPS lokátor do auta - výdrž 400 dní
+-> 8.000, -
+-> Vlastní baterie
+-> Magnety
+
+GPS lokátor RF-V10 GPS/GSM/GPRS lokátor Motocykl Alarm s dálkovým ovládáním
+-> 2.000, - 
+-> Na sbìrnici
+-> Webová aplikace
+-> Aplikace android
+
+GPS306 tracker, lokátor do auta ,APP Tracker
+-> 3.000, -
+-> Na sbìrnici
+
+a desítky dalších...

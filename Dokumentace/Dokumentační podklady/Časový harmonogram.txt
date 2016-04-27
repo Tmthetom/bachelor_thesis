@@ -1,0 +1,24 @@
+------------------ TODO -------------------
+-------------------------------------------
+
+----------- Èasový harmonogram ------------
+-> 23. 11. 2015 - Rozpoèet a koncept
+-> 15. 03. 2016 - Psaní práce hotovo
+-> 30. 04. 2016 - Kontrola textu hotova
+-> 15. 05. 2016 - Odevzdání práce
+
+---------------- Doøešené -----------------
+-> Rozpoèet
+-> Projekt na Gitlab
+-> Blokové zapojení
+-> Objednání souèástek
+-> Naprogramovat software restart pøi NORMAL POWER DOWN
+-> Klíèenka (pøíliš drahé øešení)
+-> Koncept softwaru (návrh objektù)
+-> Definice cílového zaøízení
+-> Kalukace spotøeby napájení z baterie
+-> Naprogramovat ètení všech pøijatých SMS
+-> Pøehled trhu (konkurence)
+-> Proè to vùbec dìlat
+-> Normy a standardy
+-> Licence knihoven, arduina, ...
