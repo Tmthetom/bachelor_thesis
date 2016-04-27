@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  13 APR 2016 14:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  27 APR 2016 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -604,15 +604,15 @@ Kapitola 1.
 [9
 
 
-] [10] [11] [12]
-Kapitola 2.
-[13
-
-] [14] [15]
-Kapitola 3.
-[16
-
 ]
+Kapitola 2.
+[10
+
+] [11] [12] [13]
+Kapitola 3.
+[14
+
+] [15] [16]
 Kapitola 4.
 [17
 
@@ -620,11 +620,15 @@ Kapitola 4.
 Kapitola 5.
 [18
 
+]
+Kapitola 6.
+[19
+
 ] (./Bakaláøská práce.aux) ) 
 Here is how much of TeX's memory you used:
  3582 strings out of 493027
  45464 string characters out of 6133617
- 133587 words of memory out of 5000000
+ 134585 words of memory out of 5000000
  7063 multiletter control sequences out of 15000+600000
  10693 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -637,10 +641,10 @@ ic/amsfonts/cm/cmss12.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmssbx10.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmssi10.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb>
-Output written on "Bakaláøská práce.pdf" (18 pages, 135732 bytes).
+Output written on "Bakaláøská práce.pdf" (19 pages, 136441 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
+ 102 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
