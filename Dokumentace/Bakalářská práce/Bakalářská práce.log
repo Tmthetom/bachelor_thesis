@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  27 APR 2016 15:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  30 APR 2016 18:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -591,48 +591,92 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 ] [6
 
 ]
-(./Bakaláøská práce.toc)
+(./Bakaláøská práce.toc [7
+
+])
 \tf@toc=\write3
 \openout3 = `"Bakaláøská práce.toc"'.
 
- [7
-
-] [8
+ [8] [9
 
 ]
 Kapitola 1.
-[9
+[10
 
 
 ]
 Kapitola 2.
-[10
+[11
 
-] [11] [12] [13]
+] [12]
+Overfull \hbox (0.18617pt too wide) in paragraph at lines 71--72
+\OT1/cmr/m/n/12 Za^^Tr^^S^^Pzen^^S^^P mus^^S^^P b^^Syt nen^^Saro^^Tcn^^Se na ^^
+Sudr^^Tzbu, to zna-men^^Sa nap^^Tr^^S^^Pklad v^^Sym^^Tenu, nebo dob^^S^^Pjen^^S
+^^P
+ []
+
+
+Overfull \hbox (5.20834pt too wide) in paragraph at lines 74--75
+\OT1/cmr/m/n/12 kter^^Se n^^Tekter^^Se mo-dely ani ne-maj^^S^^P. V^^Tet^^Tsina 
+do-stupn^^Sych mo-del^^Wu je p^^Treprodejem ^^Tc^^S^^Pnsk^^Sych
+ []
+
+[13] [14]
 Kapitola 3.
-[14
+[15
 
-] [15] [16]
+] [16]
+Overfull \hbox (19.24292pt too wide) in paragraph at lines 138--139
+\OT1/cmr/m/n/12 d^^Wule^^Tzitosti p^^Tri v^^Syb^^Teru z^^Sakazn^^S^^Pkem, mezi 
+do-stupn^^Symi pro-dukty na ^^Tcesk^^Sem trhu. Ide^^Saln^^S^^Pmu
+ []
+
+[17]
+Overfull \hbox (37.2594pt too wide) in paragraph at lines 153--154
+[]\OT1/cmr/m/n/12 Vzhledem k tomu, ^^Tze pr^^Sace p^^Trin^^Sa^^Ts^^S^^P vlast-n
+osti st^^Tredn^^S^^P t^^Tr^^S^^Pdy do ka-te-go-rie n^^S^^Pzkon^^Sakladov^^Sych
+ []
+
+[18] [19]
+Overfull \hbox (26.1623pt too wide) in paragraph at lines 221--222
+\OT1/cmr/m/n/12 jsou zkrat-kami a kom-bi-na-cemi slov z an-g-lick^^Seho ja-zyka
+ (0). Na-sta-vi-tel-nost je nadpr^^Wum^^Tern^^Sa
+ []
+
+[20] [21] <graphs/Graf1.pdf, id=84, 448.51427pt x 267.1812pt>
+File: graphs/Graf1.pdf Graphic file (type pdf)
+
+<use graphs/Graf1.pdf>
+Package pdftex.def Info: graphs/Graf1.pdf used on input line 297.
+(pdftex.def)             Requested size: 448.51317pt x 267.18053pt.
+
+Overfull \hbox (21.72183pt too wide) in paragraph at lines 297--298
+[][] 
+ []
+
+[22] [23 <./graphs/Graf1.pdf>]
 Kapitola 4.
-[17
+[24
 
 ]
 Kapitola 5.
-[18
+[25
 
 ]
 Kapitola 6.
-[19
+[26
+
+] [27
 
 ] (./Bakaláøská práce.aux) ) 
 Here is how much of TeX's memory you used:
- 3582 strings out of 493027
- 45464 string characters out of 6133617
- 134585 words of memory out of 5000000
- 7063 multiletter control sequences out of 15000+600000
+ 3591 strings out of 493027
+ 45584 string characters out of 6133617
+ 134600 words of memory out of 5000000
+ 7070 multiletter control sequences out of 15000+600000
  10693 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,11n,54p,1310b,306s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,12n,54p,1310b,335s stack positions out of 5000i,500n,10000p,200000b,80000s
 <d:/Programs/texlive/2015/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmbx12.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmr12.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/pub
@@ -641,10 +685,10 @@ ic/amsfonts/cm/cmss12.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmssbx10.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmssi10.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb>
-Output written on "Bakaláøská práce.pdf" (19 pages, 136441 bytes).
+Output written on "Bakaláøská práce.pdf" (27 pages, 267677 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
+ 141 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

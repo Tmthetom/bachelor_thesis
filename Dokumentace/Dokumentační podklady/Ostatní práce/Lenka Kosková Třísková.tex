@@ -1,0 +1,625 @@
+\documentclass[FM]{tulthesis}
+%\usepackage[czech]{babel}
+%\usepackage[cp1250]{inputenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{rotating}
+\usepackage{slashbox}
+\usepackage[labelfont=bf,font=it]{caption}
+
+\TULthesisType{Teze disertační práce}{The draft of thesis}
+
+\TULtitle{Automatická detekce anomálií při geofyzikálním průzkumu}{Automated anomaly detection in geophysical survey}
+\TULprogramme{3901}{Aplikované vědy v inženýrství}{Applied sciences in engineering}
+\TULbranch{3901V055}{Aplikované vědy v inženýrství}{Applied sciences in engineering}
+\TULauthor{Ing. Lenka Kosková Třísková}
+\TULsupervisor{Ing. Josef Novák, Ph.D.}
+\TULyear{2013}
+\begin{document}
+%%%%%%\ThesisStart{female}
+
+\renewcommand{\textfraction}{0.05}
+
+\ThesisTitle{EN}
+
+\begin{abstractEN}
+The study \emph{Automated anomaly detection in geophysical survey} is an attempt of the application of the pattern recognition techniques into the geophysical data processing domain. The main aim of the application is to speed up the recovery proces after a disaster such as flooding or earthquake. The anomaly to be detected is an object of known geometry and symetry, such as a cavity or underground line utilities. The thesis is focused to two main domains: processing of synthetical gravimetry data and real resistivity tomography data. The paper gives a summary of the state of the research on the selected topic. It includes a proposal of the algorithm and demonstrates the results of the first implementation of proposed algorithm. The paper also defines the objectives of the future research. 
+\end{abstractEN}
+
+
+\vspace{2cm}
+
+\begin{abstractCZ}
+Práce nazvaná \emph{Automatická detekce anomálií při geofyzikálním průzkumu} představuje pokus o aplikaci algoritmů pro rozpoznání struktur v obraze při zpracování geofyzikálních dat. Hlavním cílem práce je vyvinout algoritmy, jež mohou zrychlit průzkum postižených oblastí po katastrofách, jakými jsou záplavy či zemětřesení. Anomálie, jež mají být detekovány, představují objekty o předem známé geometrii a vlastnostech, jako například dutiny či linie pozdemních inženýrských sítí. Práce je zaměřena na dvě hlavní oblasti: zpracování syntetických gravimetrických dat a zpracování reálných dat z odporové tomografie. Práce shrnuje stav výzkumu na dané téma. Obsahuje návrh algoritmu pro detekci struktur v geofyzikálních datech a demonstruje výsledky první implementace algoritmu, definuje také cíle navazujícího výzkumu. 
+\end{abstractCZ}
+
+\listoffigures
+\listoftables
+%% CHAPTER 1: Aims of the thesis
+
+\chapter{Aims of the Thesis} \label{chap:aims}
+The objective of my PhD thesis is research and development of algorithms dedicated to analyze the geophysical data. Any geophysical survey ends up with a set of data describing the properties of the materials hidden under the earth surface. 
+
+The data set has to be analyzed and interpreted; this complex process requires specialist with knowledge of the geophysical theory as well as with a lot of practical experience. In general, such process cannot be replaced by any automated software. But still we can find areas of application, where automated or semi-automated data preprocessing can be helpful and useful. 
+
+My work is inspired by idea to speed up the recovery operation after a disease such as flooding by application of geophysical survey. Rescue team members are not fully qualified geophysics and they will never be. If geophysics is to be applied in the rescue team, the application should be based on well defined standardized methodology empowered by at least semi-automated anomaly detection with target to detect defined anomaly in acquired data near the surface. The anomaly can be a cavity in dam or a hidden mater or engineering network such as pipes or wires. 
+
+The paper presents a short summary based on gravimetry and resistivity tomography. In general, the anomaly detection means to detect pre-defined structures in n-dimensional data vector. A short summary of available detection methods is presented in this paper. Last part contains the algorithm proposals with presentation of acquired results. Presented results were obtained using analytical data. Noise tolerance was tested as well with analytical data and several noise models. 
+
+%% CHAPTER 2: Detailed task definition
+\chapter{Detailed Task Definition} \label{chap:definition}
+
+\section{The Anomaly Description and Definition} \label{sec:AnomalyDef}
+The research is focused to geophysical methodology which is suitable for target application. A suitable methodology should detect anomalies near the surface, the maximal depth is 20 m under the surface. The measuring equipment should be portable and easy to use as it will be used by rescue team members in unstable and hazardous conditions. 
+
+According to the search targets, the rescue team is interested in:
+
+\begin{enumerate}
+\item \textbf{Substantial objects} with dimensions in order of tens of meters (flooded or buried objects f. e.). 
+\item \textbf{Cavities} with typical proportions in order of tens of meters (strength of the dam evaluation).
+\item \textbf{Underground utilities} such as pipeworks or collectors, whose are typically represented as near surface long horizontal cylinders.
+\end{enumerate}
+
+Substantial objects and cavities can be modeled as a geometry body. For the initial research I used several simple bodies (sphere, cylinder, prism) which can be later redefined according to a real application. Underground utilities were modeled as horizontal cylinders with defined material properties (density, resistivity and similar). For later refinement the cylinder location can be modified from strictly horizontal/vertical position to any position.
+
+\section{Geophysical Methodology Selection} \label{sec:MetodologySelection}
+According to anomaly definition and expected near surface location, with support of my consultant specialist, the algorithm development is focused to following methodologies: 
+\begin{enumerate}
+\item Methods based on potential fields with special focus to gravimetry.
+\item Resistivity measurements with focus to resistivity tomography.
+\end{enumerate}
+
+The target is in all cases to estimate the anomaly type, location, depth, proportions and material parameters. 
+
+Two main groups of reference data are used to verify and test the proposed algorithms. First, analytical gravimetry data are used (see Section \ref{sec:GraviData} for details). The resistivity tomography methodology was selected as the second reference methodology. As the reference data sets of real data measured in the underground tunnel in Bedrichov locality will be used. 
+
+\section{Additional Requirements} \label{sec:AdditionalRequiremenst}
+
+To make the software applicable and helpful, the attention must be paid to the visualization of the results. The user must see the location and type of anomaly in relation to the local map and coordinates. The user works in the critical lack of time, therefore the visual presentation must be easy understandable and must not be confusing. 
+
+A set of methods can be used at the location. Therefore the visualization part of the application should be able to display together all the acquired data with achieved analysis.
+
+It must be taken in the account that the application circumstances will hardly allow acquire data in regular grid in the location. Therefore the developed software should be able to transform any irregular grid into selected regular type. 
+
+% CHAPTER 3: Problem analysis and preliminary research
+
+\chapter{Problem Analysis and Preliminary Research} \label{chap:analysis}
+In general, described problem can be solved many ways and a lot of procedures has been already presented and tested (brief summary is available in \cite{Mares} and with focus to gravity and magnetic fields in \cite{Blakely}). 
+
+Most of the interpretation techniques can be divided into two main cathegories: \textbf{\emph{forward}} and \textbf{\emph{inverse modeling}}. The task is always the same: the estimation of distribution and characteristics of the acquired field sources. 
+
+The comparsion of forward and inverse modeling is depicted in Figure \ref{fig:ForwardMethod} and Figure \ref{fig:InverseMethod} (the figures are repainted from \cite{Blakely} page 183). The forward modeling is based on calculating the model of anomaly and comparsion with observed anomaly. The inverse methods calculate the anomaly parameters directly from the observed data. Another approach is based on \textbf{\emph{enhancement of selected characteristics in data and display}}.
+
+The \emph{forward modeling} is based on physical models of the observed field (gravity field, magnetic field etc.). The main task here is to select a propriate physical model and to select a suitable method of parameters estimation. It is obvious that observed and estimated anomaly cannot fit exactly to each other, therefore a similarity metric and similarity criteria must be defined. The general limitation of forward methods is the insuffiency in the case of complicate and inhomogenous subsoil structure. The fast models based on simple anomaly geometry give just a rough estimation of the subsoil structure. The more accurate models are hardware and time demanding. 
+
+\begin{figure}[ht]
+\centerline{\includegraphics[]{pictures/forward_method.pdf}}
+\renewcommand{\figurename}{Figure}
+\caption[Forward method]{Forward method, observed anomaly $A_{o}$, estimated anomaly $A_{est}$. Parameters p1, p2, p3\dots are attributes of the source (the figure is depicted from \cite{Blakely}, page 183).}
+\label{fig:ForwardMethod}
+\end{figure}
+
+\begin{figure}[ht]
+\centerline{\includegraphics[]{pictures/inverse_method.pdf}}
+\renewcommand{\figurename}{Figure}
+\caption[Inverse method]{Inverse method on the left, enhance and display method on the right. Observed anomaly $A_{o}$, parameters p1, p2\dots are attributes of the source (the figure is depicted from \cite{Blakely}, page 183).}
+\label{fig:InverseMethod}
+\end{figure}
+
+The \emph{inverse approach} seems to be more straightforward and faster, but still a simplified physical model is required in this approach as well as independent information. The inverse method can be formulated as linear or nonlinear problem. For example the estimation of the shape of the source in gravimetry results as nonlinear inverse problem. Both linear and nonlinear inverse problems can be unstable and solution can be demanding on hardware. 
+
+The \emph{enhance and display method} is based on assumption that data are observed by a trained and experienced specialist. Presented fact unfits the initial conditions of target application. But still, part of enhancement techniques can be combined with one of two previous approaches to simplify or fast up the process.
+
+
+The aim of this work is not to find a universal inverse solution, but to propose a fast solution suitable to above defined boundary conditions. The main task is not to describe the structure of the undersurface in precious details; the application should in general answer to following questions: 
+
+\pagebreak
+
+\begin{itemize}
+\item Can there be near the surface a cavity (contrast object) with simple body? 
+\item What is the probability of its occurrence?
+\item Where is it located? How deep? What is the best estimated density (mass, conductivity, another material parameter)? 
+\end{itemize}
+
+The advantage of presented application is its limited entry, the search process is limited close to surface. The set of desired anomalies is always limited in size. In target application the emphasis is on algorithm speed and reliability. The anomaly characteristics should be estimated with limited precission as the main interest is a fast answer to the questions listed above.
+
+As the main goal of the initial application is the semi automated data processing with strong demand to visualization of the results, the \textbf{\emph{forward method combined with enhancement and display method}} was selected as the main methodology. The input data will be preprocessed and tresholded to enhance the shapes of anomalies (if present). The next step is the pattern recognition and shape classification and as the last step the shape of anomaly data is be converted into the anomaly characteristics. 
+
+\section{Gravimetry Theory} \label{sec:GravimetryTheory}
+
+\subsection{Introductory Summary} \label{sec:GraviSummary}
+Gravimetry is based on measurement of the gravity. It is not the aim of this thesis to give the detailed introduction to the gravimetry, as it can be easily found in literature (\cite{Mares}, \cite{Blakely} or \cite{Reynolds}). Following text is just a summary of knowledge relevant to design the algorithm. 
+
+Gravity anomaly is a deviation from standard gravity field expected at the location. The methodology is usable in high resolution, with grid step measured in kilometers to detect densities located deep below the Earth surface. The step defined in meters to detect near surface anomaly. 
+
+The gravity anomaly indicates different density of materials under the surface. In our target application it is usable to detect cavities or heavy objects. This detection can be used for example to dam diagnostics or to landslides danger detection. 
+
+The acquired gravity does not reflect only the geological sources. The measured gravity value is always influenced by tidal forces, altitude and terrain topography. Therefore it is necessary to apply all the gravity standard corrections such as Bourger correction or free air correction before the proposed algorithm. A priori information including the information about known anomalies in the neighborhood or deep subsurface (such as location of buildings, constructions, water resources or subway) can help to pre-process acquired data and fast up the detection process.
+
+\subsection{Forward Models} \label{sec:GraviForward}
+
+Gravity effect of any object is proportional to its density. Considering the body of defined volume and density $\rho$ with corresponding gravitational potential $V$ and its vertical component $V_z$ is expressed in Equation (quoted from \ref{eq:potential})(\cite{Mares}). $G$ is the gravitational constant ($G = 6.67\cdot10^{-11}Nm^{2}kg^{-2}$).
+
+\begin{equation} \label{eq:potential}
+V = G \int_{\tau} \frac{\rho}{r} \mathrm{d}\tau \; \; \; V_{z}= \frac{\partial V}{\partial z}
+\end{equation}
+
+The Equation (\ref{eq:potential}) can be used to deduce the horizontal component of gravity effect of object with defined geometry. The geometry can be really simple, such as a sphere or a cylinder. The analytical field description derived from Equation (\ref{eq:potential}) for such bodies are listed in all elementary books focused to the gravitational field theory (for example in \cite{Mares}, \cite{Blakely}, or \cite{Reynolds}).
+
+The definitions for the $V_{z}$ of spherical anomaly gives the Equation (\ref{eq:PotentialSphere}). Next, in the Equation (\ref{eq:PotentialCylinder}) is defined the gravity anomaly over the buried horizontal cylinder of contrast density. Both equations are quoted from \cite{Mares}. The x is the surface distance from the anomaly center to the surface measuring point (\cite{Mares}, page 55). 
+
+\begin{eqnarray} \label{eq:PotentialSphere}
+V_{z}(x,0,0) & = & \frac{GMh}{(x^{2} + h^{2})^{\frac{3}{2}}} \\[2em] 
+(V_{z})_{max} & = & \frac{GM}{h^{2}} \nonumber
+\end{eqnarray}
+
+\begin{eqnarray} \label{eq:PotentialCylinder}
+V_{z}(x,0,0) & = & \frac{2G\pi R^{2}h}{(x^{2} + h^{2})} \\[2em] 
+(V_{z})_{max} & = & \frac{2G\pi R^{2}\rho}{h} \nonumber
+\end{eqnarray}
+
+The Equation (\ref{eq:PotentialPrism}) defines in the \cite{Blakely} the potential over the burried rectangular prism. A lot of modeling software uses the rectangular prism as a base for modeling the more complicated anomaly structure (see \cite{Blakely} for details). 
+
+\begin{eqnarray} \label{eq:PotentialPrism}
+V_{z} & = & G\rho \int_{x_{1}}^{x{2}} \int_{y1}^{y2} \int_{z1}^{z2} \frac{z}{(x^{2} + y^{2} + z^{2})^{\frac{3}{2}}}\\[2em]
+V_{z} & = & G\rho \sum_{i=1}^{2} \sum_{j=1}^{2} \sum_{k=1}^{2} \mu_{ijk} \left[ z_{k}arctan\frac{x_{i}y_{j}}{z_{k}R_{ijk}} - x_{i}ln(R_{ijk} + y_{j}) - y_{j}ln(R_{ijk} + x_{i}) \right] \nonumber \\[2em]
+R_{ijk} & = & \sqrt{x_{i}^{2} + y_{j}^{2} + z_{k}^{2}} \nonumber \\[2em]
+\mu_{ijk} & = & (-1)^{i}(-1)^{j}(-1)^{k} \nonumber
+\end{eqnarray}
+
+All the presented anomaly models are defined for ideally smooth surface, homogenized surrounding subsoil and constant contrast density in the whole anomaly volume.. 
+
+For the more complex anomaly body, we can see models based on the collections of the rectangular prisms, rectangular blocks, laminas and similar regular bodies (for details see \cite{Mares} and \cite{Blakely}). The inverse methods are based on similar models are shortly described in following text.
+
+\subsection{Observed Data and Analytical Data} \label{sec:GraviData}
+
+The output of the measurement is created by several data sets acquired over a profile. The profile is a route of worker with a measuring device. The data points are usually spaced from one to several meters. The profiles do not create direct data grid. The profiles are independent data series obtained by repeated measurement at the locality. Typically 1 to 10 profiles is available. Such data can be interpolated into a rectangular network and this interpolation will be part of pre-processing algorithm. At this point it is just important to emphasize that the recognition process will run over interpolated and not original data.%e Vysvětlit neregulární grid a regulární – obrázek? (viz odstavec 3)
+
+Due to anticipated depth of anomaly, the anomaly is typically covered by several points, typically in 10-20 point range. This fact must be taken into account during the preprocessing procedures. Standard image processing techniques should be used cautiously, because they are designed for bigger data sets.
+
+The interest is focused to the near surface area, but such fact does not remove the influence of the deep anomalies. To separate deep manifestation of supposed deep anomalies from data, spectral analysis can be used. The near surface anomalies are related to higher frequencies in spectrum; again, analysis should be used only when necessary and filtering must be realized carefuly having respect to small amount of data. 
+
+To test proposed algorithms, both synthetical and real data will be used in this thesis. The synthetical data are generates as 1 2D profile with average length 100 m with 4 m step and also as 3D data with surface grid with step 4 m and dimensions 100 x 100 m. 
+
+The density contrast of the anomaly is modeled according to the target application. The possible scenario is anomaly body filled by air, water or a construction material such as debris. The surrounding subsoil can in general consist of any material. If we focus to the probability of occurrence of concrete material, with higher probability we should expect light or heavy rocks, loam, rubble or concrete matherials. The Table \ref{tab:DensityModel} lists the combinations of the most likely combinations of densities for the anomaly and surrounding subsoil.
+
+\renewcommand{\arraystretch}{1.2}
+\begin{table}[htbp]
+\vspace{4mm}
+\begin{tabular}{|p{2cm}|p{2cm}|p{3.5cm}|p{2.5cm}|p{2cm}|}
+\hline\textbf{Anomaly material} & \textbf{Anomaly density [$gcm^{-3}$]} & \textbf{Surrounding matter} & \textbf{Surrounding density [$gcm^{-3}$]} & \textbf{Contrast density [$gcm^{-3}$]}\\
+\hline
+\hline
+Air&0.0&Soil (loam)&1.7&-1.7\\
+\hline
+&&Little solid rock (claystone. marlit)&2.0&-2.0\\
+\hline
+&&Slightly disturbed rocks (limestone)&2.6&-2.6\\
+\hline
+&&Compact heavy construction rock (ambiofits, basalts, gabra)&3.15&-3.15\\
+\hline
+&&Concrete (compact concrete with steel reinforcement)&2.5&-2.5\\
+\hline
+&&Rubble&1.3&-1.3\\
+\hline
+Water&1.0&Light rocks&2.5&-1.5\\
+\hline
+&&Heavy rocks&3&-2.0\\
+\hline
+&&Soil (loam)&1.7&-0.7\\
+\hline
+Concrete&2.5&Light rocks&2.5&0.0\\
+\hline
+&&Heavy rocks&3&-0.5\\
+\hline
+&&Soil (loam)&1.7&0.8\\
+\hline
+&&Rubble&1.3&1.2\\
+\hline
+&&Gravel and sand&1.0&1.5\\
+\hline
+\end{tabular} 
+\renewcommand{\tablename}{Table}
+\caption[The expected anomaly density contrasts]{The expected anomaly density contrasts}
+\label{tab:DensityModel}
+\vspace{4mm}
+\end{table}
+
+\begin{figure}[ht]
+\centerline{\includegraphics[]{pictures/model_groups.pdf}}
+\renewcommand{\figurename}{Figure}
+\caption[Selection of density models]{Selection of density models}
+\label{fig:SelectionModel}
+\end{figure}
+
+
+For the initial modeling, it is not necessary to model all of the density combinations listed in Table \ref{tab:DensityModel}. Figure \ref{fig:SelectionModel} shows a distribution for values listed in the Table \ref{tab:DensityModel}. We can see several groups of the contrast density values. Finally I have selected four values of contrast density:
+
+\begin{itemize}
+\item Model A with \textbf{high negative contrast density} $-3$ $gcm^{-3}$ stands for the air anomaly located in high density materials such the slightly disturbed and compact heavy construction rock.
+\item Model B with \textbf{middle negative contrast density} $-1.75$ $gcm^{-3}$ stands for the air anomaly hidden in low density subsoil together with the water anomaly in rocks.
+\item Model C with \textbf{low negative contrast density} $-0.5$ $gcm^{-3}$ stands for the air or water anomaly located in the subsoil with low density. 
+\item Model D with \textbf{small positive contrast density} $1$ $gcm^{-3}$ stands for the anomaly created by a rock or concrete.
+\end{itemize}
+
+
+\subsection{The Current Research} \label{sec:GraviCurrentResearch}
+
+The idea to use the pattern recognition in gravity data interpretation is not original, the image processing is already used to process gravity data and related software is also available.  Matlab based open source software was presented by \cite{Ozgu}. 
+
+A lot of application is based on the edge detection (\cite{Sertcelik} or \cite{Aydogan}). G. R. J. Cooper used several image processing and computer graphics techniques to emphasize structures in gravity data (sun shading \cite{Cooper2003}, visibility \cite{Cooper2005} or textural analysis \cite{Cooper2004}). Line detection and Hough transform is also used to interprete gravity data. Detailed description of Hough transform application in geosciences is available in \cite{Fitton}. Deconvolution and Euler deconvolution based techniques were also used to analyse the gravity data (\cite{Salem}, \cite{Fitzgerald}, \cite{Cooper2008}).
+
+Regarding the traditional inverse procedures, the 3D gravity data interpretation is usually based on models using series of rectangular parallelpipeds or rectangular prisms (\cite{Rao}).
+
+Even when a lot of software and procedures based on image processing were already published, the target application is not covered yet. Proposed procedures can enhance the data interpretation, but still cannot work as a semi-automated process without full time supervision of a well trained and expierenced specialist. 
+
+\subsection{Depth Determination for Simple Body} \label{sec:GraviDepth}
+
+The determination of the centre of the mass or the top of the anomaly body is the one of the major importances of the gravity data analysis. 
+
+Using the forward models for the simple anomaly bodies such as sphere, horizontal cylinder, vertical cylinder, prism or thin sheet, we can set the relation between the gravity anomaly and its depth directly from the forward model equation. The base idea is to use the forward model to express the \textbf{half width} $x_{0.5}$ of the anomaly (the surface coordinate where the amplitude of measured gravity is the half of the measured maximum) as a function of depth. For the sphere, the process is following: the $V_{z}$ and $V_{max}$ from Equation (\ref{eq:potential}) are combined together and used to express the half $V_{z}$ value and obtained equation is solved for $x_{0.5}$ as it is demonstrated in the Equation (\ref{eq:DepthSphere}) for the spherical anomaly. The derivation of the $x_{0.5}$  and the depth relation is similar for another simple geometry body (see \cite{Mares} page 55-57 or \cite{Reynolds}, page 51-52). 
+
+\begin{eqnarray} \label{eq:DepthSphere}
+V_{z} & = & V_{max} \times \frac{h^{3}}{\left(x^{2} + y^{2}\right)^{\frac{3}{2}}} = \frac{V_{max}}{\left(\left(\frac{x}{z}\right)^{2} + 1^{2}\right)^{\frac{3}{2}}}\\[2em]
+V_{z}(x_{0.5}) & = &  \frac{V_{max}}{2} = \frac{V_{max}}{\left(\left(\frac{x_{0.5}}{z}\right)^{2} + 1^{2}\right)^{\frac{3}{2}}}\nonumber\\[2em]
+2 & = & \left(\left(\frac{x_{0.5}}{z}\right)^{2} + 1^{2}\right)^{\frac{3}{2}} \nonumber\\[2em]
+z & = & h = 1.305\times x_{0.5}\nonumber\\[2em]
+\Delta M & = & \frac{V_{max}h^{2}}{G} = \frac{4}{3} \pi R^{3} \Delta \rho
+\end{eqnarray}
+
+When the depth is estimated, the original equation defining the $V_{max}$ value from the original forward model can be used to calculate the estimation of the density or the mass of the anomaly. The Table \ref{tab:GravityModel} on the next page lists all the simple models with its equations, the depth estimations and the required anomaly shape in the data.
+
+
+\begin{sidewaystable}
+\renewcommand{\arraystretch}{1.2}
+%\rotatebox{90}{
+\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Anomaly type}&\textbf{The model and equations}&\textbf{The depth estimation}& \textbf{Shapes; Characteristics}\footnotemark \\ \hline \hline
+Sphere & $$(V_{z})_{max} = G\frac{4}{3}\pi\Delta\rho\frac{R^{3}}{z^{2}}$$ & $$z = h = 1.35x_{0.5}$$ & Circle; Radius\\ \hline
+Horizontal cylinder (infinite length) & $$(V_{z})_{max} = \frac{2G\rho}{z}$$ & $$z = h = x_{0.5}$$ & Parallel lines; Half of the lines distance\\ \hline
+Vertical cylinder (narrow position, semi infinite) & $$(V_{z})_{max} = \frac{G\rho}{z}$$ & $$z = \frac{\sqrt{3}}{3}x_{0.5}$$ & Circle; radius \\ \hline
+Rectangular prism & See the Equation (\ref{eq:PotentialPrism}) & &Two orthogonal pairs of parallel lines; Width and height of detected rectangle at selected levels\\ \hline
+\end{tabular}
+%}
+\renewcommand{\tablename}{Table}
+\caption[The gravity anomaly analytical models]{The gravity anomaly analytical models}
+\label{tab:GravityModel}
+\end{sidewaystable}
+
+\footnotetext{Shapes and characteristics mean the shape to be detected and characteristics to be measured in thresholded image.}
+
+\section{Resistivity tomography}
+\subsection{Introductory Summary}
+The resistivity tomography method is modern geophysical methodology. The image of the subsurface is obtained by measuring the resistivity of the subsoil using a large number of electrodes, which are sequentially put through to different configurations. The electrodes can be located at the surface or in the boreholes. 
+
+The measured resistivity values are interpreted with inversion procedures. The fast and simple one dimensional inversion assumes that the subsurface consists of horizontal layers. The 2D inversion method takes in account also the lateral changes of the resistivity. The output of the 2D inversion procedure is apparent resistivity pseudosection, which is typically depicted in a picture of characteristic trapezoidal shape, where selected colors refer to a selected level of apparent resistivity.
+
+The shape of contours in the pseudosection over one structure depends strongly on the configuration of the electrode array. A brief reference for the most used electrode configuration is given in \cite{Loke} at pages 24-25. It means that the information about currently used electrode configuration is essential when we think about pattern recognition in pseudosection data. 
+
+\subsection{The Application}
+The resistivity tomography measurement is a part of a project \emph{Monitoring of the behaviour of the rock massif joint systems via geophysical methods} which is realized with support of the Technology Agency of the Czech republic by the company G Impuls, The Carl university in Prague and Technical University in Liberec. The goal of the project is making of an effective system for the long-term monitoring of the rock massif, via non-destructive geophysical methods. This system should be usable during the realization of the underground repository of the nuclear waste. The system is  based on the geoelectric and seismic parametres of the rock massif. The system will observe long-term changes in the massif properties in immediate vicinity of the mine working. An functional sample of the system of measurement and the methodology for the realization of the measurement and the interpretation of the measurement is to be made.
+
+The plan is to use the output tomography resisitivity data from the monitoring project to test the anomaly detection algorithms in the real field geohpysical data in this thesis. In the case of sucessfull detection, the proposed algorithm can be part of the solution of the monitoring project. According to the task specification, the target for the automated detection is to detect any anomalous change in the data. 
+
+\section{The Proposed Algorithm} \label{sec:GraviAlgorithm}
+
+The proposed algorithm is the main part of the thesis and it is the main original research done by the author. The algorithm for the detection in the gravity data\footnote{The anomaly detection should use similar steps as the gravity anomaly detection algorithm. The parts of the algorithm, which are strongly dependent on the selected methodology - such as depth determination - will be replaced with corresponding physical model. The initial data processing, such as later described threasholding, slicing and structure detection methods remain the same as for the gravity data.} is based on the depth determination from the forward model description and pattern recognition. 
+
+The limitations of the depth determination described the previous section should be specified at the beginning. 
+
+First, the reverse task in the gravimetry is ambiguous. The anomaly appearance in data is based on the total mass of the anomaly. For example, the identical anomaly gravity may be caused by different spheres with different density but with equal total mass. In general, the dimensions of the causative body can be estimated only if the anomaly density is known as a priori information. Fortunatelly, in the target application, we have the priori information: A set of supposed anomalies is given by the initial problem definition (small cavities, metal bodies etc.). The general task is to estimate, whether the data correspond to the occurrence of one anomaly or a more complex set of anomalies. The output of the algorithm is the definition of the most probable anomaly type and location.
+
+ Second, we should know the forward model of the anomaly, which limits the usage to simple causative bodies such as a sphere, prism, cylinder etc. If the forward model is not known, we cannot set the relation between the depth and $x_{0.5}$ value. There are two possible approaches how to solve this problem:
+
+\begin{enumerate}
+
+\item \textbf{Approximation} of the complex body by a simple causative body with known forward model such as set of prisms, layers. It should be mentioned that precise modeling of the anomaly is not the main aim of this application: we need to detect the anomaly and roughly estimate its source body characteristics.
+
+\item \textbf{Replacing} of the direct model by the estimation of relation between the depth and half width obtained by statistical or neural processing of the appearance of real anomaly in the reference data. The reference data can be obtained by real measurement at already known and described anomaly or it can be created analytically using any method of gravity field modeling. 
+
+\end{enumerate}
+
+The depth estimation from the forward model also works for homogenous surrounding subsoil and the only one isolated anomaly. In the real application, the surrounding subsoil is not homogenous and the obtained data set is affected by a lot of other anomalies. The noise is always present in the real data as well. 
+
+\begin{figure}[ht]
+\begin{tabular}{c c}
+\includegraphics[width=7cm]{pictures/sphere_slices.png} & \includegraphics[width=7cm]{pictures/cylinder_slices.png}
+\end{tabular}
+\renewcommand{\figurename}{Figure}
+\caption[Anomaly slicing - sphere and cylinder]{Thresholding of a sphere (left) and vertical cylinder (right) anomaly mass. The picture demonstrates the shape of the slices get at the level of 10 \%, 30 \%, 50 \%, 70 \% and 90 \% of maximum value in the data. The shape of 90 \% value is used to get the location of the center of the anomaly body. The shape of the 50 \% level is used to get the input data for the depth estimation. Other levels provide the secondary information whether the anomaly is isolated or other sources should be detected. If a circular structure is identified at middle level, both sphere and vertical cylinder are used as anomaly candidates.}
+\label{fig:AnomalySlicingSphere}
+\end{figure}
+
+The depth determination has two principal steps. First, the anomaly is sliced at least two levels to get the shape of the top of the anomaly and the shape of the middle area (the Figure \ref{fig:AnomalySlicingSphere} illustrates the idea of slicing - a reader can see shapes given by shperical anomaly with comparsion to the vertical cylinder anomaly). Slicing near the maximum value gives the shape of the maximum area in data. The location of the maximum and its shape is a prior information for the anomaly type and location estimation. 
+
+\begin{figure}[ht]
+\begin{tabular}{c c}
+\includegraphics[width=7cm]{pictures/prism_slices.png} & \includegraphics[width=7cm]{pictures/horizontal_slices.png}
+\end{tabular}
+\renewcommand{\figurename}{Figure}
+\caption[Anomaly slicing - prism and vertical cylinder]{Anomaly characteristics for the rectagonal prism (left) and horizontal cylinder (right). The picture demonstrates the shape of the slices get at the level of 10 \%, 30 \%, 50 \%, 70 \% and 90 \% of maximum value in the data. The shape of 90 \% value is used to get the location of the center of the anomaly body. The shape of the 50 \% level is used to get the input data for the depth estimation. Other levels provide the secondary information whether the anomaly is isolated or other sources should be detected. If at least two parallel lines are detected at any level, the cylinder is always on of the anomaly candidates. }
+\label{fig:AnomalySlicingPrism}
+\end{figure}
+
+The shape of the slice of the middle area has to be measured to get the $x_{0.5}$ value for the depth estimation. The pattern recognition is used to detect typical structures in this slice - if linear structures are detected, a prism or horizontal cylinder come as anomaly type candidates. If circular structures are detected, sphere or a vertical cylinders are candidates. If the structure recognition gives ambigous answer, more slices at different levels are created and the structure recognition is repeated. The horizontally located cylinder anomaly or any prism like anomaly create linear structures in data. As an illustration the Figure \ref{fig:AnomalySlicingPrism} demonstrates the structures detected at different slice levels for the horizontal cylder or a rectangular prism anomaly.
+
+\begin{figure}[ht]
+\begin{tabular}{c c}
+\includegraphics[width=7cm]{pictures/prism_sphere_slices.png} & \includegraphics[width=7cm]{pictures/sphere_like_prism.png}
+\end{tabular}
+\renewcommand{\figurename}{Figure}
+\caption[Sphere and rectangular prism gravity anomaly]{Spherical anomaly on the left side, cylindrical on the right side - the shape of the body and total mass is very similar and the anomaly field is close to each other. Both anomaly bodies are located 5 m under the surface. The sphere has radius 2 m, rectangular prism is a 4 m cube.}\label{fig:AnomalySphereAndPrism}
+\end{figure}
+
+The rectangular prism is an example of the anomaly body, which gives both the circular and linear structures at different slice levels. The precise detection of the rectangular prism therefore requires to compare precisly the shapes of different level slices. The lowest is the density contrast between the anomaly and subsoil, the more complicated is the detection. Again here is important to look back to the initial application idea - the anomaly must be detected and localized. The precise shape detection is not the most important part, as in the real application we will never search for the ideal sphere or ideal cubical structure. The figure \ref{fig:AnomalySphereAndPrism} illustrates the situation when prism model will be detected as a spherical anomaly, but in the correct surface coordinates and with correct depth and contrast density estimation. 
+
+Each of causative body type has its characteristic shape in the measured data. A circle anomaly structure can be sign of a buried sphere or horizontal cylinder, a line can be a sign of horizontal cylindrical or a prism structure. Different anomaly types can have similar shapes (as it was demonstrated in the Figure \ref{fig:AnomalySlicingSphere}), the first search process can therefore give several results. It means that we got anomaly type candidates and in next steps the detection process is run in parallel for all the candidates.
+
+\begin{figure}[ht]
+\renewcommand{\figurename}{Figure}
+\centerline{\includegraphics[width=7cm]{pictures/multiply_anomaly_slices.png}}
+\caption[Anomaly slicing - multiply anomaly sources]{Multiply anomaly source, the anomaly is modeled using vertical cylinder (right anomaly in the middle), a sphere (left circular structure) and horizontal cylinder. Slicing at different levels and comparing the shapes level by level allows to detect several peaks in the area and allows to detect the multiply source. To get detail, slicing can be focused to level, where multiply anomaly appears (red line, slice at 10 \% of maximum value). The local maximum value of this area should be used to define new slicing levels at at least 90 \% and 50 \% of this local maixmum value.}
+\label{fig:AnomalySlicingMultiplyAnomaly}
+\end{figure}  
+
+Another problem can appear when multiply anomaly sources are presented in the measured area as it demonstrates the Figure \ref{fig:AnomalySlicingMultiplyAnomaly}. This problem can be eliminated by slicing at different levels and comparing the shapes at different levels. Proposed methodology was tested at several models, but it is not yet implemented in general and it is the subject of further research for the thesis. The proposed idea is to search for patterns at each level, if the pattern is presented at lower levels, than the search area is zoomed closer to the structure and new maximum value is to be selected.
+
+\begin{figure}[ht]
+\centerline{\includegraphics[]{pictures/recognition_steps.pdf}}
+\renewcommand{\figurename}{Figure}
+\caption[The pattern recognition steps]{The pattern recognition steps in anomaly detection: Blocks with no fill color are universal and its functionality is independent of measurement method as well as of anomaly type. Blue fill color is used for blocks where the calibration is done using the pattern characteristics, green blocks are calibrated using the analytical model of the anomaly.}
+\label{fig:RecognitionSteps}
+\end{figure}
+
+The full proposal of the algorithm is given in the Figure \ref{fig:RecognitionSteps}. The function of depicted blocks is following:
+
+\begin{enumerate}
+\item \textbf{Data pre-processing} (optional). This initial part of the algorithm is dedicated to data preparation for the future processing. The incomming data may be mixed with the noise signal for example and smoothing can be used to reduce the noise  (see section \ref{sec:Noise} for details). Any other enhancement procedure can be also used with the target to enhance the structures for the detection - instead of original data its horizontal derivation can be used, or other techniques can be used as it is described in \cite{Cooper2003} and \cite{Cooper2005}. The real implementation of the pre-processing step must be selected in the future accordig to the real application data and method.
+\item \textbf{Image tresholding (slicing)} and conversion of the data to grayscale or black and white pictures. The tresholding is focused to highlight the searched patterns. The output of the process is a pair or a set of slices of the anomaly in black and white pictures. 
+\item \textbf{Image enhancement} is designed to emphasize searched patterns. The process is is based on morphological operations such as image erosion; with target to close the semi-opened structure areas and to emphasize the edge structures. Compared to preprocessing algorithms, this part of the algorithm is general, independent of selected geophysical methodology. The aim of the enhancement is to localise the center of the image and contours of the shapes.  
+\item \textbf{The recognition and segmentation} based on line and edge detection and the shape recognition. First using the Hough transform we search through the image for lines. If lines are detected, it must be decided, whether lines run in parallel or if a rectangular shape is presented in the image. If no lines are detected, we search through the image for circle-like structures. Here we can get several candidates (for example, in the case of sphere as well as of vertical cylinder both respond by a circle structure in data). If yes, several anomaly candidates type are selected and next steps should run in parallel for all the anomaly type candidates.
+
+\begin{figure}[ht]
+\renewcommand{\figurename}{Figure}
+\centerline{\includegraphics[width=10cm]{pictures/detection_cylinder.png}}
+\caption[Gravimetry - detection of horizontal cylinder]{Detection of the cylindrical anomaly. Original picture at the left side. The shape of the middle slice at the right side, lines detected at the border of the area are depicted in white. In green is depicted the line from the top level slice, used to determine the center line of the anomaly. }
+\label{fig:DetectionHC}
+\end{figure}
+
+\item \textbf{Extracting the characteristic points} and measuring the distances needed for the parameter estimation. In this part of the algorithm it is necessary to have the conversion between the measured characteristics and the real anomaly parameters. For the gravity measurements, I use the depth determination based on the localisation of the $x_{0.5}$ value as it was described above. For example, when circle like structures are detected, the diameter of the area is measured, for parallel lines I measure its distance. The conversion for the rectangular prism is not defined yet, it is an objective of the future research. In general, this step can be based on the physical model of the anomaly or a conversion lookup table or similar techinque can be used for example. The lookup table can be a result of machine learning process based on processing of a set of already interpreted real anomalies. 
+
+\begin{figure}[ht]
+\renewcommand{\figurename}{Figure}
+\centerline{\includegraphics[width=10cm]{pictures/detection_cylinder_line.png}}
+\caption[Gravimetry - detection of horizontal cylinder, step 1]{Detection process of the cylindrical anomaly. The original data at the left side, on the right side is depicted the top level slice and detected line.}
+\label{fig:DetectionHC2}
+\end{figure}
+
+\item \textbf{Parameters estimation} based on the analytical model and known (estimated) anomaly type as described in the previous theoretical chapter. Again, if no analytical model is available, a conversion based on machine learning can be used as described in previous paragraph.
+\item Estimation of the \textbf{theoretical field}. Estimated parameters set is used in the analytical model to get the theoretical anomaly field. If several anomaly type candidates were obtained in step 4, all possible fields are calculated.
+\item \textbf{Comparsion} of the original and estimated field. If several candidate fields were estimated, in this step the best fitting anomaly candidate is selected. The comparsion of the anomaly candidate field is based on Eucleidian metrics. The best fitting candidate is selected.
+\end{enumerate}
+
+\begin{figure}[ht]
+\renewcommand{\figurename}{Figure}
+\centerline{\includegraphics[width=10cm]{pictures/detection_example_1.png}}
+\caption[Gravimetry - Example of detection]{A horizontal cylinder example, original data on the left, proposed anomaly model on the right. Original depth is 22 m, estimated is 23 m.}
+\label{fig:DetectionHC3}
+\end{figure}
+
+\begin{figure}[ht]
+\renewcommand{\figurename}{Figure}
+\centerline{\includegraphics[width=10cm]{pictures/detection_example_2.png}}
+\caption[Gravimetry - Example of detection]{A sphere detection example, original data on the left, proposed anomaly model on the right. Original depth is 22 m, estimated is 16 m.}
+\label{fig:DetectionSphere}
+\end{figure}
+
+
+\subsection{Achievements} \label{sec:GraviAchievments}
+
+ The proposed algoritm was implemented and tested as a software in Matlab. Implemented is detection of isolated anomaly of spherical and cylindrical type. Denoising procedures are implemented as well. For the future research stands the detection of a rectangular structures and isolation of sources for multiply anomaly with proposed algorithms. Figures \ref{fig:DetectionHC3} and \ref{fig:DetectionSphere} illustrate the process of the detection. At both pictures, we see the original input data on the left side, the estimated anomaly on the right side. The position of the anomaly is detected correctly (according to the precision of the grid step). The depth determination for the sphere depicted in Figure \ref{fig:DetectionSphere} is not highly precise, but the mass of the anomaly is estimated correctly. In this particular case, we see a lot of noise in tne original data. The precission of the detection process increases if the smoothing filter is applied before the anomaly detection.
+
+The lines are detected correctly and horizontal cylinder anomaly is detected with high precission, even if the data are mixed with the noise signal. The vertical cylinder and sphere anomaly are detected correctly above of 80 \% of the experiments. With higher noise level the detection of a spherecial anomaly is more often confused with the vertical cylinder. The higher precission of detection can be obtained using the information from another levels of slicing. This part of the algorithm will be implemented in the next phase of the research.
+
+\textbf{Advantages}
+
+\begin{itemize}
+
+\item Universal solution independent of the selected measuring methodology.
+
+\item The method can be successful for any type of the anomaly, if it has typical pattern in data which can be related to anomaly characteristics. As it was mentioned in previous section, the conversion can be based on the theory or on the practical experience and machine learning process. Even if there is no conversion from the detected structures to the real anomaly model, the initial parts of the algorithm still can be used to emphasize the anomaly part of the data and to localize the anomalies.
+
+\item The method seems to be noise resistant.
+
+\end{itemize}
+
+\textbf{Disadvantages and risks}
+
+\begin{itemize}
+
+\item The recognition works correctly with large set of data (images): the less data is available, the worse result is obtained. 	
+
+\item The success of the method is based on the proper pattern definition. It is necesary to define a conversion from the patterns to real anomaly bodies. This feature of the algorithm is listed in both advantages and disadvantages. This feature gives us a universal solution. On the other hand, for real application we can face the situation, when the analytical model is too complex or the machine learning process is not possible because of lack of experimental data.
+
+\item Due to ambiguity of the problem, false anomaly can be located in the data. Several different physical sources can generate the same or similar pattern in data. 
+
+\item If the anomaly field consists of multiply sources, it can be modeled by a complete different single source.
+
+\end{itemize}
+
+
+\subsection{Inverse Methods as a Reference}
+This approach can be used, if physical model of the anomaly can be described by parametric equation. Each anomaly type has its own characteristic equation with set of parameters to estimate. Numerical methods are used to find the most probable set of parameters. 
+
+To detect anomaly type, several models can be solved in parallel and results compared. Or there can be additional type-checking based on data processing similar to pattern recognition. 
+
+\textbf{Advantages}
+
+\begin{itemize}
+
+\item If the analytical definition of the anomaly field exists, the numerical solution can give the precise estimation of anomaly.
+
+\item The method is usable for small data set (comparing to pattern recognition).
+
+\end{itemize}
+
+\textbf{Disadvantages}
+
+\begin{itemize}
+
+\item The analytical definition of the anomaly field may not be available or may not exist at all. 
+
+\item The complex problem can lead to problems with convergence. The solution may be time or hardware demanding.
+
+\end{itemize}
+
+
+\subsection{The Noise}\label{sec:Noise}
+In general, the real geophysical data can contain a noise. The source and the nature of the noise depends on the methodology. The clean anomaly picture in the data can be overshadowed by the influence of other source bodies. Typically, a lot of method based corrections are applied to data before the data are analyzed (such as free-air, Bourger, terrain or building correction in gravimetry). Such correction is a standard, well described, widely used procedure, which is often automated or semi-automated. Therefore in this text it is assumed that corrections were already applied to the data.
+
+Another source of the noise is the noise of the measuring equipement itself, the random or systematical errors or the noise of the surrounding environment (swell noise in seismics for example).
+
+\begin{figure}[ht]
+\renewcommand{\figurename}{Figure}
+\centerline{\includegraphics[width=10cm]{pictures/noise_1.png}}
+\caption[Noise elimination - input data]{The original analytical data (left) and the noise corrupted data (right). The analytical data is a gravity anomaly over a buried horizontal cylinder. The contrast density is set to $2\;gcm^{-2}$ to simulate the air-filled cylinder in common rocks. The noise is a random signal with normal distribution, mean value is zero, standard deviation is 1. The random signal is related to the maximum value in input data – the maximum in the random signal is limited to 10 \% of the maximum in the analytical data.}
+\label{fig:NoiseInput}
+\end{figure}
+
+
+\renewcommand{\arraystretch}{1.2}
+\begin{figure}[ht]
+\renewcommand{\figurename}{Figure}
+\begin{tabular}{|l|c|c|}
+
+\hline
+\backslashbox[28mm]{Filter type}{Kernel size} &3 x 3&5 x 5\\ \hline
+Averaging & \includegraphics[width=4.5cm]{pictures/averaging_1.png}& \includegraphics[width=4.5cm]{pictures/averaging_2.png}\\ \hline
+Gauss filter & \includegraphics[width=4.5cm]{pictures/gauss_1.png}& \includegraphics[width=4.5cm]{pictures/gauss_2.png}\\ \hline
+Median filter & \includegraphics[width=4.5cm]{pictures/median_1.png}& \includegraphics[width=4.5cm]{pictures/median_2.png}\\ \hline
+Wiener filter & \includegraphics[width=4.5cm]{pictures/wiener_1.png}& \includegraphics[width=4.5cm]{pictures/wiener_2.png}\\ \hline
+\end{tabular}
+\caption[Noise elimination - summary]{Denoising procedures demonstrations. Each row in the table shows the result from the same type of the filter, in the left column the smaller mask is used.}
+\label{fig:NoiseSummary}
+\end{figure}
+\clearpage
+
+To test the resistance of the algorithm to the noise in the data, the analytical signals used in this thesis were combined with two random signals, with normal and uniform distribution. Following image processing based noise reduction algorithms were tested: 
+
+\begin{itemize}
+\item Averaging filters with kernel 3x3 and 5x5
+\item Gaussian filter with kernel 3x3 and 5x5
+\item Median filter with kernel 3x3 and 5x5
+\item Wiener filter with 3x3, 5x5 and 10x10 filter
+\end{itemize}
+
+The proposed algoritm is to be based on the pattern recognition and mostly the lines, edges and other simple patterns should be detected in the data in general. As the illustration, analytical gravimetry data with horizontal cylinder were used. The clean analytical and noise corrupted data are presented in the \ref{fig:NoiseInput}. As it was described in section \ref{sec:GraviAlgorithm}, detection of such anomaly is based on line detection after tresholding in the source image. The noise level is so high, that no lines are detected in thesholded image.
+
+The test restults are depicted in Figure \ref{fig:NoiseSummary}. It is not surprising that the bigger kernel results with better smoothed data. But in the case of Gauss smoothing and median filtering the bigger kernel except the noise smoothing also distorts the shape of the anomaly, which leads to incorrect parameter estimation. The best illustration for such situation gives the $5x5$ kernel for the Gauss filtration (see Figure \ref{fig:NoiseSummary}, the right column). The data are smoothed, but the hidden anomaly is smoothed as well and the original central line is lost. It means that the detection software will detect horizontal cylinder anomaly, but the depth and contrast density will not be correct. The anomaly is deformed and will be misunderstood as a deep and heavy object. The best results were obtained with Wiener filtering (again, see the Figure \ref{fig:NoiseSummary}, the forth row). Wiener filter provides the best smoothing without damaging the characteristics of the anomaly. (The filter types were not tested only for presented anomaly example, but also for another types of anomalies as well as for another noise models). Therefore the adaptive Wiener filter was selected as the preprocessing denoising filter. 
+
+The only limitation of the Wiener filtration is its performance at the border of the image. The smoothing of the center area of the image is allways satisfactory. But depending on the kernel size, the border of the image is unsmoothed. The unsmoothed image border disturbs the feature detection in the next algoritm steps (see \ref{fig:NoiseWienerWeak}). If the input data matrix is sufficiently large, the best solution is to reduce the size of the denoised image and omit the image egdes from the next processing. 
+
+\begin{figure}[ht]
+\renewcommand{\figurename}{Figure}
+\centerline{\includegraphics[width=10cm]{pictures/wiener_weak_point.png}}
+\renewcommand{\figurename}{Figure}
+\caption[Denoising with Wiener filer, weak points]{The weak point of the Wiener filtration. The image borders are not smoothed. The central high line in the image is overshadowed by noise spikes at the edges of the image and the line structure is not detected. The anomaly will be classified incorrectly.}
+\label{fig:NoiseWienerWeak}
+\end{figure}
+
+If the input data matrix is really small (less than 20x20 pixels), none of the pixels can be ommited, otherwise the size of the picture would be dramatically reduced. Therefore the Wiener filter should be replaced by another type of smoothing filter with smaller kernel. Based on a set of tests, Median filter was selected as apropriate solution in this case.
+
+\subsection{Implementation and software}
+The final standalone application should be able to import the data, to manipulate the data and to run and visualize the anomaly search. The target hardware and software platform is still open, even if there is a proposal. To keep the software flexibile and extensible, the Java was selected as the main target application platform. It was decided to implement the example of this application for the Android operation system, because an Android based tablet was selected as the target application device with following reasons:
+\begin{itemize}
+\item \emph{Manipulation}: The target application is supposed to be used by members of the rescue team in unstable and stresfull environment. The application itself should be easy to use, with easily understandable and intuitive user interface. The touch-screen based Android user intefrace prefectly sits this requirement. 
+\item \emph{Portability in field}: The rescue teams are working in field. The target defice should be light, easy to carry, ideally using one hand. The tablet stands here as ideal platform. 
+\item \emph{Energy saving}: The rescue team works in condition with limited power sources. The acces electricity may be limited or unavailable. The tablet device fits such requirement: it is designed to be economical in power consumption. It can work hours without need of recharge, the recharging is fast. Important feature is also weight of the device. A tablet itself may seem as a fragile device. It can be solved using propriate robust case.
+\item \emph{Universality}: The tablet is a simple, easy to use, power economic device with all standard computer pheripherals: it can be easily connected to the computer and communication networks, using standard technologies such as Bluetooth or USB it can be easily connected to other devices. 
+\item \emph{Price}: The total cost of the tablet is far lower compared to the personal computer, a second cadidate device.
+\end{itemize}
+
+For the initial experiments, the Nexus 7 device with Android 4.4 was used. The selected device is light, heavy, stable and powerfull.
+
+The Java and Android lead to object oriented programming and MVC design pattern. 
+
+During the development phase, the algorithms are implemented, tested and verified in the Matlab environment using the functions from Image processing toolbox such as the implementation of Hough transform or Wiener filtering. To speed up and simplify the development process, the application \emph{AnomGeo} was created using the Guide environment in Matlab. The \emph{AnomGeo} is designed using the OOP and MVC design and parts of the application are to be transferred to Java and Android. 
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=17cm]{pictures/anomgeo_structure.png}}
+\renewcommand{\figurename}{Figure}
+\caption[AnomGeo software, object model]{The AnomGeo application and its classes.}
+\label{fig:AnomGeoArch}
+\end{figure}
+
+
+\emph{AnomGeo} is an application written in Matlab with support of the GUIDE environment. It is designed according to MVC design pattern and it is designed to be portable in future to the Java and Android environment. The initial requirement was to create a GUI dedicated to area and anomaly definition to have a simple tool to generate the analytical data. This initial part of the application was implemented by Artem Slizkov as his bachelor thesis with supervision of the author of this thesis, see \cite{Slizkov} for details. Later I extended the functionality of the alghorithm to add the noise model and to test the detection algorithm.
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=17cm]{pictures/anomgeo.png}}
+\renewcommand{\figurename}{Figure}
+\caption[AnomGeo software, main window]{The anomgeo main window is used to define the anomalies and profiles. The software is easily adaptible to new gravimetry methods and anomaly models.}
+\label{fig:AnomGeoMain}
+\end{figure}
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=12cm]{pictures/anomgeo_estimation.png}}
+\renewcommand{\figurename}{Figure}
+\caption[AnomGeo software, estimation GUI]{AnomGeo, the target GUI for the structure detection.}
+\label{fig:AnomGeoEstimation}
+\end{figure}
+
+The application is designed to be easily portable. The main three objects (Model, View, Controller) work according to MVC pattern. In the GUIDE Matlab environment, the Controller object is connected to a set of GUI object. Current application architecture is depicted in Figure \ref{fig:AnomGeoArch}. The Model object consists of the Area defining the grid and field characteristics. The Area contents one or a set of Anomalies. The Anomaly object defines the anomaly field. The Anomaly itself is created using a propriate model. To have the application easily extendible, the anomaly model is not part of the object definition. The anomaly model definition are created by a set of the simple M functions stored in defined folder. The main application during its start scans folder with predefined models. It means that anybody can easily add a new anomaly model, a new model is added to aplication when it starts. To add an anomaly model means to create two small M files: first one defines the anomaly parameters, second one contains the anomaly generating function. Instead of function, any other source of data can be used (already measured data for example). To eliminate the M script language it is planned for future work to implement also a Java connector for the anomaly definition - a user will be allowed to define the anomaly creating function in Java as well.
+
+The Solver object is reserved for the structure detection. It consists of set of functions such as morphing, line detection, circle detection, middle point search etc. Functions are connected together in one processing chain. The configuration of the processing chain is defined in \emph{AnomGeo} scenario, a simple configuration file. It allows to modify the recognition process without changing the main application code. The application can have as much detection scenarios as defined, user selects and if necessary also configures the scenarios during the runtime. The scenarios definition uses the same principle as anomaly model definition.
+
+The Noise model is used to define the noise model, to add the noise to the data and to run the denoising procedures. Currently the application works with statistical models of the noise and it is not planned to add new defintions of the noise. If it will be required, the extension of noise model will use the same procedure as the extension of anomaly models or detection scenarios.
+
+Up to now, I have added to the original \emph{AnomGeo} the functions modeling gravimetry anomalies, implemented the denoising part and I am currently working on solvers (the algorithm proposal was implemented by the author of the thesis as standalone application before the \emph{AnomGeo} development process has started). The \emph{AnomGeo} can export data to JSON data model, so the full objects from the application (mostly the anomaly and areas) can be used in another data processing software.
+
+\chapter{Publications} \label{chap:publications}
+
+The problems described and solved within presented thesis were also published at several occasions. Following list gives a summary of related work published from the passed three years.
+
+\begin{itemize}
+\item Kosková Třísková L., Novák J. Bárta J: Rychlá detekce geofyzikálních anomálií pro potřeby havarijních situací, 2011, Sanační technologie XIV, poster and paper
+\item Kosková Třísková L.: Near surface geophysical anomaly modeling and detection in Matlab, 2012, Technical computing Bratislava, presentation and paper
+\item Kosková Třísková L., Novák J.: Geophysical decision support system for emergency rescue, 2012, IT for Geosciences, Dubna, presentation and paper
+\item Kosková Třísková L., Novák J.: Application of edge and line detection to detect the near surface anomalies in potential data, 2013, International conference on Pattern recognition Applications and Methods 2013, Barcelona, poster and paper
+\end{itemize}
+
+\chapter{Summary} \label{chap:summary}
+
+It is not possible to find a universal solution for automate anomaly detection in the geophysical data. When the definition of the anomaly is limited to set of specific cases, when another a priori information is available and no detail of subsoil model is required, it is possible to combine the elementary forward inversion methods with the shape recognition. 
+
+The initial research shows that several data processing based on artificial intelligence and structure detection already exists. We can found several topics and attempts, but none of them fully covers the target application of this thesis. Based on the research, pattern recogintion based algorithm was proposed as a solution for this concrete application. The algorithm is an implementation of the forward modelling combined with the enhance and display methods. Analytical gravimetry data were used to verify the initial proposal. In this particular case, the shape recognition is based on depth estimation for simple anomaly bodies. A simple anomaly body can be detected at present, multiply anomaly source is an object of future research. The process of detection for the multiply source is also proposed in this thesis.
+
+According to the target application, a suitable software model based on Matlab, Java and MVC design pattern was proposed. Application called \emph{AnomGeo} was created for Matlab and it is used to develop and test the detection algorithms. For the final version of the thesis, the Java application working on Android device is planned. The future application runtime environment is portable tablet with Android. Such device is easy to use, with low power consumption and easy to manipulate in unstable and stresfull environment.
+
+The initial results of the proposed algorithm were presented as a poster at the International Conference on Pattern Recognition Application and Methods in February 2013, in the special section Pattern recognition in geosciences. The comitee of the section proposed publication in the magazine Pattern recognition in physics, the article is in process and will be submitted till the end of the year. The multiply anomaly detection will be submitted for the ICPRAM 2014 in december.
+
+\renewcommand{\refname}{References}
+\begin{thebibliography}{References}
+\bibitem{Mares}Mareš Stanislav: Úvod do užité geofyziky. 2nd edition, SNTL, 1990. ISBN 8003004276.
+\bibitem{Blakely}Blakely Richard J.: Potential theory in gravity and magnetic applications, Cambridge University Press 1996, ISBN 0521575478. 
+\bibitem{Reynolds}Reynolds, John. M.: An Introduction to Applied and Environmental Geophysics, 2nd edition, John Willey and sons 2011, ISBN 978-0-471-48535-3
+\bibitem{Sertcelik}Sertcelik, I. Kafadar, O.: Application of edge detection to potential field data using eigenvalue analysis of structure tensor. Journal of Applied Geophysics, 2012. Vol. 84, pages 86-94.
+\bibitem{Ozgu}Özgü Arısoy, M., Dikmen, Ünal: Potensoft: MATLAB-based software for potential field data processing, modeling and mapping, Computers \& Geosciences 2011, Vol. 37, Pages 935-942.
+\bibitem{Aydogan}Aydogan D.: CNNEDGEPOT: CNN based edge detection of 2D near surface potential field data, Computers \& Geosciences 2012, Vol. 46, Pages 1-8.
+\bibitem{Cooper2003}Cooper, G. R. J.: Feature detection using sun shading, Computers \& Geosciences 2003, Vol. 29, Pages 941-948.
+\bibitem{Cooper2005}Cooper, G. R. J.: Analysing potential field data using visibility 2005, Computers \& Geosciences, Vol. 31, Pages 877-881.
+\bibitem{Cooper2004}Cooper, G. R. J.: The textural analysis of gravity data using co-occurrence matrices, Computers \& Geosciences, Pages 2004, Pages 107-115.
+\bibitem{Fitton}Fitton, N.C., Cox, S.J.D.: Optimising the application of the Hough transform for automatic feature extraction from geoscientific images, Computers \& Geosciences 1998, Vol. 24, Pages 933-951.
+\bibitem{Salem}Salem, A: Multi-deconvolution analysis of potential field data, Journal of Applied Geophysics, 2011, Vol. 74, Issue 2-3, Pages 151-156.
+\bibitem{Rao}P. Rama Rao, K.V. Swamy, I.V. Radhakrishna Murthy: Inversion of gravity anomalies of three-dimensional density interfaces. Computers \& Geosciences 25 (1999), str. 887-896.
+\bibitem{Yao}Yao, L.: Forward Modeling of Gravity , Gravity Gradients , and Magnetic Anomalies due to Complex Bodies, Journal of China University of Geosciences, 2007, Vol. 18, No. 3, Page 280-286.
+\bibitem{Fitzgerald}Fitzgerald D., Reid A., Mcinerney P.: New discrimination techniques for Euler deconvolution, Computers \& Geosciences 2004, Vol. 30, Page 461-469.
+\bibitem{Cooper2008}Cooper G. R. J., Euler Deconvolution with Improved Accuracy and Multiple Different Structural Indices, Journal of China University of Geosciences 2008, Vol. 19, Page 72-76.
+\bibitem{Dueker}Dueker, Ken: Fundamentals of geology, Lectures, Gravity lecture, available online: http://www.gg.uwyo.edu/geol2005a/
+\bibitem{Loke}Locke, M. H.: Tutorial : 2 - D and 3 - D electrical imaging surveys By Dr. M. H. Loke, 2012, available online: http://www.geoelectrical.com
+\bibitem{Slizkov}Slizkov, Artem: An interactive application in Matlab intended to create samples of the geophysical data, Diploma thesis, Technical university in Liberec, 2013
+\end{thebibliography}
+
+
+\end{document}

@@ -1,32 +1,43 @@
 \select@language {czech}
-\contentsline {section}{Seznam zkratek}{8}
-\contentsline {chapter}{\numberline {1}\IeC {\'U}vod}{9}
-\contentsline {chapter}{\numberline {2}Sledovac\IeC {\'\i } za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }}{10}
-\contentsline {section}{\numberline {2.1}Historie}{10}
-\contentsline {section}{\numberline {2.2}P\IeC {\v r}\IeC {\'\i }tomnost}{10}
-\contentsline {section}{\numberline {2.3}Po\IeC {\v z}adovan\IeC {\'e} vlastnosti}{11}
-\contentsline {subsection}{\numberline {2.3.1}Cena}{11}
-\contentsline {subsection}{\numberline {2.3.2}Spolehlivost}{11}
-\contentsline {subsection}{\numberline {2.3.3}Bezpe\IeC {\v c}nost}{12}
-\contentsline {subsection}{\numberline {2.3.4}P\IeC {\v r}\IeC {\'\i }v\IeC {\v e}tivost}{12}
-\contentsline {subsection}{\numberline {2.3.5}V\IeC {\'\i }cejazy\IeC {\v c}nost}{12}
-\contentsline {subsection}{\numberline {2.3.6}Nastavitelnost}{13}
-\contentsline {subsection}{\numberline {2.3.7}Nen\IeC {\'a}ro\IeC {\v c}nost}{13}
-\contentsline {section}{\numberline {2.4}Normy}{13}
-\contentsline {chapter}{\numberline {3}Situace na trhu}{14}
-\contentsline {section}{\numberline {3.1}Kategorie}{14}
-\contentsline {subsection}{\numberline {3.1.1}Levn\IeC {\'a} za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i } (do 2.000, - K\IeC {\v c})}{14}
-\contentsline {subsection}{\numberline {3.1.2}St\IeC {\v r}edn\IeC {\'\i } t\IeC {\v r}\IeC {\'\i }da (2.000 a\IeC {\v z} 8.000, - K\IeC {\v c})}{14}
-\contentsline {subsection}{\numberline {3.1.3}Profesion\IeC {\'a}ln\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i } (8.000 a\IeC {\v z} 20.000, - K\IeC {\v c})}{15}
-\contentsline {subsection}{\numberline {3.1.4}Specializovan\IeC {\'a} za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i } (od 20.000, - K\IeC {\v c})}{16}
-\contentsline {chapter}{\numberline {4}Koncept}{17}
-\contentsline {section}{\numberline {4.1}Blokov\IeC {\'e} sch\IeC {\'e}ma}{17}
-\contentsline {section}{\numberline {4.2}\IeC {\v R}\IeC {\'\i }d\IeC {\'\i }c\IeC {\'\i } jednotka}{17}
-\contentsline {section}{\numberline {4.3}Komunika\IeC {\v c}n\IeC {\'\i } modul}{17}
-\contentsline {section}{\numberline {4.4}Senzor pohybu}{17}
-\contentsline {section}{\numberline {4.5}Softwarov\IeC {\'y} n\IeC {\'a}vrh}{17}
-\contentsline {chapter}{\numberline {5}Prototyp}{18}
-\contentsline {section}{\numberline {5.1}V\IeC {\'y}vojov\IeC {\'a} deska Arduino}{18}
-\contentsline {section}{\numberline {5.2}Komunika\IeC {\v c}n\IeC {\'\i } modul GPS/GPRS/GSM}{18}
-\contentsline {section}{\numberline {5.3}Nap\IeC {\'a}jen\IeC {\'\i }}{18}
-\contentsline {chapter}{\numberline {6}Z\IeC {\'a}v\IeC {\v e}r}{19}
+\contentsline {section}{Seznam zkratek}{9}
+\contentsline {chapter}{\numberline {1}\IeC {\'U}vod}{10}
+\contentsline {chapter}{\numberline {2}Sledovac\IeC {\'\i } za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }}{11}
+\contentsline {section}{\numberline {2.1}Historie}{11}
+\contentsline {section}{\numberline {2.2}P\IeC {\v r}\IeC {\'\i }tomnost}{11}
+\contentsline {section}{\numberline {2.3}Po\IeC {\v z}adovan\IeC {\'e} vlastnosti}{12}
+\contentsline {subsection}{\numberline {2.3.1}Cena}{12}
+\contentsline {subsection}{\numberline {2.3.2}Spolehlivost}{12}
+\contentsline {subsection}{\numberline {2.3.3}Bezpe\IeC {\v c}nost}{13}
+\contentsline {subsection}{\numberline {2.3.4}Nen\IeC {\'a}ro\IeC {\v c}nost}{13}
+\contentsline {subsection}{\numberline {2.3.5}V\IeC {\'\i }cejazy\IeC {\v c}nost}{13}
+\contentsline {subsection}{\numberline {2.3.6}Nastavitelnost}{14}
+\contentsline {subsection}{\numberline {2.3.7}P\IeC {\v r}\IeC {\'\i }v\IeC {\v e}tivost}{14}
+\contentsline {section}{\numberline {2.4}Normy}{14}
+\contentsline {chapter}{\numberline {3}Situace na trhu}{15}
+\contentsline {section}{\numberline {3.1}Kategorie}{15}
+\contentsline {subsection}{\numberline {3.1.1}N\IeC {\'\i }zkon\IeC {\'a}kladov\IeC {\'a} za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i } (do 2 000 K\IeC {\v c})}{15}
+\contentsline {subsection}{\numberline {3.1.2}St\IeC {\v r}edn\IeC {\'\i } t\IeC {\v r}\IeC {\'\i }da (2 000 a\IeC {\v z} 8 000 K\IeC {\v c})}{15}
+\contentsline {subsection}{\numberline {3.1.3}Profesion\IeC {\'a}ln\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i } (8 000 a\IeC {\v z} 20 000 K\IeC {\v c})}{16}
+\contentsline {subsection}{\numberline {3.1.4}Specializovan\IeC {\'a} za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i } (od 20 000 K\IeC {\v c})}{17}
+\contentsline {section}{\numberline {3.2}Ide\IeC {\'a}ln\IeC {\'\i } n\IeC {\'\i }zkon\IeC {\'a}kladov\IeC {\'e} sledovac\IeC {\'\i } za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }}{17}
+\contentsline {section}{\numberline {3.3}Srovn\IeC {\'a}n\IeC {\'\i } n\IeC {\v e}kter\IeC {\'y}ch dostupn\IeC {\'y}ch model\IeC {\r u}}{18}
+\contentsline {subsection}{\numberline {3.3.1}TK-102 (SHX Trading s. r. o.)}{18}
+\contentsline {subsection}{\numberline {3.3.2}ECONOMY (SHX Trading s. r. o.)}{18}
+\contentsline {subsection}{\numberline {3.3.3}Helmer LK 506 (Alza.cz a.s.)}{19}
+\contentsline {subsection}{\numberline {3.3.4}Helmer LK 509 (Alza.cz a.s.)}{20}
+\contentsline {subsection}{\numberline {3.3.5}RF-V10 (GMcentrum s.r.o.)}{20}
+\contentsline {subsection}{\numberline {3.3.6}RF-V8S (GMcentrum s.r.o.)}{21}
+\contentsline {subsection}{\numberline {3.3.7}CU-07A (JABLOTRON ALARMS a.s.)}{21}
+\contentsline {subsection}{\numberline {3.3.8}CU-08 (JABLOTRON ALARMS a.s.)}{22}
+\contentsline {section}{\numberline {3.4}V\IeC {\'y}sledky srovn\IeC {\'a}n\IeC {\'\i }}{22}
+\contentsline {chapter}{\numberline {4}Koncept}{24}
+\contentsline {section}{\numberline {4.1}Blokov\IeC {\'e} sch\IeC {\'e}ma}{24}
+\contentsline {section}{\numberline {4.2}\IeC {\v R}\IeC {\'\i }d\IeC {\'\i }c\IeC {\'\i } jednotka}{24}
+\contentsline {section}{\numberline {4.3}Komunika\IeC {\v c}n\IeC {\'\i } modul}{24}
+\contentsline {section}{\numberline {4.4}Senzor pohybu}{24}
+\contentsline {section}{\numberline {4.5}Softwarov\IeC {\'y} n\IeC {\'a}vrh}{24}
+\contentsline {chapter}{\numberline {5}Prototyp}{25}
+\contentsline {section}{\numberline {5.1}V\IeC {\'y}vojov\IeC {\'a} deska Arduino}{25}
+\contentsline {section}{\numberline {5.2}Komunika\IeC {\v c}n\IeC {\'\i } modul GPS/GPRS/GSM}{25}
+\contentsline {section}{\numberline {5.3}Nap\IeC {\'a}jen\IeC {\'\i }}{25}
+\contentsline {chapter}{\numberline {6}Z\IeC {\'a}v\IeC {\v e}r}{26}

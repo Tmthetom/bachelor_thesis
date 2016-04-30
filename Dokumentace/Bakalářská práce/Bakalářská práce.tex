@@ -37,11 +37,15 @@ Thesis deals with tracking devices for cars. The introduction defines the concep
 \textbf{GLONASS} & Globalnaja navigacionnaja sputnikovaja sistěma, globální navigační satelitní systém\\
 \end{abbrList}
 
+% Úvod
+
 \chapter{Úvod}
 Not supported yet.
 
+% Sledovací zařízení
+
 \chapter{Sledovací zařízení}
-Sledovací zařízení je přístroj, udávající svou vlastní polohu na planetě zemi, pomocí zeměpisné šířky a délky. Poloha se určuje vzhledem k systému družic GPS, které obíhají rovnoměrně rozprostřeny na oběžné dráze země. Typicky slouží ke sledování osob, vozidel, či nákladu a jeho využití najdou jak běžní domácí uživatelé a bezpečnostní agentury, usilující o bezpečnost vozidel, podniky monitorující pohyb svého vozového parku (Fleet management), nebo velké logistické společnosti, sledující pohyby zásilek nebo kontejnerů. Přesnost polohy je pro uživatelský sektor desítky metrů, zatím co autorizovaní uživatelé (americká armáda a vybrané spojenecké armády) mají k dispozici přesnost v jednotkách metrů... Vyšší přesnosti se dosahuje pomocí mnoha způsobů, jako například mobilní sítě, další navigační systémy, matematické výpočty. Za ideálních podmínek lze přesnost zvýšit i na jednotky centimetrů. Přesnost vertikální je zpravidla 2x až 3x tak horší než zmiňovaná horizontální.
+Sledovací zařízení je přístroj, udávající svou vlastní polohu na planetě zemi, pomocí zeměpisné šířky a délky. Poloha se určuje vzhledem k systému družic GPS, které obíhají rovnoměrně rozprostřeny na oběžné dráze země. Typicky slouží ke sledování osob, vozidel, či nákladu a jeho využití najdou jak běžní domácí uživatelé a bezpečnostní agentury, usilující o bezpečnost vozidel, podniky monitorující pohyb svého vozového parku (Fleet management), nebo velké logistické společnosti, sledující pohyby zásilek nebo kontejnerů. Přesnost polohy je pro uživatelský sektor desítky metrů, zatím co autorizovaní uživatelé (americká armáda a vybrané spojenecké armády) mají k dispozici přesnost v jednotkách metrů. Vyšší přesnosti se dosahuje mnoha způsoby, jako například mobilní sítě, jiné navigační systémy, matematické výpočty. Za ideálních podmínek lze přesnost zvýšit i na jednotky centimetrů. Přesnost vertikální je zpravidla 2x až 3x tak horší než zmiňovaná horizontální.
 
 \section{Historie}
 Polohovací systém GPS je vojenský globální družicový systém, provozovaný Ministerstvem obrany Spojených států amerických. Projekt navazuje na předchozí NAVSTAR GPS a od roku 1978 bylo do dnešního dne vypuštěno celkem 32 družic. Družice nebyly vpouštěny pouze za účelem určování polohy pro navádění raket a dalších zařízení, ale také aby detekovali vypuštění balistických raket a výbuchy jaderných bomb. Všechny satelity byly také vybaveny přesnými atomovými hodinami, které dnes dodávají přesný čas po celé zemi. Původně vojenský projekt se stal dostupným i pro neautorizované uživatele z finančních důvodů, aby nemusel být zrušen. V roce 1990 během války v Zálivu byla dočasně deaktivována dostupnost pro neautorizované uživatele a zapojena byla opět v roce 1991.
@@ -49,48 +53,52 @@ Polohovací systém GPS je vojenský globální družicový systém, provozovan�
 \section{Přítomnost}
 Satelitní systém GPS se stal synonymem pro sledovací zařízení a určování polohy a je celosvětově využíván ve všech lidských odvětvých. Nicméně dnes není jediným projektem poskytujícím zěměpisnou polohu. Od roku 2011 je k dispozici ruský armádní polohový systém GLONASS, který se vyznačuje stejnou přesností jako systém GPS. Pomalu ale jistě se dostává do povědomí a většina nejnovějších mobilních zařízení umí komunikovat nejenom s GPS, ale také s GLONASS, získáváním dat z více než jednoho systému satelitů, poskytuje výrazné zvýšení přesnost polohy. Posledním, zatím nedokončeným je evropský navigační systém Galileo, který má od roku 2012 nové sídlo v Praze, měl být částečně funkční v roce 2015 (18 satelitů) a plně dokončen roku 2019/20 (30 satelitů). Bohužel v roce 2014 přišel systém o dvě nové družice, které měl vynést ruský nosič, bohužel mu selhal poslední stupeň rakety a obě byly vyneseny na špatnou oběžnou dráhu, na které jsou dodnes. Později roku 2014 byla vynesena první družice na správnou oběžnou dráhu, poté byl projekt pozastaven do té doby, než se podaří vyřešit, jak do systému zapojit družice na špatné oběžné dráze.
 
+% Požadované vlastnosti
+
 \section{Požadované vlastnosti}
 V honu za kvalitním, ale levným sledovacím zařízením, je nutné nalézt kompromis mezi nízkou cenou a pohodlím zákazníka. Abych tohoto docílil, budu se snažit vyzdvihnout vlastnosti, které neovlivní cenu, ale výrazně posílí funkčnost a tím i konkurence schopnost zařízení. Následující vlastnosti pro mne budou hrát důležitou roli při výběru hardwarových součástek, stejně tak mi pomohou se zaměřit na části kódu, které potřebují být optimalizovány nejlépe.
 
 \subsection{Cena}
-Koncept bude primárně zaměřen na minimalizaci případné výrobní ceny, s ohledem na zachování všech funkcí, očekávaných od sledovacího zařízení. Aby byl produkt atraktivní, ale levný, je důležité kvalitní zpracování částí, které neovlivní konečnou cenu zařízení, tedy programové části, která je slabým článkem většiny dostupných modelů, v kategorii levných sledovacích zařízení. Velkou úsporu peněz bude hrát připojení na autobaterii, kde levné modely touto možností neoplývají a jsou cenově zatíženy drahými bateriemi, které jsou mnohdy tou nejdražší částí sledovacího zařízení. Nakonec se budu pokoušet odstranit přebytečné funkce, které zbytečně komplikují provoz a přezpívají k vyšší ceně.
+Koncept bude primárně zaměřen na minimalizaci případné výrobní ceny, s ohledem na zachování všech funkcí, očekávaných od sledovacího zařízení. Aby byl produkt atraktivní, ale levný, je důležité kvalitní zpracování částí, které neovlivní konečnou cenu zařízení, tedy programové části, která je slabým článkem většiny dostupných modelů, v kategorii nízkonákladových sledovacích zařízení. Dostupným modelem je v této práci myšleno sledovací zařízení, běžně dostupné v českých kamených, nebo internetových obchodech. Velkou úsporu peněz bude hrát připojení na autobaterii, kde levné modely touto možností neoplývají a jsou cenově zatíženy drahými bateriemi, které jsou mnohdy tou nejdražší částí sledovacího zařízení. Nakonec se budu pokoušet odstranit přebytečné funkce, které zbytečně komplikují provoz a přezpívají k vyšší ceně.
 
 \subsection{Spolehlivost}
-Zařízení musí být spolehlivé a poskytovat požadované informace za jakýchkoliv podmínek a to i při nízké ceně vybavení. Pokud jde o poruchovost u běžně dostupných modelů, když vynecháme faktory, které nelze ovlivnit, například nedostupný signál GPS nebo GSM sítě, je na vině buď ztráta signálu, špatným umístěním ve vozidle (o správném umístění je nutné zákazníka informovat), vybití baterie, softwarová chyba která způsobí zacyklení, nebo při provádění různých operací, ignoruje příchozí SMS. Proto je nutné číst a obsloužit všechny doručené SMS a informovat uživatele o všech skutečnostech, například o výpadku signálu, při žádosti o získání polohy.
+Zařízení musí být spolehlivé a poskytovat požadované informace za jakýchkoliv podmínek a to i při nízké ceně vybavení. V případě poruchovosti u běžně dostupných modelů, když vynecháme faktory, které nelze ovlivnit, například nedostupný signál GPS nebo GSM sítě, je na vině buď ztráta signálu špatným umístěním ve vozidle (o správném umístění je nutné zákazníka informovat), vybití baterie, softwarová chyba která způsobí zacyklení, nebo při provádění různých operací ignoruje příchozí SMS. Proto je nutné číst a obsloužit všechny doručené SMS a informovat uživatele o všech skutečnostech, například o výpadku signálu, při žádosti o získání polohy.
 
 \subsection{Bezpečnost}
-Žádný z dostupných modelů, v cenové hladině pod 6.000 Kč, nemá možnost nastavení řídících čísel, nebo hesla pro obnovení, při jeho ztrátě. Pokud by případný zloděj, zjistit telefonní číslo, ať už odposlechem poblíž vozidla, nebo z telefonu majitele, je schopný deaktivovat zařízení na dálku a odcizit vozidlo bez sebemenší potuchy majitele. Proto je nutné myslet na bezpečnost jak při pokusu o vypnutí z cizího čísla, tak při případném odpojení od zdroje napájení, které by ve finální verzi jistila integrovaná baterie o velice malé kapacitě, která by zajistila pouze odeslání varovné SMS. Je pravděpodobné, že při odpojení od baterie by bylo sledovací zařízení odstraněno z vozidla a delší výdrž by byla zbytečná. Díky tomu se dá ušetřit na ceně, která je z velké části tvořena potřebou velkých baterií.
-
-\subsection{Přívětivost}
-SMS s řídícími příkazy musí být jednoduché, uživatelsky přívětivé a snadno zapamatovatelné, aby bylo pro zákazníka ovládání intuitivní a srozumitelné. Nejpřívětivější a nejjednodušší je to, co je pro uživatele nejpřirozenější, tedy běžná slova a věty, stejně tak sledovací zařízení by ve stejné formě mělo i odpovídat. Tedy komunikace mezi uživatelem a sledovacím zařízením by mělo být formou konverzace. Například "Kde jsi", odpověď: "Má poloha bude zaslána během několika minut", později: "Nacházím se na souřadnicích...". Stejně tak instalace zařízení musí být jednoduchá a nesmí jí provázet komplikované nastavování. Vše by mělo fungovat při prvním spuštění automaticky.
-
-\subsection{Vícejazyčnost}
-Velkou nevýhodou všech dostupných sledovacích zařízení je orientace pouze jediný jazyk a to Anglický. Jazyka neznalý uživatel může být zmatený a v nestandartních situacích odkázaný pouze na manuál, které některé modely ani nemají. Na vině je primárně to, že většina dostupných modelů je přeprodej čínských zařízení a žádný z českých obchodníků nemá možnost měnit jakékoliv vlastnosti zařízení které prodává. Čínští výrobci u nejlevnějších zařízení mnohdy nedodávají ani manuál, pokud ano, tak čínsky nebo anglicky, takže překlad popřípadě tvorba neexistujícího manuálu závisí na českých prodejcích. Není to problém pouze České republiky, vzhledem k tomu, že se jedná o jednoduchou softwarovou implementaci, základní komunikační rozhraní bude v českém jazyce s možností jednoduchého přepnutí na požadovanou jazykovou lokalizaci. Do finálního produktu bude pouze stačit nahrát dostatečné množství jazykových variant, které vzhledem k nízkému počtu textových řetězců a nenáročnosti jejich uložení v paměti, nebude mít žádný vliv na případnou cenu, které by jinak mohlo být způsobeno nutností navýšení paměti pro data.
-
-\subsection{Nastavitelnost}
-Další z nevýhod dostupných produktů je nemožnost jakéhokoliv vlastního nastavení, či personalizace. Ať už se jedná o citlivost senzorů, počet potřebných satelitů pro učení polohy (čím méně satelitů, tím menší přesnost, ale větší šance na získání polohy při špatném signálu), nebo nastavení jednotlivých textových řetězců. Vždy je dobré, aby měl zákazník možnost si své zařízení přizpůsobit dle libosti. Tuto možnost mu zařízení bude nabízet a vzhledem k tomu, že implementace je čistě softwarová a nebude ovlivněna cena.
+Žádný z dostupných modelů, v kategorii nízkonákladových zařízení, nemá možnost nastavení řídících čísel, nebo hesla pro obnovení, při jeho ztrátě. Kdyby případný zloděj zjistit telefonní číslo, ať už odposlechem poblíž vozidla, nebo z telefonu majitele, je schopný deaktivovat zařízení na dálku a odcizit vozidlo bez sebemenší potuchy majitele. Proto je nutné myslet na bezpečnost jak při pokusu o vypnutí z cizího čísla, tak při případném odpojení od zdroje napájení, které by ve finální verzi jistila integrovaná baterie o velice malé kapacitě, ta by zajistila pouze odeslání varovné SMS. Je pravděpodobné, že při odpojení od baterie by bylo sledovací zařízení odstraněno z vozidla a delší výdrž by byla zbytečná. Díky tomu se dá ušetřit na ceně, která je z velké části tvořena potřebou velkých baterií.
 
 \subsection{Nenáročnost}
-Zařízení musí být nenáročné na údržbu, to znamená i výměna baterií, která by měla být řešena připojením na autobaterii, která dodává energii i když je motor vozidla vypnutý. Na druhou stranu, jeho spotřeba nesmí ovlivnit chod vozu, například vybitím autobaterie. Taková situace může při déle vypnutém motoru nastat velice snadno, protože spotřeba při připojení do sítě GPS je extrémně vysoká. Řešením by mělo být připojení pouze do telefonní sítě GSM, kde se bude čekat na příkazy z autorizovaného telefonního čísla. V případě neoprávněného pohybu vozidla, nelze sledovat pohyb vozu pomocí GPS, protože spotřeba by byla příliš vysoká. Je nutné najít alternativní řešení v podobě jednoho z dostupných senzorů. Běžně využívané jsou vibrační senzory, nebo senzor zrychlení, tedy akcelerometr. Ty zajistí připojení do sítě GPS, pouze v případě pohybu.
+Zařízení musí být nenáročné na údržbu, to znamená například výměnu, nebo dobíjení baterií. Baterie by měla být v ideálním případě připojena k autobeterii, která dodává energii i když je motor vozidla vypnutý. Na druhou stranu, jeho spotřeba nesmí ovlivnit chod vozu, například vybitím autobateri. Taková situace může při déle vypnutém motoru nastat velice snadno, protože spotřeba při připojení do sítě GPS je extrémně vysoká. Řešením by mělo být připojení pouze do telefonní sítě GSM, kde se bude čekat na příkazy z autorizovaného telefonního čísla. V případě neoprávněného pohybu vozidla, nelze sledovat pohyb vozu pomocí GPS, protože spotřeba by byla příliš vysoká. Je nutné najít alternativní řešení v podobě jednoho z dostupných senzorů. Běžně využívané jsou vibrační senzory, nebo senzor zrychlení, tedy akcelerometr. Ty zajistí připojení do sítě GPS, pouze v případě pohybu a tedy i minimalizují spotřebu.
+
+\subsection{Vícejazyčnost}
+Z hlediska českého trhu, je nevýhodou všech nízkonákladových a většiny sledovacích zařízení střední třídy, orientace pouze jediný jazyk a to anglický. Jazyka neznalý uživatel může být zmatený a v nestandartních situacích odkázaný pouze na manuál, které některé modely ani nemají. Většina dostupných modelů je přeprodejem čínských zařízení a zřídka kdy jsou k nim dodávány manuály v anglickém jazyce. Je tedy věcí přeprodejce, zda vytvoří český manuál. Není to problém pouze České republiky a vzhledem k tomu, že se jedná o jednoduchou softwarovou implementaci, základní komunikační rozhraní bude v českém jazyce s možností jednoduchého přepnutí na požadovanou jazykovou lokalizaci. Do finálního produktu bude pouze stačit nahrát dostatečné množství jazykových variant, které vzhledem k nízkému počtu textových řetězců a nenáročnosti jejich uložení v paměti, nebude mít žádný vliv na případnou cenu, které by jinak mohlo být způsobeno nutností navýšení paměti pro data.
+
+\subsection{Nastavitelnost}
+Další z nevýhod dostupných produktů je nemožnost jakéhokoliv vlastního nastavení, či personalizace. Ať už se jedná o citlivost senzorů, počet potřebných satelitů pro učení polohy (čím méně satelitů, tím menší přesnost, ale větší šance na získání polohy při špatném signálu), nebo nastavení jednotlivých textových řetězců. Vždy je dobré, aby měl zákazník možnost si své zařízení přizpůsobit dle libosti. Tuto možnost mu zařízení bude nabízet a vzhledem k tomu, že implementace je čistě softwarová záležitost, nebude tím ovlivněna finální cena.
+
+\subsection{Přívětivost}
+SMS s řídícími příkazy musí být jednoduché, uživatelsky přívětivé a snadno zapamatovatelné, aby bylo pro zákazníka ovládání intuitivní a srozumitelné. Nejpřívětivější a nejjednodušší je to, co je pro uživatele nejpřirozenější, tedy běžná slova a věty, stejně tak sledovací zařízení by ve stejné formě mělo i odpovídat. Tedy komunikace mezi uživatelem a sledovacím zařízením by mělo být formou konverzace. Například "Kde jsi", odpověď: "Probíhá lokalizace, poloha bude zaslána během několika minut", později: "Nacházím se na souřadnicích...". Stejně tak instalace zařízení musí být jednoduchá a nesmí jí provázet komplikované nastavování. Vše by mělo fungovat při prvním spuštění automaticky.
 
 \section{Normy}
 Not supported yet.
 
+% Situace na trhu
+
 \chapter{Situace na trhu}
-Na českém ani žádném sousedním trhu nejsou k dispozici evropské výrobky v kategorii levných sledovacích zařízení, která by byla veřejně dostupná, veškeré zboží je dováženo od čínských dodavatelů, takže žádný z přístrojů nemůže reflektovat požadavky evropských zákazníků. Domácí výrobky existují až od kategorie drahých sledovacích zařízení, které jsou však pro běžného zákazníka nedostupné, nebo jsou zatíženy měsíčními poplatky za využívání služeb jejich poskytovatele. V následujícím textu rozdělím český trh na kategorie a následně se budu věnovat pouze dvěma nejlevnějším kategoriím, protože drahé a specializované systémy nejsou předmětem této práce.
+Na českém ani žádném sousedním trhu nejsou k dispozici evropské výrobky v kategorii nízkonákladových sledovacích zařízení, která by byla veřejně dostupná, veškeré zboží je dováženo od čínských dodavatelů, takže žádný z přístrojů nemůže reflektovat požadavky evropských zákazníků. Domácí výrobky existují až od kategorie drahých sledovacích zařízení, které jsou však pro běžného zákazníka nedostupné, nebo jsou zatíženy měsíčními poplatky za využívání služeb jejich poskytovatele. V následujícím textu rozdělím český trh na kategorie a následně se budu věnovat pouze dvěma nejlevnějším kategoriím, protože drahé a specializované systémy nejsou předmětem této práce.
 
 \section{Kategorie}
-Vzhledem k tomu, že neexistuje žádné oficiální dělení, roztřídím zařízení na trhu dle cenových hladin, pro které jsou společné specifické vlastnosti a funkce.
+Vzhledem k tomu, že se mi nepodařilo dohledat žádné dělení, roztřídím zařízení na trhu dle vlastních cenových hladin, pro které jsou společné specifické vlastnosti a funkce.
 
-\subsection{Levná zařízení (do 2.000, - Kč)}
-Kategorie těch nejlevnějších sledovacích zařízení se mnohdy neoznačují ani jako sledovací zařízení pro automobily, většinou jsou určeny pro vhození do tašky, nošení na ruce, nebo přivěšení na klíčenku, kde se sesbíraná data o poloze ukládají na malou paměťovou kartu, ze které jsou později vyčteny do počítače. Jen zřídka mají zařízení v této kategorii možnost odesílání SMS přes síť GSM. Vždy mají integrovanou baterii, která při běžném používání vydrží v rámci jednotek dnů, poté je nutné zařízení dobít. Vyznačují se nemožností napojení na autobaterii nebo jakékoliv nastavení.
+\subsection{Nízkonákladová zařízení (do 2 000 Kč)}
+Kategorie těch nejlevnějších sledovacích zařízení se mnohdy neoznačují ani jako sledovací zařízení pro automobily, většinou jsou určeny pro vhození do brašny, nošení na ruce, nebo přivěšení na klíčenku, kde se sesbíraná data o poloze ukládají na malou paměťovou kartu, ze které jsou později vyčteny do počítače. Jen zřídka mají zařízení v této kategorii možnost odesílání SMS přes síť GSM. Vždy mají integrovanou baterii, která při běžném používání vydrží v rámci jednotek dnů, poté je nutné zařízení dobít. Vyznačují se nemožností napojení na autobaterii nebo jakékoliv nastavení.
 
 \begin{itemize}
 \item Baterie (výdrž jednotky dnů)
 \item Ukládání polohy na paměťovou kartu
 \end{itemize}
 
-\subsection{Střední třída (2.000 až 8.000, - Kč)}
+\subsection{Střední třída (2 000 až 8 000 Kč)}
 Střední třída je již plnohodnotnou kategorií sledovacích zařízení do automobilů, cena zařízení se ve většině případů pohybuje kolem 6.000, - Kč, nicméně vlastnosti této kategorie se objevují ihned za hranicí 2.000, - Kč. Nejlevnější z této kategorie mají většinou pouze notifikační SMS a baterii s výdrží několika dnů, ale ve většině případů dražších strojů, obsahují silnější baterii, která je schopna vydržet desítky dnů, obsahují levné senzory pohybu, které bohužel nemají nastavitelnou přesnost a ve většině případů je zde možnost měsíčních poplatků za služby webové, nebo mobilní aplikace, ve které je možné nejenom sledovat polohu vozu, ale také nastavit funkci takzvaně geofence, tedy kruhové oblasti kolem zvolené polohy, která když je překročena (například když vozidlo opustí město), zákazník je informován. V krajních případech mají možnost připojení na autobaterii a tedy uložení do motoru vozidla. V jiném případě mají silné magnety, které umožňují přichycení, například na podvozku vozidla. Přes SMS příkazy lze nastavit autorizovaná telefonní čísla.
 
 \begin{itemize}
@@ -102,8 +110,8 @@ Střední třída je již plnohodnotnou kategorií sledovacích zařízení do a
 \item Magnetické úchytky
 \end{itemize}
 
-\subsection{Profesionální řešení (8.000 až 20.000, - Kč)}
-Profesionální řešení jsou téměř vždy napojena na autobaterii a na sběrnici vozidla. Jejich dálkovým řízením pomocí webového rozhraní lze napřílad přívod paliva, sledovat stav nádrže a dalších kapalin a efektivně sledovat celou síť firemních vozidel, monitorovat a optimalizovat trasy. Jsou vybaveny silnými bateriemi a jsou odolné proti poškození. Umožnují například připojení kamerových systémů, nebo připojení mikrofonu do kabiny řidiče pro případné urychlené jednání s pojišťovnou. Nicméně jeho provoz a instalace je finančně velice náročná a proto se vyplatí pouze pro společnosti s velkým vozovím parkem. Využití najde i na moři v lodní, kontejnerové dopravdě. Taková to řešení se v České republice snaží poskytovat například firma Jablotron, nicméně jeji služby nejsou přístupné veřejnosti.
+\subsection{Profesionální řešení (8 000 až 20 000 Kč)}
+Profesionální řešení jsou téměř vždy napojena na autobaterii a na sběrnici vozidla. Jejich dálkovým řízením pomocí webového rozhraní lze napřílad přívod paliva, sledovat stav nádrže a dalších kapalin a efektivně sledovat celou síť firemních vozidel, monitorovat a optimalizovat trasy. Jsou vybaveny silnými bateriemi a jsou odolné proti poškození. Umožnují například připojení kamerových systémů, nebo připojení mikrofonu do kabiny řidiče pro případné urychlené jednání s pojišťovnou. Nicméně jeho provoz a instalace je finančně velice náročná a proto se vyplatí pouze pro společnosti s velkým vozovím parkem. Využití najde i na moři v lodní, kontejnerové dopravdě. Taková to řešení se v České republice poskytuje například společnost Jablotron, nebo Škoda. Obě společnosti jsem kontaktoval, nicméně v rámci utajení výzkumu odmítly sdílet informace. Dále jsem se nepokoušel o jejich zjištění, protože profesionální zařízení nejsou cílem této práce. 
 
 \begin{itemize}
 \item Bezdrátové řízení a monitoring
@@ -114,14 +122,184 @@ Profesionální řešení jsou téměř vždy napojena na autobaterii a na sběr
 \item Vyžaduje odbornou montáž a údržbu
 \end{itemize}
 
-\subsection{Specializovaná zařízení (od 20.000, - Kč)}
-Specializovaná zařízení jsou raritou určenou především pro kategorie luxusních vozů s cenou několika milionů a výše. Zařízení jsou sofistikovaně ukryta, jsou jištěna proti odstranění a v případě krádeže vozu umožňují okamžité odpojení a převzetí specifických částí vozu. Například plynulé zastavení vozidla, a další. Monitoring probíhá neustále a bezpečnostní agentura má vždy připravené vlastní vozy, které zabezpečí vozidlo i zloděje. Tyto služby v České republice nabízí například firma SHERLOG, která jako ostatní společnosti ceny nezveřejňuje. Technické zpracování bohužel není známo.
+\subsection{Specializovaná zařízení (od 20 000 Kč)}
+Specializovaná sledovací zařízení jsou raritou, určenou především pro kategorie luxusních vozů třídy A. Dle telefonické konzultace u společnosti SHERLOG, se vyplatí montáž těchto zařízení až do vozidel s cenou převyšující 3 000 000 Kč. Zařízení jsou sofistikovaně ukryta na těžko dostupných místech, ve většiné případů jsou rozdělena na více částí po celém voze, aby nebylo jednoduché je vyřadit. Jsou jištěna proti odstranění a v případě krádeže vozu umožňují okamžité odpojení a převzetí specifických částí vozu. Například plynulé zastavení vozidla, a další. Monitoring probíhá neustále a bezpečnostní agentura má vždy připravené vlastní vozy, které zabezpečí vozidlo i zloděje. Tyto služby v České republice poskytuje například firma SHERLOG, která jako ostatní společnosti nezveřejňuje ceny, ani technické parametry. Nepokoušel jsem se o jejich zjištění, protože specializovaná zařízení nejsou cílem této práce. 
 
 \begin{itemize}
 \item Nonstop monitoring
 \item Převzetí kontroly vozidla
 \item Zajištění vozu v případě krádeže
+\item Velice obtížné odpojení, nebo poškození jednotky
 \end{itemize}
+
+% Ideální zařízení
+
+\section{Ideální nízkonákladové sledovací zařízení}
+Pro porovnání vybraných, existujících sledovacích zařízení, jsem vytvořil bodové ohodnocení (0 - 100 bodů), na základě požadovaných vlastností a každé kategorii jsem přiřadil maximální počet bodů, který dle mého názoru odpovídá jejich důležitosti při výběru zákazníkem, mezi dostupnými produkty na českém trhu. Ideálnímu sledovacímu zařízení, bude udělen maximální počet bodů, tedy sto.
+
+\begin{itemize}
+\item Cena (max. 20 bodů)
+\item Spolehlivost (max. 15 bodů)
+\item Bezpečnost (max. 15 bodů)
+\item Nenáročnost (max. 15 bodů)
+\item Vícejazyčnost (max. 15 bodů)
+\item Nastavitelnost (max. 10 bodů)
+\item Přívětivost (max. 10 bodů)
+\end{itemize}
+
+\section{Srovnání některých dostupných modelů}
+Navazujíc na požadované vlastnosti, by ideální sledovací zařízení mělo mít nízkou cenu, ideálně do dvou tisíc korun českých. Mělo by být spolehlivé a údaje o poloze, či krádeži vozidla zaslat za jakékoliv situace. Nemělo by být jednoduše odhalitelné, například v zapalování vozu, zloděj by neměl mít možnost ovládnout zařízení z neautorizovaného zařízení. Nemělo by vyžadovat častou assistenci uživatele, například výměnou baterie, nebo nutnými restarty zařízení, stejně tak výdrž by měla být maximální, ideální je tedy připojení na autobaterii s výdrží minimálně jeden měsíc bez dobíjení, tedy jízdy s vozildem. Komunikace by měla být minimáně v českém jazyce s možností nastavení například změny jazyka, citlivosti senzorů, nebo autorizovaného čísla. Ovládání by mělo být intuitivní a jednoduše zapamatovatelné.
+
+Vzhledem k tomu, že práce přináší vlastnosti střední třídy do kategorie nízkonákladových zařízení, budou v následujícím srování hodnoceny zařízení z obou cenových hladin. Dále následuje stručný popis některých dostupných, nalezených modelů, včetně jejich bodového ohodnocení v závorkách. Do porovnání jsem volil přístroje s nejlepšími vlastnostmi.
+
+\subsection{TK-102 (SHX Trading s. r. o.)}
+Zřejmě nejpopulárnější sledovací zařízení na českém trhu, které se nachází v kategorii nízkonákladových zařízení s cenou do 2 000 Kč (20). Kvůli kompaktním rozměrům je zde špatný příjem signálu (5) ale na druhou stranu je jednoduše ukrytelný, špatně vystopovatelný a obsahuje možnost autorizovaného kontaktu (15). Baterie má výdrž dva až tři dny (1), komunikace ve většině případů neprobíhá formou přirozeného textu (0), ale předdefinovanou kombinací znaků a číslic, čímž je ovládání velice neintuitivní (0). Výhodou je množství nastavení, které je nadstandardní i ve střední třídě (9). (Celkem 50 bodů)
+
+\begin{itemize}
+\item Cena (20 bodů)
+\item Spolehlivost (5 bodů)
+\item Bezpečnost (15 bodů)
+\item Nenáročnost (1 bod)
+\item Vícejazyčnost (0 bodů)
+\item Nastavitelnost (9 bodů)
+\item Přívětivost (0 bodů)
+\end{itemize}
+
+\subsection{ECONOMY (SHX Trading s. r. o.)}
+GPS lokátor cenově se pohybující do 3 000 Kč, nicméně pro plnou funkčnost je nutné platit poplatek sedmset padesát korun ročně (12). Spolehlivost je díky kvalitnímu provedení dobrá (10) a bezpečné umístění pod kapotu motoru (15) zajišťuje nenáročnost na údržbu, která je zajištěna také vibračním senzorem (15). Komunikace v anglické jazyce (0) je obousměrná, ovládání tedy probíhá přikazy ve tvaru slov (5). Možnosti nastavení jsou standardní (2), ale nemožnost nastavení přesnosti senzorů, může vyvolávat falešné poplachy bez možnosti nápravy, navíc zařízení vyžaduje odbornou montáž. (Celkem 59 bodů)
+
+\begin{itemize}
+\item Cena (12 bodů)
+\item Spolehlivost (10 bodů)
+\item Bezpečnost (15 bodů)
+\item Nenáročnost (15 bodů)
+\item Vícejazyčnost (0 bodů)
+\item Nastavitelnost (5 bodů)
+\item Přívětivost (2 body)
+\end{itemize}
+
+\subsection{Helmer LK 506 (Alza.cz a.s.)}
+Lokátor se prodává do 4 000 Kč, ale jako u předchozího modelu, je pro plnou funkčnost nutné platit poplatek sedmset padesát korun ročně (8). Kvalitní zpracování zajistí dobrou spolehlivost (13) a bezpečné umístění pod kapotu motoru (15) zajišťuje nenáročnost na údržb a nízkou spotřebu zajišťuje vibrační senzor (15). Komunikace v anglické jazyce (0) je obousměrná, ovládání tedy probíhá slovními přikazy, ale absence mezer dělá komunikaci velice nepřívětivou (3). Možnosti nastavení jsou minimální (2). (Celkem 56 bodů)
+
+\begin{itemize}
+\item Cena (8 bodů)
+\item Spolehlivost (13 bodů)
+\item Bezpečnost (15 bodů)
+\item Nenáročnost (15 bodů)
+\item Vícejazyčnost (0 bodů)
+\item Nastavitelnost (3 body)
+\item Přívětivost (2 body)
+\end{itemize}
+
+\subsection{Helmer LK 509 (Alza.cz a.s.)}
+Dražší model, s cenou do 4 000 Kč (10). Zpracováním průměrný model (10), který je bezpečně umistitelný pomocí magmetů, například na podvozek vozidla (15), výdrž na baterii dosahuje až 90 dnů, kde nízkou spotřebu zajišťuje vibrační senzor (10). Komunikace v anglické jazyce (0) je obousměrná, ovládání tedy probíhá slovními přikazy, stejně jako u předchozího, absence mezer dělá komunikaci velice nepřívětivou (3). Možnosti nastavení jsou standardní (5). (Celkem 53 bodů)
+
+\begin{itemize}
+\item Cena (10 bodů)
+\item Spolehlivost (10 bodů)
+\item Bezpečnost (15 bodů)
+\item Nenáročnost (10 bodů)
+\item Vícejazyčnost (0 bodů)
+\item Nastavitelnost (3 body)
+\item Přívětivost (5 bodů)
+\end{itemize}
+
+\subsection{RF-V10 (GMcentrum s.r.o.)}
+Dražší model, s cenou do 3 000 Kč (15). Zpracováním průměrný model (10), který je bezpečně umistitelný pomocí magmetů, například na podvozek vozidla (15), výdrž na baterii dosahuje až 90 dnů, kde nízkou spotřebu zajišťuje vibrační senzor (10). Komunikace v anglické jazyce (0) je obousměrná, ovládání tedy probíhá slovními přikazy, stejně jako u předchozího, absence mezer dělá komunikaci velice nepřívětivou (3). Možnosti nastavení jsou standardní (5). (Celkem 58 bodů)
+
+\begin{itemize}
+\item Cena (15 bodů)
+\item Spolehlivost (10 bodů)
+\item Bezpečnost (15 bodů)
+\item Nenáročnost (10 bodů)
+\item Vícejazyčnost (0 bodů)
+\item Nastavitelnost (3 body)
+\item Přívětivost (5 bodů)
+\end{itemize}
+
+\subsection{RF-V8S (GMcentrum s.r.o.)}
+Model s přijatelnou cenou do 2 000 Kč (20). Průměrně kvalitní zpracování (10), jednoduše ukrytelný k autobaterii (15), což poskytuje dlouhou výdrž (15). Jednosměrná komunikace v anglickém jazyce (0), kdy ovládání probíhá kódovými příkazy, které jsou zkratkami a kombinacemi slov z anglického jazyka (0). Nastavitelnost je nadprůměrná nicméně komplikovaná a navíc zařízení vyžaduje odbornou montáž (3). (Celkem 63 bodů)
+
+\begin{itemize}
+\item Cena (20 bodů)
+\item Spolehlivost (10 bodů)
+\item Bezpečnost (15 bodů)
+\item Nenáročnost (15 bodů)
+\item Vícejazyčnost (0 bodů)
+\item Nastavitelnost (0 bodů)
+\item Přívětivost (3 body)
+\end{itemize}
+
+\subsection{CU-07A (JABLOTRON ALARMS a.s.)}
+České sledovací zařízení od firmy Jablotron, s cenou do 5 000 Kč (6), se vyznačuje především dvěmi komunikačními jednotkami, jedna pro GSM, druhá pro GPS, tím dosahuje na pomyslný vrchol spolehlivosti (15), protože jsou sítě odděleny a lze komunikovat každou zvlášť. Napájení je zajištěno z palubní 12 V zásuvky, tím sice odpadá nutnost dobíjení, nebo výměna baterií (15), ale z bezpečnostního hlediska tato možnost naprosto propadá (0). Jednotka je vícejazyčná (15) a příkazy jsou v rozumné formě (8). Nastavitelnost zařízení je nadprůměrná (8). (Celkem 67 bodů)
+
+\begin{itemize}
+\item Cena (6 bodů)
+\item Spolehlivost (15 bodů)
+\item Bezpečnost (0 bodů)
+\item Nenáročnost (15 bodů)
+\item Vícejazyčnost (15 bodů)
+\item Nastavitelnost (8 bodů)
+\item Přívětivost (8 bodů)
+\end{itemize}
+
+\subsection{CU-08 (JABLOTRON ALARMS a.s.)}
+Další české zařízení od firmy Jablotro, s cenou sahající k 6 000 Kč (4). Diky kvalitnímu zpracování dosahuje na maximální počet bodů spolehlivosti (15) a stejně tak díky umístění u autobaterie (15), jsem mu udělil plný počet bodů z bezpečnosti (15). Pdporuje český a anglický jazyk (10) a komunikace pomocí příkazů je stejná, jako v předchozím případě (8). Nastavitelnost zařízení je taktéž nadprůměrná, nicméně vyžaduje odbornou montáž, která je ze všech zařízení nejnáročnější (5). (Celkem 72 bodů)
+
+\begin{itemize}
+\item Cena (4 bodů)
+\item Spolehlivost (15 bodů)
+\item Bezpečnost (15 bodů)
+\item Nenáročnost (15 bodů)
+\item Vícejazyčnost (10 bodů)
+\item Nastavitelnost (8 bodů)
+\item Přívětivost (5 bodů)
+\end{itemize}
+
+% Tabulka výsledků
+
+\section{Výsledky srovnání}
+Tabulka níže ukazuje výsledky bodového hodnocení ve formě tabulky. Pod textem se nachází seznam zkratkek, použitých v tabulce. Následuje graf, pro grafické porovnání celkového počtu bodů s rozdělením na jednotlivé kategorie.
+\begin{itemize}
+\item CE - Cena, SP - Spolehlivost, BE - Bezpečnost, NE - Nenáročnost, JA - Vícejazyčnost, NA - Nastavitelnost, PŘ - Přívětivost
+\end{itemize}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[htp]
+\begin{center}
+\begin{tabular}{| l | c | c| c | c | c | c | c | c |}
+\hline
+Název sledovacího zařízení & CE & SP & BE & NE & JA & NA & PŘ & Celkem\\
+\hline
+\hline
+TK-102 & 20 & 5 & 15 & 1 & 0 & 9 & 0 & 50\\
+\hline
+ECONOMY & 12 & 10 & 15 & 15 & 0 & 5 & 2 & 59\\
+\hline
+Helmer LK 506 & 8 & 13 & 15 & 15 & 0 & 3 & 2 & 56\\
+\hline
+Helmer LK 509 & 10 & 10 & 15 & 10 & 0 & 3 & 5 & 53\\
+\hline
+RF-V10 & 15 & 10 & 15 & 10 & 0 & 3 & 5 & 58\\
+\hline
+RF-V8S & 20 & 10 & 15 & 15 & 0 & 0 & 3 & 63\\
+\hline
+CU-07A & 6 & 15 & 0 & 15 & 15 & 8 & 8 & 67\\
+\hline
+CU-08 & 4 & 15 & 15 & 15 & 10 & 8 & 5 & 72\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Výsledky bodového hodnocení dostupných modelů}
+\end{table}
+
+\begin{figure}
+\includegraphics{graphs/Graf1.pdf}
+\caption{Grafické znázornění bodového hodnocení dostupných modelů}
+\label{foto}
+\end{figure}
+
+% Koncept
 
 \chapter{Koncept}
 Not supported yet.
@@ -141,6 +319,8 @@ Not supported yet.
 \section{Softwarový návrh}
 Not supported yet.
 
+% Prototyp
+
 \chapter{Prototyp}
 Not supported yet.
 
@@ -153,7 +333,13 @@ Not supported yet.
 \section{Napájení}
 Not supported yet.
 
+% Závěr
+
 \chapter{Závěr}
 Not supported yet.
+
+\begin{thebibliography}{References}
+\bibitem{Mares}Mareš Stanislav: Úvod do užité geofyziky. 2nd edition, SNTL, 1990. ISBN 8003004276.
+\end{thebibliography}
 
 \end{document}
