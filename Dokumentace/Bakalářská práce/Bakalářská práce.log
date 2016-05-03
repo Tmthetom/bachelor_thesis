@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  30 APR 2016 18:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  1 MAY 2016 13:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -481,7 +481,11 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(./Bakaláøská práce.aux)
+(./Bakaláøská práce.aux
+
+LaTeX Warning: Label `foto' multiply defined.
+
+)
 \openout1 = `"Bakaláøská práce.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -496,8 +500,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
-
-(d:/Programs/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+ (d:/Programs/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count94
 \scratchdimen=\dimen118
@@ -609,14 +612,14 @@ Kapitola 2.
 [11
 
 ] [12]
-Overfull \hbox (0.18617pt too wide) in paragraph at lines 71--72
+Overfull \hbox (0.18617pt too wide) in paragraph at lines 72--73
 \OT1/cmr/m/n/12 Za^^Tr^^S^^Pzen^^S^^P mus^^S^^P b^^Syt nen^^Saro^^Tcn^^Se na ^^
 Sudr^^Tzbu, to zna-men^^Sa nap^^Tr^^S^^Pklad v^^Sym^^Tenu, nebo dob^^S^^Pjen^^S
 ^^P
  []
 
 
-Overfull \hbox (5.20834pt too wide) in paragraph at lines 74--75
+Overfull \hbox (5.20834pt too wide) in paragraph at lines 75--76
 \OT1/cmr/m/n/12 kter^^Se n^^Tekter^^Se mo-dely ani ne-maj^^S^^P. V^^Tet^^Tsina 
 do-stupn^^Sych mo-del^^Wu je p^^Treprodejem ^^Tc^^S^^Pnsk^^Sych
  []
@@ -626,69 +629,88 @@ Kapitola 3.
 [15
 
 ] [16]
-Overfull \hbox (19.24292pt too wide) in paragraph at lines 138--139
+Overfull \hbox (19.24292pt too wide) in paragraph at lines 139--140
 \OT1/cmr/m/n/12 d^^Wule^^Tzitosti p^^Tri v^^Syb^^Teru z^^Sakazn^^S^^Pkem, mezi 
 do-stupn^^Symi pro-dukty na ^^Tcesk^^Sem trhu. Ide^^Saln^^S^^Pmu
  []
 
 [17]
-Overfull \hbox (37.2594pt too wide) in paragraph at lines 153--154
+Overfull \hbox (37.2594pt too wide) in paragraph at lines 154--155
 []\OT1/cmr/m/n/12 Vzhledem k tomu, ^^Tze pr^^Sace p^^Trin^^Sa^^Ts^^S^^P vlast-n
 osti st^^Tredn^^S^^P t^^Tr^^S^^Pdy do ka-te-go-rie n^^S^^Pzkon^^Sakladov^^Sych
  []
 
 [18] [19]
-Overfull \hbox (26.1623pt too wide) in paragraph at lines 221--222
+Overfull \hbox (26.1623pt too wide) in paragraph at lines 222--223
 \OT1/cmr/m/n/12 jsou zkrat-kami a kom-bi-na-cemi slov z an-g-lick^^Seho ja-zyka
  (0). Na-sta-vi-tel-nost je nadpr^^Wum^^Tern^^Sa
  []
 
-[20] [21] <graphs/Graf1.pdf, id=84, 448.51427pt x 267.1812pt>
-File: graphs/Graf1.pdf Graphic file (type pdf)
+[20] [21] <graphs/graf_bodoveHodnoceni.pdf, id=84, 448.51427pt x 267.1812pt>
+File: graphs/graf_bodoveHodnoceni.pdf Graphic file (type pdf)
 
-<use graphs/Graf1.pdf>
-Package pdftex.def Info: graphs/Graf1.pdf used on input line 297.
+<use graphs/graf_bodoveHodnoceni.pdf>
+Package pdftex.def Info: graphs/graf_bodoveHodnoceni.pdf used on input line 298
+.
 (pdftex.def)             Requested size: 448.51317pt x 267.18053pt.
 
-Overfull \hbox (21.72183pt too wide) in paragraph at lines 297--298
+Overfull \hbox (21.72183pt too wide) in paragraph at lines 298--299
 [][] 
  []
 
-[22] [23 <./graphs/Graf1.pdf>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[22] [23 <./graphs/graf_bodoveHodnoceni.pdf>]
 Kapitola 4.
+<graphs/schema_blokove.pdf, id=104, 437.38406pt x 158.09062pt>
+File: graphs/schema_blokove.pdf Graphic file (type pdf)
+
+<use graphs/schema_blokove.pdf>
+Package pdftex.def Info: graphs/schema_blokove.pdf used on input line 312.
+(pdftex.def)             Requested size: 437.38298pt x 158.09023pt.
+
+Overfull \hbox (10.59164pt too wide) in paragraph at lines 312--313
+[][] 
+ []
+
 [24
 
-]
+ <./graphs/schema_blokove.pdf>] [25]
 Kapitola 5.
-[25
+[26
 
 ]
 Kapitola 6.
-[26
+[27
 
-] [27
+] [28
 
-] (./Bakaláøská práce.aux) ) 
+] (./Bakaláøská práce.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3591 strings out of 493027
- 45584 string characters out of 6133617
- 134600 words of memory out of 5000000
- 7070 multiletter control sequences out of 15000+600000
+ 3586 strings out of 493027
+ 45670 string characters out of 6133617
+ 134639 words of memory out of 5000000
+ 7064 multiletter control sequences out of 15000+600000
  10693 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,12n,54p,1310b,335s stack positions out of 5000i,500n,10000p,200000b,80000s
-<d:/Programs/texlive/2015/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmbx12.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr17.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmss12.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmssbx10.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmssi10.pfb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb>
-Output written on "Bakaláøská práce.pdf" (27 pages, 267677 bytes).
+<d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pf
+b><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
+><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+<d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb>
+<d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pf
+b><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.p
+fb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb>
+Output written on "Bakaláøská práce.pdf" (28 pages, 369765 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
+ 161 PDF objects out of 1000 (max. 8388607)
+ 114 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

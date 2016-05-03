@@ -31,6 +31,7 @@ Thesis deals with tracking devices for cars. The introduction defines the concep
 \clearpage
 
 \begin{abbrList}
+\textbf{SMS} & Short message service, služba pro přenost krátkých textových zpráv\\
 \textbf{GPS} & Global Positioning System, družicový polohovací systém\\
 \textbf{GSM} & Groupe Spécial Mobile, globální systém pro mobilní komunikaci\\
 \textbf{GPRS} & General Packet Radio Service, služba pro přenos dat v mobilní síti\\
@@ -40,7 +41,7 @@ Thesis deals with tracking devices for cars. The introduction defines the concep
 % Úvod
 
 \chapter{Úvod}
-Not supported yet.
+Podnětem vytvoření této práce mi byl můj vlastní zájem o sledovací zařízení do automobilu, kdy jsem pátral po levném, kvalitním, jednoduše ovladatelném zařízení, které naplní moje požadavky. Nejdříve jsem prohledal české portofilo a když jsem zjistil že zařízení, která splňují moje požadavky jsou cenově odhodnoceny kolem 8 000 Kč, rozhodl jsem se pro nákup u Číny. První zařízení za 400 Kč, které i přes popis o funkčnosti po celém světě, nebylo schopné fungování v České republice, mapové podklady na Evropu nebyly připraveny a odpovědi na SMS chodili v čínském jazyce, stejně tak manuál byl čínsky. Další pokus nastal se zařízením za 600 Kč, kdy zařízení odpovídalo na SMS nečitelnou změtí písmen a číslic, mapové podklady byly tentokrát přes Google, ale přesnost byla na stovky metrů a většinou se trefilo o několik ulic vedle. Řekl jsem si musí to jít přeci udělat lépe.
 
 % Sledovací zařízení
 
@@ -77,7 +78,7 @@ Z hlediska českého trhu, je nevýhodou všech nízkonákladových a většiny 
 Další z nevýhod dostupných produktů je nemožnost jakéhokoliv vlastního nastavení, či personalizace. Ať už se jedná o citlivost senzorů, počet potřebných satelitů pro učení polohy (čím méně satelitů, tím menší přesnost, ale větší šance na získání polohy při špatném signálu), nebo nastavení jednotlivých textových řetězců. Vždy je dobré, aby měl zákazník možnost si své zařízení přizpůsobit dle libosti. Tuto možnost mu zařízení bude nabízet a vzhledem k tomu, že implementace je čistě softwarová záležitost, nebude tím ovlivněna finální cena.
 
 \subsection{Přívětivost}
-SMS s řídícími příkazy musí být jednoduché, uživatelsky přívětivé a snadno zapamatovatelné, aby bylo pro zákazníka ovládání intuitivní a srozumitelné. Nejpřívětivější a nejjednodušší je to, co je pro uživatele nejpřirozenější, tedy běžná slova a věty, stejně tak sledovací zařízení by ve stejné formě mělo i odpovídat. Tedy komunikace mezi uživatelem a sledovacím zařízením by mělo být formou konverzace. Například "Kde jsi", odpověď: "Probíhá lokalizace, poloha bude zaslána během několika minut", později: "Nacházím se na souřadnicích...". Stejně tak instalace zařízení musí být jednoduchá a nesmí jí provázet komplikované nastavování. Vše by mělo fungovat při prvním spuštění automaticky.
+SMS s řídícími příkazy musí být jednoduché, uživatelsky přívětivé a snadno zapamatovatelné, aby bylo pro zákazníka ovládání intuitivní a srozumitelné. Nejpřívětivější a nejjednodušší je to, co je pro uživatele nejpřirozenější, tedy běžná slova a věty, stejně tak sledovací zařízení by ve stejné formě mělo i odpovídat. Tedy komunikace mezi uživatelem a sledovacím zařízením by mělo být formou konverzace. Například \uv{Kde jsi}, odpověď: \uv{Probíhá lokalizace, poloha bude zaslána během několika minut}, později: \uv{Nacházím se na souřadnicích...}. Stejně tak instalace zařízení musí být jednoduchá a nesmí jí provázet komplikované nastavování. Vše by mělo fungovat při prvním spuštění automaticky.
 
 \section{Normy}
 Not supported yet.
@@ -293,8 +294,8 @@ CU-08 & 4 & 15 & 15 & 15 & 10 & 8 & 5 & 72\\
 \caption{Výsledky bodového hodnocení dostupných modelů}
 \end{table}
 
-\begin{figure}
-\includegraphics{graphs/Graf1.pdf}
+\begin{figure}[h]
+\includegraphics{graphs/graf_bodoveHodnoceni.pdf}
 \caption{Grafické znázornění bodového hodnocení dostupných modelů}
 \label{foto}
 \end{figure}
@@ -306,6 +307,12 @@ Not supported yet.
 
 \section{Blokové schéma}
 Not supported yet.
+
+\begin{figure}[h]
+\includegraphics{graphs/schema_blokove.pdf}
+\caption{Blokové schéma zapojení}
+\label{foto}
+\end{figure}
 
 \section{Řídící jednotka}
 Not supported yet.
