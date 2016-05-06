@@ -19,25 +19,26 @@
 \contentsline {subsection}{\numberline {3.1.2}St\IeC {\v r}edn\IeC {\'\i } t\IeC {\v r}\IeC {\'\i }da (2 000 a\IeC {\v z} 8 000 K\IeC {\v c})}{15}
 \contentsline {subsection}{\numberline {3.1.3}Profesion\IeC {\'a}ln\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i } (8 000 a\IeC {\v z} 20 000 K\IeC {\v c})}{16}
 \contentsline {subsection}{\numberline {3.1.4}Specializovan\IeC {\'a} za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i } (od 20 000 K\IeC {\v c})}{17}
-\contentsline {section}{\numberline {3.2}Ide\IeC {\'a}ln\IeC {\'\i } n\IeC {\'\i }zkon\IeC {\'a}kladov\IeC {\'e} sledovac\IeC {\'\i } za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }}{17}
-\contentsline {section}{\numberline {3.3}Srovn\IeC {\'a}n\IeC {\'\i } n\IeC {\v e}kter\IeC {\'y}ch dostupn\IeC {\'y}ch model\IeC {\r u}}{18}
-\contentsline {subsection}{\numberline {3.3.1}TK-102 (SHX Trading s. r. o.)}{18}
-\contentsline {subsection}{\numberline {3.3.2}ECONOMY (SHX Trading s. r. o.)}{18}
-\contentsline {subsection}{\numberline {3.3.3}Helmer LK 506 (Alza.cz a.s.)}{19}
-\contentsline {subsection}{\numberline {3.3.4}Helmer LK 509 (Alza.cz a.s.)}{20}
-\contentsline {subsection}{\numberline {3.3.5}RF-V10 (GMcentrum s.r.o.)}{20}
-\contentsline {subsection}{\numberline {3.3.6}RF-V8S (GMcentrum s.r.o.)}{21}
-\contentsline {subsection}{\numberline {3.3.7}CU-07A (JABLOTRON ALARMS a.s.)}{21}
-\contentsline {subsection}{\numberline {3.3.8}CU-08 (JABLOTRON ALARMS a.s.)}{22}
-\contentsline {section}{\numberline {3.4}V\IeC {\'y}sledky srovn\IeC {\'a}n\IeC {\'\i }}{22}
-\contentsline {chapter}{\numberline {4}Koncept}{24}
-\contentsline {section}{\numberline {4.1}Blokov\IeC {\'e} sch\IeC {\'e}ma}{24}
-\contentsline {section}{\numberline {4.2}\IeC {\v R}\IeC {\'\i }d\IeC {\'\i }c\IeC {\'\i } jednotka}{24}
-\contentsline {section}{\numberline {4.3}Komunika\IeC {\v c}n\IeC {\'\i } modul}{24}
-\contentsline {section}{\numberline {4.4}Senzor pohybu}{24}
-\contentsline {section}{\numberline {4.5}Softwarov\IeC {\'y} n\IeC {\'a}vrh}{25}
-\contentsline {chapter}{\numberline {5}Prototyp}{26}
-\contentsline {section}{\numberline {5.1}V\IeC {\'y}vojov\IeC {\'a} deska Arduino}{26}
-\contentsline {section}{\numberline {5.2}Komunika\IeC {\v c}n\IeC {\'\i } modul GPS/GPRS/GSM}{26}
-\contentsline {section}{\numberline {5.3}Nap\IeC {\'a}jen\IeC {\'\i }}{26}
-\contentsline {chapter}{\numberline {6}Z\IeC {\'a}v\IeC {\v e}r}{27}
+\contentsline {section}{\numberline {3.2}Tabulka vlastnost\IeC {\'\i } kategori\IeC {\'\i }}{17}
+\contentsline {section}{\numberline {3.3}Ide\IeC {\'a}ln\IeC {\'\i } n\IeC {\'\i }zkon\IeC {\'a}kladov\IeC {\'e} sledovac\IeC {\'\i } za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }}{17}
+\contentsline {section}{\numberline {3.4}Srovn\IeC {\'a}n\IeC {\'\i } n\IeC {\v e}kter\IeC {\'y}ch dostupn\IeC {\'y}ch model\IeC {\r u}}{18}
+\contentsline {subsection}{\numberline {3.4.1}TK-102 (SHX Trading s. r. o.)}{19}
+\contentsline {subsection}{\numberline {3.4.2}ECONOMY (SHX Trading s. r. o.)}{19}
+\contentsline {subsection}{\numberline {3.4.3}Helmer LK 506 (Alza.cz a.s.)}{20}
+\contentsline {subsection}{\numberline {3.4.4}Helmer LK 509 (Alza.cz a.s.)}{20}
+\contentsline {subsection}{\numberline {3.4.5}RF-V10 (GMcentrum s.r.o.)}{21}
+\contentsline {subsection}{\numberline {3.4.6}RF-V8S (GMcentrum s.r.o.)}{21}
+\contentsline {subsection}{\numberline {3.4.7}CU-07A (JABLOTRON ALARMS a.s.)}{22}
+\contentsline {subsection}{\numberline {3.4.8}CU-08 (JABLOTRON ALARMS a.s.)}{22}
+\contentsline {section}{\numberline {3.5}V\IeC {\'y}sledky srovn\IeC {\'a}n\IeC {\'\i }}{23}
+\contentsline {chapter}{\numberline {4}Koncept}{25}
+\contentsline {section}{\numberline {4.1}Blokov\IeC {\'e} sch\IeC {\'e}ma}{25}
+\contentsline {section}{\numberline {4.2}\IeC {\v R}\IeC {\'\i }d\IeC {\'\i }c\IeC {\'\i } jednotka}{26}
+\contentsline {section}{\numberline {4.3}Komunika\IeC {\v c}n\IeC {\'\i } modul}{26}
+\contentsline {section}{\numberline {4.4}Senzor pohybu}{26}
+\contentsline {section}{\numberline {4.5}Softwarov\IeC {\'y} n\IeC {\'a}vrh}{26}
+\contentsline {chapter}{\numberline {5}Prototyp}{27}
+\contentsline {section}{\numberline {5.1}V\IeC {\'y}vojov\IeC {\'a} deska Arduino}{27}
+\contentsline {section}{\numberline {5.2}Komunika\IeC {\v c}n\IeC {\'\i } modul GPS/GPRS/GSM}{27}
+\contentsline {section}{\numberline {5.3}Nap\IeC {\'a}jen\IeC {\'\i }}{27}
+\contentsline {chapter}{\numberline {6}Z\IeC {\'a}v\IeC {\v e}r}{28}

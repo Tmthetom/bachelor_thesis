@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  1 MAY 2016 13:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  7 MAY 2016 01:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -629,62 +629,62 @@ Kapitola 3.
 [15
 
 ] [16]
-Overfull \hbox (19.24292pt too wide) in paragraph at lines 139--140
-\OT1/cmr/m/n/12 d^^Wule^^Tzitosti p^^Tri v^^Syb^^Teru z^^Sakazn^^S^^Pkem, mezi 
-do-stupn^^Symi pro-dukty na ^^Tcesk^^Sem trhu. Ide^^Saln^^S^^Pmu
- []
-
-[17]
-Overfull \hbox (37.2594pt too wide) in paragraph at lines 154--155
-[]\OT1/cmr/m/n/12 Vzhledem k tomu, ^^Tze pr^^Sace p^^Trin^^Sa^^Ts^^S^^P vlast-n
-osti st^^Tredn^^S^^P t^^Tr^^S^^Pdy do ka-te-go-rie n^^S^^Pzkon^^Sakladov^^Sych
- []
-
-[18] [19]
-Overfull \hbox (26.1623pt too wide) in paragraph at lines 222--223
-\OT1/cmr/m/n/12 jsou zkrat-kami a kom-bi-na-cemi slov z an-g-lick^^Seho ja-zyka
- (0). Na-sta-vi-tel-nost je nadpr^^Wum^^Tern^^Sa
- []
-
-[20] [21] <graphs/graf_bodoveHodnoceni.pdf, id=84, 448.51427pt x 267.1812pt>
-File: graphs/graf_bodoveHodnoceni.pdf Graphic file (type pdf)
-
-<use graphs/graf_bodoveHodnoceni.pdf>
-Package pdftex.def Info: graphs/graf_bodoveHodnoceni.pdf used on input line 298
-.
-(pdftex.def)             Requested size: 448.51317pt x 267.18053pt.
-
-Overfull \hbox (21.72183pt too wide) in paragraph at lines 298--299
-[][] 
+Overfull \hbox (18.5158pt too wide) in paragraph at lines 144--178
+ [] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[22] [23 <./graphs/graf_bodoveHodnoceni.pdf>]
+
+Overfull \hbox (19.24292pt too wide) in paragraph at lines 186--187
+\OT1/cmr/m/n/12 d^^Wule^^Tzitosti p^^Tri v^^Syb^^Teru z^^Sakazn^^S^^Pkem, mezi 
+do-stupn^^Symi pro-dukty na ^^Tcesk^^Sem trhu. Ide^^Saln^^S^^Pmu
+ []
+
+[17]
+Overfull \hbox (3.0542pt too wide) in paragraph at lines 201--202
+[]\OT1/cmr/m/n/12 Vzhledem k tomu, ^^Tze pr^^Sace p^^Tren^^Sa^^Ts^^S^^P vlast-n
+osti, ze st^^Tredn^^S^^P t^^Tr^^S^^Pdy sle-do-vac^^S^^Pch za^^Tr^^S^^Pzen^^S^^P
+,
+ []
+
+[18] [19] [20]
+Overfull \hbox (26.1623pt too wide) in paragraph at lines 269--270
+\OT1/cmr/m/n/12 jsou zkrat-kami a kom-bi-na-cemi slov z an-g-lick^^Seho ja-zyka
+ (0). Na-sta-vi-tel-nost je nadpr^^Wum^^Tern^^Sa
+ []
+
+[21] [22] <graphs/graf_bodoveHodnoceni.pdf, id=87, 448.51427pt x 267.1812pt>
+File: graphs/graf_bodoveHodnoceni.pdf Graphic file (type pdf)
+
+<use graphs/graf_bodoveHodnoceni.pdf>
+Package pdftex.def Info: graphs/graf_bodoveHodnoceni.pdf used on input line 345
+.
+(pdftex.def)             Requested size: 426.79134pt x 254.24467pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[23] [24 <./graphs/graf_bodoveHodnoceni.pdf>]
 Kapitola 4.
-<graphs/schema_blokove.pdf, id=104, 437.38406pt x 158.09062pt>
+<graphs/schema_blokove.pdf, id=107, 324.46219pt x 300.3722pt>
 File: graphs/schema_blokove.pdf Graphic file (type pdf)
 
 <use graphs/schema_blokove.pdf>
-Package pdftex.def Info: graphs/schema_blokove.pdf used on input line 312.
-(pdftex.def)             Requested size: 437.38298pt x 158.09023pt.
+Package pdftex.def Info: graphs/schema_blokove.pdf used on input line 359.
+(pdftex.def)             Requested size: 426.79134pt x 395.13126pt.
+ [25
 
-Overfull \hbox (10.59164pt too wide) in paragraph at lines 312--313
-[][] 
- []
-
-[24
-
- <./graphs/schema_blokove.pdf>] [25]
+ <./graphs/schema_blokove.pdf>] [26]
 Kapitola 5.
-[26
+[27
 
 ]
 Kapitola 6.
-[27
+[28
 
-] [28
+] [29
 
 ] (./Bakaláøská práce.aux)
 
@@ -692,13 +692,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3586 strings out of 493027
- 45670 string characters out of 6133617
- 134639 words of memory out of 5000000
- 7064 multiletter control sequences out of 15000+600000
- 10693 words of font info for 37 fonts, out of 8000000 for 9000
+ 3587 strings out of 493027
+ 45687 string characters out of 6133617
+ 136639 words of memory out of 5000000
+ 7065 multiletter control sequences out of 15000+600000
+ 10992 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,12n,54p,1310b,335s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,12n,54p,1310b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 <d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pf
 b><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 ><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
@@ -707,10 +707,10 @@ b><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 b><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.p
 fb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb>
-Output written on "Bakaláøská práce.pdf" (28 pages, 369765 bytes).
+Output written on "Bakaláøská práce.pdf" (29 pages, 371608 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 114 compressed objects within 2 object streams
+ 164 PDF objects out of 1000 (max. 8388607)
+ 116 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
