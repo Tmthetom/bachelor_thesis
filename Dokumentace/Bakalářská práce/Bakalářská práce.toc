@@ -40,7 +40,11 @@
 \contentsline {section}{\numberline {4.5}Blokov\IeC {\'e} sch\IeC {\'e}ma}{26}{section.4.5}
 \contentsline {chapter}{\numberline {5}Prototyp}{28}{chapter.5}
 \contentsline {section}{\numberline {5.1}V\IeC {\'y}vojov\IeC {\'a} deska Arduino}{28}{section.5.1}
-\contentsline {section}{\numberline {5.2}Komunika\IeC {\v c}n\IeC {\'\i } modul GPS/GPRS/GSM}{28}{section.5.2}
-\contentsline {section}{\numberline {5.3}Akcelerometr}{28}{section.5.3}
-\contentsline {chapter}{\numberline {6}Softwarov\IeC {\'y} n\IeC {\'a}vrh}{29}{chapter.6}
-\contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{30}{chapter.7}
+\contentsline {section}{\numberline {5.2}Komunika\IeC {\v c}n\IeC {\'\i } modul GPS/GPRS/GSM}{29}{section.5.2}
+\contentsline {section}{\numberline {5.3}Akcelerometr}{29}{section.5.3}
+\contentsline {chapter}{\numberline {6}Softwarov\IeC {\'y} n\IeC {\'a}vrh}{30}{chapter.6}
+\contentsline {section}{\numberline {6.1}Prost\IeC {\v r}ed\IeC {\'\i } Arduino}{30}{section.6.1}
+\contentsline {section}{\numberline {6.2}Knihovna Wiring}{30}{section.6.2}
+\contentsline {section}{\numberline {6.3}Diagram t\IeC {\v r}\IeC {\'\i }d}{30}{section.6.3}
+\contentsline {section}{\numberline {6.4}V\IeC {\'y}po\IeC {\v c}et polohy z dat GPS}{30}{section.6.4}
+\contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{31}{chapter.7}

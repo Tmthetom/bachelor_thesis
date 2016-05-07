@@ -350,9 +350,11 @@ CU-08 & 4 & 15 & 15 & 15 & 10 & 8 & 5 & 72\\
 \end{table}
 
 \begin{figure}[H]
+\begin{center}
 \includegraphics[width=\textwidth]{graphs/graf_bodoveHodnoceni.pdf}
 \caption{Grafické znázornění bodového hodnocení dostupných modelů}
-\label{foto}
+\label{image}
+\end{center}
 \end{figure}
 
 % Koncept
@@ -376,9 +378,11 @@ Jako napájení může být použita autobaterie, nebo jakýkoliv jiný zdroj en
 Blokové schéma ukazuje propojení jednotlivých částí, do funkčního celku. Zdroj napájení je přes vratnou pojistku napojen na řídící jednotku, která dále rozděluje energii mezi další součástky, dle jejich potřeb (12 V, 5 V, 3 V). Řídící jednotka má na sebe napojen senzor pohybu, který indikuje změny pohybu a v případě změny, řídící jednotku probudí ze spánku. Na řídící jednotku je také napojeno komunikační rozhraní, které pouze vykonává příkazy řídící jednotky, popřípadě jí zasílá příchozí data. Dle typu komunikačního rozhraní je napojen na síť GPS, GSM, popřípadě GPRS.
 
 \begin{figure}[H]
+\begin{center}
 \includegraphics[width=\textwidth]{graphs/schema_blokove.pdf}
 \caption{Blokové schéma zapojení}
-\label{foto}
+\label{image}
+\end{center}
 \end{figure}
 
 % Prototyp
@@ -387,10 +391,18 @@ Blokové schéma ukazuje propojení jednotlivých částí, do funkčního celku
 Před tvorbou prototypu jsem se s vedoucí práce dohodl na využití hotových dílů, které poskládám dohromady a naprogramuji. Cílem této práce není vytvoření sledovacího zařízení, připraveného do sériové výroby, ale vytvoření prototypu na kterém ukáži zvolené hardwarové a softwarové řešení.
 
 \section{Vývojová deska Arduino}
-Jako řídící jednotku jsem si zvolil vývojovou desku Arduino UNO \cite{Arduino Schematic}, která obsahuje čip ATmega328 \cite{Atmega datasheet}. Možnosti čipu i desky mnohonásobně přesahují požadavky na výkon i periferie, nicméně díky jednoduchému programování desky \cite{Pruvodce arduinem}, bude možný rychlý vývoj softwaru řídícího softwaru.
+Jako řídící jednotku jsem si zvolil vývojovou desku Arduino UNO \cite{Arduino Schematic} od společnosti Arduino, která obsahuje čip ATmega328 \cite{Atmega datasheet}. Možnosti čipu i desky mnohonásobně přesahují požadavky na výkon i periferie, nicméně díky jednoduchému programování desky \cite{Pruvodce arduinem}, bude možný rychlý vývoj řídícího softwaru. V případě finální výroby navíc počítám s pouze jednodušší variantou čipu ATmega, takže finální kód by zůstal stejný. ATmega i jiná řešení jsou programována v jazyce C, tedy není problém s výměnou čipu za jiné řešení, pouze by bylo nutné upravit některé příkazy pro určitý čip. Čip řady ATmega používá jazyk C s knihovnou Wiring.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{images/arduino.png}
+\caption{Vývojová deska Arduino UNO}
+\label{image}
+\end{center}
+\end{figure}
 
 \section{Komunikační modul GPS/GPRS/GSM}
-Not supported yet.
+Pro komunikaci jsem se rozhodl pro s arduinem kompatibilní desku, která zjednoduší propojení a umožní komunikačním modulem přímo rozšířit vývojovou desku Ardino. To nastane jednoduchým nasazením na desku, kdy jsou nožičky (piny) obou zařízení propojeny. Zvolil jsem řešení GPS/GPRS/GSM Module V3.0 \cite{ROBOT schematic} od firmy DFROBOT, které obsahuje možnost jednoduchého připojení všech možných periferií (mikrofon, reproduktor, sim karta, ...), čímž je skvělým modulem pro testování a vývoj. Hlavní částí je komunikační čip SIM908 \cite{SIMCOM HW}, který umí komunikovat přes GPS, GSM i GPRS a navíc je jednoduše ovladatený \cite{SIMCOM SW}. Čipy řady SIM900 jsou využívány ve všech nalezených sledovacích zařízeních, jedná se o jedno z mála dostupných řešení, které je levné a v případě budoucí výroby předpokládám jeho použití, proto bude software postaven na komunikaci s tímto čipem.
 
 \section{Akcelerometr}
 Not supported yet.
@@ -398,6 +410,18 @@ Not supported yet.
 %Softwarový návrh
 
 \chapter{Softwarový návrh}
+Not supported yet.
+
+\section{Prostředí Arduino}
+Not supported yet.
+
+\section{Knihovna Wiring}
+Not supported yet.
+
+\section{Diagram tříd}
+Not supported yet.
+
+\section{Výpočet polohy z dat GPS}
 Not supported yet.
 
 % Závěr
