@@ -1,7 +1,9 @@
-\documentclass[FM,BP]{tulthesis}
-\usepackage[czech]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
+\documentclass[FM,BP]{tulthesis}  % Bakalářská práce fakulty mechatroniky
+\usepackage[czech]{babel}  % Česká šablona dokumentu
+\usepackage[utf8]{inputenc}  % Česká diakritika
+\usepackage{graphicx}  % Tvorbě tabulek
+\usepackage{float}  % Ukotvení věcí na svém místě (obrázky, tabulky, grafy, ...)
+\usepackage{hyperref}  % Klikací odkazy v obsahu a referencích
 
 \TULtitle{Koncept nízkonákladového sledovacího zařízení pro osobní automobily}{The concept of a low cost tracking device for personal cars}
 \TULprogramme{B2646}{Informační technologie}{Information Technology}
@@ -115,7 +117,7 @@ Střední třída je již plnohodnotnou kategorií sledovacích zařízení do a
 Profesionální řešení jsou téměř vždy napojena na autobaterii a na sběrnici vozidla. Jejich dálkovým řízením pomocí webového rozhraní lze napřílad přívod paliva, sledovat stav nádrže a dalších kapalin a efektivně sledovat celou síť firemních vozidel, monitorovat a optimalizovat trasy. Jsou vybaveny silnými bateriemi a jsou odolné proti poškození. Umožnují například připojení kamerových systémů, nebo připojení mikrofonu do kabiny řidiče pro případné urychlené jednání s pojišťovnou. Nicméně jeho provoz a instalace je finančně velice náročná a proto se vyplatí pouze pro společnosti s velkým vozovím parkem. Využití najde i na moři v lodní, kontejnerové dopravdě. Taková to řešení se v České republice poskytuje například společnost Jablotron, nebo Škoda. Obě společnosti jsem kontaktoval, nicméně v rámci utajení výzkumu odmítly sdílet informace. Dále jsem se nepokoušel o jejich zjištění, protože profesionální zařízení nejsou cílem této práce. 
 
 \begin{itemize}
-\item mezdrátové řízení a monitoring
+\item bezdrátové řízení a monitoring
 \item připojení na autobaterii
 \item připojení na komunikační sběrnici vozu
 \item baterie (výdrž desítky dnů)
@@ -136,10 +138,10 @@ Specializovaná sledovací zařízení jsou raritou, určenou především pro k
 % Porování kategorií
 
 \section{Tabulka vlastností kategorií}
-Následující tabuka shrnuje všechny zjištěné vlastnosti do jedné ucelené tabulky, ze které jsou lépe patrné rozdíly mezi jednotlivými kategoriemi.
+Následující tabuka shrnuje všechny zjištěné vlastnosti do jedné ucelené tabulky, ze které jsou lépe patrné rozdíly mezi jednotlivými kategoriemi. Symbolem \uv{x} je označena vlastnost, která je pro kategorii standardní a prázdným políčkem, neobsahující symbol \uv{x}, označuje tu vlastnost, která není pro kategorii standardní. Standardní je myšlena ta vlastnost, kterou mají společnou všechna zařízení v dané kategorii, naopak nestandardní je myšlena ta vlastnost, kterou nemají všechny, nebo většina zařízeních v dané kategorii společnou.
 
 \renewcommand{\arraystretch}{1.5}
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{| l | c | c| c | c |}
 \hline
@@ -178,7 +180,6 @@ Bezpečné uložení & & & & x\\
 \end{center}
 \caption{Porovnání vlastnostní jednotlivých kategorií}
 \end{table}
-
 
 % Ideální zařízení
 
@@ -307,13 +308,20 @@ Další české zařízení od firmy Jablotro, s cenou sahající k 6 000 Kč (4
 % Tabulka výsledků
 
 \section{Výsledky srovnání}
-Tabulka níže ukazuje výsledky bodového hodnocení ve formě tabulky. Pod textem se nachází seznam zkratkek, použitých v tabulce. Následuje graf, pro grafické porovnání celkového počtu bodů s rozdělením na jednotlivé kategorie.
+Tabulka níže ukazuje výsledky bodového hodnocení ve formě tabulky. Pod textem se nachází seznam zkratkek, použitých v tabulce. Následuje graf, pro lepší  porovnání celkového počtu bodů s rozdělením na jednotlivé kategorie
+\paragraph{Seznam zkratek tabulky bodového hodnocení:}
 \begin{itemize}
-\item CE - Cena, SP - Spolehlivost, BE - Bezpečnost, NE - Nenáročnost, JA - Vícejazyčnost, NA - Nastavitelnost, PŘ - Přívětivost
+\item CE - cena
+\item SP - spolehlivost
+\item BE - bezpečnost
+\item NE - nenáročnost
+\item JA - vícejazyčnost
+\item NA - nastavitelnost
+\item PŘ - přívětivost
 \end{itemize}
 
 \renewcommand{\arraystretch}{1.5}
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{| l | c | c| c | c | c | c | c | c |}
 \hline
@@ -341,7 +349,7 @@ CU-08 & 4 & 15 & 15 & 15 & 10 & 8 & 5 & 72\\
 \caption{Výsledky bodového hodnocení dostupných modelů}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[width=\textwidth]{graphs/graf_bodoveHodnoceni.pdf}
 \caption{Grafické znázornění bodového hodnocení dostupných modelů}
 \label{foto}
@@ -350,41 +358,46 @@ CU-08 & 4 & 15 & 15 & 15 & 10 & 8 & 5 & 72\\
 % Koncept
 
 \chapter{Koncept}
-Not supported yet.
+Při tvorbě konceptu jsem zaměřil na výběr obecných součástek, nespecifikuji tedy konkrétní výrobky, ale pouze jejich typ, díky čemuž není koncept svázán s určitým výrobkem a kusy lze nahradit jinými, které budou fungovat stejným způsobem. Dále jsem se zaměřil na způsob, jakým budou součástky propojeny, jak budou komunikovat a jak budou napájeny.
+
+\section{Řídící jednotka}
+Základem celého sledovacího zařízení je řídící jednotka, která ovládá veškeré dění, přijímá a zpracovává data, která následně vyhodnocuje. Na základě požadovaných vlastnostní jsem se rozhodl pro jednočipový počítač, dále jen mikrokontrolér, který je integrovaným obvodem, tedy v základní struktuře obsahuje procesor, operační paměť, paměť pro program, oscilátor, vstupní a výstupní rozhraní (porty). Mikrokontroléry se vyznačují velmi vysokou spolehlivostí, kompaktnostní a nízkou cenou, která je mým cílem. Často jsou využívány pro jednoúčelové aplikace řízení, nebo regulace.
+
+\section{Komunikační rozhraní}
+Komunikační rozhraní je zařízení, které poskytuje přístup do sítí GSM, GPS a popřípadě GPRS. Rozraní může obsahovat více komunikačních čipů, například jeden pro GPS, druhý pro GSM a tím umožní komunikaci v obou sítích zároveň. Nebo pomocí jednoho čipu, který kombinuje všechny sítě do jednoho zařízení, ale není možná komunikace ve více sítích zároveň, je tedy nutné mezi nimi přepínat. Komunikační rozraní musí poskytovat jednoduché příkazy, které umožní komunikovat přes zmíněné sítě, bez potřebné znalosti jejich interní struktury. Bude tedy možné pomocí jednoduchého příkazu odeslat zprávu SMS, nebo bude poskytovat data z GPS ve specifickém formátu, který bude možné zpracovat a vyhodnotit.
+
+\section{Senzor pohybu}
+Pro notifikaci změny pohybu a maximální úsporu elektrické energie a je nutné sledovací zařízení opatřit senzorem pohybu. Jedná se o čidlo, které zaznamenává změnu své vlastní polohy, nejedná tedy se o detektor pohybu, který zaznamenává pohyb okolí. Pro koncept je možné využít vibrační senzor, je levný (desítky korun), nepřesný (nelze nastavit přesnost) a používá jej většina dostupných modelů. Vibrační senzor má nulovou spotřebu, protože se jedná o drátek obmotný pružinkou, která se v případě pohybu dotkne drátku a uzavře se okruh. Dále je možné použít akcelerometr, který z porovnávaných modelů mají pouze modely od firmy Jablotron. Senzor je dražší (stovky korun) ale na druhou stranu je přesný (lze nastavit přesnost), spotřeba je u většiny modelů 10 mA. Možným řešením by byla detekce pohybu pomocí změny polohy GPS, nicméně spotřeba při připojení do sítě GPS se pohybuje kolem 200 mA, proto toto řešení označuji jako nevhodné, vzhledem k jeho nárokům na energii.
+
+\section{Napájení}
+Jako napájení může být použita autobaterie, nebo jakýkoliv jiný zdroj energie o minimálním napětí 12 V a minimálním výstupním proudem 1 A. Vstupní napětí 12 V je minimální potřebné napájecí napětí, které vyžaduje komunikační modul. Maximální velikost vstupního napětí bude dána použítým regulátorem napětí, který sníží vyšší napětí na požadované. Proudový odběr 1 A je maximální možný odběr, který bude zařízení schopno vyvinout. Při použití zdroje napájení s nížším maximálním proudem, než 1 A, může dojít k poklesu napětí, nebo nenávratnému poškození zdroje napájení (baterie), pokud je proud, které zařízení zrovna potřebuje vyšší, než proud který je zdroj napájení schopnen dodat. Poškozením je myšleno roztavení v některých případech i explozi (dle typu baterie). Mezi sledovací zařízení a zdroj napájení, bude umístěna vratná pojistka (PolySwitch), která ochrání sledovací zařízení před nadproudem či zkratem. 
 
 \section{Blokové schéma}
-Not supported yet.
+Blokové schéma ukazuje propojení jednotlivých částí, do funkčního celku. Zdroj napájení je přes vratnou pojistku napojen na řídící jednotku, která dále rozděluje energii mezi další součástky, dle jejich potřeb (12 V, 5 V, 3 V). Řídící jednotka má na sebe napojen senzor pohybu, který indikuje změny pohybu a v případě změny, řídící jednotku probudí ze spánku. Na řídící jednotku je také napojeno komunikační rozhraní, které pouze vykonává příkazy řídící jednotky, popřípadě jí zasílá příchozí data. Dle typu komunikačního rozhraní je napojen na síť GPS, GSM, popřípadě GPRS.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[width=\textwidth]{graphs/schema_blokove.pdf}
 \caption{Blokové schéma zapojení}
 \label{foto}
 \end{figure}
 
-\section{Řídící jednotka}
-Not supported yet.
-
-\section{Komunikační modul}
-Not supported yet.
-
-\section{Senzor pohybu}
-Not supported yet.
-
-\section{Softwarový návrh}
-Not supported yet.
-
 % Prototyp
 
 \chapter{Prototyp}
-Not supported yet.
+Před tvorbou prototypu jsem se s vedoucí práce dohodl na využití hotových dílů, které poskládám dohromady a naprogramuji. Cílem této práce není vytvoření sledovacího zařízení, připraveného do sériové výroby, ale vytvoření prototypu na kterém ukáži zvolené hardwarové a softwarové řešení.
 
 \section{Vývojová deska Arduino}
-Not supported yet.
+Jako řídící jednotku jsem si zvolil vývojovou desku Arduino UNO \cite{Arduino Schematic}, která obsahuje čip ATmega328 \cite{Atmega datasheet}. Možnosti čipu i desky mnohonásobně přesahují požadavky na výkon i periferie, nicméně díky jednoduchému programování desky \cite{Pruvodce arduinem}, bude možný rychlý vývoj softwaru řídícího softwaru.
 
 \section{Komunikační modul GPS/GPRS/GSM}
 Not supported yet.
 
-\section{Napájení}
+\section{Akcelerometr}
+Not supported yet.
+
+%Softwarový návrh
+
+\chapter{Softwarový návrh}
 Not supported yet.
 
 % Závěr
@@ -393,7 +406,19 @@ Not supported yet.
 Not supported yet.
 
 \begin{thebibliography}{References}
-\bibitem{Mares}Mareš Stanislav: Úvod do užité geofyziky. 2nd edition, SNTL, 1990. ISBN 8003004276.
+\bibitem{LaTeX}SATRAPA, Pavel. LaTeX pro pragmatiky [online]. 2011, 87 s. [cit. 2016-05-07]. Dostupné z: http://www.nti.tul.cz/~satrapa/docs/latex/latex-pro-pragmatiky.pdf
+\bibitem{LaTeX}SATRAPA, Pavel. Stručný přehled příkazů LaTeXu [online]. 2011, 2 s. [cit. 2016-05-07]. Dostupné z: http://www.nti.tul.cz/~satrapa/docs/latex/latex-prehled.pdf
+\bibitem{SIFT}SIRF TECHNOLOGY, INC. NMEA Reference Manual [online]. 2.1. San Jose., 2007, 27 s. [cit. 2016-05-07]. Dostupné z: https://www.sparkfun.com/datasheets/GPS/NMEA\%20Reference\% 20Manual-Rev2.1-Dec07.pdf
+\bibitem{CSR}CSR PLC. NMEA Reference Guide [online]. 2. Cambridge: CSR plc, 2011, 50 s. [cit. 2016-05-07]. Dostupné z: http://www.inventeksys.com/wp-content/uploads/2012/05/NMEA-Reference-Manual-CS-129435-MA-2.pdf
+\bibitem{SIMCOM HW}SIMCOM WIRELESS SOLUTIONS. SIM908 Hardware Design [online]. 2. Jinzhong, 2012, 53 s. [cit. 2016-05-07]. Dostupné z: http://www.niplesoft.net/blog/wp-content/uploads/2016/02/SIM908-Hardware-Design-V2.00-1.pdf
+\bibitem{SIMCOM SW}SIMCOM WIRELESS SOLUTIONS. SIM908 AT Command Manual [online]. Jinzhong, 2011, 249 s. [cit. 2016-05-07]. Dostupné z: http://www.dfrobot.com/image/data/TEL0051/3.0/ SIM908\_AT\%20Command\%20Manua\_V1.01.pdf
+\bibitem{ROBOT schematic}DFROBOT. GSM+GPRS+GPS V3.0 schematic [online]. Shanghai, 2013, 1 s. [cit. 2016-05-07]. Dostupné z: http://www.dfrobot.com/image/data/TEL0051/GSM+GPRS+GPS \%20SIM908\%20V3.0.pdf
+\bibitem{ROBOT SW}GPS/GPRS/GSM Module V3.0 (SKU:TEL0051). DFRobot Wiki [online]. [cit. 2016-05-07]. Dostupné z: http://www.dfrobot.com/wiki/index.php/GPS/GPRS/GSM\_Module \_V3.0\_(SKU:TEL0051)
+\bibitem{Arduino Schematic}ARDUINO LLC. Arduino Schematic [online]. 1 s. [cit. 2016-05-07]. Dostupné z: https://www.arduino.cc/en/uploads/Main/Arduino\_Uno\_Rev3-schematic.pdf
+\bibitem{Pruvodce arduinem}VODA, Zbyšek. Průvodce světem Arduina [online]. Vydání první. Bučovice: Martin Stříž, 2015 [cit. 2016-05-07]. ISBN 978-80-87106-90-7.
+\bibitem{Atmega datasheet}ATMEL CORPORATION. ATmega48A/PA/88A/PA/168A/PA/328/P Datasheet [online]. 2015, 660 s. [cit. 2016-05-07]. Dostupné z: http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P\_datasheet\_Complete.pdf
+
+
 \end{thebibliography}
 
 \end{document}

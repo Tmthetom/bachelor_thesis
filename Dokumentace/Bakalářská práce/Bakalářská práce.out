@@ -1,0 +1,44 @@
+\BOOKMARK [1][-]{chapter*.1}{Seznam zkratek}{}% 1
+\BOOKMARK [0][-]{chapter.1}{\332vod}{}% 2
+\BOOKMARK [0][-]{chapter.2}{Sledovac\355 zar\355zen\355}{}% 3
+\BOOKMARK [1][-]{section.2.1}{Historie}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.2}{Pr\355tomnost}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.3}{Po\236adovan\351 vlastnosti}{chapter.2}% 6
+\BOOKMARK [2][-]{subsection.2.3.1}{Cena}{section.2.3}% 7
+\BOOKMARK [2][-]{subsection.2.3.2}{Spolehlivost}{section.2.3}% 8
+\BOOKMARK [2][-]{subsection.2.3.3}{Bezpecnost}{section.2.3}% 9
+\BOOKMARK [2][-]{subsection.2.3.4}{Nen\341rocnost}{section.2.3}% 10
+\BOOKMARK [2][-]{subsection.2.3.5}{V\355cejazycnost}{section.2.3}% 11
+\BOOKMARK [2][-]{subsection.2.3.6}{Nastavitelnost}{section.2.3}% 12
+\BOOKMARK [2][-]{subsection.2.3.7}{Pr\355vetivost}{section.2.3}% 13
+\BOOKMARK [1][-]{section.2.4}{Normy}{chapter.2}% 14
+\BOOKMARK [0][-]{chapter.3}{Situace na trhu}{}% 15
+\BOOKMARK [1][-]{section.3.1}{Kategorie}{chapter.3}% 16
+\BOOKMARK [2][-]{subsection.3.1.1}{N\355zkon\341kladov\341 zar\355zen\355 \(do 2 000 Kc\)}{section.3.1}% 17
+\BOOKMARK [2][-]{subsection.3.1.2}{Stredn\355 tr\355da \(2 000 a\236 8 000 Kc\)}{section.3.1}% 18
+\BOOKMARK [2][-]{subsection.3.1.3}{Profesion\341ln\355 re\235en\355 \(8 000 a\236 20 000 Kc\)}{section.3.1}% 19
+\BOOKMARK [2][-]{subsection.3.1.4}{Specializovan\341 zar\355zen\355 \(od 20 000 Kc\)}{section.3.1}% 20
+\BOOKMARK [1][-]{section.3.2}{Tabulka vlastnost\355 kategori\355}{chapter.3}% 21
+\BOOKMARK [1][-]{section.3.3}{Ide\341ln\355 n\355zkon\341kladov\351 sledovac\355 zar\355zen\355}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.4}{Srovn\341n\355 nekter\375ch dostupn\375ch modelu}{chapter.3}% 23
+\BOOKMARK [2][-]{subsection.3.4.1}{TK-102 \(SHX Trading s. r. o.\)}{section.3.4}% 24
+\BOOKMARK [2][-]{subsection.3.4.2}{ECONOMY \(SHX Trading s. r. o.\)}{section.3.4}% 25
+\BOOKMARK [2][-]{subsection.3.4.3}{Helmer LK 506 \(Alza.cz a.s.\)}{section.3.4}% 26
+\BOOKMARK [2][-]{subsection.3.4.4}{Helmer LK 509 \(Alza.cz a.s.\)}{section.3.4}% 27
+\BOOKMARK [2][-]{subsection.3.4.5}{RF-V10 \(GMcentrum s.r.o.\)}{section.3.4}% 28
+\BOOKMARK [2][-]{subsection.3.4.6}{RF-V8S \(GMcentrum s.r.o.\)}{section.3.4}% 29
+\BOOKMARK [2][-]{subsection.3.4.7}{CU-07A \(JABLOTRON ALARMS a.s.\)}{section.3.4}% 30
+\BOOKMARK [2][-]{subsection.3.4.8}{CU-08 \(JABLOTRON ALARMS a.s.\)}{section.3.4}% 31
+\BOOKMARK [1][-]{section.3.5}{V\375sledky srovn\341n\355}{chapter.3}% 32
+\BOOKMARK [0][-]{chapter.4}{Koncept}{}% 33
+\BOOKMARK [1][-]{section.4.1}{R\355d\355c\355 jednotka}{chapter.4}% 34
+\BOOKMARK [1][-]{section.4.2}{Komunikacn\355 rozhran\355}{chapter.4}% 35
+\BOOKMARK [1][-]{section.4.3}{Senzor pohybu}{chapter.4}% 36
+\BOOKMARK [1][-]{section.4.4}{Nap\341jen\355}{chapter.4}% 37
+\BOOKMARK [1][-]{section.4.5}{Blokov\351 sch\351ma}{chapter.4}% 38
+\BOOKMARK [0][-]{chapter.5}{Prototyp}{}% 39
+\BOOKMARK [1][-]{section.5.1}{V\375vojov\341 deska Arduino}{chapter.5}% 40
+\BOOKMARK [1][-]{section.5.2}{Komunikacn\355 modul GPS/GPRS/GSM}{chapter.5}% 41
+\BOOKMARK [1][-]{section.5.3}{Akcelerometr}{chapter.5}% 42
+\BOOKMARK [0][-]{chapter.6}{Softwarov\375 n\341vrh}{}% 43
+\BOOKMARK [0][-]{chapter.7}{Z\341ver}{}% 44
