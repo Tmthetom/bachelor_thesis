@@ -45,6 +45,7 @@ Thesis deals with tracking devices for cars. The introduction defines the concep
 
 \chapter{Úvod}
 Podnětem vytvoření této práce mi byl můj vlastní zájem o sledovací zařízení do automobilu, kdy jsem pátral po levném, kvalitním, jednoduše ovladatelném zařízení, které naplní moje požadavky. Nejdříve jsem prohledal české portofilo a když jsem zjistil že zařízení, která splňují moje požadavky jsou cenově odhodnoceny kolem 8 000 Kč, rozhodl jsem se pro nákup u Číny. První zařízení za 400 Kč, které i přes popis o funkčnosti po celém světě, nebylo schopné fungování v České republice, mapové podklady na Evropu nebyly připraveny a odpovědi na SMS chodili v čínském jazyce, stejně tak manuál byl čínsky. Další pokus nastal se zařízením za 600 Kč, kdy zařízení odpovídalo na SMS nečitelnou změtí písmen a číslic, mapové podklady byly tentokrát přes Google, ale přesnost byla na stovky metrů a většinou se trefilo o několik ulic vedle. Řekl jsem si musí to jít přeci udělat lépe.
+bla bla bla .............................................................
 
 % Sledovací zařízení
 
@@ -461,21 +462,66 @@ Akcelerometr GY-521 & Arduino-Shop & 16.1.2016 & 150 Kč\\
 %Softwarový návrh
 
 \chapter{Softwarový návrh}
-Vývoj softwaru bude probíhat v programovacím jazyce C s nadstavbou vývojové platformy Wiring \cite{Arduino acce}, která jazyk rozšiřuje o příkazy, pro přímé řízení hardwarových součástek.
+V programové části se nejdříve zaměřím na popis programovacího jazyka, vývojové prostředí ve kterém bude software tvořen a dále na postupy při tvorbě jednotlivých částí, problémy se kterými jsem se u nich setkal a jakým způsobem jsem je vyřešil.
 
-\section{Vývojová platforma Wiring}
-Not supported yet.
+\section{Programovací jazyk}
+Vývoj softwaru bude probíhat v programovacím jazyce C s nadstavbou vývojové platformy Wiring  (knihovna Wire)\cite{Arduino acce}, která jazyk rozšiřuje o nové příkazy, pro přímé řízení hardwarových součástek, vše zastřešeno sadou knihoven \cite{Arduino lib} (od tvůrcu desky Arduino), které přidávají nové funkce, aby potencionální vývojář nepotřebova hlubší znalosti programování a hardwaru. Tento kompletní balík příkazů \cite{Arduino lang} je někdy také nazíván programovacím jazykem Arduino \cite{Arduino intro}.
 
 \section{Vývojové prostředí Arduino}
-Pro vývoj softwaru budu používat oficiální vývojové prostředí, od tvůrců desky Arduino s identickým názvem Arduino. Jedná se o počítačový software s otevřeným zdrojovým kódem (open-source), určený k jednoduchém psaní a nahrávání zdrojových kódu na desku. Prostředí lze nainstalovat na operační systém Windows, MAC a Linux. Mezi výhody patří zvýranění a barevné rolišení jednotlivých příkazů, plná podpora vývojové platformy Wiring, podpora všech oficiálních i neoficiálních desek Arduino, zabudovaný klient pro komunikaci na sériové lince a další spousty funkcí. Nevýhodou je absence předvídání a dokončování kódu (predikce), nápověda při volání částí programu (funkcí, knihoven atd.), nemožnost krokování programu a velice obecné chybovém hlášky, kvůli kterým je velice náročné odhalit případné chyby.
+Pro vývoj softwaru budu používat oficiální vývojové prostředí, od tvůrců desky Arduino s identickým názvem Arduino \cite{Arduino soft}. Jedná se o počítačový software s otevřeným zdrojovým kódem (open-source) \cite{Arduino source}, určený k jednoduchém psaní a nahrávání zdrojových kódu na desku. Prostředí lze nainstalovat na operační systém Windows, MAC a Linux. Z vlastní zkušenosti vyjmenuji výhody, mezi které patří zvýranění a barevné rolišení jednotlivých příkazů, plná podpora vývojové platformy Wiring, podpora všech oficiálních i neoficiálních desek Arduino, zabudovaný klient pro komunikaci na sériové lince a další spousty funkcí. Nevýhodou je absence předvídání a dokončování kódu (predikce), nápověda při volání částí programu (funkcí, knihoven atd.), nemožnost krokování programu a velice obecné chybovém hlášky, kvůli kterým je velice náročné odhalit případné chyby.
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{images/arduino-ide.png}
-\caption{Vývojové prostředí Arduino IDE}
+\includegraphics[width=0.8\textwidth]{images/arduino-ide.png}
+\caption{Ukázka z vývojového prostředí Arduino}
 \label{image}
 \end{center}
 \end{figure}
+
+\section{Funkce programu}
+Not supported yet.
+
+\subsection{Inicializace (setup)}
+Not supported yet.
+
+\subsection{Hlavní smyčka (loop)}
+Not supported yet.
+
+\subsection{Odeslání SMS (sendSMS)}
+Not supported yet.
+
+\subsection{Rozpoznání chyb (recognizeERROR)}
+Not supported yet.
+
+\subsection{Rozpoznání nové SMS (recognizeSmsNew)}
+Not supported yet.
+
+\subsection{Rozpoznání hlavičky SMS (recognizeSmsHeader)}
+Not supported yet.
+
+\subsection{Rozpoznání obsahu SMS (recognizeSmsContent)}
+Not supported yet.
+
+\subsection{Vykonání požadavku SMS (executeSmsContent)}
+Not supported yet.
+
+\subsection{Příkaz modulu (sendCommand)}
+Not supported yet.
+
+\subsection{Počítej validní GPS (countValidGpsCoordinates)}
+Not supported yet.
+
+\subsection{Vyčti souřadnice (parseCoordinates)}
+Not supported yet.
+
+\subsection{Vypočítej souřadnice (gpsCorrection)}
+Not supported yet.
+
+\subsection{Změň režim modulu (changeMode)}
+Not supported yet.
+
+\subsection{Obsluž přerušení (serialEvent)}
+Not supported yet.
 
 \section{Diagram funkcí}
 Not supported yet.
@@ -501,6 +547,11 @@ Not supported yet.
 \bibitem{Arduino acce}ARDUINO LLC. MPU-6050 Accelerometer + Gyro [online]. [cit. 2016-05-08]. Dostupné z: http://playground.arduino.cc/Main/MPU-6050
 \bibitem{Wiring}Wiring [online]. [cit. 2016-05-08]. Dostupné z: http://wiring.org.co/
 \bibitem{I2cdevlib}STOFFREGEN, Paul. I2cdevlib - MPU6050 [online]. 2012, 2016-04-07 [cit. 2016-05-08]. Dostupné z: https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050
+\bibitem{Arduino lib}Arduino libraries. Arduino [online]. [cit. 2016-05-08]. Dostupné z: https://www.arduino.cc/en/Reference/Libraries
+\bibitem{Arduino lang}Arduino programming language. Arduino [online]. [cit. 2016-05-08]. Dostupné z: https://www.arduino.cc/en/Reference/HomePage
+\bibitem{Arduino intro}Arduino introduction. Arduino [online]. [cit. 2016-05-08]. Dostupné z: https://www.arduino.cc/en/Guide/Introduction
+\bibitem{Arduino soft} Arduino software. Arduino [online]. [cit. 2016-05-08]. Dostupné z: https://www.arduino.cc/en/Main/Software
+\bibitem{Arduino source}Arduino source code. GitHub [online]. [cit. 2016-05-08]. Dostupné z: https://github.com/arduino/Arduino/tree/1.6.8
 \bibitem{Pruvodce arduinem}VODA, Zbyšek. Průvodce světem Arduina [online]. Vydání první. Bučovice: Martin Stříž, 2015 [cit. 2016-05-07]. ISBN 978-80-87106-90-7.
 \bibitem{Atmega datasheet}ATMEL CORPORATION. ATmega48A/PA/88A/PA/168A/PA/328/P Datasheet [online]. 2015, 660 s. [cit. 2016-05-07]. Dostupné z: http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P\_datasheet\_Complete.pdf
 

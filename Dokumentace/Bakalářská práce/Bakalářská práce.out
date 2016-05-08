@@ -42,8 +42,23 @@
 \BOOKMARK [1][-]{section.5.3}{Akcelerometr}{chapter.5}% 42
 \BOOKMARK [1][-]{section.5.4}{N\341klady na prototyp}{chapter.5}% 43
 \BOOKMARK [0][-]{chapter.6}{Softwarov\375 n\341vrh}{}% 44
-\BOOKMARK [1][-]{section.6.1}{V\375vojov\341 platforma Wiring}{chapter.6}% 45
+\BOOKMARK [1][-]{section.6.1}{Programovac\355 jazyk}{chapter.6}% 45
 \BOOKMARK [1][-]{section.6.2}{V\375vojov\351 prostred\355 Arduino}{chapter.6}% 46
-\BOOKMARK [1][-]{section.6.3}{Diagram funkc\355}{chapter.6}% 47
-\BOOKMARK [1][-]{section.6.4}{V\375pocet polohy z dat GPS}{chapter.6}% 48
-\BOOKMARK [0][-]{chapter.7}{Z\341ver}{}% 49
+\BOOKMARK [1][-]{section.6.3}{Funkce programu}{chapter.6}% 47
+\BOOKMARK [2][-]{subsection.6.3.1}{Inicializace \(setup\)}{section.6.3}% 48
+\BOOKMARK [2][-]{subsection.6.3.2}{Hlavn\355 smycka \(loop\)}{section.6.3}% 49
+\BOOKMARK [2][-]{subsection.6.3.3}{Odesl\341n\355 SMS \(sendSMS\)}{section.6.3}% 50
+\BOOKMARK [2][-]{subsection.6.3.4}{Rozpozn\341n\355 chyb \(recognizeERROR\)}{section.6.3}% 51
+\BOOKMARK [2][-]{subsection.6.3.5}{Rozpozn\341n\355 nov\351 SMS \(recognizeSmsNew\)}{section.6.3}% 52
+\BOOKMARK [2][-]{subsection.6.3.6}{Rozpozn\341n\355 hlavicky SMS \(recognizeSmsHeader\)}{section.6.3}% 53
+\BOOKMARK [2][-]{subsection.6.3.7}{Rozpozn\341n\355 obsahu SMS \(recognizeSmsContent\)}{section.6.3}% 54
+\BOOKMARK [2][-]{subsection.6.3.8}{Vykon\341n\355 po\236adavku SMS \(executeSmsContent\)}{section.6.3}% 55
+\BOOKMARK [2][-]{subsection.6.3.9}{Pr\355kaz modulu \(sendCommand\)}{section.6.3}% 56
+\BOOKMARK [2][-]{subsection.6.3.10}{Poc\355tej validn\355 GPS \(countValidGpsCoordinates\)}{section.6.3}% 57
+\BOOKMARK [2][-]{subsection.6.3.11}{Vycti souradnice \(parseCoordinates\)}{section.6.3}% 58
+\BOOKMARK [2][-]{subsection.6.3.12}{Vypoc\355tej souradnice \(gpsCorrection\)}{section.6.3}% 59
+\BOOKMARK [2][-]{subsection.6.3.13}{Zmen re\236im modulu \(changeMode\)}{section.6.3}% 60
+\BOOKMARK [2][-]{subsection.6.3.14}{Obslu\236 preru\235en\355 \(serialEvent\)}{section.6.3}% 61
+\BOOKMARK [1][-]{section.6.4}{Diagram funkc\355}{chapter.6}% 62
+\BOOKMARK [1][-]{section.6.5}{V\375pocet polohy z dat GPS}{chapter.6}% 63
+\BOOKMARK [0][-]{chapter.7}{Z\341ver}{}% 64
