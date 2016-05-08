@@ -44,8 +44,8 @@
 \contentsline {section}{\numberline {5.3}Akcelerometr}{29}{section.5.3}
 \contentsline {section}{\numberline {5.4}N\IeC {\'a}klady na prototyp}{30}{section.5.4}
 \contentsline {chapter}{\numberline {6}Softwarov\IeC {\'y} n\IeC {\'a}vrh}{31}{chapter.6}
-\contentsline {section}{\numberline {6.1}Knihovna Wiring}{31}{section.6.1}
-\contentsline {section}{\numberline {6.2}Prost\IeC {\v r}ed\IeC {\'\i } Arduino IDE}{31}{section.6.2}
+\contentsline {section}{\numberline {6.1}V\IeC {\'y}vojov\IeC {\'a} platforma Wiring}{31}{section.6.1}
+\contentsline {section}{\numberline {6.2}V\IeC {\'y}vojov\IeC {\'e} prost\IeC {\v r}ed\IeC {\'\i } Arduino}{31}{section.6.2}
 \contentsline {section}{\numberline {6.3}Diagram funkc\IeC {\'\i }}{32}{section.6.3}
 \contentsline {section}{\numberline {6.4}V\IeC {\'y}po\IeC {\v c}et polohy z dat GPS}{32}{section.6.4}
 \contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{33}{chapter.7}

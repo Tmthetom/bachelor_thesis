@@ -392,7 +392,7 @@ Blokové schéma ukazuje propojení jednotlivých částí, do funkčního celku
 Před tvorbou prototypu jsem se s vedoucí práce dohodl na využití hotových dílů, které poskládám dohromady a naprogramuji. Cílem této práce není vytvoření sledovacího zařízení, připraveného do sériové výroby, ale vytvoření prototypu na kterém ukáži zvolené hardwarové a softwarové řešení.
 
 \section{Vývojová deska Arduino}
-Jako řídící jednotku jsem si zvolil vývojovou desku Arduino UNO \cite{Arduino schematic} od společnosti Arduino, která obsahuje čip ATmega328 \cite{Atmega datasheet}. Možnosti čipu i desky mnohonásobně přesahují požadavky na výkon i periferie, nicméně díky jednoduchému programování desky \cite{Pruvodce arduinem}, bude možný rychlý vývoj řídícího softwaru. V případě finální výroby navíc počítám s pouze jednodušší variantou čipu ATmega, takže finální kód by zůstal stejný. ATmega i jiná řešení jsou programována v jazyce C, tedy není problém s výměnou čipu za jiné řešení, pouze by bylo nutné upravit některé příkazy pro určitý čip. Čip řady ATmega používá jazyk C s knihovnou Wiring.
+Jako řídící jednotku jsem si zvolil vývojovou desku Arduino UNO \cite{Arduino schematic} od společnosti Arduino, která obsahuje čip ATmega328 \cite{Atmega datasheet}. Možnosti čipu i desky mnohonásobně přesahují požadavky na výkon i periferie, nicméně díky jednoduchému programování desky \cite{Pruvodce arduinem}, bude možný rychlý vývoj řídícího softwaru. V případě finální výroby navíc počítám s pouze jednodušší variantou čipu ATmega, takže finální kód by zůstal stejný. ATmega i jiná řešení jsou programována v jazyce C, tedy není problém s výměnou čipu za jiné řešení, pouze by bylo nutné upravit některé příkazy pro určitý čip. Čip řady ATmega používá jazyk C s vývojovou platformou Wiring.
 
 \begin{figure}[H]
 \begin{center}
@@ -461,13 +461,13 @@ Akcelerometr GY-521 & Arduino-Shop & 16.1.2016 & 150 Kč\\
 %Softwarový návrh
 
 \chapter{Softwarový návrh}
-Vývoj softwaru bude probíhat v programovacím jazyce C, s knihovnou 
+Vývoj softwaru bude probíhat v programovacím jazyce C s nadstavbou vývojové platformy Wiring \cite{Arduino acce}, která jazyk rozšiřuje o příkazy, pro přímé řízení hardwarových součástek.
 
-\section{Knihovna Wiring}
+\section{Vývojová platforma Wiring}
 Not supported yet.
 
-\section{Prostředí Arduino IDE}
-Pro vývoj softwaru budu používat oficiální vývojové prostředí, od tvůrců desky Arduino s názvem Arduino IDE. Jedná se o počítačový software s otevřeným zdrojovým kódem (open-source), určený k jednoduchém psaní a nahrávání zdrojových kódu na desku. Prostředí lze nainstalovat na operační systém Windows, MAC a Linux. Mezi výhody patří zvýranění a barevné rolišení jednotlivých příkazů, plná podpora knihovny Wiring, podpora všech oficiálních i neoficiálních desek Arduino, zabudovaný klient pro komunikaci na sériové lince a další spousty funkcí. Nevýhodou je absence předvídání a dokončování kódu (predikce), nápověda při volání částí programu (funkcí, knihoven atd.), nemožnost krokování programu a velice obecné chybovém hlášky, kvůli kterým je velice náročné odhalit případné chyby.
+\section{Vývojové prostředí Arduino}
+Pro vývoj softwaru budu používat oficiální vývojové prostředí, od tvůrců desky Arduino s identickým názvem Arduino. Jedná se o počítačový software s otevřeným zdrojovým kódem (open-source), určený k jednoduchém psaní a nahrávání zdrojových kódu na desku. Prostředí lze nainstalovat na operační systém Windows, MAC a Linux. Mezi výhody patří zvýranění a barevné rolišení jednotlivých příkazů, plná podpora vývojové platformy Wiring, podpora všech oficiálních i neoficiálních desek Arduino, zabudovaný klient pro komunikaci na sériové lince a další spousty funkcí. Nevýhodou je absence předvídání a dokončování kódu (predikce), nápověda při volání částí programu (funkcí, knihoven atd.), nemožnost krokování programu a velice obecné chybovém hlášky, kvůli kterým je velice náročné odhalit případné chyby.
 
 \begin{figure}[H]
 \begin{center}
@@ -499,6 +499,7 @@ Not supported yet.
 \bibitem{ROBOT SW}GPS/GPRS/GSM Module V3.0 (SKU:TEL0051). DFRobot Wiki [online]. [cit. 2016-05-07]. Dostupné z: http://www.dfrobot.com/wiki/index.php/GPS/GPRS/GSM\_Module \_V3.0\_(SKU:TEL0051)
 \bibitem{Arduino schematic}ARDUINO LLC. Arduino Schematic [online]. 1 s. [cit. 2016-05-07]. Dostupné z: https://www.arduino.cc/en/uploads/Main/Arduino\_Uno\_Rev3-schematic.pdf
 \bibitem{Arduino acce}ARDUINO LLC. MPU-6050 Accelerometer + Gyro [online]. [cit. 2016-05-08]. Dostupné z: http://playground.arduino.cc/Main/MPU-6050
+\bibitem{Wiring}Wiring [online]. [cit. 2016-05-08]. Dostupné z: http://wiring.org.co/
 \bibitem{I2cdevlib}STOFFREGEN, Paul. I2cdevlib - MPU6050 [online]. 2012, 2016-04-07 [cit. 2016-05-08]. Dostupné z: https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050
 \bibitem{Pruvodce arduinem}VODA, Zbyšek. Průvodce světem Arduina [online]. Vydání první. Bučovice: Martin Stříž, 2015 [cit. 2016-05-07]. ISBN 978-80-87106-90-7.
 \bibitem{Atmega datasheet}ATMEL CORPORATION. ATmega48A/PA/88A/PA/168A/PA/328/P Datasheet [online]. 2015, 660 s. [cit. 2016-05-07]. Dostupné z: http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P\_datasheet\_Complete.pdf
