@@ -40,9 +40,10 @@
 \BOOKMARK [1][-]{section.5.1}{V\375vojov\341 deska Arduino}{chapter.5}% 40
 \BOOKMARK [1][-]{section.5.2}{Komunikacn\355 modul GPS/GPRS/GSM}{chapter.5}% 41
 \BOOKMARK [1][-]{section.5.3}{Akcelerometr}{chapter.5}% 42
-\BOOKMARK [0][-]{chapter.6}{Softwarov\375 n\341vrh}{}% 43
-\BOOKMARK [1][-]{section.6.1}{Prostred\355 Arduino}{chapter.6}% 44
-\BOOKMARK [1][-]{section.6.2}{Knihovna Wiring}{chapter.6}% 45
-\BOOKMARK [1][-]{section.6.3}{Diagram tr\355d}{chapter.6}% 46
-\BOOKMARK [1][-]{section.6.4}{V\375pocet polohy z dat GPS}{chapter.6}% 47
-\BOOKMARK [0][-]{chapter.7}{Z\341ver}{}% 48
+\BOOKMARK [1][-]{section.5.4}{N\341klady na prototyp}{chapter.5}% 43
+\BOOKMARK [0][-]{chapter.6}{Softwarov\375 n\341vrh}{}% 44
+\BOOKMARK [1][-]{section.6.1}{Knihovna Wiring}{chapter.6}% 45
+\BOOKMARK [1][-]{section.6.2}{Prostred\355 Arduino IDE}{chapter.6}% 46
+\BOOKMARK [1][-]{section.6.3}{Diagram funkc\355}{chapter.6}% 47
+\BOOKMARK [1][-]{section.6.4}{V\375pocet polohy z dat GPS}{chapter.6}% 48
+\BOOKMARK [0][-]{chapter.7}{Z\341ver}{}% 49
