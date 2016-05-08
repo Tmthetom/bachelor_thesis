@@ -39,6 +39,7 @@ Thesis deals with tracking devices for cars. The introduction defines the concep
 \textbf{GPRS} & General Packet Radio Service, služba pro přenos dat v mobilní síti\\
 \textbf{GLONASS} & Globalnaja navigacionnaja sputnikovaja sistěma, globální navigační satelitní systém\\
 \textbf{IDE} & Integrated development environment, integrované vývojové prostředí\\
+\textbf{LED} & Light-Emitting Diode, dioda emitující světlo\\
 \end{abbrList}
 
 % Úvod
@@ -468,7 +469,7 @@ V programové části se nejdříve zaměřím na popis programovacího jazyka, 
 Vývoj softwaru bude probíhat v programovacím jazyce C s nadstavbou vývojové platformy Wiring  (knihovna Wire)\cite{Arduino acce}, která jazyk rozšiřuje o nové příkazy, pro přímé řízení hardwarových součástek, vše zastřešeno sadou knihoven \cite{Arduino lib} (od tvůrcu desky Arduino), které přidávají nové funkce, aby potencionální vývojář nepotřebova hlubší znalosti programování a hardwaru. Tento kompletní balík příkazů \cite{Arduino lang} je někdy také nazíván programovacím jazykem Arduino \cite{Arduino intro}.
 
 \section{Vývojové prostředí Arduino}
-Pro vývoj softwaru budu používat oficiální vývojové prostředí, od tvůrců desky Arduino s identickým názvem Arduino \cite{Arduino soft}. Jedná se o počítačový software s otevřeným zdrojovým kódem (open-source) \cite{Arduino source}, určený k jednoduchém psaní a nahrávání zdrojových kódu na desku. Prostředí lze nainstalovat na operační systém Windows, MAC a Linux. Z vlastní zkušenosti vyjmenuji výhody, mezi které patří zvýranění a barevné rolišení jednotlivých příkazů, plná podpora vývojové platformy Wiring, podpora všech oficiálních i neoficiálních desek Arduino, zabudovaný klient pro komunikaci na sériové lince a další spousty funkcí. Nevýhodou je absence předvídání a dokončování kódu (predikce), nápověda při volání částí programu (funkcí, knihoven atd.), nemožnost krokování programu a velice obecné chybovém hlášky, kvůli kterým je velice náročné odhalit případné chyby.
+Pro vývoj softwaru budu používat oficiální vývojové prostředí, od tvůrců desky Arduino s identickým názvem Arduino \cite{Arduino soft}. Jedná se o počítačový software s otevřeným zdrojovým kódem (open-source) \cite{Arduino source}, určený k jednoduchém psaní a nahrávání zdrojových kódu na desku. Prostředí lze nainstalovat na operační systém Windows, MAC a Linux. Z vlastní zkušenosti vyjmenuji výhody, mezi které patří zvýranění a barevné rolišení jednotlivých příkazů, plná podpora vývojové platformy Wiring, podpora všech oficiálních i neoficiálních desek Arduino, zabudovaný klient pro komunikaci na sériové lince a další spousty funkcí. Nevýhodou je absence předvídání a dokončování kódu (predikce), nápověda při volání částí programu (funkcí, knihoven atd.), nemožnost krokování programu a velice obecné chybovém hlášky, kvůli kterým je náročné odhalit případné chyby.
 
 \begin{figure}[H]
 \begin{center}
@@ -478,26 +479,38 @@ Pro vývoj softwaru budu používat oficiální vývojové prostředí, od tvůr
 \end{center}
 \end{figure}
 
-\section{Funkce programu}
-Not supported yet.
+\section{Hlavička programu}
+V hlavičce jsou definovány všechny globální proměnné, které jsou určeny primárně ke změnám pomocí příkazů SMS. Především se ale v této části nachází textové řetězce, které jsou na jednom uceleném místě, určené například k jednoduchému rozšíření do jiného jazyka, nebo k úpravám již stávajících testových řetězců.
+
+\section{Hlavní funkce programu}
+Pod hlavičkou programu se nachází zdrojové kódy, které tvoří jádro celého programu, hlavními částmi jsou inicializace (setup), která slouží pro uvedení do výchozího stavu a smyčka (loop), která dle situace volá ostatní podprogramy (funkce). Níže detailně popíši všechny funkce hlavního programu, jaký je jejich účel, jaké mají vstupní parametry a co je jejich výstupem.
 
 \subsection{Inicializace (setup)}
-Not supported yet.
+Inicializace slouží k uvedení zařízení do výchozího stavu a načtení nastavení a dat z paměti. Jako první se nastavý všechny piny, které se budou používat jako výstupní, dále se všechny piny, používáne pro signalizace diodamy LED, nastaví se do logické nuly. Je zahájen komunikační rámec seriové linky, pro komunikaci s modulem GPS/GSM/GPRS, popřípadě s počítačem, který slouží pro monitorování stavu.  Následuje přepnutí řídících pinů do logické jedna, které znamenají, aby se modul připojil do sítě. Nakonec je zařízení přepnuto do režimu GSM, zavoláním funkce changeMode, s textovým parametrem GSM.
 
 \subsection{Hlavní smyčka (loop)}
 Not supported yet.
 
-\subsection{Odeslání SMS (sendSMS)}
+\subsection{Rozpoznání chyb (recognizeERROR)}
+Funkce byla navržena po zjištění příčiny náhodných pádů a zamrznutí modulu. Modul se náhodně vypínal, přestal komunikovat, nebo jednoduše ztratil spojení. Po důkladném průzkumu dokumentace \cite{ROBOT SW} jsem odhalil, že na příčině může být několik věcí, v čele s nestabilním napájením. Pokud takováto situace nastane, modul vyšle přiznak označný jako NORMAL POWER DOWN a přestane odpovídat. V dokumentaci je řečeno, že jediný způsob jak vzpamatovat zařízení z chyby, je ruční restart Arduina i modulu samotného. Restart modulu, ani Arduina, nelze provést standardní cestou. Existují dvě možnosti, z nichž jedna méně elegantní, je propojení vybraného pinu s pinem reset, při sepnutí se celé zařízení restartuje. Druhé elegantnější řešení, které jsem zvolil, je extérní knihovna pro softwarový restart. Z oficiálních stránek Arduino, jsem nalezl jsem knihovnu SoftReset \cite{SoftReset} s volně šířítelným zdrojovým kódem, kterou jsem vnořil do svého kódu. Nyní, když dorazí příznak NORMAL POWER DOWN, jsou uložena stávající data a zařízení jsou restartována, dále zařízení pokračuje tam, kde naposledy skončilo. Funkce pracuje pouze s globálními proměnnými a nevrací žádný výstup.
+
+\subsection{Odešli příkaz do modulu (sendCommand)}
 Not supported yet.
 
-\subsection{Rozpoznání chyb (recognizeERROR)}
+\subsection{Odešli zprávu o stavu do PC (sendReport)}
 Not supported yet.
+
+\subsection{Změň režim modulu (changeMode)}
+Not supported yet.
+
+\section{Funkce režimu GSM}
+Níže detailně popíši všechny funkce režimu GSM, jaký je jejich účel, jaké mají vstupní parametry a co je jejich výstupem.
 
 \subsection{Rozpoznání nové SMS (recognizeSmsNew)}
-Not supported yet.
+Funkce obstarává zjištění, zda v režimu GSM dorazila nová SMS, to dává modul navědomí textovým řetězcem +CMTI, viz softwarová dokumentace \cite{SIMCOM SW}. Po registrování nové SMS je modulu zaslána žádost AT+CMG=1 \cite{SIMCOM SW}, která slouží k vyžádání hlavičky a těla textové zprávy. Funkce pracuje s globálními proměnnými a nevrací žádný výstup.
 
 \subsection{Rozpoznání hlavičky SMS (recognizeSmsHeader)}
-Not supported yet.
+Pokud byla obdržena nová SMS, očekává se přijetí, její hlavičky. Pokud tak nastane, je z hlavičky vyčteno telefonní číslo odesílatele, na které bude následně odeslána odpověď SMS. Číslo je uloženo do globální proměnné. Funkce pracuje s globálními proměnnými a nevrací žádný výstup.
 
 \subsection{Rozpoznání obsahu SMS (recognizeSmsContent)}
 Not supported yet.
@@ -505,25 +518,22 @@ Not supported yet.
 \subsection{Vykonání požadavku SMS (executeSmsContent)}
 Not supported yet.
 
-\subsection{Příkaz modulu (sendCommand)}
+\subsection{Odeslání SMS (sendSMS)}
+Not supported yet.
+
+\section{Funkce režimu GPS}
+Níže detailně popíši všechny funkce režimu GPS, jaký je jejich účel, jaké mají vstupní parametry a co je jejich výstupem.
+
+\subsection{Obsluž přerušení (serialEvent)}
 Not supported yet.
 
 \subsection{Počítej validní GPS (countValidGpsCoordinates)}
 Not supported yet.
 
-\subsection{Vyčti souřadnice (parseCoordinates)}
+\subsection{Vyčti z dat souřadnice (parseCoordinates)}
 Not supported yet.
 
 \subsection{Vypočítej souřadnice (gpsCorrection)}
-Not supported yet.
-
-\subsection{Změň režim modulu (changeMode)}
-Not supported yet.
-
-\subsection{Obsluž přerušení (serialEvent)}
-Not supported yet.
-
-\section{Diagram funkcí}
 Not supported yet.
 
 \section{Výpočet polohy z dat GPS}
@@ -532,6 +542,12 @@ Not supported yet.
 % Závěr
 
 \chapter{Závěr}
+Not supported yet.
+
+\section{Spotřeba}
+Not supported yet.
+
+\section{Bodové hodnocení}
 Not supported yet.
 
 \begin{thebibliography}{References}
@@ -546,14 +562,16 @@ Not supported yet.
 \bibitem{Arduino schematic}ARDUINO LLC. Arduino Schematic [online]. 1 s. [cit. 2016-05-07]. Dostupné z: https://www.arduino.cc/en/uploads/Main/Arduino\_Uno\_Rev3-schematic.pdf
 \bibitem{Arduino acce}ARDUINO LLC. MPU-6050 Accelerometer + Gyro [online]. [cit. 2016-05-08]. Dostupné z: http://playground.arduino.cc/Main/MPU-6050
 \bibitem{Wiring}Wiring [online]. [cit. 2016-05-08]. Dostupné z: http://wiring.org.co/
-\bibitem{I2cdevlib}STOFFREGEN, Paul. I2cdevlib - MPU6050 [online]. 2012, 2016-04-07 [cit. 2016-05-08]. Dostupné z: https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050
+\bibitem{I2cdevlib}STOFFREGEN, Paul. I2cdevlib - MPU6050 [online]. 2012, 2016-04-07 [cit. 2016-05-08]. Dostupné z: https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU60 -50
 \bibitem{Arduino lib}Arduino libraries. Arduino [online]. [cit. 2016-05-08]. Dostupné z: https://www.arduino.cc/en/Reference/Libraries
 \bibitem{Arduino lang}Arduino programming language. Arduino [online]. [cit. 2016-05-08]. Dostupné z: https://www.arduino.cc/en/Reference/HomePage
 \bibitem{Arduino intro}Arduino introduction. Arduino [online]. [cit. 2016-05-08]. Dostupné z: https://www.arduino.cc/en/Guide/Introduction
 \bibitem{Arduino soft} Arduino software. Arduino [online]. [cit. 2016-05-08]. Dostupné z: https://www.arduino.cc/en/Main/Software
 \bibitem{Arduino source}Arduino source code. GitHub [online]. [cit. 2016-05-08]. Dostupné z: https://github.com/arduino/Arduino/tree/1.6.8
 \bibitem{Pruvodce arduinem}VODA, Zbyšek. Průvodce světem Arduina [online]. Vydání první. Bučovice: Martin Stříž, 2015 [cit. 2016-05-07]. ISBN 978-80-87106-90-7.
-\bibitem{Atmega datasheet}ATMEL CORPORATION. ATmega48A/PA/88A/PA/168A/PA/328/P Datasheet [online]. 2015, 660 s. [cit. 2016-05-07]. Dostupné z: http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P\_datasheet\_Complete.pdf
+\bibitem{Atmega datasheet}ATMEL CORPORATION. ATmega48A/PA/88A/PA/168A/PA/328/P Datasheet [online]. 2015, 660 s. [cit. 2016-05-07]. Dostupné z: http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P\_ datasheet\_Complete.pdf
+\bibitem{SoftReset}Software Reset Library for Arduino. GitHub [online]. [cit. 2016-05-08]. Dostupné z: https://github.com/WickedDevice/SoftReset
+
 
 
 \end{thebibliography}
