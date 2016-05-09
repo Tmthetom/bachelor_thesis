@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  9 MAY 2016 22:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  10 MAY 2016 00:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -626,6 +626,9 @@ LaTeX Warning: Label `image' multiply defined.
 LaTeX Warning: Label `image' multiply defined.
 
 
+LaTeX Warning: Label `image' multiply defined.
+
+
 LaTeX Warning: Label `LaTeX' multiply defined.
 
 )
@@ -704,7 +707,7 @@ Package gensymb Info: Using \Omega for \ohm on input line 16.
 
 Package gensymb Warning: Not defining \micro.
 
-<logo-fm.pdf, id=273, 254.6062pt x 45.03696pt>
+<logo-fm.pdf, id=277, 254.6062pt x 45.03696pt>
 File: logo-fm.pdf Graphic file (type pdf)
  <use logo-fm.pdf>
 Package pdftex.def Info: logo-fm.pdf used on input line 17.
@@ -713,7 +716,7 @@ Package pdftex.def Info: logo-fm.pdf used on input line 17.
 
 {d:/Programs/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <c:/Use
 rs/morav/texmf/tex/latex/tulthesis/logo-fm.pdf>]
-<logo-fm-en.pdf, id=285, 262.84398pt x 44.71245pt>
+<logo-fm-en.pdf, id=289, 262.84398pt x 44.71245pt>
 File: logo-fm-en.pdf Graphic file (type pdf)
  <use logo-fm-en.pdf>
 Package pdftex.def Info: logo-fm-en.pdf used on input line 17.
@@ -899,7 +902,7 @@ Overfull \hbox (26.1623pt too wide) in paragraph at lines 285--286
  []
 
 [21] [22] [23]
-<graphs/graf_bodoveHodnoceni.pdf, id=468, 448.51427pt x 267.1812pt>
+<graphs/graf_bodoveHodnoceni.pdf, id=483, 448.51427pt x 267.1812pt>
 File: graphs/graf_bodoveHodnoceni.pdf Graphic file (type pdf)
 
 <use graphs/graf_bodoveHodnoceni.pdf>
@@ -920,7 +923,7 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 
 [25
 
-] <graphs/schema_blokove.pdf, id=493, 325.215pt x 236.38312pt>
+] <graphs/schema_blokove.pdf, id=508, 325.215pt x 236.38312pt>
 File: graphs/schema_blokove.pdf Graphic file (type pdf)
 
 <use graphs/schema_blokove.pdf>
@@ -928,7 +931,7 @@ Package pdftex.def Info: graphs/schema_blokove.pdf used on input line 401.
 (pdftex.def)             Requested size: 426.79134pt x 310.23764pt.
  [26] [27 <./graphs/schema_blokove.pdf>]
 Kapitola 5.
-<images/arduino.png, id=521, 180.675pt x 180.675pt>
+<images/arduino.png, id=536, 180.675pt x 180.675pt>
 File: images/arduino.png Graphic file (type png)
  <use images/arduino.png>
 Package pdftex.def Info: images/arduino.png used on input line 417.
@@ -941,13 +944,13 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 
 [28
 
- <./images/arduino.png>] <images/module.png, id=535, 216.81pt x 144.54pt>
+ <./images/arduino.png>] <images/module.png, id=550, 216.81pt x 144.54pt>
 File: images/module.png Graphic file (type png)
 
 <use images/module.png>
 Package pdftex.def Info: images/module.png used on input line 428.
 (pdftex.def)             Requested size: 341.43436pt x 227.65167pt.
- <images/akcelerometr.png, id=538, 602.25pt x 602.25pt>
+ <images/akcelerometr.png, id=553, 602.25pt x 602.25pt>
 File: images/akcelerometr.png Graphic file (type png)
 
 <use images/akcelerometr.png>
@@ -960,7 +963,7 @@ Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textasciicaron' on input line 487.
 
-<images/arduino-ide.png, id=563, 386.19281pt x 292.84406pt>
+<images/arduino-ide.png, id=579, 386.19281pt x 292.84406pt>
 File: images/arduino-ide.png Graphic file (type png)
 
 <use images/arduino-ide.png>
@@ -1034,233 +1037,279 @@ Package hyperref Warning: Composite letter `\textasciicaron+r'
 ]
 Kapitola 8.
 
-Package hyperref Warning: Composite letter `\textasciicaron+e'
+Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textasciicaron' on input line 629.
 
 [39
 
+] <graphs/graf_bodoveHodnoceni_final.pdf, id=654, 578.16pt x 337.26pt>
+File: graphs/graf_bodoveHodnoceni_final.pdf Graphic file (type pdf)
+
+<use graphs/graf_bodoveHodnoceni_final.pdf>
+Package pdftex.def Info: graphs/graf_bodoveHodnoceni_final.pdf used on input li
+ne 676.
+(pdftex.def)             Requested size: 426.79134pt x 248.96124pt.
+ [40 <./graphs/graf_bodoveHodnoceni_final.pdf>]
+Kapitola 9.
+
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 684.
+
+[41
+
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 633--634
+Underfull \hbox (badness 10000) in paragraph at lines 698--699
 []\OT1/cmr/m/n/12 SATRAPA, Pa-vel. La-TeX pro prag-ma-tiky [on-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 633--634
+Underfull \hbox (badness 10000) in paragraph at lines 698--699
 \OT1/cmr/m/n/12 line]. 2011, 87 s. [cit. 2016-05-07]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 634--635
+Underfull \hbox (badness 10000) in paragraph at lines 699--700
 []\OT1/cmr/m/n/12 SATRAPA, Pa-vel. Stru^^Tcn^^Sy p^^Trehled p^^Tr^^S^^Pkaz^^Wu 
 La-TeXu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 634--635
+Underfull \hbox (badness 10000) in paragraph at lines 699--700
 \OT1/cmr/m/n/12 [on-line]. 2011, 2 s. [cit. 2016-05-07]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 635--636
+Underfull \hbox (badness 10000) in paragraph at lines 700--701
+[]\OT1/cmr/m/n/12 What is a GPS? How does it work? Lib-rary
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 700--701
+\OT1/cmr/m/n/12 of con-gress [on-line]. [cit. 2016-05-09]. Do-stupn^^Se z:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 701--702
+[]\OT1/cmr/m/n/12 A Gu-ide To The Glo-bal Po-si-ti-o-ning Sys-tem. Ra-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 701--702
+\OT1/cmr/m/n/12 di-oshack [on-line]. [cit. 2016-05-09]. Do-stupn^^Se z:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 702--703
+[]\OT1/cmr/m/n/12 DALY, P. Navstar GPS and GLO-NASS [on-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 702--703
+\OT1/cmr/m/n/12 line]. 1993 [cit. 2016-05-09]. Do-stupn^^Se z:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 705--706
 []\OT1/cmr/m/n/12 SIRF TECH-NO-LOGY, INC. NMEA Re-fe-rence Ma-nual [on-
  []
 
 
-Underfull \hbox (badness 1303) in paragraph at lines 635--636
+Underfull \hbox (badness 1303) in paragraph at lines 705--706
 \OT1/cmr/m/n/12 line]. 2.1. San Jose., 2007, 27 s. [cit. 2016-05-07]. Do-stupn^
 ^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 635--636
+Underfull \hbox (badness 10000) in paragraph at lines 705--706
 \OT1/cmr/m/n/12 https://www.sparkfun.com/datasheets/GPS/NMEA%20Reference%
  []
 
 
-Underfull \hbox (badness 7133) in paragraph at lines 636--637
+Underfull \hbox (badness 7133) in paragraph at lines 706--707
 []\OT1/cmr/m/n/12 CSR PLC. NMEA Re-fe-rence Gu-ide [on-line]. 2. Cambridge:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 636--637
+Underfull \hbox (badness 10000) in paragraph at lines 706--707
 \OT1/cmr/m/n/12 CSR plc, 2011, 50 s. [cit. 2016-05-07]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 636--637
+Underfull \hbox (badness 10000) in paragraph at lines 706--707
 \OT1/cmr/m/n/12 http://www.inventeksys.com/wp-content/uploads/2012/05/NMEA-
  []
 
 
-Underfull \hbox (badness 4156) in paragraph at lines 637--638
+Underfull \hbox (badness 4156) in paragraph at lines 707--708
 []\OT1/cmr/m/n/12 SIMCOM WI-RE-LESS SO-LU-TI-ONS. SIM908 Hard-ware De-sign
  []
 
 
-Underfull \hbox (badness 1314) in paragraph at lines 637--638
+Underfull \hbox (badness 1314) in paragraph at lines 707--708
 \OT1/cmr/m/n/12 [on-line]. 2. Jin-zhong, 2012, 53 s. [cit. 2016-05-07]. Do-stup
 n^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 637--638
+Underfull \hbox (badness 10000) in paragraph at lines 707--708
 \OT1/cmr/m/n/12 http://www.niplesoft.net/blog/wp-content/uploads/2016/02/SIM908
 -
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 638--639
-[]\OT1/cmr/m/n/12 SIMCOM WI-RE-LESS SO-LU-TI-ONS. SIM908 AT Com-mand
- []
-
-
-Underfull \hbox (badness 3029) in paragraph at lines 638--639
-\OT1/cmr/m/n/12 Ma-nual [on-line]. Jin-zhong, 2011, 249 s. [cit. 2016-05-07]. D
-o-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 638--639
-\OT1/cmr/m/n/12 stupn^^Se z: http://www.dfrobot.com/image/data/TEL0051/3.0/
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 639--640
-[]\OT1/cmr/m/n/12 DFROBOT. GSM+GPRS+GPS V3.0 sche-ma-tic [on-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 639--640
-\OT1/cmr/m/n/12 line]. Shan-ghai, 2013, 1 s. [cit. 2016-05-07]. Do-stupn^^Se z:
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 639--640
-\OT1/cmr/m/n/12 http://www.dfrobot.com/image/data/TEL0051/GSM+GPRS+GPS
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 640--641
-[]\OT1/cmr/m/n/12 GPS/GPRS/GSM Mo-dule V3.0 (SKU:TEL0051). DFRo-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 640--641
-\OT1/cmr/m/n/12 bot Wiki [on-line]. [cit. 2016-05-07]. Do-stupn^^Se z:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 640--641
-\OT1/cmr/m/n/12 http://www.dfrobot.com/wiki/index.php/GPS/GPRS/GSM[]Module
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 641--642
-[]\OT1/cmr/m/n/12 ARDUINO LLC. Ar-duino Sche-ma-tic [on-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 641--642
-\OT1/cmr/m/n/12 line]. 1 s. [cit. 2016-05-07]. Do-stupn^^Se z:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 641--642
-\OT1/cmr/m/n/12 https://www.arduino.cc/en/uploads/Main/Arduino[]Uno[]Rev3-
- []
-
-[40
+[42
 
 pdfTeX warning (ext4): destination with the same identifier (name{cite.LaTeX}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.642 \bibitem{Arduino acce}
-                            ARDUINO LLC. MPU-6050 Accelerometer + Gyro [onli...
+l.708 \bibitem{SIMCOM SW}
+                         SIMCOM WIRELESS SOLUTIONS. SIM908 AT Command Manual...
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 644--645
+Underfull \hbox (badness 10000) in paragraph at lines 708--709
+[]\OT1/cmr/m/n/12 SIMCOM WI-RE-LESS SO-LU-TI-ONS. SIM908 AT Com-mand
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 708--709
+\OT1/cmr/m/n/12 Ma-nual [on-line]. Jin-zhong, 2011, 249 s. [cit. 2016-05-07]. D
+o-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 708--709
+\OT1/cmr/m/n/12 stupn^^Se z: http://www.dfrobot.com/image/data/TEL0051/3.0/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 709--710
+[]\OT1/cmr/m/n/12 DFROBOT. GSM+GPRS+GPS V3.0 sche-ma-tic [on-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 709--710
+\OT1/cmr/m/n/12 line]. Shan-ghai, 2013, 1 s. [cit. 2016-05-07]. Do-stupn^^Se z:
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 709--710
+\OT1/cmr/m/n/12 http://www.dfrobot.com/image/data/TEL0051/GSM+GPRS+GPS
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 710--711
+[]\OT1/cmr/m/n/12 GPS/GPRS/GSM Mo-dule V3.0 (SKU:TEL0051). DFRo-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 710--711
+\OT1/cmr/m/n/12 bot Wiki [on-line]. [cit. 2016-05-07]. Do-stupn^^Se z:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 710--711
+\OT1/cmr/m/n/12 http://www.dfrobot.com/wiki/index.php/GPS/GPRS/GSM[]Module
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 711--712
+[]\OT1/cmr/m/n/12 ARDUINO LLC. Ar-duino Sche-ma-tic [on-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 711--712
+\OT1/cmr/m/n/12 line]. 1 s. [cit. 2016-05-07]. Do-stupn^^Se z:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 711--712
+\OT1/cmr/m/n/12 https://www.arduino.cc/en/uploads/Main/Arduino[]Uno[]Rev3-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 714--715
 []\OT1/cmr/m/n/12 STOFFREGEN, Paul. I2cdevlib - MPU6050 [on-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 644--645
+Underfull \hbox (badness 10000) in paragraph at lines 714--715
 \OT1/cmr/m/n/12 line]. 2012, 2016-04-07 [cit. 2016-05-08]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 644--645
+Underfull \hbox (badness 10000) in paragraph at lines 714--715
 \OT1/cmr/m/n/12 https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU60
 
  []
 
 
-Overfull \hbox (5.98907pt too wide) in paragraph at lines 651--652
+Overfull \hbox (5.98907pt too wide) in paragraph at lines 721--722
 []\OT1/cmr/m/n/12 ATMEL COR-PO-RATION. AT-mega48A/PA/88A/PA/168A/PA/328/P
  []
 
 
-Underfull \hbox (badness 7907) in paragraph at lines 651--652
+Underfull \hbox (badness 7907) in paragraph at lines 721--722
 \OT1/cmr/m/n/12 Da-ta-sheet [on-line]. 2015, 660 s. [cit. 2016-05-07]. Do-stupn
 ^^Se
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--652
+Underfull \hbox (badness 10000) in paragraph at lines 721--722
 \OT1/cmr/m/n/12 z: http://www.atmel.com/images/Atmel-8271-8-bit-AVR-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--652
+Underfull \hbox (badness 10000) in paragraph at lines 721--722
 \OT1/cmr/m/n/12 Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P[]
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 653--654
+[43]
+Underfull \hbox (badness 10000) in paragraph at lines 723--724
 []\OT1/cmr/m/n/12 BYRNE, Jo-nathan. Po-si-tion error with GPS/GSM
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 653--654
+Underfull \hbox (badness 10000) in paragraph at lines 723--724
 \OT1/cmr/m/n/12 v3. In: Dfro-bot [on-line]. [cit. 2016-05-09]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 653--654
+Underfull \hbox (badness 10000) in paragraph at lines 723--724
 \OT1/cmr/m/n/12 http://www.dfrobot.com/forum/viewtopic.php?f=2&t=1528&p=7729
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 654--655
+Underfull \hbox (badness 10000) in paragraph at lines 724--725
 []\OT1/cmr/m/n/12 Geographic co-or-di-nate sys-tem. Wi-ki-pe-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 654--655
+Underfull \hbox (badness 10000) in paragraph at lines 724--725
 \OT1/cmr/m/n/12 dia [on-line]. [cit. 2016-05-09]. Do-stupn^^Se z:
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 660.
-[41]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 660.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 728.
+[44]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 728.
  (./Bakaláøská práce.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 660.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 660.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 728.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 728.
 Package rerunfilecheck Info: File `"Bakaláøská práce".out' has not changed.
-(rerunfilecheck)             Checksum: C49E3FA76C234A6679CD467A1DE3A656;5146.
+(rerunfilecheck)             Checksum: EC087698A2C39D9033F0064E2B2E7228;5230.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 660.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 728.
  ) 
 Here is how much of TeX's memory you used:
- 7477 strings out of 493027
- 104379 string characters out of 6133617
- 218268 words of memory out of 5000000
- 10755 multiletter control sequences out of 15000+600000
+ 7500 strings out of 493027
+ 104740 string characters out of 6133617
+ 218432 words of memory out of 5000000
+ 10765 multiletter control sequences out of 15000+600000
  10693 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,11n,54p,1351b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1275,10 +1324,10 @@ d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:
 d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
 <d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 <d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on "Bakaláøská práce.pdf" (41 pages, 1495564 bytes).
+Output written on "Bakaláøská práce.pdf" (44 pages, 1553238 bytes).
 PDF statistics:
- 725 PDF objects out of 1000 (max. 8388607)
- 648 compressed objects within 7 object streams
- 163 named destinations out of 1000 (max. 500000)
- 577 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 773 PDF objects out of 1000 (max. 8388607)
+ 688 compressed objects within 7 object streams
+ 175 named destinations out of 1000 (max. 500000)
+ 590 words of extra memory for PDF output out of 10000 (max. 10000000)
 

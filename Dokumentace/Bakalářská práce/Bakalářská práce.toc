@@ -87,4 +87,6 @@
 \contentsline {chapter}{\numberline {7}Spot\IeC {\v r}eba a v\IeC {\'y}dr\IeC {\v z} na autobaterii}{38}{chapter.7}
 \contentsline {paragraph}{Pou\IeC {\v z}\IeC {\'\i }t\IeC {\'e} m\IeC {\v e}\IeC {\v r}\IeC {\'\i }c\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }stroje:}{38}{paragraph*.22}
 \contentsline {paragraph}{V\IeC {\'y}po\IeC {\v c}et spot\IeC {\v r}eby:}{38}{paragraph*.23}
-\contentsline {chapter}{\numberline {8}Z\IeC {\'a}v\IeC {\v e}r}{39}{chapter.8}
+\contentsline {chapter}{\numberline {8}Bodov\IeC {\'e} hodnocen\IeC {\'\i } vlastn\IeC {\'\i }ho \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{39}{chapter.8}
+\contentsline {paragraph}{Bodov\IeC {\'e} ohodnocen\IeC {\'\i } vlastn\IeC {\'\i }ho \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }:}{39}{paragraph*.24}
+\contentsline {chapter}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{41}{chapter.9}
