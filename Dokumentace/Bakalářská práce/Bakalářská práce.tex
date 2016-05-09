@@ -4,6 +4,7 @@
 \usepackage{graphicx}  % Tvorbě tabulek
 \usepackage{float}  % Ukotvení věcí na svém místě (obrázky, tabulky, grafy, ...)
 \usepackage{hyperref}  % Klikací odkazy v obsahu a referencích
+\usepackage{gensymb}  % Pro stupne celsia
 
 \TULtitle{Koncept nízkonákladového sledovacího zařízení pro osobní automobily}{The concept of a low cost tracking device for personal cars}
 \TULprogramme{B2646}{Informační technologie}{Information Technology}
@@ -431,7 +432,7 @@ Pro komunikaci jsem se rozhodl pro s arduinem kompatibilní desku, která zjedno
 \end{figure}
 
 \section{Akcelerometr}
-Senzorem pohybu jsem zvoli desku GY-521 s čipem MPU-6050, který obsahuje akcelerometr a gyroskop v jednom. Pro tento akcelerometr jsem se rozhodl, protože je plně podporován a otestován pro desku Arduino \cite{Arduino acce}, navíc existuje velké množství oficiálních článků a knihoven \cite{I2cdevlib} pro jeho ovládání. Čip komunikuje přes sběrnici I2C, která díky modelu master/slave umožňuje připojit více různých i stejných zařízení. 
+Senzorem pohybu jsem zvoli desku GY-521 s čipem MPU-6050, který obsahuje akcelerometr a gyroskop v jednom. Pro tento akcelerometr jsem se rozhodl, protože je plně podporován a otestován pro desku Arduino \cite{Arduino acce}, navíc existuje velké množství oficiálních článků a knihoven \cite{I2cdevlib} pro jeho ovládání. Čip komunikuje přes sběrnici I2C, která díky modelu master/slave umožňuje připojit více různých i stejných zařízení. Velkou výhodou je také programovatelný čip, který může v případě potřeba Arduino probudit ze spánku, nebo provádět jakékoliv výpočty.
 
 \begin{figure}[H]
 \begin{center}
@@ -503,10 +504,10 @@ V hlavičce jsou definovány všechny globální proměnné, které jsou určeny
 Pod hlavičkou programu se nachází zdrojové kódy, které tvoří jádro celého programu, hlavními částmi jsou inicializace (setup), která slouží pro uvedení do výchozího stavu a smyčka (loop), která dle situace volá ostatní podprogramy (funkce). Níže detailně popíši všechny funkce hlavního programu, jaký je jejich účel, jaké mají vstupní parametry a co je jejich výstupem.
 
 \subsection{Inicializace (setup)}
-Inicializace slouží k uvedení zařízení do výchozího stavu a načtení nastavení a dat z paměti. Jako první se nastavý všechny piny, které se budou používat jako výstupní, dále se všechny piny, používáne pro signalizace diodamy LED, nastaví se do logické nuly. Je zahájen komunikační rámec seriové linky, pro komunikaci s modulem GPS/GSM/GPRS, popřípadě s počítačem, který slouží pro monitorování stavu.  Následuje přepnutí řídících pinů do logické jedna, které znamenají, aby se modul připojil do sítě. Nakonec je zařízení přepnuto do režimu GSM, zavoláním funkce changeMode, s textovým parametrem GSM.
+Inicializace slouží k uvedení zařízení do výchozího stavu a načtení nastavení a dat z paměti. Jako první se nastavý všechny piny, které se budou používat jako výstupní, dále se všechny piny, používáne pro signalizace diodamy LED, nastaví se do logické nuly. Je zahájen komunikační rámec seriové linky, pro komunikaci s modulem GPS/GSM/GPRS, popřípadě s počítačem, který slouží pro monitorování stavu.  Následuje přepnutí řídících pinů do logické jedna, které znamenají, aby se modul připojil do sítě. Nakonec je zařízení přepnuto do režimu GSM, zavoláním funkce changeMode, s textovým parametrem GSM. Funkce pracuje pouze s globálními proměnnými a nevrací žádný výstup.
 
 \subsection{Hlavní smyčka (loop)}
-Not supported yet.
+Hlavní smyčka je jádrem, které spojuje všechny funkce do jednoho celku, zastřešuje jejich funkčnost a zajištuje vzájemnou provázanost. Kód je rozdělen na části podle režimu modulu, pokud je v režimu GSM, čeká na příchozí komunikaci. Pokud jí obdrží, načte kompletně jeden komunikační rámec a poté ověří, zda se jedná o SMS, pokud ano, jsou volány postupně další funkce, které načtou hlavičku, obsah a nakonec požadavek v obsahu těla SMS vykonají. Druhá část je částí GPS, kdy se čeká pouze na plně načtená data z přerušení. Pokud jsou data kompletní, začne zpracování a výpočet validních dat GPS, pokud jich je dostatek a je ověřena jejich validita, je modul přepnut do režimu GSM a předá mu informace o poloze. Funkce pracuje pouze s globálními proměnnými a nevrací žádný výstup.
 
 \subsection{Rozpoznání chyb (recognizeERROR)}
 Funkce byla navržena po zjištění příčiny náhodných pádů a zamrznutí modulu. Modul se náhodně vypínal, přestal komunikovat, nebo jednoduše ztratil spojení. Po důkladném průzkumu dokumentace \cite{ROBOT SW} jsem odhalil, že na příčině může být několik věcí, v čele s nestabilním napájením. Pokud takováto situace nastane, modul vyšle přiznak označný jako NORMAL POWER DOWN a přestane odpovídat. V dokumentaci je řečeno, že jediný způsob jak vzpamatovat zařízení z chyby, je ruční restart Arduina i modulu samotného. Restart modulu, ani Arduina, nelze provést standardní cestou. Existují dvě možnosti, z nichž jedna méně elegantní, je propojení vybraného pinu s pinem reset, při sepnutí se celé zařízení restartuje. Druhé elegantnější řešení, které jsem zvolil, je extérní knihovna pro softwarový restart. Z oficiálních stránek Arduino, jsem nalezl jsem knihovnu SoftReset \cite{SoftReset} s volně šířítelným zdrojovým kódem, kterou jsem vnořil do svého kódu. Nyní, když dorazí příznak NORMAL POWER DOWN, jsou uložena stávající data a zařízení jsou restartována, dále zařízení pokračuje tam, kde naposledy skončilo. Funkce pracuje pouze s globálními proměnnými a nevrací žádný výstup.
@@ -520,7 +521,7 @@ Jednořádková funkce, sloužící k odeslání příkazu do modulu. Slouží p
 \end{itemize}
 
 \subsection{Odešli zprávu o stavu do PC (sendReport)}
-Jednoduchá funkce, která v případě režimu ladění, který lze zapnout v hlavičce, odesílá informace o veškerém dění do připojeného počítače. Na vstupu obdrží textový retězec, který pouze po seriové lince pošle do předem definovaného zařízení. Funkce je volána z každé funkce v kódu a jedná se o jediný možný způsob ladění.
+Jednoduchá funkce, která v případě režimu ladění, který lze zapnout v hlavičce, odesílá informace o veškerém dění do připojeného počítače. Na vstupu obdrží textový retězec, který pouze po seriové lince pošle do předem definovaného zařízení. Funkce je volána z každé funkce v kódu a jedná se o jediný možný způsob ladění. Funkce nevrací žádný výstup.
 
 \paragraph{Vstupní parametr funkce:}
 \begin{itemize}
@@ -528,14 +529,19 @@ Jednoduchá funkce, která v případě režimu ladění, který lze zapnout v h
 \end{itemize}
 
 \subsection{Změň režim modulu (changeMode)}
-Not supported yet.
+Funkce slouží k přepínání režimů modulu a celkově práce kterou provádí řídící jednotka. Aktuálně podporuje pouze přepínání mezi režimy GSM a GPS, je ale jednoduše rozšířitelná o další režimy, které nemusí být pouze záležitostí modulu, ale i vnítřních pochodů. Po rozpoznání vstupního parametru se provedou procedury, potřebné k přepnutí do druhého režimu, ty jsou definovány v softwarové dokumentaci komunikačního čipu \cite{SIMCOM SW}, osazeném na modulu. Funkce pracuje s globálními proměnnými a nevrací žádný výstup.
+
+\paragraph{Vstupní parametr funkce:}
+\begin{itemize}
+\item Textový řetězec String s režimem, do kterého má být modul přepnut.
+\end{itemize}
 
 % Režim GSM
 
-\section{Funkce režimu GSM}
+\section{Funkce v režimu GSM}
 Níže detailně popíši všechny funkce režimu GSM, jaký je jejich účel, jaké mají vstupní parametry a jaká je jejich návratová hodnota.
 
-\subsection{Rozpoznání nové SMS (recognizeSmsNew)}
+\subsection{Rozpoznání nové SMS (recognizeSmsNew)}l
 Funkce obstarává zjištění, zda v režimu GSM dorazila nová SMS, to dává modul navědomí textovým řetězcem +CMTI, viz softwarová dokumentace \cite{SIMCOM SW}. Po registrování nové SMS je modulu zaslána žádost AT+CMG=1 \cite{SIMCOM SW}, která slouží k vyžádání hlavičky a těla textové zprávy. Funkce pracuje s globálními proměnnými a nevrací žádný výstup.
 
 \subsection{Rozpoznání hlavičky SMS (recognizeSmsHeader)}
@@ -545,10 +551,10 @@ Pokud byla obdržena nová SMS, očekává se přijetí, její hlavičky. Pokud 
 Po rozpoznání hlavičky SMS a nastavení příznaku čtení, je očekáván obsah zprávy. Modul posílá zprávu ihned po hlavičce, ale v případě, že by se tak nestalo, proběhne ověření, zda se opravdu jedná o zprávu SMS zkontrolováním obsahu zprávy, zda není prázdný (znak nového řádku vždy chodí před příkazem) a zda je nastaven příznak čtení. Poté jsou příchozí data vyčtena a označena za tělo zprávy SMS. Funkce pracuje pouze s globálními proměnnými a nevrací žádný výstup.
 
 \subsection{Vykonání obsahu SMS (executeSmsContent)}
-V případě, že je zpráva kompletní, je zavolána funkce pro vykonání obsahu SMS. Zde je textový řetězev ve zprávě SMS, dle jazyka, porovnáván s textovými řetězci v globálních proměnných, kde se ověřují pouze znaky, nezáleží tedy zda jsou písmenka malá, nebo velká. Pokud obsah sedí do jednoho z definovaných textů, je vykonán obsah. Například pokud bude přijata zpráva \uv{Kde jsi?}, bude obratem odeslána odpověď: \uv{Probíhá lokalizace, poloha bude zaslána během několika minut}, odesláním textu do funkce sendSMS(), následně je modul přepnut do režimu GPS a tím ukončena činnost této části kódu. Funkce proacuje pouze s globálními proměnnými a nevrací žádný výstup.
+V případě, že je zpráva kompletní, je zavolána funkce pro vykonání obsahu SMS. Zde je textový řetězev ve zprávě SMS, dle jazyka, porovnáván s textovými řetězci v globálních proměnných, kde se ověřují pouze znaky, nezáleží tedy zda jsou písmenka malá, nebo velká. Pokud obsah sedí do jednoho z definovaných textů, je vykonán obsah. Například pokud bude přijata zpráva \uv{Kde jsi?}, bude obratem odeslána odpověď: \uv{Probíhá lokalizace, poloha bude zaslána během několika minut}, odesláním textu do funkce sendSMS(), následně je modul přepnut do režimu GPS a tím ukončena činnost této části kódu. Funkce pracuje pouze s globálními proměnnými a nevrací žádný výstup.
 
 \subsection{Odeslání SMS (sendSMS)}
-Funkce přepne modul do textového režimu, bude tedy očekávat odeslání textového řetězce, dále odešleme informaci pro odeslání SMS na telefonní číslo, uvedeném v příkazu. Čekáme na odpověď, když dorazí, je modul v režimu přijímání textu a jeho učenčení je možné pouze stiskem kláves CTRL+C, tato klávesová zkratka má naštěstí svou hodnotu v tabulce ASCII, tedy hodnotu 42. Funkce odešle všechen text, který obdržela na vstupu v textovém řetězci, poté je odeslán ukončovací příznak CTRL+C. Tím je SMS zpráva úspěšně odeslána do modulu, který již dále převezme režii, separovaně od úloh řídící jednotky. Mezi každým krokem jsou nastaveny časové intervaly, definované v hlavičce, které slouží jako doba, kterou má modul na odpověď našeho požadavku.
+Funkce přepne modul do textového režimu, bude tedy očekávat odeslání textového řetězce, dále odešleme informaci pro odeslání SMS na telefonní číslo, uvedeném v příkazu. Čekáme na odpověď, když dorazí, je modul v režimu přijímání textu a jeho učenčení je možné pouze stiskem kláves CTRL+C, tato klávesová zkratka má naštěstí svou hodnotu v tabulce ASCII, tedy hodnotu 42. Funkce odešle všechen text, který obdržela na vstupu v textovém řetězci, poté je odeslán ukončovací příznak CTRL+C. Tím je SMS zpráva úspěšně odeslána do modulu, který již dále převezme režii, separovaně od úloh řídící jednotky. Mezi každým krokem jsou nastaveny časové intervaly, definované v hlavičce, které slouží jako doba, kterou má modul na odpověď našeho požadavku. Funkce nevrací žádný výstup.
 
 \paragraph{Vstupní parametr funkce:}
 \begin{itemize}
@@ -557,33 +563,70 @@ Funkce přepne modul do textového režimu, bude tedy očekávat odeslání text
 
 % Režim GPS
 
-\section{Funkce režimu GPS}
+\section{Funkce v režimu GPS}
 Níže detailně popíši všechny funkce režimu GPS, jaký je jejich účel, jaké mají vstupní parametry a jaká je jejich návratová hodnota.
 
 \subsection{Obsluž přerušení (serialEvent)}
-Not supported yet.
+V režimu GPS není možné vyčítat data ze sběrnice dle libosti, paměť, do které se ukládají data, má své limity a při zahlcení se začnou data přemazávat, jediným řešením je včasné čtení dat, čímž se z paměti smažou a uvolní své místo. V režimu GPS příjde jeden balík dat za méně než 1 s, proto jsou data vyčítána přerušením, aby se nemuselo čekat na obsloužení dalších částí kódu. Pokud existují příchozí data, je vyvoláno hardwarové přerušení, které aktivuje funkci serialEvent(), ta dokud jsou data v paměti, vyčítá do jednoho textového řetězce a po vyprázdnění paměti odešle data ke zpracování, vztyčením příznaku stringComplete. Funkce pracuje s globálními proměnnými a nevrací žádný výstup.
+
+\subsection{Vyčti údaje o poloze z dat (parseCoordinates)}
+Příchozí data musí být zpracována a vyčteny z nich pouze důležité informace. Data jsou ve formátu NMEA specifikované v původní dokumentaci od společnosti SIFT TECHNOLOGY \cite{SIFT}, nebo v novější verze od společnosti CSR PLC \cite{CSR}, která původní společnost odkoupila. Informace jsem čerpal z obou oficiálních dokumentací. Z jednoho komunikačního rámce jsou výjmuty hodnoty zeměpisné šířky a délky, která jsou následně odeslána k převodu na přesné souřadnice. Funkce pracuje pouze s globálními proměnnými a nevrací žádný výstup.
+
+\subsection{Oprava souřadnice (gpsCorrection)}
+Dlouhé týdny jsem se zabíval problémem, že zjšitěná poloha nebyla nikdy přesná. Přesněji se od skutečné lišala od 100 do 1 000 m. Oficiální dokumentace ani podklady nic takového neříkali, ale našel jsem diskusi na internetovém fóru \cite{correct}, kde se problém podařil dvou uživatelům vyřešit. Na základě jejich poznatků a algoritmů jsem jejich postup implementoval do svého zdrojového kódu. Po aplikování algoritmu se přesnost zpřesnila na jednotky metrů.
+
+\paragraph{Vstupní parametr funkce:}
+\begin{itemize}
+\item Float s hodnotou polohy
+\end{itemize}
+
+\paragraph{Návratová hodnota funkce:}
+\begin{itemize}
+\item Float s opravenou hodnotou polohy
+\end{itemize}
 
 \subsection{Počítej validní GPS (countValidGpsCoordinates)}
-Not supported yet.
+Pro zjištění, zda je pozice validní, jsem použil všebecně dostupné infomace o polohování na planetě zemi \cite{geographic}, podle kterých jsem vymezil hodnotám určité hranice, kterých mohou nabívat. Pokud jsou souřadnice v pořádku jsou připočteny do validních dat, kterých, pokud je určitý počet, definovaný v hlavičce, jsou pak označena jako validní poloha a ta je připravena k dalšímu zpracování, například odeslání. Je nutné zmínit, že pokud jsou příchozí data z modulu poškozená nebo nevalidní, jsou při převodu z formátu String (textový řetězec) do formátu Float (číslo s desetinou čárkou) označena jako nevalidní a funkce .toFloat() vrací hodnotu nula, tedy pokud jsou souřadnice nulové, není poloha platná. Nulové souřadnice ale existují, nachází se na jihozápad od afriky, nicméně nepředpoládám že by se sledovací zařízení do tohoto místa dostalo, pokud ano, nebude se jistě držovat přesně na poloze o souřednicích [0;0]. Tento nedostatek bude při potencionálním budoucím vývoji odstraněn. Funkce pracuje pouze s globálními proměnnými a nevrací žádný výstup.
 
-\subsection{Vyčti z dat souřadnice (parseCoordinates)}
-Not supported yet.
+% Spotřeba
 
-\subsection{Vypočítej souřadnice (gpsCorrection)}
-Not supported yet.
+\chapter{Spotřeba a výdrž na autobaterii}
+Hotový prototyp jsem po otestování podrobil měření spotřeby, ve všech možných režimech. Měření probíhalo při pokojové teplotě 22 \degree C a při výpočtech spotřeby ve dnech, počítám s nejslabší možnou autobaterií 50 Ah a dny jsou zaokrouhlovány vždy dolů, na celý jeden den. Aktuálně zařízení vydrží připojené na nedobíjenou autobaterii přibližně 30 dnů, při správné implementaci zdrojových kódů akcelerometru, do zdrojových kódů řídící jednotky, které jsem již zhotovill, je možné dosáhnout výdrže až 200 dní. V případě vybité baterie, by bylo vhodné uživatele notifikovat o tomto stavu.
 
-\section{Výpočet polohy z dat GPS}
-Not supported yet.
+\paragraph{Použíté měřící přístroje:}
+\begin{itemize}
+\item Stabilizovaný zdroj napětí Tesla-BS 525
+\item Osciloskop HUNG CHANG 3502 20 MHz
+\item Digitální multimetr DT9205A
+\end{itemize}
+
+\paragraph{Výpočet spotřeby:}
+$$ vydrz [hodin] = \frac{1}{\frac{spotreba[mA]}{1000}} \times autobaterie[Ah] $$
+
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{| l | c | c |  c |}
+\hline
+Režim & Spotřeba & Výdrž hodin & Výdrž dní\\
+\hline
+\hline
+GSM & 150 mA & 333 & 13\\
+\hline
+GPS & 200 mA & 250 & 10\\
+\hline
+Arduino & 60 mA & 833 & 33\\
+\hline
+Akcelerometr & 10 mA & 5000 & 200\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Naměřená spotřeba prototypu}
+\end{table}
 
 % Závěr
 
 \chapter{Závěr}
-Not supported yet.
-
-\section{Spotřeba}
-Not supported yet.
-
-\section{Bodové hodnocení}
 Not supported yet.
 
 \begin{thebibliography}{References}
@@ -607,6 +650,8 @@ Not supported yet.
 \bibitem{Pruvodce arduinem}VODA, Zbyšek. Průvodce světem Arduina [online]. Vydání první. Bučovice: Martin Stříž, 2015 [cit. 2016-05-07]. ISBN 978-80-87106-90-7.
 \bibitem{Atmega datasheet}ATMEL CORPORATION. ATmega48A/PA/88A/PA/168A/PA/328/P Datasheet [online]. 2015, 660 s. [cit. 2016-05-07]. Dostupné z: http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P\_ datasheet\_Complete.pdf
 \bibitem{SoftReset}Software Reset Library for Arduino. GitHub [online]. [cit. 2016-05-08]. Dostupné z: https://github.com/WickedDevice/SoftReset
+\bibitem{correct}BYRNE, Jonathan. Position error with GPS/GSM v3. In: Dfrobot [online]. [cit. 2016-05-09]. Dostupné z: http://www.dfrobot.com/forum/viewtopic.php?f=2\&t=1528\&p=7729 \#p7693
+\bibitem{geographic}Geographic coordinate system. Wikipedia [online]. [cit. 2016-05-09]. Dostupné z: https://en.wikipedia.org/wiki/Geographic\_coordinate\_system
 
 
 

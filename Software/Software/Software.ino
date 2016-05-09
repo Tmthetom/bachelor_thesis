@@ -171,7 +171,7 @@ void executeSmsContent() {
 void sendCommand(String command) {
   Serial.println(command);  // Send data to GPS
 }
-
+j
 // Send SMS into mobile number
 void sendSMS(String text) {
 

@@ -65,23 +65,26 @@
 \contentsline {subsection}{\numberline {6.4.2}Hlavn\IeC {\'\i } smy\IeC {\v c}ka (loop)}{33}{subsection.6.4.2}
 \contentsline {subsection}{\numberline {6.4.3}Rozpozn\IeC {\'a}n\IeC {\'\i } chyb (recognizeERROR)}{33}{subsection.6.4.3}
 \contentsline {subsection}{\numberline {6.4.4}Ode\IeC {\v s}li p\IeC {\v r}\IeC {\'\i }kaz do modulu (sendCommand)}{33}{subsection.6.4.4}
-\contentsline {paragraph}{Vstupn\IeC {\'\i } parametr funkce:}{33}{paragraph*.16}
-\contentsline {subsection}{\numberline {6.4.5}Ode\IeC {\v s}li zpr\IeC {\'a}vu o stavu do PC (sendReport)}{33}{subsection.6.4.5}
+\contentsline {paragraph}{Vstupn\IeC {\'\i } parametr funkce:}{34}{paragraph*.16}
+\contentsline {subsection}{\numberline {6.4.5}Ode\IeC {\v s}li zpr\IeC {\'a}vu o stavu do PC (sendReport)}{34}{subsection.6.4.5}
 \contentsline {paragraph}{Vstupn\IeC {\'\i } parametr funkce:}{34}{paragraph*.17}
 \contentsline {subsection}{\numberline {6.4.6}Zm\IeC {\v e}\IeC {\v n} re\IeC {\v z}im modulu (changeMode)}{34}{subsection.6.4.6}
-\contentsline {section}{\numberline {6.5}Funkce re\IeC {\v z}imu GSM}{34}{section.6.5}
+\contentsline {paragraph}{Vstupn\IeC {\'\i } parametr funkce:}{34}{paragraph*.18}
+\contentsline {section}{\numberline {6.5}Funkce v re\IeC {\v z}imu GSM}{34}{section.6.5}
 \contentsline {subsection}{\numberline {6.5.1}Rozpozn\IeC {\'a}n\IeC {\'\i } nov\IeC {\'e} SMS (recognizeSmsNew)}{34}{subsection.6.5.1}
-\contentsline {subsection}{\numberline {6.5.2}Rozpozn\IeC {\'a}n\IeC {\'\i } hlavi\IeC {\v c}ky SMS (recognizeSmsHeader)}{34}{subsection.6.5.2}
-\contentsline {subsection}{\numberline {6.5.3}Rozpozn\IeC {\'a}n\IeC {\'\i } obsahu SMS (recognizeSmsContent)}{34}{subsection.6.5.3}
-\contentsline {subsection}{\numberline {6.5.4}Vykon\IeC {\'a}n\IeC {\'\i } obsahu SMS (executeSmsContent)}{34}{subsection.6.5.4}
+\contentsline {subsection}{\numberline {6.5.2}Rozpozn\IeC {\'a}n\IeC {\'\i } hlavi\IeC {\v c}ky SMS (recognizeSmsHeader)}{35}{subsection.6.5.2}
+\contentsline {subsection}{\numberline {6.5.3}Rozpozn\IeC {\'a}n\IeC {\'\i } obsahu SMS (recognizeSmsContent)}{35}{subsection.6.5.3}
+\contentsline {subsection}{\numberline {6.5.4}Vykon\IeC {\'a}n\IeC {\'\i } obsahu SMS (executeSmsContent)}{35}{subsection.6.5.4}
 \contentsline {subsection}{\numberline {6.5.5}Odesl\IeC {\'a}n\IeC {\'\i } SMS (sendSMS)}{35}{subsection.6.5.5}
-\contentsline {paragraph}{Vstupn\IeC {\'\i } parametr funkce:}{35}{paragraph*.18}
-\contentsline {section}{\numberline {6.6}Funkce re\IeC {\v z}imu GPS}{35}{section.6.6}
-\contentsline {subsection}{\numberline {6.6.1}Obslu\IeC {\v z} p\IeC {\v r}eru\IeC {\v s}en\IeC {\'\i } (serialEvent)}{35}{subsection.6.6.1}
-\contentsline {subsection}{\numberline {6.6.2}Po\IeC {\v c}\IeC {\'\i }tej validn\IeC {\'\i } GPS (countValidGpsCoordinates)}{35}{subsection.6.6.2}
-\contentsline {subsection}{\numberline {6.6.3}Vy\IeC {\v c}ti z dat sou\IeC {\v r}adnice (parseCoordinates)}{35}{subsection.6.6.3}
-\contentsline {subsection}{\numberline {6.6.4}Vypo\IeC {\v c}\IeC {\'\i }tej sou\IeC {\v r}adnice (gpsCorrection)}{35}{subsection.6.6.4}
-\contentsline {section}{\numberline {6.7}V\IeC {\'y}po\IeC {\v c}et polohy z dat GPS}{36}{section.6.7}
-\contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{37}{chapter.7}
-\contentsline {section}{\numberline {7.1}Spot\IeC {\v r}eba}{37}{section.7.1}
-\contentsline {section}{\numberline {7.2}Bodov\IeC {\'e} hodnocen\IeC {\'\i }}{37}{section.7.2}
+\contentsline {paragraph}{Vstupn\IeC {\'\i } parametr funkce:}{35}{paragraph*.19}
+\contentsline {section}{\numberline {6.6}Funkce v re\IeC {\v z}imu GPS}{36}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Obslu\IeC {\v z} p\IeC {\v r}eru\IeC {\v s}en\IeC {\'\i } (serialEvent)}{36}{subsection.6.6.1}
+\contentsline {subsection}{\numberline {6.6.2}Vy\IeC {\v c}ti \IeC {\'u}daje o poloze z dat (parseCoordinates)}{36}{subsection.6.6.2}
+\contentsline {subsection}{\numberline {6.6.3}Oprava sou\IeC {\v r}adnice (gpsCorrection)}{36}{subsection.6.6.3}
+\contentsline {paragraph}{Vstupn\IeC {\'\i } parametr funkce:}{36}{paragraph*.20}
+\contentsline {paragraph}{N\IeC {\'a}vratov\IeC {\'a} hodnota funkce:}{36}{paragraph*.21}
+\contentsline {subsection}{\numberline {6.6.4}Po\IeC {\v c}\IeC {\'\i }tej validn\IeC {\'\i } GPS (countValidGpsCoordinates)}{37}{subsection.6.6.4}
+\contentsline {chapter}{\numberline {7}Spot\IeC {\v r}eba a v\IeC {\'y}dr\IeC {\v z} na autobaterii}{38}{chapter.7}
+\contentsline {paragraph}{Pou\IeC {\v z}\IeC {\'\i }t\IeC {\'e} m\IeC {\v e}\IeC {\v r}\IeC {\'\i }c\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }stroje:}{38}{paragraph*.22}
+\contentsline {paragraph}{V\IeC {\'y}po\IeC {\v c}et spot\IeC {\v r}eby:}{38}{paragraph*.23}
+\contentsline {chapter}{\numberline {8}Z\IeC {\'a}v\IeC {\v e}r}{39}{chapter.8}

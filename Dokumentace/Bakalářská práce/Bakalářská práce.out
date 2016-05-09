@@ -52,18 +52,16 @@
 \BOOKMARK [2][-]{subsection.6.4.4}{Ode\235li pr\355kaz do modulu \(sendCommand\)}{section.6.4}% 52
 \BOOKMARK [2][-]{subsection.6.4.5}{Ode\235li zpr\341vu o stavu do PC \(sendReport\)}{section.6.4}% 53
 \BOOKMARK [2][-]{subsection.6.4.6}{Zmen re\236im modulu \(changeMode\)}{section.6.4}% 54
-\BOOKMARK [1][-]{section.6.5}{Funkce re\236imu GSM}{chapter.6}% 55
+\BOOKMARK [1][-]{section.6.5}{Funkce v re\236imu GSM}{chapter.6}% 55
 \BOOKMARK [2][-]{subsection.6.5.1}{Rozpozn\341n\355 nov\351 SMS \(recognizeSmsNew\)}{section.6.5}% 56
 \BOOKMARK [2][-]{subsection.6.5.2}{Rozpozn\341n\355 hlavicky SMS \(recognizeSmsHeader\)}{section.6.5}% 57
 \BOOKMARK [2][-]{subsection.6.5.3}{Rozpozn\341n\355 obsahu SMS \(recognizeSmsContent\)}{section.6.5}% 58
 \BOOKMARK [2][-]{subsection.6.5.4}{Vykon\341n\355 obsahu SMS \(executeSmsContent\)}{section.6.5}% 59
 \BOOKMARK [2][-]{subsection.6.5.5}{Odesl\341n\355 SMS \(sendSMS\)}{section.6.5}% 60
-\BOOKMARK [1][-]{section.6.6}{Funkce re\236imu GPS}{chapter.6}% 61
+\BOOKMARK [1][-]{section.6.6}{Funkce v re\236imu GPS}{chapter.6}% 61
 \BOOKMARK [2][-]{subsection.6.6.1}{Obslu\236 preru\235en\355 \(serialEvent\)}{section.6.6}% 62
-\BOOKMARK [2][-]{subsection.6.6.2}{Poc\355tej validn\355 GPS \(countValidGpsCoordinates\)}{section.6.6}% 63
-\BOOKMARK [2][-]{subsection.6.6.3}{Vycti z dat souradnice \(parseCoordinates\)}{section.6.6}% 64
-\BOOKMARK [2][-]{subsection.6.6.4}{Vypoc\355tej souradnice \(gpsCorrection\)}{section.6.6}% 65
-\BOOKMARK [1][-]{section.6.7}{V\375pocet polohy z dat GPS}{chapter.6}% 66
-\BOOKMARK [0][-]{chapter.7}{Z\341ver}{}% 67
-\BOOKMARK [1][-]{section.7.1}{Spotreba}{chapter.7}% 68
-\BOOKMARK [1][-]{section.7.2}{Bodov\351 hodnocen\355}{chapter.7}% 69
+\BOOKMARK [2][-]{subsection.6.6.2}{Vycti \372daje o poloze z dat \(parseCoordinates\)}{section.6.6}% 63
+\BOOKMARK [2][-]{subsection.6.6.3}{Oprava souradnice \(gpsCorrection\)}{section.6.6}% 64
+\BOOKMARK [2][-]{subsection.6.6.4}{Poc\355tej validn\355 GPS \(countValidGpsCoordinates\)}{section.6.6}% 65
+\BOOKMARK [0][-]{chapter.7}{Spotreba a v\375dr\236 na autobaterii}{}% 66
+\BOOKMARK [0][-]{chapter.8}{Z\341ver}{}% 67
