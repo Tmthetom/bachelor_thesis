@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  9 MAY 2016 09:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  9 MAY 2016 09:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -742,12 +742,12 @@ Kapitola 2.
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 53.
+(hyperref)                removing `\textasciicaron' on input line 54.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 59.
+(hyperref)                removing `\textasciicaron' on input line 60.
 
 [11
 
@@ -755,16 +755,16 @@ Package hyperref Warning: Composite letter `\textasciicaron+r'
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 73.
+(hyperref)                removing `\textasciicaron' on input line 74.
 
 [12]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 76.
+(hyperref)                removing `\textasciicaron' on input line 77.
 
 
-Overfull \hbox (0.18617pt too wide) in paragraph at lines 77--78
+Overfull \hbox (0.18617pt too wide) in paragraph at lines 78--79
 \OT1/cmr/m/n/12 Za^^Tr^^S^^Pzen^^S^^P mus^^S^^P b^^Syt nen^^Saro^^Tcn^^Se na ^^
 Sudr^^Tzbu, to zna-men^^Sa nap^^Tr^^S^^Pklad v^^Sym^^Tenu, nebo dob^^S^^Pjen^^S
 ^^P
@@ -773,10 +773,10 @@ Sudr^^Tzbu, to zna-men^^Sa nap^^Tr^^S^^Pklad v^^Sym^^Tenu, nebo dob^^S^^Pjen^^S
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 79.
+(hyperref)                removing `\textasciicaron' on input line 80.
 
 
-Overfull \hbox (5.20834pt too wide) in paragraph at lines 80--81
+Overfull \hbox (5.20834pt too wide) in paragraph at lines 81--82
 \OT1/cmr/m/n/12 kter^^Se n^^Tekter^^Se mo-dely ani ne-maj^^S^^P. V^^Tet^^Tsina 
 do-stupn^^Sych mo-del^^Wu je p^^Treprodejem ^^Tc^^S^^Pnsk^^Sych
  []
@@ -785,39 +785,39 @@ do-stupn^^Sych mo-del^^Wu je p^^Treprodejem ^^Tc^^S^^Pnsk^^Sych
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 85.
+(hyperref)                removing `\textasciicaron' on input line 86.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 85.
+(hyperref)                removing `\textasciicaron' on input line 86.
 
 [14]
 Kapitola 3.
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 99.
+(hyperref)                removing `\textasciicaron' on input line 100.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 99.
+(hyperref)                removing `\textasciicaron' on input line 100.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 107.
+(hyperref)                removing `\textasciicaron' on input line 109.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 107.
+(hyperref)                removing `\textasciicaron' on input line 109.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 107.
+(hyperref)                removing `\textasciicaron' on input line 109.
 
 [15
 
@@ -825,25 +825,26 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 119.
+(hyperref)                removing `\textasciicaron' on input line 122.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 119.
+(hyperref)                removing `\textasciicaron' on input line 122.
 
+[16]
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 131.
+(hyperref)                removing `\textasciicaron' on input line 135.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 131.
+(hyperref)                removing `\textasciicaron' on input line 135.
 
-[16]
-Overfull \hbox (18.5158pt too wide) in paragraph at lines 149--183
+
+Overfull \hbox (18.5158pt too wide) in paragraph at lines 154--188
  [] 
  []
 
@@ -851,10 +852,10 @@ Overfull \hbox (18.5158pt too wide) in paragraph at lines 149--183
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 189.
+(hyperref)                removing `\textasciicaron' on input line 194.
 
 
-Overfull \hbox (19.24292pt too wide) in paragraph at lines 190--191
+Overfull \hbox (19.24292pt too wide) in paragraph at lines 195--196
 \OT1/cmr/m/n/12 d^^Wule^^Tzitosti p^^Tri v^^Syb^^Teru z^^Sakazn^^S^^Pkem, mezi 
 do-stupn^^Symi pro-dukty na ^^Tcesk^^Sem trhu. Ide^^Saln^^S^^Pmu
  []
@@ -863,32 +864,32 @@ do-stupn^^Symi pro-dukty na ^^Tcesk^^Sem trhu. Ide^^Saln^^S^^Pmu
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 202.
+(hyperref)                removing `\textasciicaron' on input line 208.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 202.
+(hyperref)                removing `\textring' on input line 208.
 
 
-Overfull \hbox (3.0542pt too wide) in paragraph at lines 205--206
+Overfull \hbox (3.0542pt too wide) in paragraph at lines 211--212
 []\OT1/cmr/m/n/12 Vzhledem k tomu, ^^Tze pr^^Sace p^^Tren^^Sa^^Ts^^S^^P vlast-n
 osti, ze st^^Tredn^^S^^P t^^Tr^^S^^Pdy sle-do-vac^^S^^Pch za^^Tr^^S^^Pzen^^S^^P
 ,
  []
 
 [19] [20]
-Overfull \hbox (26.1623pt too wide) in paragraph at lines 273--274
+Overfull \hbox (26.1623pt too wide) in paragraph at lines 284--285
 \OT1/cmr/m/n/12 jsou zkrat-kami a kom-bi-na-cemi slov z an-g-lick^^Seho ja-zyka
  (0). Na-sta-vi-tel-nost je nadpr^^Wum^^Tern^^Sa
  []
 
 [21] [22] [23]
-<graphs/graf_bodoveHodnoceni.pdf, id=465, 448.51427pt x 267.1812pt>
+<graphs/graf_bodoveHodnoceni.pdf, id=478, 448.51427pt x 267.1812pt>
 File: graphs/graf_bodoveHodnoceni.pdf Graphic file (type pdf)
 
 <use graphs/graf_bodoveHodnoceni.pdf>
-Package pdftex.def Info: graphs/graf_bodoveHodnoceni.pdf used on input line 357
+Package pdftex.def Info: graphs/graf_bodoveHodnoceni.pdf used on input line 372
 .
 (pdftex.def)             Requested size: 426.79134pt x 254.24467pt.
  [24 <./graphs/graf_bodoveHodnoceni.pdf>]
@@ -896,60 +897,60 @@ Kapitola 4.
 
 Package hyperref Warning: Composite letter `\textasciicaron+R'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 368.
+(hyperref)                removing `\textasciicaron' on input line 383.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 371.
+(hyperref)                removing `\textasciicaron' on input line 386.
 
 [25
 
-] <graphs/schema_blokove.pdf, id=490, 325.215pt x 236.38312pt>
+] <graphs/schema_blokove.pdf, id=503, 325.215pt x 236.38312pt>
 File: graphs/schema_blokove.pdf Graphic file (type pdf)
 
 <use graphs/schema_blokove.pdf>
-Package pdftex.def Info: graphs/schema_blokove.pdf used on input line 385.
+Package pdftex.def Info: graphs/schema_blokove.pdf used on input line 400.
 (pdftex.def)             Requested size: 426.79134pt x 310.23764pt.
  [26] [27 <./graphs/schema_blokove.pdf>]
 Kapitola 5.
-<images/arduino.png, id=518, 180.675pt x 180.675pt>
+<images/arduino.png, id=531, 180.675pt x 180.675pt>
 File: images/arduino.png Graphic file (type png)
  <use images/arduino.png>
-Package pdftex.def Info: images/arduino.png used on input line 401.
+Package pdftex.def Info: images/arduino.png used on input line 416.
 (pdftex.def)             Requested size: 213.39566pt x 213.39864pt.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 407.
+(hyperref)                removing `\textasciicaron' on input line 422.
 
 [28
 
- <./images/arduino.png>] <images/module.png, id=532, 216.81pt x 144.54pt>
+ <./images/arduino.png>] <images/module.png, id=545, 216.81pt x 144.54pt>
 File: images/module.png Graphic file (type png)
 
 <use images/module.png>
-Package pdftex.def Info: images/module.png used on input line 412.
+Package pdftex.def Info: images/module.png used on input line 427.
 (pdftex.def)             Requested size: 341.43436pt x 227.65167pt.
- <images/akcelerometr.png, id=535, 602.25pt x 602.25pt>
+ <images/akcelerometr.png, id=548, 602.25pt x 602.25pt>
 File: images/akcelerometr.png Graphic file (type png)
 
 <use images/akcelerometr.png>
-Package pdftex.def Info: images/akcelerometr.png used on input line 423.
+Package pdftex.def Info: images/akcelerometr.png used on input line 438.
 (pdftex.def)             Requested size: 213.39566pt x 213.4005pt.
  [29 <./images/module.png>] [30 <./images/akcelerometr.png>]
 Kapitola 6.
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 471.
+(hyperref)                removing `\textasciicaron' on input line 486.
 
-<images/arduino-ide.png, id=560, 386.19281pt x 292.84406pt>
+<images/arduino-ide.png, id=574, 386.19281pt x 292.84406pt>
 File: images/arduino-ide.png Graphic file (type png)
 
 <use images/arduino-ide.png>
-Package pdftex.def Info: images/arduino-ide.png used on input line 476.
+Package pdftex.def Info: images/arduino-ide.png used on input line 491.
 (pdftex.def)             Requested size: 341.43436pt x 258.90556pt.
  [31
 
@@ -957,290 +958,284 @@ Package pdftex.def Info: images/arduino-ide.png used on input line 476.
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 482.
+(hyperref)                removing `\textasciicaron' on input line 499.
 
 [32 <./images/arduino-ide.png>]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 491.
+(hyperref)                removing `\textasciicaron' on input line 508.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 497.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+e'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 503.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+n'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 503.
+(hyperref)                removing `\textasciicaron' on input line 514.
 
 [33]
 
-Package hyperref Warning: Composite letter `\textasciicaron+c'
+Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 512.
+(hyperref)                removing `\textasciicaron' on input line 530.
 
 
-Package hyperref Warning: Composite letter `\textasciicaron+r'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 527.
-
-[34]
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
+Package hyperref Warning: Composite letter `\textasciicaron+n'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textasciicaron' on input line 530.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 533.
+(hyperref)                removing `\textasciicaron' on input line 541.
 
+[34]
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 533.
+(hyperref)                removing `\textasciicaron' on input line 563.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 536.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+r'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 536.
+(hyperref)                removing `\textasciicaron' on input line 566.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 539.
+(hyperref)                removing `\textasciicaron' on input line 569.
 
-[35]
+
+Package hyperref Warning: Composite letter `\textasciicaron+r'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 569.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 572.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+r'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 572.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 575.
+
+[35] [36]
 Kapitola 7.
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 544.
+(hyperref)                removing `\textasciicaron' on input line 580.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 547.
+(hyperref)                removing `\textasciicaron' on input line 583.
 
-[36
+[37
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 554--555
+Underfull \hbox (badness 10000) in paragraph at lines 590--591
 []\OT1/cmr/m/n/12 SATRAPA, Pa-vel. La-TeX pro prag-ma-tiky [on-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 554--555
+Underfull \hbox (badness 10000) in paragraph at lines 590--591
 \OT1/cmr/m/n/12 line]. 2011, 87 s. [cit. 2016-05-07]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 555--556
+Underfull \hbox (badness 10000) in paragraph at lines 591--592
 []\OT1/cmr/m/n/12 SATRAPA, Pa-vel. Stru^^Tcn^^Sy p^^Trehled p^^Tr^^S^^Pkaz^^Wu 
 La-TeXu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 555--556
+Underfull \hbox (badness 10000) in paragraph at lines 591--592
 \OT1/cmr/m/n/12 [on-line]. 2011, 2 s. [cit. 2016-05-07]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 556--557
+Underfull \hbox (badness 10000) in paragraph at lines 592--593
 []\OT1/cmr/m/n/12 SIRF TECH-NO-LOGY, INC. NMEA Re-fe-rence Ma-nual [on-
  []
 
 
-Underfull \hbox (badness 1303) in paragraph at lines 556--557
+Underfull \hbox (badness 1303) in paragraph at lines 592--593
 \OT1/cmr/m/n/12 line]. 2.1. San Jose., 2007, 27 s. [cit. 2016-05-07]. Do-stupn^
 ^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 556--557
+Underfull \hbox (badness 10000) in paragraph at lines 592--593
 \OT1/cmr/m/n/12 https://www.sparkfun.com/datasheets/GPS/NMEA%20Reference%
  []
 
 
-Underfull \hbox (badness 7133) in paragraph at lines 557--558
+Underfull \hbox (badness 7133) in paragraph at lines 593--594
 []\OT1/cmr/m/n/12 CSR PLC. NMEA Re-fe-rence Gu-ide [on-line]. 2. Cambridge:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 557--558
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
 \OT1/cmr/m/n/12 CSR plc, 2011, 50 s. [cit. 2016-05-07]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 557--558
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
 \OT1/cmr/m/n/12 http://www.inventeksys.com/wp-content/uploads/2012/05/NMEA-
  []
 
 
-Underfull \hbox (badness 4156) in paragraph at lines 558--559
+Underfull \hbox (badness 4156) in paragraph at lines 594--595
 []\OT1/cmr/m/n/12 SIMCOM WI-RE-LESS SO-LU-TI-ONS. SIM908 Hard-ware De-sign
  []
 
 
-Underfull \hbox (badness 1314) in paragraph at lines 558--559
+Underfull \hbox (badness 1314) in paragraph at lines 594--595
 \OT1/cmr/m/n/12 [on-line]. 2. Jin-zhong, 2012, 53 s. [cit. 2016-05-07]. Do-stup
 n^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 558--559
+Underfull \hbox (badness 10000) in paragraph at lines 594--595
 \OT1/cmr/m/n/12 http://www.niplesoft.net/blog/wp-content/uploads/2016/02/SIM908
 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 559--560
+Underfull \hbox (badness 10000) in paragraph at lines 595--596
 []\OT1/cmr/m/n/12 SIMCOM WI-RE-LESS SO-LU-TI-ONS. SIM908 AT Com-mand
  []
 
 
-Underfull \hbox (badness 3029) in paragraph at lines 559--560
+Underfull \hbox (badness 3029) in paragraph at lines 595--596
 \OT1/cmr/m/n/12 Ma-nual [on-line]. Jin-zhong, 2011, 249 s. [cit. 2016-05-07]. D
 o-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 559--560
+Underfull \hbox (badness 10000) in paragraph at lines 595--596
 \OT1/cmr/m/n/12 stupn^^Se z: http://www.dfrobot.com/image/data/TEL0051/3.0/
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 560--561
+Underfull \hbox (badness 10000) in paragraph at lines 596--597
 []\OT1/cmr/m/n/12 DFROBOT. GSM+GPRS+GPS V3.0 sche-ma-tic [on-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 560--561
+Underfull \hbox (badness 10000) in paragraph at lines 596--597
 \OT1/cmr/m/n/12 line]. Shan-ghai, 2013, 1 s. [cit. 2016-05-07]. Do-stupn^^Se z:
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 560--561
+Underfull \hbox (badness 10000) in paragraph at lines 596--597
 \OT1/cmr/m/n/12 http://www.dfrobot.com/image/data/TEL0051/GSM+GPRS+GPS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 561--562
+Underfull \hbox (badness 10000) in paragraph at lines 597--598
 []\OT1/cmr/m/n/12 GPS/GPRS/GSM Mo-dule V3.0 (SKU:TEL0051). DFRo-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 561--562
+Underfull \hbox (badness 10000) in paragraph at lines 597--598
 \OT1/cmr/m/n/12 bot Wiki [on-line]. [cit. 2016-05-07]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 561--562
+Underfull \hbox (badness 10000) in paragraph at lines 597--598
 \OT1/cmr/m/n/12 http://www.dfrobot.com/wiki/index.php/GPS/GPRS/GSM[]Module
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 562--563
+Underfull \hbox (badness 10000) in paragraph at lines 598--599
 []\OT1/cmr/m/n/12 ARDUINO LLC. Ar-duino Sche-ma-tic [on-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 562--563
+Underfull \hbox (badness 10000) in paragraph at lines 598--599
 \OT1/cmr/m/n/12 line]. 1 s. [cit. 2016-05-07]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 562--563
+Underfull \hbox (badness 10000) in paragraph at lines 598--599
 \OT1/cmr/m/n/12 https://www.arduino.cc/en/uploads/Main/Arduino[]Uno[]Rev3-
  []
 
-[37
+[38
 
 pdfTeX warning (ext4): destination with the same identifier (name{cite.LaTeX}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.563 \bibitem{Arduino acce}
+l.599 \bibitem{Arduino acce}
                             ARDUINO LLC. MPU-6050 Accelerometer + Gyro [onli...
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 565--566
+Underfull \hbox (badness 10000) in paragraph at lines 601--602
 []\OT1/cmr/m/n/12 STOFFREGEN, Paul. I2cdevlib - MPU6050 [on-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 565--566
+Underfull \hbox (badness 10000) in paragraph at lines 601--602
 \OT1/cmr/m/n/12 line]. 2012, 2016-04-07 [cit. 2016-05-08]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 565--566
+Underfull \hbox (badness 10000) in paragraph at lines 601--602
 \OT1/cmr/m/n/12 https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU60
 
  []
 
 
-Overfull \hbox (5.98907pt too wide) in paragraph at lines 572--573
+Overfull \hbox (5.98907pt too wide) in paragraph at lines 608--609
 []\OT1/cmr/m/n/12 ATMEL COR-PO-RATION. AT-mega48A/PA/88A/PA/168A/PA/328/P
  []
 
 
-Underfull \hbox (badness 7907) in paragraph at lines 572--573
+Underfull \hbox (badness 7907) in paragraph at lines 608--609
 \OT1/cmr/m/n/12 Da-ta-sheet [on-line]. 2015, 660 s. [cit. 2016-05-07]. Do-stupn
 ^^Se
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 572--573
+Underfull \hbox (badness 10000) in paragraph at lines 608--609
 \OT1/cmr/m/n/12 z: http://www.atmel.com/images/Atmel-8271-8-bit-AVR-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 572--573
+Underfull \hbox (badness 10000) in paragraph at lines 608--609
 \OT1/cmr/m/n/12 Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P[]
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 579.
-[38]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 579.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 615.
+[39]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 615.
  (./Bakaláøská práce.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 579.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 579.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 615.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 615.
+Package rerunfilecheck Info: File `"Bakaláøská práce".out' has not changed.
+(rerunfilecheck)             Checksum: 85EF71C330AC1EF78C89EBF3DB61F155;5266.
 
-
-Package rerunfilecheck Warning: File `"Bakaláøská práce".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Bakaláøská práce".out':
-(rerunfilecheck)             Before: D026F1F7054FEC13C750459F6FB6D92A;5272
-(rerunfilecheck)             After:  85EF71C330AC1EF78C89EBF3DB61F155;5266.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 579.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 615.
  ) 
 Here is how much of TeX's memory you used:
- 7408 strings out of 493027
- 103485 string characters out of 6133617
- 215950 words of memory out of 5000000
- 10715 multiletter control sequences out of 15000+600000
- 10992 words of font info for 38 fonts, out of 8000000 for 9000
+ 7424 strings out of 493027
+ 103677 string characters out of 6133617
+ 216950 words of memory out of 5000000
+ 10714 multiletter control sequences out of 15000+600000
+ 10693 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,12n,54p,1351b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,11n,54p,1351b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
 <d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pf
 b><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 ><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
@@ -1249,10 +1244,10 @@ b><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 b><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.p
 fb><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb>
-Output written on "Bakaláøská práce.pdf" (38 pages, 1447729 bytes).
+Output written on "Bakaláøská práce.pdf" (39 pages, 1451962 bytes).
 PDF statistics:
- 672 PDF objects out of 1000 (max. 8388607)
- 602 compressed objects within 7 object streams
- 138 named destinations out of 1000 (max. 500000)
+ 696 PDF objects out of 1000 (max. 8388607)
+ 625 compressed objects within 7 object streams
+ 155 named destinations out of 1000 (max. 500000)
  593 words of extra memory for PDF output out of 10000 (max. 10000000)
 
