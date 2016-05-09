@@ -32,7 +32,7 @@ String commandSendCoordinates = "Kde jsi?";  // I want GPS coordinates
 
 // SMS Responses
 String reponseUnknownContent = "SMS ve spatnem tvaru:";  // If SMS content unknown
-String reponseCoordinatesPreparing = "Poloha bude zaslana behem nekolika minut";  // Wait for SMS
+String reponseCoordinatesPreparing = "Probiha lokalizace, poloha bude zaslana behem nekolika minut";  // Wait for SMS
 String responseUnableToGetCoordinates = "Nedostatecne mnozstvi satelitu, nepodarilo se ziskat polohu, zkuste to prosim za chvili";  // Cant get coordinates
 
 // Steps to properly switch everything on
