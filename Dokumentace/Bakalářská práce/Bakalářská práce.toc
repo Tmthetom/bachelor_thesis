@@ -58,13 +58,13 @@
 \contentsline {subsection}{\numberline {6.5.1}Rozpozn\IeC {\'a}n\IeC {\'\i } nov\IeC {\'e} SMS (recognizeSmsNew)}{34}{subsection.6.5.1}
 \contentsline {subsection}{\numberline {6.5.2}Rozpozn\IeC {\'a}n\IeC {\'\i } hlavi\IeC {\v c}ky SMS (recognizeSmsHeader)}{34}{subsection.6.5.2}
 \contentsline {subsection}{\numberline {6.5.3}Rozpozn\IeC {\'a}n\IeC {\'\i } obsahu SMS (recognizeSmsContent)}{34}{subsection.6.5.3}
-\contentsline {subsection}{\numberline {6.5.4}Vykon\IeC {\'a}n\IeC {\'\i } po\IeC {\v z}adavku SMS (executeSmsContent)}{34}{subsection.6.5.4}
+\contentsline {subsection}{\numberline {6.5.4}Vykon\IeC {\'a}n\IeC {\'\i } obsahu SMS (executeSmsContent)}{34}{subsection.6.5.4}
 \contentsline {subsection}{\numberline {6.5.5}Odesl\IeC {\'a}n\IeC {\'\i } SMS (sendSMS)}{34}{subsection.6.5.5}
 \contentsline {section}{\numberline {6.6}Funkce re\IeC {\v z}imu GPS}{34}{section.6.6}
-\contentsline {subsection}{\numberline {6.6.1}Obslu\IeC {\v z} p\IeC {\v r}eru\IeC {\v s}en\IeC {\'\i } (serialEvent)}{34}{subsection.6.6.1}
-\contentsline {subsection}{\numberline {6.6.2}Po\IeC {\v c}\IeC {\'\i }tej validn\IeC {\'\i } GPS (countValidGpsCoordinates)}{34}{subsection.6.6.2}
-\contentsline {subsection}{\numberline {6.6.3}Vy\IeC {\v c}ti z dat sou\IeC {\v r}adnice (parseCoordinates)}{34}{subsection.6.6.3}
-\contentsline {subsection}{\numberline {6.6.4}Vypo\IeC {\v c}\IeC {\'\i }tej sou\IeC {\v r}adnice (gpsCorrection)}{34}{subsection.6.6.4}
+\contentsline {subsection}{\numberline {6.6.1}Obslu\IeC {\v z} p\IeC {\v r}eru\IeC {\v s}en\IeC {\'\i } (serialEvent)}{35}{subsection.6.6.1}
+\contentsline {subsection}{\numberline {6.6.2}Po\IeC {\v c}\IeC {\'\i }tej validn\IeC {\'\i } GPS (countValidGpsCoordinates)}{35}{subsection.6.6.2}
+\contentsline {subsection}{\numberline {6.6.3}Vy\IeC {\v c}ti z dat sou\IeC {\v r}adnice (parseCoordinates)}{35}{subsection.6.6.3}
+\contentsline {subsection}{\numberline {6.6.4}Vypo\IeC {\v c}\IeC {\'\i }tej sou\IeC {\v r}adnice (gpsCorrection)}{35}{subsection.6.6.4}
 \contentsline {section}{\numberline {6.7}V\IeC {\'y}po\IeC {\v c}et polohy z dat GPS}{35}{section.6.7}
 \contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{36}{chapter.7}
 \contentsline {section}{\numberline {7.1}Spot\IeC {\v r}eba}{36}{section.7.1}

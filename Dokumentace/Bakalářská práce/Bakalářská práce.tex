@@ -83,7 +83,7 @@ Z hlediska českého trhu, je nevýhodou všech nízkonákladových a většiny 
 Další z nevýhod dostupných produktů je nemožnost jakéhokoliv vlastního nastavení, či personalizace. Ať už se jedná o citlivost senzorů, počet potřebných satelitů pro učení polohy (čím méně satelitů, tím menší přesnost, ale větší šance na získání polohy při špatném signálu), nebo nastavení jednotlivých textových řetězců. Vždy je dobré, aby měl zákazník možnost si své zařízení přizpůsobit dle libosti. Tuto možnost mu zařízení bude nabízet a vzhledem k tomu, že implementace je čistě softwarová záležitost, nebude tím ovlivněna finální cena.
 
 \subsection{Přívětivost}
-SMS s řídícími příkazy musí být jednoduché, uživatelsky přívětivé a snadno zapamatovatelné, aby bylo pro zákazníka ovládání intuitivní a srozumitelné. Nejpřívětivější a nejjednodušší je to, co je pro uživatele nejpřirozenější, tedy běžná slova a věty, stejně tak sledovací zařízení by ve stejné formě mělo i odpovídat. Tedy komunikace mezi uživatelem a sledovacím zařízením by mělo být formou konverzace. Například \uv{Kde jsi}, odpověď: \uv{Probíhá lokalizace, poloha bude zaslána během několika minut}, později: \uv{Nacházím se na souřadnicích xxx}. Stejně tak instalace zařízení musí být jednoduchá a nesmí jí provázet komplikované nastavování. Vše by mělo fungovat při prvním spuštění automaticky.
+SMS s řídícími příkazy musí být jednoduché, uživatelsky přívětivé a snadno zapamatovatelné, aby bylo pro zákazníka ovládání intuitivní a srozumitelné. Nejpřívětivější a nejjednodušší je to, co je pro uživatele nejpřirozenější, tedy běžná slova a věty, stejně tak sledovací zařízení by ve stejné formě mělo i odpovídat. Tedy komunikace mezi uživatelem a sledovacím zařízením by mělo být formou konverzace. Například \uv{Kde jsi?}, odpověď: \uv{Probíhá lokalizace, poloha bude zaslána během několika minut}, později: \uv{Nacházím se na souřadnicích xxx}. Stejně tak instalace zařízení musí být jednoduchá a nesmí jí provázet komplikované nastavování. Vše by mělo fungovat při prvním spuštění automaticky.
 
 \section{Normy}
 Not supported yet.
@@ -510,13 +510,13 @@ Níže detailně popíši všechny funkce režimu GSM, jaký je jejich účel, j
 Funkce obstarává zjištění, zda v režimu GSM dorazila nová SMS, to dává modul navědomí textovým řetězcem +CMTI, viz softwarová dokumentace \cite{SIMCOM SW}. Po registrování nové SMS je modulu zaslána žádost AT+CMG=1 \cite{SIMCOM SW}, která slouží k vyžádání hlavičky a těla textové zprávy. Funkce pracuje s globálními proměnnými a nevrací žádný výstup.
 
 \subsection{Rozpoznání hlavičky SMS (recognizeSmsHeader)}
-Pokud byla obdržena nová SMS, očekává se přijetí, její hlavičky. Pokud tak nastane, je z hlavičky vyčteno telefonní číslo odesílatele, na které bude následně odeslána odpověď SMS. Číslo je uloženo do globální proměnné. Funkce pracuje s globálními proměnnými a nevrací žádný výstup.
+Pokud byla obdržena nová SMS, očekává se přijetí, její hlavičky. Pokud tak nastane, je z hlavičky vyčteno telefonní číslo odesílatele, na které bude později odeslána odpověď SMS. Číslo je uloženo do globální proměnné a je nastaven příznak čtení SMS, tedy že je program připraven číst obsah. Funkce pracuje pouze s globálními proměnnými a nevrací žádný výstup.
 
 \subsection{Rozpoznání obsahu SMS (recognizeSmsContent)}
-Not supported yet.
+Po rozpoznání hlavičky SMS a nastavení příznaku čtení, je očekáván obsah zprávy. Modul posílá zprávu ihned po hlavičce, ale v případě, že by se tak nestalo, proběhne ověření, zda se opravdu jedná o zprávu SMS zkontrolováním obsahu zprávy, zda není prázdný (znak nového řádku vždy chodí před příkazem) a zda je nastaven příznak čtení. Poté jsou příchozí data vyčtena a označena za tělo zprávy SMS. Funkce pracuje pouze s globálními proměnnými a nevrací žádný výstup.
 
-\subsection{Vykonání požadavku SMS (executeSmsContent)}
-Not supported yet.
+\subsection{Vykonání obsahu SMS (executeSmsContent)}
+V případě, že je zpráva kompletní, je zavolána funkce pro vykonání obsahu SMS. Zde je textový řetězev ve zprávě SMS, dle jazyka, porovnáván s textovými řetězci v globálních proměnných, kde se ověřují pouze znaky, nezáleží tedy zda jsou písmenka malá, nebo velká. Pokud obsah sedí do jednoho z definovaných textů, je vykonán obsah. Například pokud bude přijata zpráva \uv{Kde jsi?}, bude obratem odeslána odpověď: \uv{Probíhá lokalizace, poloha bude zaslána během několika minut}, odesláním textu do funkce sendSMS(), následně je modul přepnut do režimu GPS a tím ukončena činnost této části kódu. Funkce proacuje pouze s globálními proměnnými a nevrací žádný výstup.
 
 \subsection{Odeslání SMS (sendSMS)}
 Not supported yet.
