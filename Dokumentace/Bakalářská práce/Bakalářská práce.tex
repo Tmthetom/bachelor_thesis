@@ -381,7 +381,7 @@ CU-08 & 4 & 15 & 15 & 15 & 10 & 8 & 5 & 72\\
 Při tvorbě konceptu jsem zaměřil na výběr obecných součástek, nespecifikuji tedy konkrétní výrobky, ale pouze jejich typ, díky čemuž není koncept svázán s určitým výrobkem a kusy lze nahradit jinými, které budou fungovat stejným způsobem. Dále jsem se zaměřil na způsob, jakým budou součástky propojeny, jak budou komunikovat a jak budou napájeny.
 
 \section{Řídící jednotka}
-Základem celého sledovacího zařízení je řídící jednotka, která ovládá veškeré dění, přijímá a zpracovává data, která následně vyhodnocuje. Na základě požadovaných vlastnostní jsem se rozhodl pro jednočipový počítač, dále jen mikrokontrolér, který je integrovaným obvodem, tedy v základní struktuře obsahuje procesor, operační paměť, paměť pro program, oscilátor, vstupní a výstupní rozhraní (porty). Mikrokontroléry se vyznačují velmi vysokou spolehlivostí, kompaktnostní a nízkou cenou, která je mým cílem. Často jsou využívány pro jednoúčelové aplikace řízení, nebo regulace.
+Základem celého sledovacího zařízení je řídící jednotka, která ovládá veškeré dění, přijímá a zpracovává data, která následně vyhodnocuje. Na základě požadovaných vlastnostní jsem se rozhodl pro mikrokontrolér, který je integrovaným obvodem, tedy v základní struktuře obsahuje procesor, operační paměť, paměť pro program, oscilátor, vstupní a výstupní rozhraní (porty). Pro jeho použití jsem se rozhodl zejména z hlediska nízké ceny a dostačujících parametrů. Mikrokontroléry se vyznačují velmi vysokou spolehlivostí, kompaktnostní a nízkou cenou, která je mým cílem. Často jsou využívány pro jednoúčelové aplikace řízení, nebo regulace.
 
 \section{Komunikační rozhraní}
 Komunikační rozhraní je zařízení, které poskytuje přístup do sítí GSM, GPS a popřípadě GPRS. Rozraní může obsahovat více komunikačních čipů, například jeden pro GPS, druhý pro GSM a tím umožní komunikaci v obou sítích zároveň. Nebo pomocí jednoho čipu, který kombinuje všechny sítě do jednoho zařízení, ale není možná komunikace ve více sítích zároveň, je tedy nutné mezi nimi přepínat. Komunikační rozraní musí poskytovat jednoduché příkazy, které umožní komunikovat přes zmíněné sítě, bez potřebné znalosti jejich interní struktury. Bude tedy možné pomocí jednoduchého příkazu odeslat zprávu SMS, nebo bude poskytovat data z GPS ve specifickém formátu, který bude možné zpracovat a vyhodnotit.
@@ -590,7 +590,7 @@ Pro zjištění, zda je pozice validní, jsem použil všebecně dostupné infom
 % Spotřeba
 
 \chapter{Spotřeba a výdrž na autobaterii}
-Hotový prototyp jsem po otestování podrobil měření spotřeby, ve všech možných režimech. Měření probíhalo při pokojové teplotě 22 \degree C. Při výpočtech spotřeby, počítám s nejslabší možnou autobaterií o kapacitě 50 Ah. Dny jsou zaokrouhlovány vždy dolů, na celý jeden den. Po měření jsem zjistil, že nyní zařízení teorieticky vydrží na nedobíjenou autobaterii přibližně 30 dnů a při správné implementaci zdrojových kódů akcelerometru, do zdrojových kódů řídící jednotky, které jsem již zhotovill, je možné dosáhnout teoretické výdrže až 200 dní. V případě vybité baterie, by bylo vhodné uživatele notifikovat o tomto stavu.
+Hotový prototyp jsem po otestování podrobil měření spotřeby, ve všech možných režimech. Měření probíhalo při pokojové teplotě 22 \degree C, výsledky jsou zobrazeny v tabulce níže. Z naměřených veličin jsem vypočetl teoretickou výdrž v hodinách, podle vzorečku níže, výsledky zanesl do tabulky a následně je převedl na výdrž ve dnech, pro lepší představu. Hodnoty jsem také zanesl do tabulky. Při výpočtech počítám se slabší autobaterií o kapacitě 50 Ah, nicméně se běžně používají silnější. Dny jsou zaokrouhlovány vždy dolů, na celý jeden den. Z vypočtených hodnot vyplívá, že zařízení teorieticky vydrží na nedobíjenou autobaterii přibližně 30 dnů a při správné implementaci zdrojových kódů akcelerometru, do zdrojových kódů řídící jednotky, které jsem již zhotovill, je možné dosáhnout teoretické vypočtené výdrže až 200 dní. V případě vybité baterie, by bylo vhodné notifikovat o tomto stavu majitele zařízení.
 
 \paragraph{Použíté měřící přístroje:}
 \begin{itemize}
@@ -599,7 +599,7 @@ Hotový prototyp jsem po otestování podrobil měření spotřeby, ve všech mo
 \item Digitální multimetr DT9205A
 \end{itemize}
 
-\paragraph{Výpočet spotřeby:}
+\paragraph{Výpočet výdrže z naměřené spotřeby:}
 $$ vydrz [hodin] = \frac{1}{\frac{spotreba[mA]}{1000}} \times autobaterie[Ah] $$
 
 \renewcommand{\arraystretch}{1.5}
@@ -607,7 +607,7 @@ $$ vydrz [hodin] = \frac{1}{\frac{spotreba[mA]}{1000}} \times autobaterie[Ah] $$
 \begin{center}
 \begin{tabular}{| l | c | c |  c |}
 \hline
-Režim & Spotřeba & Výdrž hodin & Výdrž dní\\
+Režim & Naměřená spotřeba & Výdrž [hodiny] & Výdrž [dny]\\
 \hline
 \hline
 GSM & 150 mA & 333 & 13\\
@@ -620,7 +620,7 @@ Akcelerometr & 10 mA & 5000 & 200\\
 \hline
 \end{tabular}
 \end{center}
-\caption{Naměřená spotřeba prototypu}
+\caption{Naměřená spotřeba a vypočtená výdrž v hodinách a dnech}
 \end{table}
 
 % Bodové hodnocení vlastního řešení
