@@ -1,0 +1,8 @@
+----------- CMD ------------
+-> cd ...
+-> dir /x
+-> rmdir /q /s nazev
+-> dir /x
+
+---- Pøechod mezi disky ----
+-> D:

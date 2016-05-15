@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  11 MAY 2016 18:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  15 MAY 2016 20:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -792,12 +792,6 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textasciicaron' on input line 80.
 
-
-Overfull \hbox (5.20834pt too wide) in paragraph at lines 81--82
-\OT1/cmr/m/n/12 kter^^Se n^^Tekter^^Se mo-dely ani ne-maj^^S^^P. V^^Tet^^Tsina 
-do-stupn^^Sych mo-del^^Wu je p^^Treprodejem ^^Tc^^S^^Pnsk^^Sych
- []
-
 [13]
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
@@ -1312,7 +1306,7 @@ Here is how much of TeX's memory you used:
  10765 multiletter control sequences out of 15000+600000
  10693 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,11n,54p,1725b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,11n,54p,1710b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
 <d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pf
 b><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pf
 b><d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
@@ -1324,7 +1318,7 @@ d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:
 d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
 <d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 <d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on "Bakaláøská práce.pdf" (44 pages, 1554267 bytes).
+Output written on "Bakaláøská práce.pdf" (44 pages, 1554399 bytes).
 PDF statistics:
  773 PDF objects out of 1000 (max. 8388607)
  688 compressed objects within 7 object streams
