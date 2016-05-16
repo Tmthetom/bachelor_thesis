@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  16 MAY 2016 03:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.9)  16 MAY 2016 03:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -888,14 +888,13 @@ Overfull \hbox (29.42615pt too wide) in paragraph at lines 296--297
  (0). Na-sta-vi-tel-nost je nadpr^^Wum^^Tern^^Sa,
  []
 
-[21] [22] [23]
-<graphs/graf_bodoveHodnoceni.pdf, id=488, 448.51427pt x 267.1812pt>
+[21] [22] [23] <graphs/graf_bodoveHodnoceni.pdf, id=488, 578.16pt x 337.26pt>
 File: graphs/graf_bodoveHodnoceni.pdf Graphic file (type pdf)
 
 <use graphs/graf_bodoveHodnoceni.pdf>
 Package pdftex.def Info: graphs/graf_bodoveHodnoceni.pdf used on input line 384
 .
-(pdftex.def)             Requested size: 426.79134pt x 254.24467pt.
+(pdftex.def)             Requested size: 426.79134pt x 248.96124pt.
  [24 <./graphs/graf_bodoveHodnoceni.pdf>]
 Kapitola 4.
 
@@ -916,7 +915,7 @@ Overfull \hbox (1.16116pt too wide) in paragraph at lines 402--403
 
 [25
 
-] <graphs/schema_blokove.pdf, id=513, 325.215pt x 236.38312pt>
+] <graphs/schema_blokove.pdf, id=516, 325.215pt x 236.38312pt>
 File: graphs/schema_blokove.pdf Graphic file (type pdf)
 
 <use graphs/schema_blokove.pdf>
@@ -924,7 +923,7 @@ Package pdftex.def Info: graphs/schema_blokove.pdf used on input line 412.
 (pdftex.def)             Requested size: 426.79134pt x 310.23764pt.
  [26] [27 <./graphs/schema_blokove.pdf>]
 Kapitola 5.
-<images/arduino.png, id=541, 180.675pt x 180.675pt>
+<images/arduino.png, id=544, 180.675pt x 180.675pt>
 File: images/arduino.png Graphic file (type png)
  <use images/arduino.png>
 Package pdftex.def Info: images/arduino.png used on input line 428.
@@ -937,13 +936,13 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 
 [28
 
- <./images/arduino.png>] <images/module.png, id=555, 216.81pt x 144.54pt>
+ <./images/arduino.png>] <images/module.png, id=558, 216.81pt x 144.54pt>
 File: images/module.png Graphic file (type png)
 
 <use images/module.png>
 Package pdftex.def Info: images/module.png used on input line 439.
 (pdftex.def)             Requested size: 341.43436pt x 227.65167pt.
- <images/akcelerometr.png, id=558, 602.25pt x 602.25pt>
+ <images/akcelerometr.png, id=561, 602.25pt x 602.25pt>
 File: images/akcelerometr.png Graphic file (type png)
 
 <use images/akcelerometr.png>
@@ -956,7 +955,7 @@ Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textasciicaron' on input line 498.
 
-<images/arduino-ide.png, id=584, 386.19281pt x 292.84406pt>
+<images/arduino-ide.png, id=587, 386.19281pt x 292.84406pt>
 File: images/arduino-ide.png Graphic file (type png)
 
 <use images/arduino-ide.png>
@@ -1042,7 +1041,7 @@ Package hyperref Warning: Composite letter `\textasciicaron+r'
 
 [39
 
-] <graphs/graf_bodoveHodnoceni_final.pdf, id=659, 578.16pt x 337.26pt>
+] <graphs/graf_bodoveHodnoceni_final.pdf, id=662, 578.16pt x 337.26pt>
 File: graphs/graf_bodoveHodnoceni_final.pdf Graphic file (type pdf)
 
 <use graphs/graf_bodoveHodnoceni_final.pdf>
@@ -1155,10 +1154,10 @@ d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
 <d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 <d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
 d:/Programs/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "Bakaláøská práce.pdf" (44 pages, 1569566 bytes).
+Output written on "Bakaláøská práce.pdf" (44 pages, 1501599 bytes).
 PDF statistics:
- 825 PDF objects out of 1000 (max. 8388607)
- 738 compressed objects within 8 object streams
+ 830 PDF objects out of 1000 (max. 8388607)
+ 741 compressed objects within 8 object streams
  176 named destinations out of 1000 (max. 500000)
  598 words of extra memory for PDF output out of 10000 (max. 10000000)
 
