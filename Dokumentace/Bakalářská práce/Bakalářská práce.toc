@@ -85,6 +85,7 @@
 \contentsline {paragraph}{Vstupn\IeC {\'\i } parametr funkce:}{36}{paragraph*.21}
 \contentsline {paragraph}{N\IeC {\'a}vratov\IeC {\'a} hodnota funkce:}{36}{paragraph*.22}
 \contentsline {subsection}{\numberline {6.6.4}Po\IeC {\v c}\IeC {\'\i }tej validn\IeC {\'\i } GPS (countValidGpsCoordinates)}{37}{subsection.6.6.4}
+\contentsline {section}{\numberline {6.7}Uk\IeC {\'a}zka komunikace}{37}{section.6.7}
 \contentsline {chapter}{\numberline {7}Spot\IeC {\v r}eba a v\IeC {\'y}dr\IeC {\v z} na autobaterii}{38}{chapter.7}
 \contentsline {paragraph}{Pou\IeC {\v z}\IeC {\'\i }t\IeC {\'e} m\IeC {\v e}\IeC {\v r}\IeC {\'\i }c\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }stroje:}{38}{paragraph*.23}
 \contentsline {paragraph}{V\IeC {\'y}po\IeC {\v c}et v\IeC {\'y}dr\IeC {\v z}e z nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} spot\IeC {\v r}eby:}{38}{paragraph*.24}

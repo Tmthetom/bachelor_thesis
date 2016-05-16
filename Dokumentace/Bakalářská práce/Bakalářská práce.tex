@@ -599,6 +599,18 @@ Dlouhé týdny jsem se zabýval problémem, že zjištěná poloha nebyla nikdy 
 \subsection{Počítej validní GPS (countValidGpsCoordinates)}
 Pro zjištění, zda je pozice validní, jsem použil všebecně dostupné infomace o polohování na planetě Zemi \cite{geographic}, podle kterých jsem vymezil hodnotám určité hranice, kterých mohou nabývat. Pokud jsou souřadnice v pořádku, jsou připočteny do validních dat, kterých, pokud je určitý počet, definovaný v hlavičce, jsou pak označena jako validní poloha a ta je připravena k dalšímu zpracování, například odeslání. Je nutné zmínit, že pokud jsou příchozí data z modulu poškozená nebo nevalidní, jsou při převodu z formátu String (textový řetězec) do formátu Float (číslo s desetinou čárkou) označena jako nevalidní a funkce .toFloat() vrací hodnotu nula, tedy pokud jsou souřadnice nulové, není poloha platná. Nulové souřadnice ale existují, nachází se na jihozápad od Afriky, nicméně nepředpoládám že by se sledovací zařízení do tohoto místa dostalo. Pokud ano, nebude se jistě zdržovat přesně na poloze o souřadnicích [0;0]. Tento nedostatek bude při potencionálním budoucím vývoji odstraněn. Funkce pracuje pouze s globálními proměnnými a nevrací žádný výstup.
 
+% Ukázka komunikace
+\section{Ukázka komunikace}
+Obrázek níže zobrazuje, jak může vypadat komunikace mezi uživatelem, který zjišťuje, kde se sledovací zařízení nachází a samotným zařízením, které na žádost odpovídá. Následně zasílá výslednou polohu, ve formě odkazu s mapy Google. Celá komunikace probíhá formou psaného slova, příkazy jsou tedy pro uživatele přívětivější a lépe zapamatovatelné.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.6\textwidth]{images/comm.png}
+\caption{Příklad komunikace se sledovacím zařízením}
+\label{image}
+\end{center}
+\end{figure}
+
 % Spotřeba
 
 \chapter{Spotřeba a výdrž na autobaterii}
