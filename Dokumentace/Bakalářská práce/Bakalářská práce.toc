@@ -93,3 +93,10 @@
 \contentsline {paragraph}{Bodov\IeC {\'e} ohodnocen\IeC {\'\i } vlastn\IeC {\'\i }ho \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }:}{39}{paragraph*.25}
 \contentsline {chapter}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{41}{chapter.9}
 \contentsline {chapter}{Literatura}{41}{chapter.9}
+\contentsline {chapter}{\numberline {A}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{45}{appendix.A}
+\contentsline {paragraph}{/Dokumentace}{45}{paragraph*.27}
+\contentsline {paragraph}{/Software}{45}{paragraph*.28}
+\contentsline {paragraph}{/Software/Dokumentace (Datasheets)}{45}{paragraph*.29}
+\contentsline {paragraph}{/Software/Komunika\IeC {\v c}n\IeC {\'\i } software (Hyper-Terminal)}{45}{paragraph*.30}
+\contentsline {paragraph}{/Software/Nepou\IeC {\v z}it\IeC {\'e} zdrojov\IeC {\'e} k\IeC {\'o}dy (Testovac\IeC {\'\i })}{45}{paragraph*.31}
+\contentsline {paragraph}{/Software/Software}{45}{paragraph*.32}
